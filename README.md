@@ -1,6 +1,6 @@
 # React component for Avataaars
 
-The core React component for [Avataaars Generator](https://getavataaars.com/) updated by [Greg Schoppe](https://gschoppe.com) developed by [Fang-Pen Lin](https://twitter.com/fangpenlin), based on the Sketch library [Avataaars](https://avataaars.com/) designed by [Pablo Stanley](https://twitter.com/pablostanley). 
+The core React component for [Avataaars Generator](https://getavataaars.com/) updated by [Greg Schoppe](https://gschoppe.com), originally developed by [Fang-Pen Lin](https://twitter.com/fangpenlin), based on the Sketch library [Avataaars](https://avataaars.com/) designed by [Pablo Stanley](https://twitter.com/pablostanley). 
 
 <p align="center"><img src='avataaars-example.png?raw=true' style='width: 300px; height: 300px;' /></p>
 
@@ -13,7 +13,7 @@ The core React component for [Avataaars Generator](https://getavataaars.com/) up
  - Easy to integrate with custom editor
  - Comes with [official editor](https://getavataaars.com/) *
 
- * Note: the official editor is still running on the 4 year old version 2.0.0
+ \* Note: the official editor is still running on the 4 year old version 2.0.0
  and doesn't support backdropType, backdropColor, or several bugfixes in this version.
 
 
