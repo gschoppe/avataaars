@@ -11,7 +11,11 @@ The core React component for [Avataaars Generator](https://getavataaars.com/) de
  - Scalable
  - Easy to use
  - Easy to integrate with custom editor
- - Comes with [official editor](https://getavataaars.com/)
+ - Comes with [official editor](https://getavataaars.com/) *
+
+ * Note: the official editor is still running on the 4 year old version 2.0.0
+ and doesn't support backdropType, backdropColor, or several bugfixes in this version.
+
 
 ## Usage
 
@@ -40,7 +44,8 @@ export default class MyComponent extends React.Component {
         Your avatar:
         <Avatar
           style={{width: '100px', height: '100px'}}
-          avatarStyle='Circle'
+          backdropType='Circle'
+          backdropColor='Blue01'
           topType='LongHairMiaWallace'
           accessoriesType='Prescription02'
           hairColor='BrownDark'
