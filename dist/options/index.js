@@ -1,13 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.allOptions = exports.SkinOption = exports.MouthOption = exports.EyebrowOption = exports.EyesOption = exports.GraphicOption = exports.ClotheColorOption = exports.ClotheOption = exports.FacialHairColor = exports.FacialHairOption = exports.HairColorOption = exports.HatColorOption = exports.AccessoriesOption = exports.TopOption = exports.Selector = exports.OptionContext = exports.Option = void 0;
+exports.allOptions = exports.SkinOption = exports.MouthOption = exports.EyebrowOption = exports.EyesOption = exports.GraphicOption = exports.ClotheColorOption = exports.ClotheOption = exports.FacialHairColor = exports.FacialHairOption = exports.HairColorOption = exports.HatColorOption = exports.AccessoriesOption = exports.TopOption = exports.BackdropColorOption = exports.BackdropOption = exports.Selector = exports.OptionsContext = exports.OptionContext = exports.Option = void 0;
 var Option_1 = require("./Option");
 var Option_2 = require("./Option");
 Object.defineProperty(exports, "Option", { enumerable: true, get: function () { return Option_2.default; } });
 var OptionContext_1 = require("./OptionContext");
-Object.defineProperty(exports, "OptionContext", { enumerable: true, get: function () { return OptionContext_1.default; } });
+Object.defineProperty(exports, "OptionContext", { enumerable: true, get: function () { return OptionContext_1.OptionContext; } });
+Object.defineProperty(exports, "OptionsContext", { enumerable: true, get: function () { return OptionContext_1.OptionsContext; } });
 var Selector_1 = require("./Selector");
 Object.defineProperty(exports, "Selector", { enumerable: true, get: function () { return Selector_1.default; } });
+exports.BackdropOption = new Option_1.default({
+    key: 'backdropType',
+    label: 'Backdrop',
+});
+exports.BackdropColorOption = new Option_1.default({
+    key: 'backdropColor',
+    label: '🔵 BackdropColor',
+});
 exports.TopOption = new Option_1.default({
     key: 'topType',
     label: 'Top',
@@ -61,6 +70,8 @@ exports.SkinOption = new Option_1.default({
     label: '🎨 Skin',
 });
 exports.allOptions = [
+    exports.BackdropOption,
+    exports.BackdropColorOption,
     exports.TopOption,
     exports.AccessoriesOption,
     exports.HatColorOption,

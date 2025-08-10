@@ -11,19 +11,23 @@ import ShirtScoopNeck from './ShirtScoopNeck'
 import ShirtVNeck from './ShirtVNeck'
 import { ClotheOption, Selector } from '../../options'
 
-export default class Clothes extends React.Component {
+export interface Props {
+  uid: string
+}
+
+export default class Clothes extends React.Component<Props> {
   render () {
     return (
       <Selector option={ClotheOption} defaultOption={BlazerShirt}>
-        <BlazerShirt />
-        <BlazerSweater />
-        <CollarSweater />
-        <GraphicShirt />
-        <Hoodie />
-        <Overall />
-        <ShirtCrewNeck />
-        <ShirtScoopNeck />
-        <ShirtVNeck />
+        <BlazerShirt uid={this.props.uid} />
+        <BlazerSweater uid={this.props.uid} />
+        <CollarSweater uid={this.props.uid} />
+        <GraphicShirt uid={this.props.uid} />
+        <Hoodie uid={this.props.uid} />
+        <Overall uid={this.props.uid} />
+        <ShirtCrewNeck uid={this.props.uid} />
+        <ShirtScoopNeck uid={this.props.uid} />
+        <ShirtVNeck uid={this.props.uid} />
       </Selector>
     )
   }

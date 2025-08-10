@@ -1,13 +1,20 @@
 import * as React from 'react'
 
-export default class Cry extends React.Component {
+export interface Props {
+  uid: string
+}
+
+export default class Cry extends React.Component<Props> {
   static optionValue = 'Cry'
 
   render () {
     return (
-      <g id='Eyes/Cry-😢' transform='translate(0.000000, 8.000000)'>
+      <g
+        id={`${this.props.uid}-Eyes/Cry-😢`}
+        transform='translate(0.000000, 8.000000)'
+      >
         <circle
-          id='Eye'
+          id={`${this.props.uid}-Eye-Left`}
           fillOpacity='0.599999964'
           fill='#000000'
           fillRule='evenodd'
@@ -17,12 +24,12 @@ export default class Cry extends React.Component {
         />
         <path
           d='M25,27 C25,27 19,34.2706667 19,38.2706667 C19,41.5846667 21.686,44.2706667 25,44.2706667 C28.314,44.2706667 31,41.5846667 31,38.2706667 C31,34.2706667 25,27 25,27 Z'
-          id='Drop'
+          id={`${this.props.uid}-Teardrop`}
           fill='#92D9FF'
           fillRule='nonzero'
         />
         <circle
-          id='Eye'
+          id={`${this.props.uid}-Eye-Right`}
           fillOpacity='0.599999964'
           fill='#000000'
           fillRule='evenodd'

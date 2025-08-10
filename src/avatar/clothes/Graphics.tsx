@@ -1,10 +1,9 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
 
 import { GraphicOption, Selector } from '../../options'
 
 export interface Props {
-  maskID: string
+  uid: string
 }
 
 export class Skull extends React.Component<Props> {
@@ -12,8 +11,8 @@ export class Skull extends React.Component<Props> {
   render () {
     return (
       <g
-        id='Clothing/Graphic/Skull'
-        mask={`url(#${this.props.maskID})`}
+        id={`${this.props.uid}-Clothing/Graphic/Skull`}
+        mask={`url(#${this.props.uid}-Clothing-Color-Mask)`}
         fillRule='evenodd'
         fill='#FFFFFF'>
         <g transform='translate(77.000000, 58.000000)' id='Fill-49'>
@@ -29,8 +28,8 @@ export class SkullOutline extends React.Component<Props> {
   render () {
     return (
       <g
-        id='Clothing/Graphic/Skull-Outline'
-        mask={`url(#${this.props.maskID})`}
+        id={`${this.props.uid}-Clothing/Graphic/Skull-Outline`}
+        mask={`url(#${this.props.uid}-Clothing-Color-Mask)`}
         strokeWidth='1'
         fillRule='evenodd'>
         <g transform='translate(77.000000, 58.000000)' id='Skull'>
@@ -67,8 +66,8 @@ export class Bat extends React.Component<Props> {
   render () {
     return (
       <g
-        id='Clothing/Graphic/Bat'
-        mask={`url(#${this.props.maskID})`}
+        id={`${this.props.uid}-Clothing/Graphic/Bat`}
+        mask={`url(#${this.props.uid}-Clothing-Color-Mask)`}
         fillRule='evenodd'
         fill='#FFFFFF'>
         <g transform='translate(77.000000, 58.000000)' id='Batman!'>
@@ -84,8 +83,8 @@ export class Cumbia extends React.Component<Props> {
   render () {
     return (
       <g
-        id='Clothing/Graphic/Cumbia'
-        mask={`url(#${this.props.maskID})`}
+        id={`${this.props.uid}-Clothing/Graphic/Cumbia`}
+        mask={`url(#${this.props.uid}-Clothing-Color-Mask)`}
         strokeWidth='1'
         fillRule='evenodd'>
         <g transform='translate(77.000000, 58.000000)' id='Group'>
@@ -147,8 +146,8 @@ export class Deer extends React.Component<Props> {
   render () {
     return (
       <g
-        id='Clothing/Graphic/Deer'
-        mask={`url(#${this.props.maskID})`}
+        id={`${this.props.uid}-Clothing/Graphic/Deer`}
+        mask={`url(#${this.props.uid}-Clothing-Color-Mask)`}
         fillRule='evenodd'
         fill='#FFFFFF'>
         <g transform='translate(77.000000, 58.000000)' id='oh,-deer!'>
@@ -164,8 +163,8 @@ export class Diamond extends React.Component<Props> {
   render () {
     return (
       <g
-        id='Clothing/Graphic/Diamond'
-        mask={`url(#${this.props.maskID})`}
+        id={`${this.props.uid}-Clothing/Graphic/Diamond`}
+        mask={`url(#${this.props.uid}-Clothing-Color-Mask)`}
         strokeWidth='1'
         fillRule='evenodd'>
         <g transform='translate(77.000000, 58.000000)' id='Diamond'>
@@ -202,8 +201,8 @@ export class Hola extends React.Component<Props> {
   render () {
     return (
       <g
-        id='Clothing/Graphic/Hola'
-        mask={`url(#${this.props.maskID})`}
+        id={`${this.props.uid}-Clothing/Graphic/Hola`}
+        mask={`url(#${this.props.uid}-Clothing-Color-Mask)`}
         fillRule='evenodd'
         fill='#FFFFFF'>
         <g transform='translate(77.000000, 58.000000)' id='Hola'>
@@ -219,8 +218,8 @@ export class Selena extends React.Component<Props> {
   render () {
     return (
       <g
-        id='Clothing/Graphic/Selena'
-        mask={`url(#${this.props.maskID})`}
+        id={`${this.props.uid}-Clothing/Graphic/Selena`}
+        mask={`url(#${this.props.uid}-Clothing-Color-Mask)`}
         strokeWidth='1'
         fillRule='evenodd'>
         <g transform='translate(77.000000, 58.000000)' id='Selena'>
@@ -252,8 +251,8 @@ export class Pizza extends React.Component<Props> {
   render () {
     return (
       <g
-        id='Clothing/Graphic/Pizza'
-        mask={`url(#${this.props.maskID})`}
+        id={`${this.props.uid}-Clothing/Graphic/Pizza`}
+        mask={`url(#${this.props.uid}-Clothing-Color-Mask)`}
         strokeWidth='1'
         fillRule='evenodd'>
         <g transform='translate(77.000000, 58.000000)' id='Group-2'>
@@ -286,8 +285,8 @@ export class Resist extends React.Component<Props> {
   render () {
     return (
       <g
-        id='Clothing/Graphic/Resist'
-        mask={`url(#${this.props.maskID})`}
+        id={`${this.props.uid}-Clothing/Graphic/Resist`}
+        mask={`url(#${this.props.uid}-Clothing-Color-Mask)`}
         strokeWidth='1'
         fillRule='evenodd'>
         <g transform='translate(77.000000, 58.000000)' id='Resist'>
@@ -341,15 +340,15 @@ export class Resist extends React.Component<Props> {
 
 export class Bear extends React.Component<Props> {
   static optionValue = 'Bear'
-  private mask1 = uniqueId('react-mask-')
-  private path1 = uniqueId('react-path-')
 
   render () {
-    const { mask1, path1 } = this
+    const mask1 = `${this.props.uid}-Graphic-mask1`
+    const path1 = `${this.props.uid}-Graphic-path1`
+
     return (
       <g
-        id='Clothing/Graphic/Bear'
-        mask={`url(#${this.props.maskID})`}
+        id={`${this.props.uid}-Clothing/Graphic/Bear`}
+        mask={`url(#${this.props.uid}-Clothing-Color-Mask)`}
         strokeWidth='1'
         fillRule='evenodd'>
         <defs>
@@ -380,17 +379,17 @@ export default class Graphics extends React.Component<Props> {
   render () {
     return (
       <Selector option={GraphicOption} defaultOption={Skull}>
-        <Bat maskID={this.props.maskID} />
-        <Cumbia maskID={this.props.maskID} />
-        <Deer maskID={this.props.maskID} />
-        <Diamond maskID={this.props.maskID} />
-        <Hola maskID={this.props.maskID} />
-        <Pizza maskID={this.props.maskID} />
-        <Resist maskID={this.props.maskID} />
-        <Selena maskID={this.props.maskID} />
-        <Bear maskID={this.props.maskID} />
-        <SkullOutline maskID={this.props.maskID} />
-        <Skull maskID={this.props.maskID} />
+        <Bat uid={this.props.uid} />
+        <Cumbia uid={this.props.uid} />
+        <Deer uid={this.props.uid} />
+        <Diamond uid={this.props.uid} />
+        <Hola uid={this.props.uid} />
+        <Pizza uid={this.props.uid} />
+        <Resist uid={this.props.uid} />
+        <Selena uid={this.props.uid} />
+        <Bear uid={this.props.uid} />
+        <SkullOutline uid={this.props.uid} />
+        <Skull uid={this.props.uid} />
       </Selector>
     )
   }

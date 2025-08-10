@@ -1,8 +1,18 @@
 import Option from './Option'
 
 export { default as Option } from './Option'
-export { default as OptionContext, OptionContextState } from './OptionContext'
+export { OptionContext, OptionContextState, OptionsContext } from './OptionContext'
 export { default as Selector } from './Selector'
+
+export const BackdropOption = new Option({
+  key: 'backdropType',
+  label: 'Backdrop',
+})
+
+export const BackdropColorOption = new Option({
+  key: 'backdropColor',
+  label: '🔵 BackdropColor',
+})
 
 export const TopOption = new Option({
   key: 'topType',
@@ -70,6 +80,8 @@ export const SkinOption = new Option({
 })
 
 export const allOptions = [
+  BackdropOption,
+  BackdropColorOption,
   TopOption,
   AccessoriesOption,
   HatColorOption,

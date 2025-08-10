@@ -22,9 +22,9 @@ var Default = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Default.prototype.render = function () {
-        return (React.createElement("g", { id: 'Eyes/Default-\uD83D\uDE00', transform: 'translate(0.000000, 8.000000)', fillOpacity: '0.599999964' },
-            React.createElement("circle", { id: 'Eye', cx: '30', cy: '22', r: '6' }),
-            React.createElement("circle", { id: 'Eye', cx: '82', cy: '22', r: '6' })));
+        return (React.createElement("g", { id: "".concat(this.props.uid, "-Eyes/Default-\uD83D\uDE00"), transform: 'translate(0.000000, 8.000000)', fillOpacity: '0.599999964' },
+            React.createElement("circle", { id: "".concat(this.props.uid, "-Eye-Left"), cx: '30', cy: '22', r: '6' }),
+            React.createElement("circle", { id: "".concat(this.props.uid, "-Eye-Right"), cx: '82', cy: '22', r: '6' })));
     };
     Default.optionValue = 'Default';
     return Default;

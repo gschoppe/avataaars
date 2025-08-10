@@ -1,21 +1,23 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
-
 import HatColor from './HatColor'
 
-export default class Hijab extends React.Component {
+export interface Props {
+  uid: string
+  children?: React.ReactNode
+}
+
+export default class Hijab extends React.Component<Props> {
   static optionValue = 'Hijab'
 
-  private filter1 = uniqueId('react-filter-')
-  private mask1 = uniqueId('react-mask-')
-  private mask2 = uniqueId('react-mask-')
-  private path1 = uniqueId('react-path-')
-  private path2 = uniqueId('react-path-')
-
   render () {
-    const { filter1, mask1, mask2, path1, path2 } = this
+    const path1 = `${this.props.uid}-top-path1`
+    const path2 = `${this.props.uid}-top-path2`
+    const mask1 = `${this.props.uid}-top-mask1`
+    const hatColorMask = `${this.props.uid}-Hat-Color-Mask`
+    const filter1 = `${this.props.uid}-top-filter1`
+
     return (
-      <g id='Top' strokeWidth='1' fillRule='evenodd'>
+      <g id={`${this.props.uid}-Top`} strokeWidth='1' fillRule='evenodd'>
         <defs>
           <rect id={path1} x='0' y='0' width='264' height='280' />
           <path
@@ -50,38 +52,37 @@ export default class Hijab extends React.Component {
         <mask id={mask1} fill='white'>
           <use xlinkHref={'#' + path1} />
         </mask>
-        <g id='Mask' />
-        <g id='Top/Accesories/Hijab' mask={`url(#${mask1})`}>
+        <g id={`${this.props.uid}-Top/Accesories/Hijab`} mask={`url(#${mask1})`}>
           <g transform='translate(-1.000000, 0.000000)'>
-            <mask id={mask2} fill='white'>
+            <mask id={hatColorMask} fill='white'>
               <use xlinkHref={'#' + path2} />
             </mask>
             <use
-              id='Hijab-Mask'
+              id={`${this.props.uid}-Hijab-Mask`}
               stroke='none'
               fill='#3B6BAD'
               fillRule='evenodd'
               xlinkHref={'#' + path2}
             />
-            <HatColor maskID={mask2} defaultColor='Blue03' />
+            <HatColor uid={this.props.uid} defaultColor='Blue03' />
             <path
               d='M72.0744416,104.959767 C71.3690172,101.246903 71,97.4161983 71,93.5 C71,59.5344879 98.7583455,32 133,32 C167.241654,32 195,59.5344879 195,93.5 C195,97.4161983 194.630983,101.246903 193.925558,104.959767 C192.341315,72.6827942 165.669927,47 133,47 C100.330073,47 73.6586845,72.6827942 72.0744428,104.959774 Z'
-              id='Band'
+              id={`${this.props.uid}-Hijab-Band`}
               stroke='none'
               fillOpacity='0.5'
               fill='#FFFFFF'
               fillRule='evenodd'
-              mask={`url(#${mask2})`}
+              mask={`url(#${hatColorMask})`}
             />
             <path
               d='M187.929085,104.69543 C188.631457,108.187732 189,111.800827 189,115.5 L189,138.5 C189,168.599519 164.599519,193 134.5,193 L131.5,193 C101.400481,193 77,168.599519 77,138.5 L77,115.5 L77,115.5 C77,111.800827 77.3685433,108.187732 78.0709154,104.69543 C78.0238287,105.624341 78,106.559388 78,107.5 L78,107.5 L78,130.5 C78,160.599519 102.400481,185 132.5,185 L133.5,185 C163.599519,185 188,160.599519 188,130.5 L188,130.5 L188,107.5 C188,106.559388 187.976171,105.624341 187.929085,104.69543 Z M114.16682,206.995462 C120.651206,211.981028 135.663493,213.708321 152.404574,210.756416 C169.145655,207.804512 182.661822,201.046883 187.049987,194.144193 C187.118291,194.396526 187.175421,194.652296 187.221114,194.911435 C188.930607,204.606451 173.985409,215.345413 153.84008,218.897578 C133.694752,222.449742 115.977919,217.469978 114.268426,207.774963 C114.222732,207.515823 114.188938,207.255938 114.166824,206.995464 Z M126.034638,235.921439 C134.227056,241.574977 150.421729,241.843835 167.103682,235.772101 C183.785635,229.700366 196.018656,219.084674 198.660388,209.487828 C198.803116,209.80837 198.935124,210.134883 199.056117,210.46731 C203.582768,222.904181 190.979008,238.909268 170.904831,246.215671 C150.830654,253.522074 130.887742,249.363007 126.361091,236.926135 C126.240098,236.593709 126.131343,236.258733 126.034643,235.921442 Z'
-              id='Shadows'
+              id={`${this.props.uid}-Hijab-Shadows`}
               stroke='none'
               fillOpacity='0.16'
               fill='#000000'
               fillRule='evenodd'
               opacity='0.899999976'
-              mask={`url(#${mask2})`}
+              mask={`url(#${hatColorMask})`}
             />
             {this.props.children}
           </g>

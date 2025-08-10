@@ -9,17 +9,21 @@ import Sunglasses from './Sunglasses'
 import Wayfarers from './Wayfarers'
 import { AccessoriesOption, Selector } from '../../../options'
 
-export default class Accessories extends React.Component {
+export interface Props {
+  uid: string
+}
+
+export default class Accessories extends React.Component<Props> {
   render () {
     return (
       <Selector defaultOption={Blank} option={AccessoriesOption}>
-        <Blank />
-        <Kurt />
-        <Prescription01 />
-        <Prescription02 />
-        <Round />
-        <Sunglasses />
-        <Wayfarers />
+        <Blank uid={this.props.uid} />
+        <Kurt uid={this.props.uid} />
+        <Prescription01 uid={this.props.uid} />
+        <Prescription02 uid={this.props.uid} />
+        <Round uid={this.props.uid} />
+        <Sunglasses uid={this.props.uid} />
+        <Wayfarers uid={this.props.uid} />
       </Selector>
     )
   }

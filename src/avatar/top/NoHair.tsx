@@ -1,19 +1,21 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
-
 import FacialHair from './facialHair'
 
-export default class NoHair extends React.Component {
+export interface Props {
+  uid: string
+  children?: React.ReactNode
+}
+
+export default class NoHair extends React.Component<Props> {
   static optionValue = 'NoHair'
 
-  private filter1 = uniqueId('react-filter-')
-  private mask1 = uniqueId('react-mask-')
-  private path1 = uniqueId('react-path-')
-
   render () {
-    const { filter1, mask1, path1 } = this
+    const path1 = `${this.props.uid}-top-path1`
+    const mask1 = `${this.props.uid}-top-mask1`
+    const filter1 = `${this.props.uid}-top-filter1`
+    
     return (
-      <g id='Top' strokeWidth='1' fillRule='evenodd'>
+      <g id={`${this.props.uid}-Top`} strokeWidth='1' fillRule='evenodd'>
         <defs>
           <rect id={path1} x='0' y='0' width='264' height='280' />
           <filter
@@ -44,10 +46,9 @@ export default class NoHair extends React.Component {
         <mask id={mask1} fill='white'>
           <use xlinkHref={'#' + path1} />
         </mask>
-        <g id='Mask' />
-        <g id='Top/No-Hair' mask={`url(#${mask1})`}>
+        <g id={`${this.props.uid}-Top/No-Hair`} mask={`url(#${mask1})`}>
           <g transform='translate(-1.000000, 0.000000)'>
-            <FacialHair />
+            <FacialHair uid={this.props.uid} />
             {this.props.children}
           </g>
         </g>

@@ -30,12 +30,12 @@ var FacialHair = /** @class */ (function (_super) {
     }
     FacialHair.prototype.render = function () {
         return (React.createElement(options_1.Selector, { option: options_1.FacialHairOption, defaultOption: Blank_1.default },
-            React.createElement(Blank_1.default, null),
-            React.createElement(BeardMedium_1.default, null),
-            React.createElement(BeardLight_1.default, null),
-            React.createElement(BeardMajestic_1.default, null),
-            React.createElement(MoustacheFancy_1.default, null),
-            React.createElement(MoustacheMagnum_1.default, null)));
+            React.createElement(Blank_1.default, { uid: this.props.uid }),
+            React.createElement(BeardMedium_1.default, { uid: this.props.uid }),
+            React.createElement(BeardLight_1.default, { uid: this.props.uid }),
+            React.createElement(BeardMajestic_1.default, { uid: this.props.uid }),
+            React.createElement(MoustacheFancy_1.default, { uid: this.props.uid }),
+            React.createElement(MoustacheMagnum_1.default, { uid: this.props.uid })));
     };
     return FacialHair;
 }(React.Component));

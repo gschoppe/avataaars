@@ -1,22 +1,20 @@
-import * as PropTypes from 'prop-types';
-import * as React from 'react';
+import React, { ReactNode } from 'react';
 import Option from './Option';
-import OptionContext from './OptionContext';
+import { OptionsContext } from './OptionContext';
 export interface Props {
     option: Option;
+    children?: ReactNode;
     defaultOption: React.ComponentClass | string;
 }
 export default class Selector extends React.Component<Props> {
-    static contextTypes: {
-        optionContext: PropTypes.Requireable<OptionContext>;
-    };
-    private get optionContext();
-    UNSAFE_componentWillMount(): void;
+    static contextType: React.Context<import("./OptionContext").OptionContext | null>;
+    context: React.ContextType<typeof OptionsContext>;
+    componentDidMount(): void;
     UNSAFE_componentWillUpdate(nextProps: Props & {
         children?: React.ReactNode;
     }): void;
     componentWillUnmount(): void;
-    render(): null;
+    render(): null | undefined;
     private optionContextUpdate;
     private updateOptionValues;
 }

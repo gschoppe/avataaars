@@ -1,5 +1,8 @@
 import * as React from 'react';
-export default class Sad extends React.Component {
+export interface Props {
+    uid: string;
+}
+export default class Sad extends React.Component<Props> {
     static optionValue: string;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }

@@ -3,7 +3,7 @@ import * as React from 'react'
 import { ClotheColorOption, Selector } from '../../options'
 
 export interface Props {
-  maskID: string
+  uid: string
 }
 
 function makeColor (name: string, color: string) {
@@ -11,11 +11,11 @@ function makeColor (name: string, color: string) {
     render () {
       return (
         <g
-          id='Color/Palette/Gray-01'
-          mask={`url(#${this.props.maskID})`}
+          id={`Color/Palette/${name}`}
+          mask={`url(#${this.props.uid}-Clothing-Color-Mask)`}
           fillRule='evenodd'
           fill={color}>
-          <rect id='🖍Color' x='0' y='0' width='264' height='110' />
+          <rect id={`${this.props.uid}-🖍Color`} x='0' y='0' width='264' height='110' />
         </g>
       )
     }
@@ -46,21 +46,21 @@ export default class Colors extends React.Component<Props> {
   render () {
     return (
       <Selector option={ClotheColorOption} defaultOption={Gray01}>
-        <Black maskID={this.props.maskID} />
-        <Blue01 maskID={this.props.maskID} />
-        <Blue02 maskID={this.props.maskID} />
-        <Blue03 maskID={this.props.maskID} />
-        <Gray01 maskID={this.props.maskID} />
-        <Gray02 maskID={this.props.maskID} />
-        <Heather maskID={this.props.maskID} />
-        <PastelBlue maskID={this.props.maskID} />
-        <PastelGreen maskID={this.props.maskID} />
-        <PastelOrange maskID={this.props.maskID} />
-        <PastelRed maskID={this.props.maskID} />
-        <PastelYellow maskID={this.props.maskID} />
-        <Pink maskID={this.props.maskID} />
-        <Red maskID={this.props.maskID} />
-        <White maskID={this.props.maskID} />
+        <Black uid={this.props.uid} />
+        <Blue01 uid={this.props.uid} />
+        <Blue02 uid={this.props.uid} />
+        <Blue03 uid={this.props.uid} />
+        <Gray01 uid={this.props.uid} />
+        <Gray02 uid={this.props.uid} />
+        <Heather uid={this.props.uid} />
+        <PastelBlue uid={this.props.uid} />
+        <PastelGreen uid={this.props.uid} />
+        <PastelOrange uid={this.props.uid} />
+        <PastelRed uid={this.props.uid} />
+        <PastelYellow uid={this.props.uid} />
+        <Pink uid={this.props.uid} />
+        <Red uid={this.props.uid} />
+        <White uid={this.props.uid} />
       </Selector>
     )
   }

@@ -1,20 +1,24 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
 
 import FacialHair from './facialHair'
 import HairColor from './HairColor'
 
-export default class LongHairFroBand extends React.Component {
+export interface Props {
+  uid: string
+  children?: React.ReactNode
+}
+
+export default class LongHairFroBand extends React.Component<Props> {
   static optionValue = 'LongHairFroBand'
-  private mask1 = uniqueId('react-mask-')
-  private mask2 = uniqueId('react-mask-')
-  private path1 = uniqueId('react-path-')
-  private path2 = uniqueId('react-path-')
 
   render () {
-    const { mask1, mask2, path1, path2 } = this
+    const path1 = `${this.props.uid}-top-path1`
+    const path2 = `${this.props.uid}-top-path2`
+    const mask1 = `${this.props.uid}-top-mask1`
+    const hairColorMask = `${this.props.uid}-Hair-Color-Mask`
+    
     return (
-      <g id='Top' strokeWidth='1' fillRule='evenodd'>
+      <g id={`${this.props.uid}-Top`} strokeWidth='1' fillRule='evenodd'>
         <defs>
           <rect id={path1} x='0' y='0' width='264' height='280' />
           <path
@@ -25,28 +29,28 @@ export default class LongHairFroBand extends React.Component {
         <mask id={mask1} fill='white'>
           <use xlinkHref={'#' + path1} />
         </mask>
-        <g id='Mask' />
-        <g id='Top/Long-Hair/Fro-+-Band' mask={`url(#${mask1})`}>
+        <g id={`${this.props.uid}-Mask`} />
+        <g id={`${this.props.uid}-Top/Long-Hair/Fro-+-Band`} mask={`url(#${mask1})`}>
           <g transform='translate(-1.000000, 0.000000)'>
-            <mask id={mask2} fill='white'>
+            <mask id={hairColorMask} fill='white'>
               <use xlinkHref={'#' + path2} />
             </mask>
             <use
-              id='Hair'
+              id={`${this.props.uid}-Hair`}
               stroke='none'
               fill='#314756'
               fillRule='evenodd'
               xlinkHref={'#' + path2}
             />
-            <HairColor maskID={mask2} />
+            <HairColor uid={this.props.uid} />
             <path
               d='M76.6313898,98.975 C76.2155465,96.423245 76,93.8109442 76,91.1521739 C76,62.3493236 101.295912,39 132.5,39 C163.704088,39 189,62.3493236 189,91.1521739 C189,93.8109442 188.784453,96.423245 188.36861,98.975 C184.279562,73.883217 160.823662,54.6456522 132.5,54.6456522 C104.176338,54.6456522 80.7204382,73.883217 76.6313898,98.975 Z'
-              id='Band'
+              id={`${this.props.uid}-Band`}
               stroke='none'
               fill='#92D9FF'
               fillRule='evenodd'
             />
-            <FacialHair />
+            <FacialHair uid={this.props.uid} />
             {this.props.children}
           </g>
         </g>

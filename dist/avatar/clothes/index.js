@@ -33,15 +33,15 @@ var Clothes = /** @class */ (function (_super) {
     }
     Clothes.prototype.render = function () {
         return (React.createElement(options_1.Selector, { option: options_1.ClotheOption, defaultOption: BlazerShirt_1.default },
-            React.createElement(BlazerShirt_1.default, null),
-            React.createElement(BlazerSweater_1.default, null),
-            React.createElement(CollarSweater_1.default, null),
-            React.createElement(GraphicShirt_1.default, null),
-            React.createElement(Hoodie_1.default, null),
-            React.createElement(Overall_1.default, null),
-            React.createElement(ShirtCrewNeck_1.default, null),
-            React.createElement(ShirtScoopNeck_1.default, null),
-            React.createElement(ShirtVNeck_1.default, null)));
+            React.createElement(BlazerShirt_1.default, { uid: this.props.uid }),
+            React.createElement(BlazerSweater_1.default, { uid: this.props.uid }),
+            React.createElement(CollarSweater_1.default, { uid: this.props.uid }),
+            React.createElement(GraphicShirt_1.default, { uid: this.props.uid }),
+            React.createElement(Hoodie_1.default, { uid: this.props.uid }),
+            React.createElement(Overall_1.default, { uid: this.props.uid }),
+            React.createElement(ShirtCrewNeck_1.default, { uid: this.props.uid }),
+            React.createElement(ShirtScoopNeck_1.default, { uid: this.props.uid }),
+            React.createElement(ShirtVNeck_1.default, { uid: this.props.uid })));
     };
     return Clothes;
 }(React.Component));

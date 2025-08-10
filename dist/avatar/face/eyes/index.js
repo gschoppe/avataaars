@@ -36,18 +36,18 @@ var Eyes = /** @class */ (function (_super) {
     }
     Eyes.prototype.render = function () {
         return (React.createElement(options_1.Selector, { defaultOption: Default_1.default, option: options_1.EyesOption },
-            React.createElement(Close_1.default, null),
-            React.createElement(Cry_1.default, null),
-            React.createElement(Default_1.default, null),
-            React.createElement(Dizzy_1.default, null),
-            React.createElement(EyeRoll_1.default, null),
-            React.createElement(Happy_1.default, null),
-            React.createElement(Hearts_1.default, null),
-            React.createElement(Side_1.default, null),
-            React.createElement(Squint_1.default, null),
-            React.createElement(Surprised_1.default, null),
-            React.createElement(Wink_1.default, null),
-            React.createElement(WinkWacky_1.default, null)));
+            React.createElement(Close_1.default, { uid: this.props.uid }),
+            React.createElement(Cry_1.default, { uid: this.props.uid }),
+            React.createElement(Default_1.default, { uid: this.props.uid }),
+            React.createElement(Dizzy_1.default, { uid: this.props.uid }),
+            React.createElement(EyeRoll_1.default, { uid: this.props.uid }),
+            React.createElement(Happy_1.default, { uid: this.props.uid }),
+            React.createElement(Hearts_1.default, { uid: this.props.uid }),
+            React.createElement(Side_1.default, { uid: this.props.uid }),
+            React.createElement(Squint_1.default, { uid: this.props.uid }),
+            React.createElement(Surprised_1.default, { uid: this.props.uid }),
+            React.createElement(Wink_1.default, { uid: this.props.uid }),
+            React.createElement(WinkWacky_1.default, { uid: this.props.uid })));
     };
     return Eyes;
 }(React.Component));

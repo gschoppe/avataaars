@@ -1,20 +1,23 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
 
 import FacialHair from './facialHair'
 import HatColor from './HatColor'
 
-export default class WinterHat3 extends React.Component {
+export interface Props {
+  uid: string
+  children?: React.ReactNode
+}
+
+export default class WinterHat3 extends React.Component<Props> {
   static optionValue = 'WinterHat3'
-  private filter1 = uniqueId('react-filter-')
-  private mask1 = uniqueId('react-mask-')
-  private mask2 = uniqueId('react-mask-')
-  private path1 = uniqueId('react-path-')
-  private path2 = uniqueId('react-path-')
-  private path3 = uniqueId('react-path-')
 
   render() {
-    const { filter1, mask1, mask2, path1, path2, path3 } = this
+    const path1 = `${this.props.uid}-top-path1`
+    const path2 = `${this.props.uid}-top-path2`
+    const path3 = `${this.props.uid}-top-path3`
+    const mask1 = `${this.props.uid}-top-mask1`
+    const hatColorMask = `${this.props.uid}-Hat-Color-Mask`
+    const filter1 = `${this.props.uid}-top-filter1`
     return (
       <g id='Top'>
         <defs>
@@ -63,11 +66,11 @@ export default class WinterHat3 extends React.Component {
             transform='translate(67.000000, 12.000000)'
           >
             <circle id='puff' fill='#F4F4F4' cx='66' cy='8' r='20' />
-            <mask id={mask2} fill='white'>
+            <mask id={hatColorMask} fill='white'>
               <use xlinkHref={'#' + path1} />
             </mask>
             <use id='hat-mask' fill='#D8D8D8' xlinkHref={'#' + path1} />
-            <HatColor maskID={mask2} defaultColor='Red' />
+            <HatColor uid={this.props.uid} defaultColor='Red' />
           </g>
           <g id='hat-front'>
             <use
@@ -78,7 +81,7 @@ export default class WinterHat3 extends React.Component {
             />
             <use fill='#F4F4F4' fillRule='evenodd' xlinkHref={'#' + path2} />
           </g>
-          <FacialHair />
+          <FacialHair uid={this.props.uid}/>
           {this.props.children}
         </g>
       </g>

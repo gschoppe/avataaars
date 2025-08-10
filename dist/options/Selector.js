@@ -15,13 +15,12 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var PropTypes = require("prop-types");
-var React = require("react");
+var react_1 = require("react");
 var OptionContext_1 = require("./OptionContext");
 function getComponentOptionValue(component) {
     var optionValue = component.optionValue;
     if (!optionValue) {
-        throw new Error("optionValue should be provided for " + component);
+        throw new Error("optionValue should be provided for ".concat(component));
     }
     return optionValue;
 }
@@ -34,38 +33,37 @@ var Selector = /** @class */ (function (_super) {
         };
         return _this;
     }
-    Object.defineProperty(Selector.prototype, "optionContext", {
-        get: function () {
-            return this.context.optionContext;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Selector.prototype.UNSAFE_componentWillMount = function () {
+    Selector.prototype.componentDidMount = function () {
         var _a = this.props, option = _a.option, defaultOption = _a.defaultOption;
-        var optionContext = this.optionContext;
-        var defaultValue = (typeof defaultOption === 'string' ?
-            defaultOption : getComponentOptionValue(defaultOption));
-        optionContext.addStateChangeListener(this.optionContextUpdate);
-        optionContext.optionEnter(option.key);
-        var optionState = optionContext.getOptionState(option.key);
+        var defaultValue = typeof defaultOption === 'string'
+            ? defaultOption
+            : getComponentOptionValue(defaultOption);
+        if (!this.context)
+            return;
+        this.context.addStateChangeListener(this.optionContextUpdate);
+        this.context.optionEnter(option.key);
+        var optionState = this.context.getOptionState(option.key);
         this.updateOptionValues();
         if (optionState) {
-            optionContext.setDefaultValue(option.key, defaultValue);
+            this.context.setDefaultValue(option.key, defaultValue);
         }
     };
     Selector.prototype.UNSAFE_componentWillUpdate = function (nextProps) {
         this.updateOptionValues(nextProps);
     };
     Selector.prototype.componentWillUnmount = function () {
-        this.optionContext.removeStateChangeListener(this.optionContextUpdate);
-        this.optionContext.optionExit(this.props.option.key);
+        if (!this.context)
+            return;
+        this.context.removeStateChangeListener(this.optionContextUpdate);
+        this.context.optionExit(this.props.option.key);
     };
     Selector.prototype.render = function () {
         var result = null;
         var _a = this.props, option = _a.option, children = _a.children;
-        var value = this.optionContext.getValue(option.key);
-        React.Children.forEach(children, function (child) {
+        if (!this.context)
+            return;
+        var value = this.context.getValue(option.key);
+        react_1.default.Children.forEach(children, function (child) {
             if (getComponentOptionValue(child.type) === value) {
                 result = child;
             }
@@ -77,17 +75,17 @@ var Selector = /** @class */ (function (_super) {
             return;
         }
         var _a = this.props, option = _a.option, children = _a.children;
-        var values = React.Children.map(children, 
+        var values = react_1.default.Children.map(children, 
         // TODO: also validate and throw error if we don't see optionValue
         function (child) { return getComponentOptionValue(child.type); });
         if (new Set(values).size !== (values === null || values === void 0 ? void 0 : values.length)) {
             throw new Error('Duplicate values');
         }
-        this.optionContext.setOptions(option.key, values);
+        if (!this.context)
+            return;
+        this.context.setOptions(option.key, values);
     };
-    Selector.contextTypes = {
-        optionContext: PropTypes.instanceOf(OptionContext_1.default)
-    };
+    Selector.contextType = OptionContext_1.OptionsContext;
     return Selector;
-}(React.Component));
+}(react_1.default.Component));
 exports.default = Selector;

@@ -8,16 +8,20 @@ import MoustacheFancy from './MoustacheFancy'
 import MoustacheMagnum from './MoustacheMagnum'
 import { FacialHairOption, Selector } from '../../../options'
 
-export default class FacialHair extends React.Component {
+export interface Props {
+  uid: string
+}
+
+export default class FacialHair extends React.Component<Props> {
   render () {
     return (
       <Selector option={FacialHairOption} defaultOption={Blank}>
-        <Blank />
-        <BeardMedium />
-        <BeardLight />
-        <BeardMajestic />
-        <MoustacheFancy />
-        <MoustacheMagnum />
+        <Blank uid={this.props.uid} />
+        <BeardMedium uid={this.props.uid} />
+        <BeardLight uid={this.props.uid} />
+        <BeardMajestic uid={this.props.uid} />
+        <MoustacheFancy uid={this.props.uid} />
+        <MoustacheMagnum uid={this.props.uid} />
       </Selector>
     )
   }

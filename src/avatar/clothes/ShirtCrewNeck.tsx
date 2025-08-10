@@ -1,18 +1,20 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
-
 import Colors from './Colors'
 
-export default class ShirtCrewNeck extends React.Component {
+export interface Props {
+  uid: string
+}
+
+export default class ShirtCrewNeck extends React.Component<Props> {
   static optionValue = 'ShirtCrewNeck'
-  private path1 = uniqueId('react-path-')
-  private mask1 = uniqueId('react-mask-')
 
   render () {
-    const { path1, mask1 } = this
+    const path1 = `${this.props.uid}-Clothing-path1`
+    const clothingColorMask = `${this.props.uid}-Clothing-Color-Mask`
+    
     return (
       <g
-        id='Clothing/Shirt-Crew-Neck'
+        id={`${this.props.uid}-Clothing/Shirt-Crew-Neck`}
         transform='translate(0.000000, 170.000000)'>
         <defs>
           <path
@@ -20,25 +22,25 @@ export default class ShirtCrewNeck extends React.Component {
             id={path1}
           />
         </defs>
-        <mask id={mask1} fill='white'>
+        <mask id={clothingColorMask} fill='white'>
           <use xlinkHref={'#' + path1} />
         </mask>
         <use
-          id='Clothes'
+          id={`${this.props.uid}-Clothes`}
           fill='#E6E6E6'
           fillRule='evenodd'
           xlinkHref={'#' + path1}
         />
-        <Colors maskID={mask1} />
+        <Colors uid={this.props.uid} />
         <g
-          id='Shadowy'
+          id={`${this.props.uid}-Shadowy`}
           opacity='0.599999964'
           strokeWidth='1'
           fillRule='evenodd'
-          mask={`url(#${mask1})`}
+          mask={`url(#${clothingColorMask})`}
           fillOpacity='0.16'
           fill='#000000'>
-          <g transform='translate(92.000000, 4.000000)' id='Hola-👋🏼'>
+          <g transform='translate(92.000000, 4.000000)' id={`${this.props.uid}-Hola-👋🏼`}>
             <ellipse
               cx='40.5'
               cy='27.8476251'

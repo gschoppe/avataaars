@@ -5,10 +5,11 @@ export interface OptionState {
     defaultValue?: string;
     available: number;
 }
-export declare type OptionContextState = {
+export type OptionContextState = {
     [index: string]: OptionState;
 };
-export default class OptionContext {
+export declare const OptionsContext: import("react").Context<OptionContext | null>;
+export declare class OptionContext {
     private stateChangeListeners;
     private valueChangeListeners;
     private _state;

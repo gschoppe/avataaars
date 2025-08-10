@@ -1,20 +1,24 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
 
 import FacialHair from './facialHair'
 import HairColor from './HairColor'
 
-export default class LongHairNotTooLong extends React.Component {
+export interface Props {
+  uid: string
+  children?: React.ReactNode
+}
+
+export default class LongHairNotTooLong extends React.Component<Props> {
   static optionValue = 'LongHairNotTooLong'
-  private mask1 = uniqueId('react-mask-')
-  private mask2 = uniqueId('react-mask-')
-  private path1 = uniqueId('react-path-')
-  private path2 = uniqueId('react-path-')
 
   render () {
-    const { mask1, mask2, path1, path2 } = this
+    const path1 = `${this.props.uid}-top-path1`
+    const path2 = `${this.props.uid}-top-path2`
+    const mask1 = `${this.props.uid}-top-mask1`
+    const hairColorMask = `${this.props.uid}-Hair-Color-Mask`
+    
     return (
-      <g id='Top' strokeWidth='1' fillRule='evenodd'>
+      <g id={`${this.props.uid}-Top`} strokeWidth='1' fillRule='evenodd'>
         <defs>
           <rect id={path1} x='0' y='0' width='264' height='280' />
           <path
@@ -25,18 +29,18 @@ export default class LongHairNotTooLong extends React.Component {
         <mask id={mask1} fill='white'>
           <use xlinkHref={'#' + path1} />
         </mask>
-        <g id='Mask' />
-        <g id='Top/Long-Hair/Long-but-not-too-long' mask={`url(#${mask1})`}>
+        <g id={`${this.props.uid}-Mask`} />
+        <g id={`${this.props.uid}-Top/Long-Hair/Long-but-not-too-long`} mask={`url(#${mask1})`}>
           <g transform='translate(-1.000000, 0.000000)'>
-            <g id='Behind' strokeWidth='1' fillRule='evenodd'>
-              <mask id={mask2} fill='white'>
+            <g id={`${this.props.uid}-Behind`} strokeWidth='1' fillRule='evenodd'>
+              <mask id={hairColorMask} fill='white'>
                 <use xlinkHref={'#' + path2} />
               </mask>
-              <use id='Combined-Shape' fill='#944F23' xlinkHref={'#' + path2} />
-              <HairColor maskID={mask2} />
+              <use id={`${this.props.uid}-Combined-Shape11`} fill='#944F23' xlinkHref={'#' + path2} />
+              <HairColor uid={this.props.uid} />
             </g>
             <g
-              id='Top'
+              id={`${this.props.uid}-Top`}
               opacity='0.439990942'
               strokeWidth='1'
               fillRule='evenodd'
@@ -44,11 +48,11 @@ export default class LongHairNotTooLong extends React.Component {
               fillOpacity='0.159999996'>
               <path
                 d='M11.8989604,84.7749122 C25.7109099,83.0145308 41.6792969,77.5379209 57.3415164,68.4953343 C69.4732686,61.4910638 79.8439791,53.2579416 87.8209384,44.752196 C84.3941075,52.6604321 80.2445133,59.5880409 75.3721558,65.5350224 C88.0473359,60.0120855 96.6778122,51.1324394 101.263585,38.8960843 C101.64142,39.8180234 102.034942,40.738913 102.444252,41.6582378 C114.38223,68.4713761 136.296003,86.1944823 157,88.1510343 L157,88.1510343 L157,74 C157,33.1309285 123.869071,-7.50752664e-15 83,0 C46.9151011,6.62868839e-15 16.8627142,25.8282542 10.3212729,60.0063288 C10.214595,60.0021202 10.1074956,60 10,60 C4.4771525,60 0,65.5964406 0,72.5 C0,78.9816827 3.9466744,84.3111215 8.99999442,84.9382803 L8.99999434,85.0927525 C9.31629342,85.0638362 9.63387297,85.0328725 9.95270131,84.9998631 C9.96845895,84.9999543 9.98422521,85 10,85 C10.6492988,85 11.2841443,84.9226474 11.8989604,84.7749122 Z'
-                id='Combined-Shape'
+                id={`${this.props.uid}-Combined-Shape`}
                 fill='#FFFFFF'
               />
             </g>
-            <FacialHair />
+            <FacialHair uid={this.props.uid} />
             {this.props.children}
           </g>
         </g>

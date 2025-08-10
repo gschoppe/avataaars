@@ -38,6 +38,7 @@ var NoHair_1 = require("./NoHair");
 var ShortHairDreads01_1 = require("./ShortHairDreads01");
 var ShortHairDreads02_1 = require("./ShortHairDreads02");
 var ShortHairFrizzle_1 = require("./ShortHairFrizzle");
+var ShortHairShaggy_1 = require("./ShortHairShaggy");
 var ShortHairShaggyMullet_1 = require("./ShortHairShaggyMullet");
 var ShortHairShortCurly_1 = require("./ShortHairShortCurly");
 var ShortHairShortFlat_1 = require("./ShortHairShortFlat");
@@ -58,43 +59,43 @@ var Top = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Top.prototype.render = function () {
-        var children = this.props.children;
         return (React.createElement(options_1.Selector, { defaultOption: LongHairStraight_1.default, option: options_1.TopOption },
-            React.createElement(NoHair_1.default, null, children),
-            React.createElement(Eyepatch_1.default, null, children),
-            React.createElement(Hat_1.default, null, children),
-            React.createElement(Hijab_1.default, null, children),
-            React.createElement(Turban_1.default, null, children),
-            React.createElement(WinterHat1_1.default, null, children),
-            React.createElement(WinterHat2_1.default, null, children),
-            React.createElement(WinterHat3_1.default, null, children),
-            React.createElement(WinterHat4_1.default, null, children),
-            React.createElement(LongHairBigHair_1.default, null, children),
-            React.createElement(LongHairBob_1.default, null, children),
-            React.createElement(LongHairBun_1.default, null, children),
-            React.createElement(LongHairCurly_1.default, null, children),
-            React.createElement(LongHairCurvy_1.default, null, children),
-            React.createElement(LongHairDreads_1.default, null, children),
-            React.createElement(LongHairFrida_1.default, null, children),
-            React.createElement(LongHairFro_1.default, null, children),
-            React.createElement(LongHairFroBand_1.default, null, children),
-            React.createElement(LongHairNotTooLong_1.default, null, children),
-            React.createElement(LongHairShavedSides_1.default, null, children),
-            React.createElement(LongHairMiaWallace_1.default, null, children),
-            React.createElement(LongHairStraight_1.default, null, children),
-            React.createElement(LongHairStraight2_1.default, null, children),
-            React.createElement(LongHairStraightStrand_1.default, null, children),
-            React.createElement(ShortHairDreads01_1.default, null, children),
-            React.createElement(ShortHairDreads02_1.default, null, children),
-            React.createElement(ShortHairFrizzle_1.default, null, children),
-            React.createElement(ShortHairShaggyMullet_1.default, null, children),
-            React.createElement(ShortHairShortCurly_1.default, null, children),
-            React.createElement(ShortHairShortFlat_1.default, null, children),
-            React.createElement(ShortHairShortRound_1.default, null, children),
-            React.createElement(ShortHairShortWaved_1.default, null, children),
-            React.createElement(ShortHairSides_1.default, null, children),
-            React.createElement(ShortHairTheCaesar_1.default, null, children),
-            React.createElement(ShortHairTheCaesarSidePart_1.default, null, children)));
+            React.createElement(NoHair_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(Eyepatch_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(Hat_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(Hijab_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(Turban_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(WinterHat1_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(WinterHat2_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(WinterHat3_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(WinterHat4_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(LongHairBigHair_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(LongHairBob_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(LongHairBun_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(LongHairCurly_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(LongHairCurvy_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(LongHairDreads_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(LongHairFrida_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(LongHairFro_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(LongHairFroBand_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(LongHairNotTooLong_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(LongHairShavedSides_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(LongHairMiaWallace_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(LongHairStraight_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(LongHairStraight2_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(LongHairStraightStrand_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(ShortHairDreads01_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(ShortHairDreads02_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(ShortHairFrizzle_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(ShortHairShaggy_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(ShortHairShaggyMullet_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(ShortHairShortCurly_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(ShortHairShortFlat_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(ShortHairShortRound_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(ShortHairShortWaved_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(ShortHairSides_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(ShortHairTheCaesar_1.default, { uid: this.props.uid }, this.props.children),
+            React.createElement(ShortHairTheCaesarSidePart_1.default, { uid: this.props.uid }, this.props.children)));
     };
     return Top;
 }(React.Component));

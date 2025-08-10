@@ -15,48 +15,48 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = require("react");
+var react_1 = require("react");
 var options_1 = require("../options");
-function makeColor(name, color) {
+function makeSkinColor(name, color) {
     var ColorComponent = /** @class */ (function (_super) {
         __extends(ColorComponent, _super);
         function ColorComponent() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
         ColorComponent.prototype.render = function () {
-            return (React.createElement("g", { id: "Skin/\uD83D\uDC76\uD83C\uDFFD-03-Brown", mask: "url(#" + this.props.maskID + ")", fill: color },
-                React.createElement("g", { transform: "translate(0.000000, 0.000000)", id: "Color" },
-                    React.createElement("rect", { x: "0", y: "0", width: "264", height: "280" }))));
+            return (react_1.default.createElement("g", { id: "Skin/".concat(name), mask: "url(#".concat(this.props.uid, "-Skin-Color-Mask)"), fill: color },
+                react_1.default.createElement("g", { transform: "translate(0.000000, 0.000000)", id: "Color" },
+                    react_1.default.createElement("rect", { x: "0", y: "0", width: "264", height: "280" }))));
         };
         return ColorComponent;
-    }(React.Component));
+    }(react_1.default.Component));
     var anyComponent = ColorComponent;
     anyComponent.displayName = name;
     anyComponent.optionValue = name;
     return anyComponent;
 }
-var Tanned = makeColor('Tanned', '#FD9841');
-var Yellow = makeColor('Yellow', '#F8D25C');
-var Pale = makeColor('Pale', '#FFDBB4');
-var Light = makeColor('Light', '#EDB98A');
-var Brown = makeColor('Brown', '#D08B5B');
-var DarkBrown = makeColor('DarkBrown', '#AE5D29');
-var Black = makeColor('Black', '#614335');
+var Tanned = makeSkinColor('Tanned', '#FD9841');
+var Yellow = makeSkinColor('Yellow', '#F8D25C');
+var Pale = makeSkinColor('Pale', '#FFDBB4');
+var Light = makeSkinColor('Light', '#EDB98A');
+var Brown = makeSkinColor('Brown', '#D08B5B');
+var DarkBrown = makeSkinColor('DarkBrown', '#AE5D29');
+var Black = makeSkinColor('Black', '#614335');
 var Skin = /** @class */ (function (_super) {
     __extends(Skin, _super);
     function Skin() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Skin.prototype.render = function () {
-        return (React.createElement(options_1.Selector, { option: options_1.SkinOption, defaultOption: Light },
-            React.createElement(Tanned, { maskID: this.props.maskID }),
-            React.createElement(Yellow, { maskID: this.props.maskID }),
-            React.createElement(Pale, { maskID: this.props.maskID }),
-            React.createElement(Light, { maskID: this.props.maskID }),
-            React.createElement(Brown, { maskID: this.props.maskID }),
-            React.createElement(DarkBrown, { maskID: this.props.maskID }),
-            React.createElement(Black, { maskID: this.props.maskID })));
+        return (react_1.default.createElement(options_1.Selector, { option: options_1.SkinOption, defaultOption: Light },
+            react_1.default.createElement(Tanned, { uid: this.props.uid }),
+            react_1.default.createElement(Yellow, { uid: this.props.uid }),
+            react_1.default.createElement(Pale, { uid: this.props.uid }),
+            react_1.default.createElement(Light, { uid: this.props.uid }),
+            react_1.default.createElement(Brown, { uid: this.props.uid }),
+            react_1.default.createElement(DarkBrown, { uid: this.props.uid }),
+            react_1.default.createElement(Black, { uid: this.props.uid })));
     };
     return Skin;
-}(React.Component));
+}(react_1.default.Component));
 exports.default = Skin;

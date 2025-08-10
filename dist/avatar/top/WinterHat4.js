@@ -16,28 +16,24 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var lodash_1 = require("lodash");
 var facialHair_1 = require("./facialHair");
 var HatColor_1 = require("./HatColor");
 var WinterHat4 = /** @class */ (function (_super) {
     __extends(WinterHat4, _super);
     function WinterHat4() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.filter1 = lodash_1.uniqueId('react-filter-');
-        _this.mask1 = lodash_1.uniqueId('react-mask-');
-        _this.mask2 = lodash_1.uniqueId('react-mask-');
-        _this.mask3 = lodash_1.uniqueId('react-mask-');
-        _this.mask4 = lodash_1.uniqueId('react-mask-');
-        _this.path1 = lodash_1.uniqueId('react-path-');
-        _this.path2 = lodash_1.uniqueId('react-path-');
-        _this.path3 = lodash_1.uniqueId('react-path-');
-        _this.path4 = lodash_1.uniqueId('react-path-');
-        _this.path5 = lodash_1.uniqueId('react-path-');
-        return _this;
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     WinterHat4.prototype.render = function () {
-        var _a = this, filter1 = _a.filter1, mask1 = _a.mask1, mask2 = _a.mask2, mask3 = _a.mask3, mask4 = _a.mask4, path1 = _a.path1, path2 = _a.path2, path3 = _a.path3, path4 = _a.path4, path5 = _a.path5;
-        return (React.createElement("g", { id: 'Top' },
+        var path1 = "".concat(this.props.uid, "-top-path1");
+        var path2 = "".concat(this.props.uid, "-top-path2");
+        var path3 = "".concat(this.props.uid, "-top-path3");
+        var path4 = "".concat(this.props.uid, "-top-path4");
+        var path5 = "".concat(this.props.uid, "-top-path5");
+        var mask1 = "".concat(this.props.uid, "-top-mask1");
+        var mask2 = "".concat(this.props.uid, "-top-mask2");
+        var hatColorMask = "".concat(this.props.uid, "-Hat-Color-Mask");
+        var filter1 = "".concat(this.props.uid, "-top-filter1");
+        return (React.createElement("g", { id: "".concat(this.props.uid, "-Top") },
             React.createElement("defs", null,
                 React.createElement("rect", { id: path5, x: '0', y: '0', width: '264', height: '280' }),
                 React.createElement("path", { d: 'M129.659138,38.3566287 C132.459581,45.3577056 134,52.9989608 134,61 L134,69 L2,69 L2,61 C2,52.9748603 3.54971254,45.3116754 6.36620203,38.2933809 C-0.0371821146,24.8304767 -1.28053094,13.7727805 2.63615554,5.12029235 C10.141056,2.84355825 18.8342301,4.64979084 28.7156778,10.5389901 C38.4862647,3.88774159 50.289117,-4.77047603e-15 63,-7.10542736e-15 L73,-7.10542736e-15 C85.7221104,-9.44244112e-15 97.5345852,3.89461262 107.310208,10.5566215 C117.203883,4.65339747 125.906912,2.84128775 133.419297,5.12029235 C137.342115,13.7863263 136.088729,24.8651051 129.659138,38.3566287 Z', id: path1 }),
@@ -49,23 +45,22 @@ var WinterHat4 = /** @class */ (function (_super) {
                 React.createElement("path", { d: 'M67.2846026,61.4514246 C83.229708,49.8171415 105.159178,44 133.073012,44 C160.985408,44 182.871592,49.8165424 198.731564,61.4496271 L198.731562,61.4496305 C200.786183,62.956669 202.000006,65.3523289 202.000006,67.900394 L202.000004,98.3697692 C202.000004,100.578907 200.209144,102.369768 198.000006,102.369768 C197.244444,102.369768 196.504332,102.155773 195.865355,101.752558 C179.223261,91.2508526 158.536251,86 133.804323,86 C108.883259,86 87.640395,91.3314713 70.0757313,101.994414 L70.0757317,101.994414 C68.1873241,103.140806 65.7271332,102.539283 64.5807417,100.650875 C64.2008775,100.02514 64.0000054,99.3071624 64.0000054,98.5751499 L64,67.914014 C64,65.358892 65.2205159,62.9574773 67.2846026,61.4514246 Z', id: path4 })),
             React.createElement("mask", { id: mask1, fill: 'white' },
                 React.createElement("use", { xlinkHref: '#' + path5 })),
-            React.createElement("g", { id: 'Mask' }),
-            React.createElement("g", { id: 'Top/Accessories/Winter-Hat-4', transform: 'translate(-1.000000, 0.000000)' },
-                React.createElement("g", { id: 'hat', strokeWidth: '1', fillRule: 'evenodd', transform: 'translate(65.000000, 4.000000)' },
-                    React.createElement("mask", { id: mask2, fill: 'white' },
+            React.createElement("g", { id: "".concat(this.props.uid, "-Top/Accessories/Winter-Hat-4"), transform: 'translate(-1.000000, 0.000000)' },
+                React.createElement("g", { id: "".concat(this.props.uid, "-hat"), strokeWidth: '1', fillRule: 'evenodd', transform: 'translate(65.000000, 4.000000)' },
+                    React.createElement("mask", { id: hatColorMask, fill: 'white' },
                         React.createElement("use", { xlinkHref: '#' + path1 })),
-                    React.createElement("use", { id: 'hat-mask', fill: '#D8D8D8', xlinkHref: '#' + path1 }),
-                    React.createElement(HatColor_1.default, { maskID: mask2, defaultColor: 'Red' }),
-                    React.createElement("mask", { id: mask3, fill: 'white' },
+                    React.createElement("use", { id: "".concat(this.props.uid, "-hat-mask"), fill: '#D8D8D8', xlinkHref: '#' + path1 }),
+                    React.createElement(HatColor_1.default, { uid: this.props.uid, defaultColor: 'Red' }),
+                    React.createElement("mask", { id: hatColorMask, fill: 'white' },
                         React.createElement("use", { xlinkHref: '#' + path2 })),
-                    React.createElement("use", { id: 'shadow', fillOpacity: '0.24', fill: '#000000', xlinkHref: '#' + path2 }),
-                    React.createElement("mask", { id: mask4, fill: 'white' },
+                    React.createElement("use", { id: "".concat(this.props.uid, "-shadow"), fillOpacity: '0.24', fill: '#000000', xlinkHref: '#' + path2 }),
+                    React.createElement("mask", { id: mask2, fill: 'white' },
                         React.createElement("use", { xlinkHref: '#' + path3 })),
-                    React.createElement("use", { id: 'light', fillOpacity: '0.300000012', fill: '#FFFFFF', xlinkHref: '#' + path3 })),
-                React.createElement("g", { id: 'hat-front' },
-                    React.createElement("use", { fill: 'black', fillOpacity: '1', filter: "url(#" + path4 + ")", xlinkHref: '#' + path4 }),
+                    React.createElement("use", { id: "".concat(this.props.uid, "-light"), fillOpacity: '0.300000012', fill: '#FFFFFF', xlinkHref: '#' + path3 })),
+                React.createElement("g", { id: "".concat(this.props.uid, "-hat-front") },
+                    React.createElement("use", { fill: 'black', fillOpacity: '1', filter: "url(#".concat(path4, ")"), xlinkHref: '#' + path4 }),
                     React.createElement("use", { fill: '#F4F4F4', fillRule: 'evenodd', xlinkHref: '#' + path4 })),
-                React.createElement(facialHair_1.default, null),
+                React.createElement(facialHair_1.default, { uid: this.props.uid }),
                 this.props.children)));
     };
     WinterHat4.optionValue = 'WinterHat4';

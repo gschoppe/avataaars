@@ -1,9 +1,9 @@
 import * as React from 'react';
-export default class LongHairStraight extends React.Component {
+export interface Props {
+    uid: string;
+    children?: React.ReactNode;
+}
+export default class LongHairStraight extends React.Component<Props> {
     static optionValue: string;
-    private mask1;
-    private mask2;
-    private path1;
-    private path2;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }

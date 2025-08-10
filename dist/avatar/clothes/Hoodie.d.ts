@@ -1,7 +1,8 @@
 import * as React from 'react';
-export default class Hoodie extends React.Component {
+export interface Props {
+    uid: string;
+}
+export default class Hoodie extends React.Component<Props> {
     static optionValue: string;
-    private path1;
-    private mask1;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }

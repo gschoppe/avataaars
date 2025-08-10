@@ -24,8 +24,8 @@ function makeColor(name, color) {
             return _super !== null && _super.apply(this, arguments) || this;
         }
         ColorComponent.prototype.render = function () {
-            return (React.createElement("g", { id: 'Color/Hair/Brown', mask: "url(#" + this.props.maskID + ")", fill: color },
-                React.createElement("g", { transform: 'translate(-32.000000, 0.000000)', id: 'Color' },
+            return (React.createElement("g", { id: "".concat(this.props.uid, "-Color/Hair/").concat(name), mask: "url(#".concat(this.props.uid, "-Facial-Hair-Mask)"), fill: color },
+                React.createElement("g", { transform: 'translate(-32.000000, 0.000000)', id: "".concat(this.props.uid, "-Facial-Hair-Color") },
                     React.createElement("rect", { x: '0', y: '0', width: '264', height: '244' }))));
         };
         return ColorComponent;
@@ -43,6 +43,7 @@ var Brown = makeColor('Brown', '#724133');
 var BrownDark = makeColor('BrownDark', '#4A312C');
 var Platinum = makeColor('Platinum', '#ECDCBF');
 var Red = makeColor('Red', '#C93305');
+var SilverGray = makeColor('SilverGray', '#E8E1E1');
 var Colors = /** @class */ (function (_super) {
     __extends(Colors, _super);
     function Colors() {
@@ -50,14 +51,15 @@ var Colors = /** @class */ (function (_super) {
     }
     Colors.prototype.render = function () {
         return (React.createElement(options_1.Selector, { option: options_1.FacialHairColor, defaultOption: BrownDark },
-            React.createElement(Auburn, { maskID: this.props.maskID }),
-            React.createElement(Black, { maskID: this.props.maskID }),
-            React.createElement(Blonde, { maskID: this.props.maskID }),
-            React.createElement(BlondeGolden, { maskID: this.props.maskID }),
-            React.createElement(Brown, { maskID: this.props.maskID }),
-            React.createElement(BrownDark, { maskID: this.props.maskID }),
-            React.createElement(Platinum, { maskID: this.props.maskID }),
-            React.createElement(Red, { maskID: this.props.maskID })));
+            React.createElement(Auburn, { uid: this.props.uid }),
+            React.createElement(Black, { uid: this.props.uid }),
+            React.createElement(Blonde, { uid: this.props.uid }),
+            React.createElement(BlondeGolden, { uid: this.props.uid }),
+            React.createElement(Brown, { uid: this.props.uid }),
+            React.createElement(BrownDark, { uid: this.props.uid }),
+            React.createElement(Platinum, { uid: this.props.uid }),
+            React.createElement(Red, { uid: this.props.uid }),
+            React.createElement(SilverGray, { uid: this.props.uid })));
     };
     return Colors;
 }(React.Component));

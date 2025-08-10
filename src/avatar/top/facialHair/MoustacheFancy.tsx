@@ -1,19 +1,20 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
-
 import Colors from './Colors'
 
-export default class MoustacheFancy extends React.Component {
+export interface Props {
+  uid: string
+}
+
+export default class MoustacheFancy extends React.Component<Props> {
   static optionValue = 'MoustacheFancy'
 
-  private mask1 = uniqueId('react-mask-')
-  private path1 = uniqueId('react-path-')
-
   render () {
-    const { mask1, path1 } = this
+    const path1 = `${this.props.uid}-Facial-Hair-Path`
+    const facialHairMask = `${this.props.uid}-Facial-Hair-Mask`
+
     return (
       <g
-        id='Facial-Hair/Moustache-Fancy'
+        id={`${this.props.uid}-Facial-Hair/Moustache-Fancy`}
         transform='translate(49.000000, 72.000000)'>
         <defs>
           <path
@@ -21,16 +22,16 @@ export default class MoustacheFancy extends React.Component {
             id={path1}
           />
         </defs>
-        <mask id={mask1} fill='white'>
+        <mask id={facialHairMask} fill='white'>
           <use xlinkHref={'#' + path1} />
         </mask>
         <use
-          id='Moustache-U-a-Question'
+          id={`${this.props.uid}-Moustache`}
           fill='#28354B'
           fillRule='evenodd'
           xlinkHref={'#' + path1}
         />
-        <Colors maskID={mask1} />
+        <Colors uid={this.props.uid} />
       </g>
     )
   }

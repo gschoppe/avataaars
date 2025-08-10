@@ -27,10 +27,10 @@ var Face = /** @class */ (function (_super) {
     }
     Face.prototype.render = function () {
         return (React.createElement("g", { id: 'Face', transform: 'translate(76.000000, 82.000000)', fill: '#000000' },
-            React.createElement(mouth_1.default, null),
-            React.createElement(Default_1.default, null),
-            React.createElement(eyes_1.default, null),
-            React.createElement(eyebrow_1.default, null)));
+            React.createElement(mouth_1.default, { uid: this.props.uid }),
+            React.createElement(Default_1.default, { uid: this.props.uid }),
+            React.createElement(eyes_1.default, { uid: this.props.uid }),
+            React.createElement(eyebrow_1.default, { uid: this.props.uid })));
     };
     return Face;
 }(React.Component));

@@ -1,21 +1,22 @@
-import * as PropTypes from 'prop-types'
 import * as React from 'react'
 
-import Avatar, { AvatarStyle } from './avatar'
-import { OptionContext, allOptions } from './options'
+import Avatar from './avatar'
+import { OptionContext, OptionsContext, allOptions } from './options'
 
-export { default as Avatar, AvatarStyle } from './avatar'
-export { Option, OptionContext, allOptions } from './options'
+export { default as Avatar } from './avatar'
+export { Option, OptionContext, OptionsContext, allOptions } from './options'
 
-import {default as PieceComponent} from './avatar/piece';
+import { default as PieceComponent } from './avatar/piece'
 
 export interface Props {
-  avatarStyle: string
-  className?: string;
+  className?: string
   style?: React.CSSProperties
+  backdropType?: string
+  backdropColor?: string
   topType?: string
   accessoriesType?: string
   hairColor?: string
+  hatColor?: string
   facialHairType?: string
   facialHairColor?: string
   clotheType?: string
@@ -25,35 +26,37 @@ export interface Props {
   eyebrowType?: string
   mouthType?: string
   skinColor?: string
-  pieceType?:string
-  pieceSize?:string
-  viewBox?:string
+  pieceType?: string
+  pieceSize?: string
+  viewBox?: string
 }
 
 export default class AvatarComponent extends React.Component<Props> {
-  static childContextTypes = {
-    optionContext: PropTypes.instanceOf(OptionContext)
-  }
   private optionContext: OptionContext = new OptionContext(allOptions)
 
-  getChildContext () {
-    return { optionContext: this.optionContext }
-  }
-
-  UNSAFE_componentWillMount () {
+  componentDidMount() {
     this.updateOptionContext(this.props)
   }
 
-  UNSAFE_componentWillReceiveProps (nextProps: Props) {
-    this.updateOptionContext(nextProps)
+  componentDidUpdate(prevProps: Props) {
+    if (prevProps !== this.props) {
+      this.updateOptionContext(this.props)
+    }
   }
 
-  render () {
-    const { avatarStyle, style, className } = this.props
-    return <Avatar avatarStyle={avatarStyle as AvatarStyle} style={style} className={className} />
+  render() {
+    const { style, className } = this.props
+    return (
+      <OptionsContext.Provider value={this.optionContext}>
+        <Avatar
+          style={style}
+          className={className}
+        />
+      </OptionsContext.Provider>
+    )
   }
 
-  private updateOptionContext (props: Props) {
+  private updateOptionContext(props: Props) {
     const data: { [index: string]: string } = {}
     for (const option of allOptions) {
       const value = props[option.key]
@@ -67,29 +70,31 @@ export default class AvatarComponent extends React.Component<Props> {
 }
 
 export class Piece extends React.Component<Props> {
-  static childContextTypes = {
-    optionContext: PropTypes.instanceOf(OptionContext)
-  }
   private optionContext: OptionContext = new OptionContext(allOptions)
 
-  getChildContext () {
-    return { optionContext: this.optionContext }
-  }
-
-  UNSAFE_componentWillMount () {
+  componentDidMount() {
     this.updateOptionContext(this.props)
   }
 
-  UNSAFE_componentWillReceiveProps (nextProps: Props) {
+  UNSAFE_componentWillReceiveProps(nextProps: Props) {
     this.updateOptionContext(nextProps)
   }
 
-  render () {
-    const { avatarStyle, style, pieceType, pieceSize, viewBox } = this.props
-    return <PieceComponent avatarStyle={avatarStyle as AvatarStyle} style={style} pieceType={pieceType} pieceSize={pieceSize} viewBox={viewBox}/>
+  render() {
+    const { style, pieceType, pieceSize, viewBox } = this.props
+    return (
+      <OptionsContext.Provider value={this.optionContext}>
+        <PieceComponent
+          style={style}
+          pieceType={pieceType}
+          pieceSize={pieceSize}
+          viewBox={viewBox}
+        />
+      </OptionsContext.Provider>
+    )
   }
 
-  private updateOptionContext (props: Props) {
+  private updateOptionContext(props: Props) {
     const data: { [index: string]: string } = {}
     for (const option of allOptions) {
       const value = props[option.key]

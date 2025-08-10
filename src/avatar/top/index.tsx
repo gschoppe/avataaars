@@ -22,6 +22,7 @@ import NoHair from './NoHair'
 import ShortHairDreads01 from './ShortHairDreads01'
 import ShortHairDreads02 from './ShortHairDreads02'
 import ShortHairFrizzle from './ShortHairFrizzle'
+import ShortHairShaggy from './ShortHairShaggy'
 import ShortHairShaggyMullet from './ShortHairShaggyMullet'
 import ShortHairShortCurly from './ShortHairShortCurly'
 import ShortHairShortFlat from './ShortHairShortFlat'
@@ -37,49 +38,51 @@ import WinterHat3 from './WinterHat3'
 import WinterHat4 from './WinterHat4'
 import { Selector, TopOption } from '../../options'
 
-export default class Top extends React.Component {
+export interface Props {
+  uid: string
+  children?: React.ReactNode
+}
+
+export default class Top extends React.Component<Props> {
   render () {
-    const { children } = this.props
     return (
       <Selector defaultOption={LongHairStraight} option={TopOption}>
-        <NoHair>{children}</NoHair>
-        <Eyepatch>{children}</Eyepatch>
-        <Hat>{children}</Hat>
-        <Hijab>{children}</Hijab>
-        <Turban>{children}</Turban>
-        <WinterHat1>{children}</WinterHat1>
-        <WinterHat2>{children}</WinterHat2>
-        <WinterHat3>{children}</WinterHat3>
-        <WinterHat4>{children}</WinterHat4>
-        <LongHairBigHair>{children}</LongHairBigHair>
-        <LongHairBob>{children}</LongHairBob>
-        <LongHairBun>{children}</LongHairBun>
-        <LongHairCurly>{children}</LongHairCurly>
-        <LongHairCurvy>{children}</LongHairCurvy>
-        <LongHairDreads>{children}</LongHairDreads>
-        <LongHairFrida>{children}</LongHairFrida>
-        <LongHairFro>{children}</LongHairFro>
-        <LongHairFroBand>{children}</LongHairFroBand>
-        <LongHairNotTooLong>{children}</LongHairNotTooLong>
-        <LongHairShavedSides>{children}</LongHairShavedSides>
-        <LongHairMiaWallace>{children}</LongHairMiaWallace>
-        <LongHairStraight>{children}</LongHairStraight>
-        <LongHairStraight2>{children}</LongHairStraight2>
-        <LongHairStraightStrand>{children}</LongHairStraightStrand>
-        <ShortHairDreads01>{children}</ShortHairDreads01>
-        <ShortHairDreads02>{children}</ShortHairDreads02>
-        <ShortHairFrizzle>{children}</ShortHairFrizzle>
-        {/*
-        XXX: broken, fix it later
-        <ShortHairShaggy>{children}</ShortHairShaggy>*/}
-        <ShortHairShaggyMullet>{children}</ShortHairShaggyMullet>
-        <ShortHairShortCurly>{children}</ShortHairShortCurly>
-        <ShortHairShortFlat>{children}</ShortHairShortFlat>
-        <ShortHairShortRound>{children}</ShortHairShortRound>
-        <ShortHairShortWaved>{children}</ShortHairShortWaved>
-        <ShortHairSides>{children}</ShortHairSides>
-        <ShortHairTheCaesar>{children}</ShortHairTheCaesar>
-        <ShortHairTheCaesarSidePart>{children}</ShortHairTheCaesarSidePart>
+        <NoHair uid={this.props.uid}>{this.props.children}</NoHair>
+        <Eyepatch uid={this.props.uid}>{this.props.children}</Eyepatch>
+        <Hat uid={this.props.uid}>{this.props.children}</Hat>
+        <Hijab uid={this.props.uid}>{this.props.children}</Hijab>
+        <Turban uid={this.props.uid}>{this.props.children}</Turban>
+        <WinterHat1 uid={this.props.uid}>{this.props.children}</WinterHat1>
+        <WinterHat2 uid={this.props.uid}>{this.props.children}</WinterHat2>
+        <WinterHat3 uid={this.props.uid}>{this.props.children}</WinterHat3>
+        <WinterHat4 uid={this.props.uid}>{this.props.children}</WinterHat4>
+        <LongHairBigHair uid={this.props.uid}>{this.props.children}</LongHairBigHair>
+        <LongHairBob uid={this.props.uid}>{this.props.children}</LongHairBob>
+        <LongHairBun uid={this.props.uid}>{this.props.children}</LongHairBun>
+        <LongHairCurly uid={this.props.uid}>{this.props.children}</LongHairCurly>
+        <LongHairCurvy uid={this.props.uid}>{this.props.children}</LongHairCurvy>
+        <LongHairDreads uid={this.props.uid}>{this.props.children}</LongHairDreads>
+        <LongHairFrida uid={this.props.uid}>{this.props.children}</LongHairFrida>
+        <LongHairFro uid={this.props.uid}>{this.props.children}</LongHairFro>
+        <LongHairFroBand uid={this.props.uid}>{this.props.children}</LongHairFroBand>
+        <LongHairNotTooLong uid={this.props.uid}>{this.props.children}</LongHairNotTooLong>
+        <LongHairShavedSides uid={this.props.uid}>{this.props.children}</LongHairShavedSides>
+        <LongHairMiaWallace uid={this.props.uid}>{this.props.children}</LongHairMiaWallace>
+        <LongHairStraight uid={this.props.uid}>{this.props.children}</LongHairStraight>
+        <LongHairStraight2 uid={this.props.uid}>{this.props.children}</LongHairStraight2>
+        <LongHairStraightStrand uid={this.props.uid}>{this.props.children}</LongHairStraightStrand>
+        <ShortHairDreads01 uid={this.props.uid}>{this.props.children}</ShortHairDreads01>
+        <ShortHairDreads02 uid={this.props.uid}>{this.props.children}</ShortHairDreads02>
+        <ShortHairFrizzle uid={this.props.uid}>{this.props.children}</ShortHairFrizzle>
+        <ShortHairShaggy uid={this.props.uid}>{this.props.children}</ShortHairShaggy>
+        <ShortHairShaggyMullet uid={this.props.uid}>{this.props.children}</ShortHairShaggyMullet>
+        <ShortHairShortCurly uid={this.props.uid}>{this.props.children}</ShortHairShortCurly>
+        <ShortHairShortFlat uid={this.props.uid}>{this.props.children}</ShortHairShortFlat>
+        <ShortHairShortRound uid={this.props.uid}>{this.props.children}</ShortHairShortRound>
+        <ShortHairShortWaved uid={this.props.uid}>{this.props.children}</ShortHairShortWaved>
+        <ShortHairSides uid={this.props.uid}>{this.props.children}</ShortHairSides>
+        <ShortHairTheCaesar uid={this.props.uid}>{this.props.children}</ShortHairTheCaesar>
+        <ShortHairTheCaesarSidePart uid={this.props.uid}>{this.props.children}</ShortHairTheCaesarSidePart>
       </Selector>
     )
   }

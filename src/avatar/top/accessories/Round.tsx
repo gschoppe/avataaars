@@ -1,17 +1,19 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
 
-export default class Round extends React.Component {
+export interface Props {
+  uid: string
+}
+
+export default class Round extends React.Component<Props> {
   static optionValue = 'Round'
 
-  private path1 = uniqueId('react-path-')
-  private filter1 = uniqueId('react-filter-')
-
   render () {
-    const { path1, filter1 } = this
+    const path1 = `${this.props.uid}-accessories-path1`
+    const filter1 = `${this.props.uid}-accessories-filter1`
+    
     return (
       <g
-        id='Top/_Resources/Round'
+        id={`${this.props.uid}-Top/Accewssories/Round`}
         fill='none'
         transform='translate(62.000000, 85.000000)'>
         <defs>
@@ -39,7 +41,7 @@ export default class Round extends React.Component {
             />
           </filter>
         </defs>
-        <g id='Lennon-Glasses'>
+        <g id={`${this.props.uid}-Lennon-Glasses`}>
           <use
             fill='black'
             fillOpacity='1'

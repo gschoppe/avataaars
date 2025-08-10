@@ -1,22 +1,26 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
 
 import FacialHair from './facialHair'
 import HatColor from './HatColor'
 
-export default class WinterHat1 extends React.Component {
+export interface Props {
+  uid: string
+  children?: React.ReactNode
+}
+
+export default class WinterHat1 extends React.Component<Props> {
   static optionValue = 'WinterHat1'
-  private filter1 = uniqueId('react-filter-')
-  private mask1 = uniqueId('react-mask-')
-  private mask2 = uniqueId('react-mask-')
-  private path1 = uniqueId('react-path-')
-  private path2 = uniqueId('react-path-')
-  private path3 = uniqueId('react-path-')
 
   render() {
-    const { filter1, mask1, mask2, path1, path2, path3 } = this
+    const path1 = `${this.props.uid}-top-path1`
+    const path2 = `${this.props.uid}-top-path2`
+    const path3 = `${this.props.uid}-top-path3`
+    const mask1 = `${this.props.uid}-top-mask1`
+    const hatColorMask = `${this.props.uid}-Hat-Color-Mask`
+    const filter1 = `${this.props.uid}-top-filter1`
+    
     return (
-      <g id="Top">
+      <g id={`${this.props.uid}-Top`}>
         <defs>
           <rect id={path3} x="0" y="0" width="264" height="280" />
           <path
@@ -47,27 +51,26 @@ export default class WinterHat1 extends React.Component {
         <mask id={mask1} fill="white">
           <use xlinkHref={'#' + path3} />
         </mask>
-        <g id="Mask" />
         <g
-          id="Top/Accessories/Winter-Hat-1"
+          id={`${this.props.uid}-Top/Accessories/Winter-Hat-1`}
           transform="translate(-1.000000, 0.000000)">
           <g
-            id="hat"
+            id={`${this.props.uid}-Hat`}
             strokeWidth="1"
             fillRule="evenodd"
             transform="translate(63.000000, 20.000000)">
             <path
               d="M1,48 L23.6714286,48 L23.6714286,153.664286 C23.6714286,159.924828 18.5962564,165 12.3357143,165 C6.07517216,165 1,159.924828 1,153.664286 L1,48 Z M116.328571,48 L139,48 L139,153.664286 C139,159.924828 133.924828,165 127.664286,165 C121.403744,165 116.328571,159.924828 116.328571,153.664286 L116.328571,48 Z"
-              id="inside"
+              id={`${this.props.uid}-Hat-Inside`}
               fill="#F4F4F4"
             />
-            <mask id={mask2} fill="white">
+            <mask id={hatColorMask} fill="white">
               <use xlinkHref={'#' + path1} />
             </mask>
-            <use id="hat-mask" fill="#D8D8D8" xlinkHref={'#' + path1} />
-            <HatColor maskID={mask2} defaultColor="Red" />
+            <use id={`${this.props.uid}-hat-mask`} fill="#D8D8D8" xlinkHref={'#' + path1} />
+            <HatColor uid={this.props.uid} defaultColor="Red" />
           </g>
-          <g id="hat-front">
+          <g id={`${this.props.uid}-hat-front`}>
             <use
               fill="black"
               fillOpacity="1"
@@ -76,7 +79,7 @@ export default class WinterHat1 extends React.Component {
             />
             <use fill="#F4F4F4" fillRule="evenodd" xlinkHref={'#' + path2} />
           </g>
-          <FacialHair />
+          <FacialHair uid={this.props.uid} />
           {this.props.children}
         </g>
       </g>

@@ -1,20 +1,21 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
-
 import Colors from './Colors'
 import Graphics from './Graphics'
 
-export default class GraphicShirt extends React.Component {
+export interface Props {
+  uid: string
+}
+
+export default class GraphicShirt extends React.Component<Props> {
   static optionValue = 'GraphicShirt'
 
-  private path1 = uniqueId('react-path-')
-  private mask1 = uniqueId('react-mask-')
-
   render () {
-    const { path1, mask1 } = this
+    const path1 = `${this.props.uid}-Clothing-path1`
+    const clothingColorMask = `${this.props.uid}-Clothing-Color-Mask`
+    
     return (
       <g
-        id='Clothing/Graphic-Shirt'
+        id={`${this.props.uid}-Clothing/Graphic-Shirt`}
         transform='translate(0.000000, 170.000000)'>
         <defs>
           <path
@@ -22,17 +23,17 @@ export default class GraphicShirt extends React.Component {
             id={path1}
           />
         </defs>
-        <mask id={mask1} fill='white'>
+        <mask id={clothingColorMask} fill='white'>
           <use xlinkHref={'#' + path1} />
         </mask>
         <use
-          id='Clothes'
+          id={`${this.props.uid}-Clothes`}
           fill='#E6E6E6'
           fillRule='evenodd'
           xlinkHref={'#' + path1}
         />
-        <Colors maskID={mask1} />
-        <Graphics maskID={mask1} />
+        <Colors uid={this.props.uid} />
+        <Graphics uid={this.props.uid} />
       </g>
     )
   }

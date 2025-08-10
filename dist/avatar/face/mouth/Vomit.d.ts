@@ -1,9 +1,8 @@
 import * as React from 'react';
-export default class Vomit extends React.Component {
+export interface Props {
+    uid: string;
+}
+export default class Vomit extends React.Component<Props> {
     static optionValue: string;
-    private path1;
-    private path2;
-    private mask1;
-    private filter1;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }

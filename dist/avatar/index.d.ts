@@ -1,19 +1,14 @@
-import * as React from 'react';
-export declare enum AvatarStyle {
-    Circle = "Circle",
-    Transparent = "Transparent"
-}
+import React from 'react';
 export interface Props {
-    avatarStyle: AvatarStyle;
     className?: string;
     style?: React.CSSProperties;
 }
+export interface AvatarState {
+    uid: string;
+}
 export default class Avatar extends React.Component<Props> {
-    private path1;
-    private path2;
-    private path3;
-    private mask1;
-    private mask2;
-    private mask3;
-    render(): JSX.Element;
+    state: AvatarState;
+    constructor(props: any);
+    componentDidMount(): void;
+    render(): React.JSX.Element;
 }

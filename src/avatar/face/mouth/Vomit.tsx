@@ -1,18 +1,20 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
 
-export default class Vomit extends React.Component {
+export interface Props {
+  uid: string
+}
+
+export default class Vomit extends React.Component<Props> {
   static optionValue = 'Vomit'
 
-  private path1 = uniqueId('react-path-')
-  private path2 = uniqueId('react-path-')
-  private mask1 = uniqueId('react-mask-')
-  private filter1 = uniqueId('react-filter-')
-
   render () {
-    const { path1, path2, filter1, mask1 } = this
+    const path1 = `${this.props.uid}-Mouth-path1`
+    const path2 = `${this.props.uid}-Mouth-path2`
+    const mask1 = `${this.props.uid}-Mouth-mask1`
+    const filter1 = `${this.props.uid}-Mouth-filter1`
+    
     return (
-      <g id='Mouth/Vomit' transform='translate(2.000000, 52.000000)'>
+      <g id={`${this.props.uid}-Mouth/Vomit`} transform='translate(2.000000, 52.000000)'>
         <defs>
           <path
             d='M34.0082051,12.6020819 C35.1280248,23.0929366 38.2345159,31.9944054 53.9961505,31.9999974 C69.757785,32.0055894 72.9169073,23.0424631 73.9942614,12.5047938 C74.0809675,11.6567158 73.1738581,10.9999965 72.0369872,10.9999965 C65.3505138,10.9999965 62.6703194,12.4951994 53.9894323,12.4999966 C45.3085452,12.5047938 40.7567994,10.9999965 36.0924943,10.9999965 C34.9490269,10.9999965 33.8961688,11.5524868 34.0082051,12.6020819 Z'
@@ -57,7 +59,7 @@ export default class Vomit extends React.Component {
           />
         </mask>
         <use
-          id='Mouth'
+          id={`${this.props.uid}-Mouth`}
           fillOpacity='0.699999988'
           fill='#000000'
           fillRule='evenodd'
@@ -65,7 +67,7 @@ export default class Vomit extends React.Component {
           xlinkHref={'#' + path1}
         />
         <rect
-          id='Teeth'
+          id={`${this.props.uid}-Teeth`}
           fill='#FFFFFF'
           fillRule='evenodd'
           mask={`url(#${mask1})`}
@@ -75,7 +77,7 @@ export default class Vomit extends React.Component {
           height='16'
           rx='5'
         />
-        <g id='Vomit-Stuff'>
+        <g id={`${this.props.uid}-Vomit`}>
           <use fill='#88C553' fillRule='evenodd' xlinkHref={'#' + path2} />
           <use
             fill='black'

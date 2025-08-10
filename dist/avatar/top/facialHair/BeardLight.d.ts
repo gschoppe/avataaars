@@ -1,7 +1,8 @@
 import * as React from 'react';
-export default class BeardLight extends React.Component {
+export interface Props {
+    uid: string;
+}
+export default class BeardLight extends React.Component<Props> {
     static optionValue: string;
-    private mask1;
-    private path1;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }

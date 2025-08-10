@@ -1,20 +1,24 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
 
 import FacialHair from './facialHair'
 import HairColor from './HairColor'
 
-export default class LongHairCurly extends React.Component {
+export interface Props {
+  uid: string
+  children?: React.ReactNode
+}
+
+export default class LongHairCurly extends React.Component<Props> {
   static optionValue = 'LongHairCurly'
-  private mask1 = uniqueId('react-mask-')
-  private mask2 = uniqueId('react-mask-')
-  private path1 = uniqueId('react-path-')
-  private path2 = uniqueId('react-path-')
 
   render () {
-    const { mask1, mask2, path1, path2 } = this
+    const path1 = `${this.props.uid}-top-path1`
+    const path2 = `${this.props.uid}-top-path2`
+    const mask1 = `${this.props.uid}-top-mask1`
+    const hairColorMask = `${this.props.uid}-Hair-Color-Mask`
+
     return (
-      <g id='Top' strokeWidth='1' fillRule='evenodd'>
+      <g id={`${this.props.uid}-Top`} strokeWidth='1' fillRule='evenodd'>
         <defs>
           <rect id={path1} x='0' y='0' width='264' height='280' />
           <path
@@ -25,29 +29,29 @@ export default class LongHairCurly extends React.Component {
         <mask id={mask1} fill='white'>
           <use xlinkHref={'#' + path1} />
         </mask>
-        <g id='Mask' />
-        <g id='Top/Long-Hair/Curly' mask={`url(#${mask1})`}>
+        <g id={`${this.props.uid}-Mask`} />
+        <g id={`${this.props.uid}-Top/Long-Hair/Curly`} mask={`url(#${mask1})`}>
           <g transform='translate(-1.000000, 0.000000)'>
             <path
               d='M105.984735,27.7643628 C114.013215,26.6267967 122.796163,26 132,26 C142.358003,26 152.182939,26.7938545 160.999342,28.2161842 C183.451688,38.7497687 199,61.559133 199,88 L199,105.044138 C187.461887,104.672508 173.831239,90.7644306 166.449951,70.7992877 C156.312295,72.8351061 144.547256,74 132,74 C120.038684,74 108.788234,72.9413637 98.9808476,71.0787685 C91.6758772,90.6271291 78.3831001,104.301811 67,105.021902 L67,88 L67,88 C67,61.1745453 83.0039076,38.0870034 105.984735,27.7643628 Z'
-              id='Shadow'
+              id={`${this.props.uid}-Shadow`}
               fillOpacity='0.16'
               fill='#000000'
               fillRule='evenodd'
             />
             <g
-              id='Hair'
+              id={`${this.props.uid}-Hair`}
               strokeWidth='1'
               fill='none'
               fillRule='evenodd'
               transform='translate(25.000000, 10.000000)'>
-              <mask id={mask2} fill='white'>
+              <mask id={hairColorMask} fill='white'>
                 <use xlinkHref={'#' + path2} />
               </mask>
-              <use id='Curly!' fill='#314756' xlinkHref={'#' + path2} />
-              <HairColor maskID={mask2} />
+              <use id={`${this.props.uid}-Curly!`} fill='#314756' xlinkHref={'#' + path2} />
+              <HairColor uid={this.props.uid} />
             </g>
-            <FacialHair />
+            <FacialHair uid={this.props.uid} />
             {this.props.children}
           </g>
         </g>

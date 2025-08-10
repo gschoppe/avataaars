@@ -1,7 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 export interface Props {
-    maskID: string;
+    uid: string;
 }
 export default class Skin extends React.Component<Props> {
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }

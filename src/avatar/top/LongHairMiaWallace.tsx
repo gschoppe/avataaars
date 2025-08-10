@@ -1,20 +1,24 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
 
 import FacialHair from './facialHair'
 import HairColor from './HairColor'
 
-export default class LongHairMiaWallace extends React.Component {
+export interface Props {
+  uid: string
+  children?: React.ReactNode
+}
+
+export default class LongHairMiaWallace extends React.Component<Props> {
   static optionValue = 'LongHairMiaWallace'
-  private mask1 = uniqueId('react-mask-')
-  private mask2 = uniqueId('react-mask-')
-  private path1 = uniqueId('react-path-')
-  private path2 = uniqueId('react-path-')
 
   render () {
-    const { mask1, mask2, path1, path2 } = this
+    const path1 = `${this.props.uid}-top-path1`
+    const path2 = `${this.props.uid}-top-path2`
+    const mask1 = `${this.props.uid}-top-mask1`
+    const hairColorMask = `${this.props.uid}-Hair-Color-Mask`
+    
     return (
-      <g id='Top' strokeWidth='1' fillRule='evenodd'>
+      <g id={`${this.props.uid}-Top`} strokeWidth='1' fillRule='evenodd'>
         <defs>
           <rect id={path1} x='0' y='0' width='264' height='280' />
           <path
@@ -25,29 +29,28 @@ export default class LongHairMiaWallace extends React.Component {
         <mask id={mask1} fill='white'>
           <use xlinkHref={'#' + path1} />
         </mask>
-        <g id='Mask' />
-        <g id='Top/Long-Hair/Mia-Wallace' mask={`url(#${mask1})`}>
+        <g id={`${this.props.uid}-Top/Long-Hair/Mia-Wallace`} mask={`url(#${mask1})`}>
           <g transform='translate(-1.000000, 0.000000)'>
             <path
               d='M69.0330562,76.212888 C81.9708809,43.1292208 95.6458945,26.5873873 110.058097,26.5873873 C110.596882,26.5873873 139.311316,26.3494141 158.112657,26.226792 C178.767149,35.5853581 193,55.3036503 193,78.114622 L193,93 L110.058097,93 L107.252975,69.820435 L103.373552,93 L69,93 L69,78.114622 C69,77.478246 69.0110772,76.844277 69.0330621,76.2128728 L69.0330562,76.212888 Z'
-              id='Shadow'
+              id={`${this.props.uid}-Shadow`}
               fillOpacity='0.16'
               fill='#000000'
               fillRule='evenodd'
             />
             <g
-              id='Hair'
+              id={`${this.props.uid}-Hair`}
               strokeWidth='1'
               fill='none'
               fillRule='evenodd'
               transform='translate(40.000000, 19.000000)'>
-              <mask id={mask2} fill='white'>
+              <mask id={hairColorMask} fill='white'>
                 <use xlinkHref={'#' + path2} />
               </mask>
-              <use id='Combined-Shape' fill='#E6E6E6' xlinkHref={'#' + path2} />
-              <HairColor maskID={mask2} />
+              <use id={`${this.props.uid}-Combined-Shape`} fill='#E6E6E6' xlinkHref={'#' + path2} />
+              <HairColor uid={this.props.uid} />
             </g>
-            <FacialHair />
+            <FacialHair uid={this.props.uid} />
             {this.props.children}
           </g>
         </g>

@@ -1,3 +1,4 @@
+import { createContext } from 'react'
 import Option from './Option'
 
 export interface OptionState {
@@ -9,7 +10,9 @@ export interface OptionState {
 
 export type OptionContextState = { [index: string]: OptionState }
 
-export default class OptionContext {
+export const OptionsContext = createContext<OptionContext | null>(null)
+
+export class OptionContext {
   private stateChangeListeners = new Set<Function>()
   private valueChangeListeners = new Set<Function>()
   private _state: OptionContextState = {}

@@ -1,7 +1,7 @@
 import * as React from 'react';
 export interface Props {
-    maskID: string;
+    uid: string;
 }
 export default class HairColor extends React.Component<Props> {
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }

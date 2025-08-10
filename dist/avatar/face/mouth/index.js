@@ -36,18 +36,18 @@ var Mouth = /** @class */ (function (_super) {
     }
     Mouth.prototype.render = function () {
         return (React.createElement(options_1.Selector, { defaultOption: Default_1.default, option: options_1.MouthOption },
-            React.createElement(Concerned_1.default, null),
-            React.createElement(Default_1.default, null),
-            React.createElement(Disbelief_1.default, null),
-            React.createElement(Eating_1.default, null),
-            React.createElement(Grimace_1.default, null),
-            React.createElement(Sad_1.default, null),
-            React.createElement(ScreamOpen_1.default, null),
-            React.createElement(Serious_1.default, null),
-            React.createElement(Smile_1.default, null),
-            React.createElement(Tongue_1.default, null),
-            React.createElement(Twinkle_1.default, null),
-            React.createElement(Vomit_1.default, null)));
+            React.createElement(Concerned_1.default, { uid: this.props.uid }),
+            React.createElement(Default_1.default, { uid: this.props.uid }),
+            React.createElement(Disbelief_1.default, { uid: this.props.uid }),
+            React.createElement(Eating_1.default, { uid: this.props.uid }),
+            React.createElement(Grimace_1.default, { uid: this.props.uid }),
+            React.createElement(Sad_1.default, { uid: this.props.uid }),
+            React.createElement(ScreamOpen_1.default, { uid: this.props.uid }),
+            React.createElement(Serious_1.default, { uid: this.props.uid }),
+            React.createElement(Smile_1.default, { uid: this.props.uid }),
+            React.createElement(Tongue_1.default, { uid: this.props.uid }),
+            React.createElement(Twinkle_1.default, { uid: this.props.uid }),
+            React.createElement(Vomit_1.default, { uid: this.props.uid })));
     };
     return Mouth;
 }(React.Component));

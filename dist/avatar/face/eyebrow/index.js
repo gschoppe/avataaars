@@ -36,18 +36,18 @@ var Eyebrow = /** @class */ (function (_super) {
     }
     Eyebrow.prototype.render = function () {
         return (React.createElement(options_1.Selector, { defaultOption: Default_1.default, option: options_1.EyebrowOption },
-            React.createElement(Angry_1.default, null),
-            React.createElement(AngryNatural_1.default, null),
-            React.createElement(Default_1.default, null),
-            React.createElement(DefaultNatural_1.default, null),
-            React.createElement(FlatNatural_1.default, null),
-            React.createElement(RaisedExcited_1.default, null),
-            React.createElement(RaisedExcitedNatural_1.default, null),
-            React.createElement(SadConcerned_1.default, null),
-            React.createElement(SadConcernedNatural_1.default, null),
-            React.createElement(UnibrowNatural_1.default, null),
-            React.createElement(UpDown_1.default, null),
-            React.createElement(UpDownNatural_1.default, null)));
+            React.createElement(Angry_1.default, { uid: this.props.uid }),
+            React.createElement(AngryNatural_1.default, { uid: this.props.uid }),
+            React.createElement(Default_1.default, { uid: this.props.uid }),
+            React.createElement(DefaultNatural_1.default, { uid: this.props.uid }),
+            React.createElement(FlatNatural_1.default, { uid: this.props.uid }),
+            React.createElement(RaisedExcited_1.default, { uid: this.props.uid }),
+            React.createElement(RaisedExcitedNatural_1.default, { uid: this.props.uid }),
+            React.createElement(SadConcerned_1.default, { uid: this.props.uid }),
+            React.createElement(SadConcernedNatural_1.default, { uid: this.props.uid }),
+            React.createElement(UnibrowNatural_1.default, { uid: this.props.uid }),
+            React.createElement(UpDown_1.default, { uid: this.props.uid }),
+            React.createElement(UpDownNatural_1.default, { uid: this.props.uid })));
     };
     return Eyebrow;
 }(React.Component));

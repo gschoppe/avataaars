@@ -1,37 +1,29 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
 
 import FacialHair from './facialHair'
 import HatColor from './HatColor'
 
-export default class WinterHat4 extends React.Component {
+export interface Props {
+  uid: string
+  children?: React.ReactNode
+}
+
+export default class WinterHat4 extends React.Component<Props> {
   static optionValue = 'WinterHat4'
-  private filter1 = uniqueId('react-filter-')
-  private mask1 = uniqueId('react-mask-')
-  private mask2 = uniqueId('react-mask-')
-  private mask3 = uniqueId('react-mask-')
-  private mask4 = uniqueId('react-mask-')
-  private path1 = uniqueId('react-path-')
-  private path2 = uniqueId('react-path-')
-  private path3 = uniqueId('react-path-')
-  private path4 = uniqueId('react-path-')
-  private path5 = uniqueId('react-path-')
 
   render () {
-    const {
-      filter1,
-      mask1,
-      mask2,
-      mask3,
-      mask4,
-      path1,
-      path2,
-      path3,
-      path4,
-      path5
-    } = this
+    const path1 = `${this.props.uid}-top-path1`
+    const path2 = `${this.props.uid}-top-path2`
+    const path3 = `${this.props.uid}-top-path3`
+    const path4 = `${this.props.uid}-top-path4`
+    const path5 = `${this.props.uid}-top-path5`
+    const mask1 = `${this.props.uid}-top-mask1`
+    const mask2 = `${this.props.uid}-top-mask2`
+    const hatColorMask = `${this.props.uid}-Hat-Color-Mask`
+    const filter1 = `${this.props.uid}-top-filter1`
+    
     return (
-      <g id='Top'>
+      <g id={`${this.props.uid}-Top`}>
         <defs>
           <rect id={path5} x='0' y='0' width='264' height='280' />
           <path
@@ -74,42 +66,41 @@ export default class WinterHat4 extends React.Component {
         <mask id={mask1} fill='white'>
           <use xlinkHref={'#' + path5} />
         </mask>
-        <g id='Mask' />
         <g
-          id='Top/Accessories/Winter-Hat-4'
+          id={`${this.props.uid}-Top/Accessories/Winter-Hat-4`}
           transform='translate(-1.000000, 0.000000)'
         >
           <g
-            id='hat'
+            id={`${this.props.uid}-hat`}
             strokeWidth='1'
             fillRule='evenodd'
             transform='translate(65.000000, 4.000000)'
           >
-            <mask id={mask2} fill='white'>
+            <mask id={hatColorMask} fill='white'>
               <use xlinkHref={'#' + path1} />
             </mask>
-            <use id='hat-mask' fill='#D8D8D8' xlinkHref={'#' + path1} />
-            <HatColor maskID={mask2} defaultColor='Red' />
-            <mask id={mask3} fill='white'>
+            <use id={`${this.props.uid}-hat-mask`} fill='#D8D8D8' xlinkHref={'#' + path1} />
+            <HatColor uid={this.props.uid} defaultColor='Red' />
+            <mask id={hatColorMask} fill='white'>
               <use xlinkHref={'#' + path2} />
             </mask>
             <use
-              id='shadow'
+              id={`${this.props.uid}-shadow`}
               fillOpacity='0.24'
               fill='#000000'
               xlinkHref={'#' + path2}
             />
-            <mask id={mask4} fill='white'>
+            <mask id={mask2} fill='white'>
               <use xlinkHref={'#' + path3} />
             </mask>
             <use
-              id='light'
+              id={`${this.props.uid}-light`}
               fillOpacity='0.300000012'
               fill='#FFFFFF'
               xlinkHref={'#' + path3}
             />
           </g>
-          <g id='hat-front'>
+          <g id={`${this.props.uid}-hat-front`}>
             <use
               fill='black'
               fillOpacity='1'
@@ -118,7 +109,7 @@ export default class WinterHat4 extends React.Component {
             />
             <use fill='#F4F4F4' fillRule='evenodd' xlinkHref={'#' + path4} />
           </g>
-          <FacialHair />
+          <FacialHair uid={this.props.uid} />
           {this.props.children}
         </g>
       </g>

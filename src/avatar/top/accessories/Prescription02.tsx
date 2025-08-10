@@ -1,16 +1,18 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
 
-export default class Prescription02 extends React.Component {
+export interface Props {
+  uid: string
+}
+
+export default class Prescription02 extends React.Component<Props> {
   static optionValue = 'Prescription02'
 
-  private filter1 = uniqueId('react-filter-')
-
   render () {
-    const { filter1 } = this
+    const filter1 = `${this.props.uid}-accessories-filter1`
+    
     return (
       <g
-        id='Top/_Resources/Prescription-02'
+        id={`${this.props.uid}-Top/Accessories/Prescription-02`}
         fill='none'
         transform='translate(62.000000, 85.000000)'
         strokeWidth='1'>

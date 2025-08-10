@@ -1,3 +1,6 @@
 {
-	"recommendations": [ "remimarsal.prettier-now", "eg2.tslint" ]
+	"recommendations": [
+		"remimarsal.prettier-now",
+		"dbaeumer.vscode-eslint"
+	]
 }

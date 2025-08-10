@@ -14,22 +14,26 @@ import Twinkle from './Twinkle'
 import Vomit from './Vomit'
 import { MouthOption, Selector } from '../../../options'
 
-export default class Mouth extends React.Component {
+export interface Props {
+  uid: string
+}
+
+export default class Mouth extends React.Component<Props> {
   render () {
     return (
       <Selector defaultOption={Default} option={MouthOption}>
-        <Concerned />
-        <Default />
-        <Disbelief />
-        <Eating />
-        <Grimace />
-        <Sad />
-        <ScreamOpen />
-        <Serious />
-        <Smile />
-        <Tongue />
-        <Twinkle />
-        <Vomit />
+        <Concerned uid={this.props.uid} />
+        <Default uid={this.props.uid} />
+        <Disbelief uid={this.props.uid} />
+        <Eating uid={this.props.uid} />
+        <Grimace uid={this.props.uid} />
+        <Sad uid={this.props.uid} />
+        <ScreamOpen uid={this.props.uid} />
+        <Serious uid={this.props.uid} />
+        <Smile uid={this.props.uid} />
+        <Tongue uid={this.props.uid} />
+        <Twinkle uid={this.props.uid} />
+        <Vomit uid={this.props.uid} />
       </Selector>
     )
   }

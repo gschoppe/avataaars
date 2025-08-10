@@ -1,21 +1,25 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
-
 import FacialHair from './facialHair'
 import HatColor from './HatColor'
 
-export default class WinterHat2 extends React.Component {
+export interface Props {
+  uid: string
+  children?: React.ReactNode
+}
+
+export default class WinterHat2 extends React.Component<Props> {
   static optionValue = 'WinterHat2'
-  private mask1 = uniqueId('react-mask-')
-  private mask2 = uniqueId('react-mask-')
-  private path1 = uniqueId('react-path-')
-  private path2 = uniqueId('react-path-')
-  private path3 = uniqueId('react-path-')
 
   render () {
-    const { mask1, mask2, path1, path2, path3 } = this
+    const path1 = `${this.props.uid}-top-path1`
+    const path2 = `${this.props.uid}-top-path2`
+    const path3 = `${this.props.uid}-top-path3`
+    const mask1 = `${this.props.uid}-top-mask1`
+    const hatColorMask = `${this.props.uid}-Hat-Color-Mask`
+    
+
     return (
-      <g id='Top'>
+      <g id={`${this.props.uid}-Top`}>
         <defs>
           <rect id={path3} x='0' y='0' width='264' height='280' />
           <path
@@ -30,39 +34,38 @@ export default class WinterHat2 extends React.Component {
         <mask id={mask1} fill='white'>
           <use xlinkHref={'#' + path3} />
         </mask>
-        <g id='Mask' />
         <g
-          id='Top/Accessories/Winter-Hat-2'
+          id={`${this.props.uid}-Top/Accessories/Winter-Hat-2`}
           transform='translate(-1.000000, 0.000000)'
         >
           <g
-            id='hat'
+            id={`${this.props.uid}-Hat`}
             strokeWidth='1'
             fillRule='evenodd'
             transform='translate(61.000000, 0.000000)'
           >
             <g
-              id='string'
+              id={`${this.props.uid}-Hat-String-Left`}
               transform='translate(0.000000, 176.000000)'
               fill='#F4F4F4'
             >
-              <circle id='puff' cx='9' cy='65' r='9' />
+              <circle id={`${this.props.uid}-Hat-Puff-Left`} cx='9' cy='65' r='9' />
               <rect x='8' y='0' width='2' height='58' />
             </g>
             <g
-              id='string'
+              id={`${this.props.uid}-Hat-String-Right`}
               transform='translate(126.000000, 168.000000)'
               fill='#F4F4F4'
             >
-              <circle id='puff' cx='9' cy='65' r='9' />
+              <circle id={`${this.props.uid}-Hat-Puff-Right`} cx='9' cy='65' r='9' />
               <rect x='8' y='0' width='2' height='58' />
             </g>
-            <circle id='puff' fill='#F4F4F4' cx='72' cy='20' r='20' />
-            <mask id={mask2} fill='white'>
+            <circle id={`${this.props.uid}-Hat-Puff-Top`} fill='#F4F4F4' cx='72' cy='20' r='20' />
+            <mask id={hatColorMask} fill='white'>
               <use xlinkHref={'#' + path1} />
             </mask>
-            <use id='Combined-Shape' fill='#F4F4F4' xlinkHref={'#' + path1} />
-            <HatColor maskID={mask2} defaultColor='Blue01' />
+            <use id={`${this.props.uid}-Hat-Combined-Shape`} fill='#F4F4F4' xlinkHref={'#' + path1} />
+            <HatColor uid={this.props.uid} defaultColor='Blue01' />
             <rect
               id='color-dark'
               fillOpacity='0.2'
@@ -71,43 +74,43 @@ export default class WinterHat2 extends React.Component {
               y='21'
               width='146'
               height='46'
-              mask={`url(#${mask2})`}
+              mask={`url(#${hatColorMask})`}
             />
             <g
-              id='light-triangles'
+              id={`${this.props.uid}-Hat-Light-Triangles`}
               transform='translate(29.000000, 32.000000)'
               fill='#FFFFFF'
               fillOpacity='0.5'
             >
               <polygon
-                id='Triangle'
+                id={`${this.props.uid}-Hat-Triangle1`}
                 transform='translate(12.500000, 9.000000) rotate(180.000000) translate(-12.500000, -9.000000) '
                 points='12.5 0 25 18 0 18'
               />
               <polygon
-                id='Triangle'
+                id={`${this.props.uid}-Hat-Triangle2`}
                 transform='translate(43.500000, 9.000000) rotate(180.000000) translate(-43.500000, -9.000000) '
                 points='43.5 0 56 18 31 18'
               />
               <polygon
-                id='Triangle'
+                id={`${this.props.uid}-Hat-Triangle3`}
                 transform='translate(74.500000, 9.000000) rotate(180.000000) translate(-74.500000, -9.000000) '
                 points='74.5 0 87 18 62 18'
               />
             </g>
             <g
-              id='dark-triangles'
+              id={`${this.props.uid}-Hat-Dark-Triangles`}
               transform='translate(13.000000, 41.000000)'
               fill='#000000'
               fillOpacity='0.5'
             >
-              <polygon id='Triangle' points='12.5 0 25 18 0 18' />
-              <polygon id='Triangle' points='43.5 0 56 18 31 18' />
-              <polygon id='Triangle' points='74.5 0 87 18 62 18' />
-              <polygon id='Triangle' points='105.5 0 118 18 93 18' />
+              <polygon id={`${this.props.uid}-Hat-Triangle4`} points='12.5 0 25 18 0 18' />
+              <polygon id={`${this.props.uid}-Hat-Triangle5`} points='43.5 0 56 18 31 18' />
+              <polygon id={`${this.props.uid}-Hat-Triangle6`} points='74.5 0 87 18 62 18' />
+              <polygon id={`${this.props.uid}-Hat-Triangle7`} points='105.5 0 118 18 93 18' />
             </g>
           </g>
-          <FacialHair />
+          <FacialHair uid={this.props.uid} />
           {this.props.children}
         </g>
       </g>

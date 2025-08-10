@@ -16,20 +16,17 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var lodash_1 = require("lodash");
 var facialHair_1 = require("./facialHair");
 var NoHair = /** @class */ (function (_super) {
     __extends(NoHair, _super);
     function NoHair() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.filter1 = lodash_1.uniqueId('react-filter-');
-        _this.mask1 = lodash_1.uniqueId('react-mask-');
-        _this.path1 = lodash_1.uniqueId('react-path-');
-        return _this;
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     NoHair.prototype.render = function () {
-        var _a = this, filter1 = _a.filter1, mask1 = _a.mask1, path1 = _a.path1;
-        return (React.createElement("g", { id: 'Top', strokeWidth: '1', fillRule: 'evenodd' },
+        var path1 = "".concat(this.props.uid, "-top-path1");
+        var mask1 = "".concat(this.props.uid, "-top-mask1");
+        var filter1 = "".concat(this.props.uid, "-top-filter1");
+        return (React.createElement("g", { id: "".concat(this.props.uid, "-Top"), strokeWidth: '1', fillRule: 'evenodd' },
             React.createElement("defs", null,
                 React.createElement("rect", { id: path1, x: '0', y: '0', width: '264', height: '280' }),
                 React.createElement("filter", { x: '-0.8%', y: '-2.0%', width: '101.5%', height: '108.0%', filterUnits: 'objectBoundingBox', id: filter1 },
@@ -40,10 +37,9 @@ var NoHair = /** @class */ (function (_super) {
                         React.createElement("feMergeNode", { in: 'SourceGraphic' })))),
             React.createElement("mask", { id: mask1, fill: 'white' },
                 React.createElement("use", { xlinkHref: '#' + path1 })),
-            React.createElement("g", { id: 'Mask' }),
-            React.createElement("g", { id: 'Top/No-Hair', mask: "url(#" + mask1 + ")" },
+            React.createElement("g", { id: "".concat(this.props.uid, "-Top/No-Hair"), mask: "url(#".concat(mask1, ")") },
                 React.createElement("g", { transform: 'translate(-1.000000, 0.000000)' },
-                    React.createElement(facialHair_1.default, null),
+                    React.createElement(facialHair_1.default, { uid: this.props.uid }),
                     this.props.children))));
     };
     NoHair.optionValue = 'NoHair';

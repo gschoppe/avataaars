@@ -3,7 +3,7 @@ import * as React from 'react'
 import { FacialHairColor, Selector } from '../../../options'
 
 export interface Props {
-  maskID: string
+  uid: string
 }
 
 function makeColor (name: string, color: string) {
@@ -11,10 +11,10 @@ function makeColor (name: string, color: string) {
     render () {
       return (
         <g
-          id='Color/Hair/Brown'
-          mask={`url(#${this.props.maskID})`}
+          id={`${this.props.uid}-Color/Hair/${name}`}
+          mask={`url(#${this.props.uid}-Facial-Hair-Mask)`}
           fill={color}>
-          <g transform='translate(-32.000000, 0.000000)' id='Color'>
+          <g transform='translate(-32.000000, 0.000000)' id={`${this.props.uid}-Facial-Hair-Color`}>
             <rect x='0' y='0' width='264' height='244' />
           </g>
         </g>
@@ -41,15 +41,15 @@ export default class Colors extends React.Component<Props> {
   render () {
     return (
       <Selector option={FacialHairColor} defaultOption={BrownDark}>
-        <Auburn maskID={this.props.maskID} />
-        <Black maskID={this.props.maskID} />
-        <Blonde maskID={this.props.maskID} />
-        <BlondeGolden maskID={this.props.maskID} />
-        <Brown maskID={this.props.maskID} />
-        <BrownDark maskID={this.props.maskID} />
-        <Platinum maskID={this.props.maskID} />
-        <Red maskID={this.props.maskID} />
-        <SilverGray maskID={this.props.maskID} />
+        <Auburn uid={this.props.uid} />
+        <Black uid={this.props.uid} />
+        <Blonde uid={this.props.uid} />
+        <BlondeGolden uid={this.props.uid} />
+        <Brown uid={this.props.uid} />
+        <BrownDark uid={this.props.uid} />
+        <Platinum uid={this.props.uid} />
+        <Red uid={this.props.uid} />
+        <SilverGray uid={this.props.uid} />
       </Selector>
     )
   }

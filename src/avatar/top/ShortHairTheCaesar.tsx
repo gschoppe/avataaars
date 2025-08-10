@@ -1,22 +1,25 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
 
 import FacialHair from './facialHair'
 import HairColor from './HairColor'
 
-export default class ShortHairTheCaesar extends React.Component {
+export interface Props {
+  uid: string
+  children?: React.ReactNode
+}
+
+export default class ShortHairTheCaesar extends React.Component<Props> {
   static optionValue = 'ShortHairTheCaesar'
 
-  private filter1 = uniqueId('react-filter-')
-  private mask1 = uniqueId('react-mask-')
-  private mask2 = uniqueId('react-mask-')
-  private path1 = uniqueId('react-path-')
-  private path2 = uniqueId('react-path-')
-
   render () {
-    const { filter1, mask1, mask2, path1, path2 } = this
+    const path1 = `${this.props.uid}-top-path1`
+    const path2 = `${this.props.uid}-top-path2`
+    const filter1 = `${this.props.uid}-top-filter1`
+    const mask1 = `${this.props.uid}-top-mask1`
+    const hairColorMask = `${this.props.uid}-Hair-Color-Mask`
+    
     return (
-      <g id='Top' strokeWidth='1' fillRule='evenodd'>
+      <g id={`${this.props.uid}-Top`} strokeWidth='1' fillRule='evenodd'>
         <defs>
           <rect id={path1} x='0' y='0' width='264' height='280' />
           <path
@@ -51,20 +54,19 @@ export default class ShortHairTheCaesar extends React.Component {
         <mask id={mask1} fill='white'>
           <use xlinkHref={'#' + path1} />
         </mask>
-        <g id='Mask' />
-        <g id='Top/Short-Hair/The-Caesar' mask={`url(#${mask1})`}>
+        <g id={`${this.props.uid}-Top/Short-Hair/The-Caesar`} mask={`url(#${mask1})`}>
           <g transform='translate(-1.000000, 0.000000)'>
-            <FacialHair />
+            <FacialHair uid={this.props.uid} />
             <g
-              id='Hair'
+              id={`${this.props.uid}-Hair`}
               strokeWidth='1'
               fillRule='evenodd'
               transform='translate(75.000000, 34.000000)'>
-              <mask id={mask2} fill='white'>
+              <mask id={hairColorMask} fill='white'>
                 <use xlinkHref={'#' + path2} />
               </mask>
-              <use id='Caesar' fill='#28354B' xlinkHref={'#' + path2} />
-              <HairColor maskID={mask2} />
+              <use id={`${this.props.uid}-Caesar`} fill='#28354B' xlinkHref={'#' + path2} />
+              <HairColor uid={this.props.uid} />
             </g>
             {this.props.children}
           </g>

@@ -1,36 +1,29 @@
 import * as React from 'react'
-import { uniqueId } from 'lodash'
 
 import FacialHair from './facialHair'
 
-export default class LongHairFrida extends React.Component {
+export interface Props {
+  uid: string
+  children?: React.ReactNode
+}
+
+export default class LongHairFrida extends React.Component<Props> {
   static optionValue = 'LongHairFrida'
-  private filter1 = uniqueId('react-filter-')
-  private filter2 = uniqueId('react-filter-')
-  private filter3 = uniqueId('react-filter-')
-  private filter4 = uniqueId('react-filter-')
-  private filter5 = uniqueId('react-filter-')
-  private filter6 = uniqueId('react-filter-')
-  private filter7 = uniqueId('react-filter-')
-  private mask1 = uniqueId('react-mask-')
-  private path1 = uniqueId('react-path-')
-  private path2 = uniqueId('react-path-')
 
   render () {
-    const {
-      filter1,
-      filter2,
-      filter3,
-      filter4,
-      filter5,
-      filter6,
-      filter7,
-      mask1,
-      path1,
-      path2
-    } = this
+    const filter1 = `${this.props.uid}-top-filter1`
+    const filter2 = `${this.props.uid}-top-filter2`
+    const filter3 = `${this.props.uid}-top-filter3`
+    const filter4 = `${this.props.uid}-top-filter4`
+    const filter5 = `${this.props.uid}-top-filter5`
+    const filter6 = `${this.props.uid}-top-filter6`
+    const filter7 = `${this.props.uid}-top-filter7`
+    const hairColorMask = `${this.props.uid}-Hair-Color-Mask`
+    const path1 = `${this.props.uid}-top-path1`
+    const path2 = `${this.props.uid}-top-path2`
+    
     return (
-      <g id='Top' strokeWidth='1' fillRule='evenodd'>
+      <g id={`${this.props.uid}-Top`} strokeWidth='1' fillRule='evenodd'>
         <defs>
           <rect id={path2} x='0' y='0' width='264' height='280' />
           <filter
@@ -206,14 +199,13 @@ export default class LongHairFrida extends React.Component {
             id={path1}
           />
         </defs>
-        <mask id={mask1} fill='white'>
+        <mask id={hairColorMask} fill='white'>
           <use xlinkHref={'#' + path2} />
         </mask>
-        <g id='Mask' />
-        <g id='Top/Long-Hair/Frida' mask={`url(#${mask1})`}>
+        <g id={`${this.props.uid}-Top/Long-Hair/Frida`} mask={`url(#${hairColorMask})`}>
           <g transform='translate(-1.000000, 0.000000)'>
             <g
-              id='Cabello'
+              id={`${this.props.uid}-Cabello`}
               strokeWidth='1'
               fillRule='evenodd'
               transform='translate(57.000000, 12.000000)'>
@@ -223,59 +215,59 @@ export default class LongHairFrida extends React.Component {
               />
             </g>
             <g
-              id='Ornamentos'
+              id={`${this.props.uid}-Ornamentos`}
               strokeWidth='1'
               fillRule='evenodd'
               transform='translate(67.000000, 0.000000)'>
               <g
-                id='hoja'
+                id={`${this.props.uid}-hoja1`}
                 filter={`url(#${filter5})`}
                 opacity='0.899999976'
                 transform='translate(120.000000, 64.500000) scale(1, -1) rotate(-20.000000) translate(-120.000000, -64.500000) translate(107.000000, 57.000000)'
                 fillRule='nonzero'>
                 <path
                   d='M3.61111111,10 C3.61111111,10 1.95,0 13,0 C20.2222222,0 25.2777778,5.71428571 25.2777778,5.71428571 C25.2777778,5.71428571 19.8611111,14.2857143 11.5555556,14.2857143 C5.05555556,14.2857143 3.61111111,10 3.61111111,10 Z'
-                  id='leaf'
+                  id={`${this.props.uid}-leaf1`}
                   fill='#5DD362'
                 />
                 <path
                   d='M25.2777778,5.71428571 C25.2777778,5.71428571 19.8611111,14.2857143 11.5555556,14.2857143 C7.22222222,14.2857143 5.12777778,12.3571429 4.18888889,11.0714286 C2.09444444,12.8571429 1.37222222,14.5 1.37222222,14.5714286 C1.3,14.8571429 1.01111111,15 0.722222222,15 C0.65,15 0.505555556,15 0.433333333,14.9285714 C0.0722222222,14.7857143 -0.0722222222,14.3571429 0.0722222222,14 C0.144444444,13.7857143 1.95,9.85714286 7.43888889,7.28571429 C15.3833333,3.14285714 25.2777778,5.71428571 25.2777778,5.71428571 Z'
-                  id='leaf'
+                  id={`${this.props.uid}-leaf2`}
                   fill='#42BC53'
                 />
               </g>
               <g
-                id='hoja'
+                id={`${this.props.uid}-hoja2`}
                 filter={`url(#${filter6})`}
                 transform='translate(93.307368, 21.745191) scale(-1, -1) rotate(-120.000000) translate(-93.307368, -21.745191) translate(85.807368, 7.245191)'>
                 <path
                   d='M15,12 C15,5.9 9,0 9,0 C9,0 1.7,4.3 1,13 C0.3,21.7 6.8,23.7 6.8,23.7 C6.8,23.7 15,20.8 15,12 Z'
-                  id='leaf'
+                  id={`${this.props.uid}-leaf3`}
                   fill='#5DD362'
                 />
                 <path
                   d='M8,29 C8.1,29 8.2,29 8.3,28.9 C8.8,28.7 9.1,28.1 8.9,27.6 C8.4,26.1 8,24.7 7.8,23.2 C10,22.2 15,18.9 15,12 C15,5.9 9,0 9,0 C9,0 8.6,1.1 8,3 C8,3 8,3 8,3 C7.8,3.5 2.8,16.6 7.1,28.3 C7.2,28.7 7.6,29 8,29 Z'
-                  id='leaf'
+                  id={`${this.props.uid}-leaf4`}
                   fill='#42BC53'
                 />
               </g>
               <g
-                id='hoja'
+                id={`${this.props.uid}-hoja3`}
                 filter={`url(#${filter7})`}
                 transform='translate(29.307368, 59.745191) rotate(-120.000000) translate(-29.307368, -59.745191) translate(21.807368, 45.245191)'>
                 <path
                   d='M15,12 C15,5.9 9,0 9,0 C9,0 1.7,4.3 1,13 C0.3,21.7 6.8,23.7 6.8,23.7 C6.8,23.7 15,20.8 15,12 Z'
-                  id='leaf'
+                  id={`${this.props.uid}-leaf5`}
                   fill='#5DD362'
                 />
                 <path
                   d='M8,29 C8.1,29 8.2,29 8.3,28.9 C8.8,28.7 9.1,28.1 8.9,27.6 C8.4,26.1 8,24.7 7.8,23.2 C10,22.2 15,18.9 15,12 C15,5.9 9,0 9,0 C9,0 8.6,1.1 8,3 C8,3 8,3 8,3 C7.8,3.5 2.8,16.6 7.1,28.3 C7.2,28.7 7.6,29 8,29 Z'
-                  id='leaf'
+                  id={`${this.props.uid}-leaf6`}
                   fill='#42BC53'
                 />
               </g>
               <g
-                id='Flor'
+                id={`${this.props.uid}-Flor1`}
                 filter={`url(#${filter1})`}
                 transform='translate(13.000000, 42.000000) scale(-1, 1) translate(-13.000000, -42.000000) translate(0.000000, 29.000000)'>
                 <path
@@ -289,7 +281,7 @@ export default class LongHairFrida extends React.Component {
                 />
               </g>
               <g
-                id='Flor'
+                id={`${this.props.uid}-Flor2`}
                 filter={`url(#${filter2})`}
                 transform='translate(20.000000, 16.000000)'>
                 <path
@@ -303,7 +295,7 @@ export default class LongHairFrida extends React.Component {
                 />
               </g>
               <g
-                id='Flor'
+                id={`${this.props.uid}-Flor3`}
                 filter={`url(#${filter3})`}
                 transform='translate(89.000000, 26.000000)'>
                 <path
@@ -317,7 +309,7 @@ export default class LongHairFrida extends React.Component {
                 />
               </g>
               <g
-                id='Flor'
+                id={`${this.props.uid}-Flor4`}
                 filter={`url(#${filter4})`}
                 transform='translate(48.000000, 0.000000)'>
                 <path
@@ -332,12 +324,12 @@ export default class LongHairFrida extends React.Component {
               </g>
             </g>
             <g
-              id='Arete'
+              id={`${this.props.uid}-Arete`}
               strokeWidth='1'
               fillRule='evenodd'
               transform='translate(182.000000, 129.000000)'>
               <rect
-                id='Cadenita'
+                id={`${this.props.uid}-Cadenita`}
                 fill='#E6E6E6'
                 x='9'
                 y='0'
@@ -346,13 +338,13 @@ export default class LongHairFrida extends React.Component {
                 rx='1'
               />
               <polygon
-                id='Rayo'
+                id={`${this.props.uid}-Rayo`}
                 fill='#9177FF'
                 fillRule='nonzero'
                 points='20 37 10.57 37 17 20 6 20 0 41 8.636 41 4 60'
               />
             </g>
-            <FacialHair />
+            <FacialHair uid={this.props.uid} />
             {this.props.children}
           </g>
         </g>
