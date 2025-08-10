@@ -1,6 +1,5 @@
 {
-  "name": "avataaars",
-  "scope": "@gschoppe",
+  "name": "@gschoppe/avataaars",
   "version": "2.1.0",
   "description": "React component for avataaars, updated with bugfixes, support for react 19, and new options.",
   "main": "dist/index.js",
