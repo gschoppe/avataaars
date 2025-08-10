@@ -1,7 +1,7 @@
 {
-  "name": "avataaars",
+  "name": "avataaars-2025",
   "version": "2.1.0",
-  "description": "React component for avataaars",
+  "description": "React component for avataaars, updated with bugfixes, support for react 19, and new options.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -12,7 +12,7 @@
     "avatar"
   ],
   "repository": "git@github.com:gschoppe/avataaars.git",
-  "author": "Fang-Pen Lin <hello@fangpenlin.com>",
+  "author": "Greg Schoppe <contact@gschoppe.com> (https://gschoppe.com)",
   "license": "MIT",
   "peerDependencies": {
     "react": "^19.0.0"
