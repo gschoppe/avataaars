@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Colors from './Colors'
+import ClotheColor from './ClotheColor'
 
 export interface Props {
   uid: string
@@ -8,10 +8,10 @@ export interface Props {
 export default class CollarSweater extends React.Component<Props> {
   static optionValue = 'CollarSweater'
 
-  render () {
+  render() {
     const path1 = `${this.props.uid}-Clothing-path1`
     const ClothingColorMask = `${this.props.uid}-Clothing-Color-Mask`
-    
+
     return (
       <g
         id={`${this.props.uid}-Clothing/Collar-+-Sweater`}
@@ -31,7 +31,7 @@ export default class CollarSweater extends React.Component<Props> {
           fillRule='evenodd'
           xlinkHref={'#' + path1}
         />
-        <Colors uid={this.props.uid} />
+        <ClotheColor uid={this.props.uid} />
         <path
           d='M156,22.2794906 C162.181647,26.8351858 166,33.1057265 166,40.027915 C166,47.2334941 161.862605,53.7329769 155.228997,58.3271669 L149.57933,53.8764929 L145,54.207887 L146,51.0567821 L145.922229,50.995516 C152.022491,47.8530505 156,42.7003578 156,36.8768102 L156,22.2794906 Z M108,21.5714994 C101.232748,26.1740081 97,32.7397769 97,40.027915 C97,47.4261549 101.361602,54.080035 108.308428,58.6915723 L114.42067,53.8764929 L119,54.207887 L118,51.0567821 L118.077771,50.995516 C111.977509,47.8530505 108,42.7003578 108,36.8768102 L108,21.5714994 Z'
           id={`${this.props.uid}-Collar`}

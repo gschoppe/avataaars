@@ -6,12 +6,12 @@ export interface Props {
   uid: string
 }
 
-function makeHairColor (name: string, color: string) {
+function makeHairColor(name: string, color: string) {
   class ColorComponent extends React.Component<Props> {
-    render () {
+    render() {
       return (
         <g
-          id={`Hair/${name}`}
+          id={`${this.props.uid}-HairColor/${name}`}
           mask={`url(#${this.props.uid}-Hair-Color-Mask)`}
           fill={color}>
           <g transform='translate(0.000000, 0.000000) ' id='Color'>
@@ -40,7 +40,7 @@ const Red = makeHairColor('Red', '#C93305')
 const SilverGray = makeHairColor('SilverGray', '#E8E1E1')
 
 export default class HairColor extends React.Component<Props> {
-  render () {
+  render() {
     return (
       <Selector option={HairColorOption} defaultOption={BrownDark}>
         <Auburn uid={this.props.uid} />

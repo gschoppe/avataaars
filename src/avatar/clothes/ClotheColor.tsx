@@ -6,12 +6,12 @@ export interface Props {
   uid: string
 }
 
-function makeColor (name: string, color: string) {
+function makeClotheColor(name: string, color: string) {
   class ColorComponent extends React.Component<Props> {
-    render () {
+    render() {
       return (
         <g
-          id={`Color/Palette/${name}`}
+          id={`${this.props.uid}-ClotheColor/${name}`}
           mask={`url(#${this.props.uid}-Clothing-Color-Mask)`}
           fillRule='evenodd'
           fill={color}>
@@ -26,24 +26,24 @@ function makeColor (name: string, color: string) {
   return anyComponent
 }
 
-const Black = makeColor('Black', '#262E33')
-const Blue01 = makeColor('Blue01', '#65C9FF')
-const Blue02 = makeColor('Blue02', '#5199E4')
-const Blue03 = makeColor('Blue03', '#25557C')
-const Gray01 = makeColor('Gray01', '#E6E6E6')
-const Gray02 = makeColor('Gray02', '#929598')
-const Heather = makeColor('Heather', '#3C4F5C')
-const PastelBlue = makeColor('PastelBlue', '#B1E2FF')
-const PastelGreen = makeColor('PastelGreen', '#A7FFC4')
-const PastelOrange = makeColor('PastelOrange', '#FFDEB5')
-const PastelRed = makeColor('PastelRed', '#FFAFB9')
-const PastelYellow = makeColor('PastelYellow', '#FFFFB1')
-const Pink = makeColor('Pink', '#FF488E')
-const Red = makeColor('Red', '#FF5C5C')
-const White = makeColor('White', '#FFFFFF')
+const Black = makeClotheColor('Black', '#262E33')
+const Blue01 = makeClotheColor('Blue01', '#65C9FF')
+const Blue02 = makeClotheColor('Blue02', '#5199E4')
+const Blue03 = makeClotheColor('Blue03', '#25557C')
+const Gray01 = makeClotheColor('Gray01', '#E6E6E6')
+const Gray02 = makeClotheColor('Gray02', '#929598')
+const Heather = makeClotheColor('Heather', '#3C4F5C')
+const PastelBlue = makeClotheColor('PastelBlue', '#B1E2FF')
+const PastelGreen = makeClotheColor('PastelGreen', '#A7FFC4')
+const PastelOrange = makeClotheColor('PastelOrange', '#FFDEB5')
+const PastelRed = makeClotheColor('PastelRed', '#FFAFB9')
+const PastelYellow = makeClotheColor('PastelYellow', '#FFFFB1')
+const Pink = makeClotheColor('Pink', '#FF488E')
+const Red = makeClotheColor('Red', '#FF5C5C')
+const White = makeClotheColor('White', '#FFFFFF')
 
-export default class Colors extends React.Component<Props> {
-  render () {
+export default class ClotheColor extends React.Component<Props> {
+  render() {
     return (
       <Selector option={ClotheColorOption} defaultOption={Gray01}>
         <Black uid={this.props.uid} />

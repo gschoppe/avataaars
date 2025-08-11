@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Colors from './Colors'
+import ClotheColor from './ClotheColor'
 import Graphics from './Graphics'
 
 export interface Props {
@@ -9,10 +9,10 @@ export interface Props {
 export default class GraphicShirt extends React.Component<Props> {
   static optionValue = 'GraphicShirt'
 
-  render () {
+  render() {
     const path1 = `${this.props.uid}-Clothing-path1`
     const clothingColorMask = `${this.props.uid}-Clothing-Color-Mask`
-    
+
     return (
       <g
         id={`${this.props.uid}-Clothing/Graphic-Shirt`}
@@ -32,7 +32,7 @@ export default class GraphicShirt extends React.Component<Props> {
           fillRule='evenodd'
           xlinkHref={'#' + path1}
         />
-        <Colors uid={this.props.uid} />
+        <ClotheColor uid={this.props.uid} />
         <Graphics uid={this.props.uid} />
       </g>
     )

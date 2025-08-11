@@ -7,12 +7,12 @@ export interface Props {
   defaultColor?: string
 }
 
-function makeColor (name: string, color: string) {
+function makeHatColor(name: string, color: string) {
   class ColorComponent extends React.Component<Props> {
-    render () {
+    render() {
       return (
         <g
-          id={`Color/Palette/${name}`}
+          id={`${this.props.uid}-HatColor/${name}`}
           mask={`url(#${this.props.uid}-Hat-Color-Mask)`}
           fillRule='evenodd'
           fill={color}>
@@ -27,21 +27,21 @@ function makeColor (name: string, color: string) {
   return anyComponent
 }
 
-const Black = makeColor('Black', '#262E33')
-const Blue01 = makeColor('Blue01', '#65C9FF')
-const Blue02 = makeColor('Blue02', '#5199E4')
-const Blue03 = makeColor('Blue03', '#25557C')
-const Gray01 = makeColor('Gray01', '#E6E6E6')
-const Gray02 = makeColor('Gray02', '#929598')
-const Heather = makeColor('Heather', '#3C4F5C')
-const PastelBlue = makeColor('PastelBlue', '#B1E2FF')
-const PastelGreen = makeColor('PastelGreen', '#A7FFC4')
-const PastelOrange = makeColor('PastelOrange', '#FFDEB5')
-const PastelRed = makeColor('PastelRed', '#FFAFB9')
-const PastelYellow = makeColor('PastelYellow', '#FFFFB1')
-const Pink = makeColor('Pink', '#FF488E')
-const Red = makeColor('Red', '#FF5C5C')
-const White = makeColor('White', '#FFFFFF')
+const Black = makeHatColor('Black', '#262E33')
+const Blue01 = makeHatColor('Blue01', '#65C9FF')
+const Blue02 = makeHatColor('Blue02', '#5199E4')
+const Blue03 = makeHatColor('Blue03', '#25557C')
+const Gray01 = makeHatColor('Gray01', '#E6E6E6')
+const Gray02 = makeHatColor('Gray02', '#929598')
+const Heather = makeHatColor('Heather', '#3C4F5C')
+const PastelBlue = makeHatColor('PastelBlue', '#B1E2FF')
+const PastelGreen = makeHatColor('PastelGreen', '#A7FFC4')
+const PastelOrange = makeHatColor('PastelOrange', '#FFDEB5')
+const PastelRed = makeHatColor('PastelRed', '#FFAFB9')
+const PastelYellow = makeHatColor('PastelYellow', '#FFFFB1')
+const Pink = makeHatColor('Pink', '#FF488E')
+const Red = makeHatColor('Red', '#FF5C5C')
+const White = makeHatColor('White', '#FFFFFF')
 
 export default class Colors extends React.Component<Props> {
   render() {

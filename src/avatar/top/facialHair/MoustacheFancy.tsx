@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Colors from './Colors'
+import FacialHairColor from './FacialHairColor'
 
 export interface Props {
   uid: string
@@ -8,7 +8,7 @@ export interface Props {
 export default class MoustacheFancy extends React.Component<Props> {
   static optionValue = 'MoustacheFancy'
 
-  render () {
+  render() {
     const path1 = `${this.props.uid}-Facial-Hair-Path`
     const facialHairMask = `${this.props.uid}-Facial-Hair-Mask`
 
@@ -31,7 +31,7 @@ export default class MoustacheFancy extends React.Component<Props> {
           fillRule='evenodd'
           xlinkHref={'#' + path1}
         />
-        <Colors uid={this.props.uid} />
+        <FacialHairColor uid={this.props.uid} />
       </g>
     )
   }

@@ -11,7 +11,7 @@ function makeSkinColor(name: string, color: string) {
     render() {
       return (
         <g
-          id={`Skin/${name}`}
+          id={`${this.props.uid}-SkinColor/${name}`}
           mask={`url(#${this.props.uid}-Skin-Color-Mask)`}
           fill={color}>
           <g transform="translate(0.000000, 0.000000)" id="Color">

@@ -12,7 +12,7 @@ function makeBackdropColor(name: string, color: string) {
     render() {
       return (
         <g
-          id={`${this.props.uid}-Color/Backdrop/${name}`}
+          id={`${this.props.uid}-BackdropColor/${name}`}
           mask={`url(#${this.props.uid}-Backdrop-Color-Mask)`}
           fill={color}>
           <rect id={`${this.props.uid}-🖍Color`} x="0" y="0" width="240" height="240" />
@@ -42,7 +42,7 @@ const Pink = makeBackdropColor('Pink', '#FF488E')
 const Red = makeBackdropColor('Red', '#FF5C5C')
 const White = makeBackdropColor('White', '#FFFFFF')
 
-export default class Colors extends React.Component<Props> {
+export default class BackdropColor extends React.Component<Props> {
   render() {
     return (
       <Selector
