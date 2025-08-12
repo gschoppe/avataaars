@@ -6,7 +6,9 @@ export interface Props {
   uid: string
 }
 
-function makeFacialHairColor(name: string, color: string) {
+const facialHairColorPalette: Map<string, any> = new Map()
+
+export function makeFacialHairColor(name: string, color: string) {
   class ColorComponent extends React.Component<Props> {
     render() {
       return (
@@ -24,32 +26,28 @@ function makeFacialHairColor(name: string, color: string) {
   const anyComponent = ColorComponent as any
   anyComponent.displayName = name
   anyComponent.optionValue = name
+  facialHairColorPalette.set(name, anyComponent)
+
   return anyComponent
 }
 
-const Auburn = makeFacialHairColor('Auburn', '#A55728')
-const Black = makeFacialHairColor('Black', '#2C1B18')
-const Blonde = makeFacialHairColor('Blonde', '#B58143')
-const BlondeGolden = makeFacialHairColor('BlondeGolden', '#D6B370')
-const Brown = makeFacialHairColor('Brown', '#724133')
-const BrownDark = makeFacialHairColor('BrownDark', '#4A312C')
-const Platinum = makeFacialHairColor('Platinum', '#ECDCBF')
-const Red = makeFacialHairColor('Red', '#C93305')
-const SilverGray = makeFacialHairColor('SilverGray', '#E8E1E1')
+makeFacialHairColor('Auburn', '#A55728')
+makeFacialHairColor('Black', '#2C1B18')
+makeFacialHairColor('Blonde', '#B58143')
+makeFacialHairColor('BlondeGolden', '#D6B370')
+makeFacialHairColor('Brown', '#724133')
+makeFacialHairColor('BrownDark', '#4A312C')
+makeFacialHairColor('Platinum', '#ECDCBF')
+makeFacialHairColor('Red', '#C93305')
+makeFacialHairColor('SilverGray', '#E8E1E1')
 
 export default class FacialHairColor extends React.Component<Props> {
   render() {
     return (
-      <Selector option={FacialHairColorOption} defaultOption={BrownDark}>
-        <Auburn uid={this.props.uid} />
-        <Black uid={this.props.uid} />
-        <Blonde uid={this.props.uid} />
-        <BlondeGolden uid={this.props.uid} />
-        <Brown uid={this.props.uid} />
-        <BrownDark uid={this.props.uid} />
-        <Platinum uid={this.props.uid} />
-        <Red uid={this.props.uid} />
-        <SilverGray uid={this.props.uid} />
+      <Selector option={FacialHairColorOption} defaultOption='BrownDark'>
+        {Array.from(facialHairColorPalette.values()).map((ColorComponent, index) => (
+          <ColorComponent key={index} uid={this.props.uid} />
+        ))}
       </Selector>
     )
   }

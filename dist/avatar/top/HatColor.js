@@ -15,16 +15,18 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.makeHatColor = makeHatColor;
 var React = require("react");
 var options_1 = require("../../options");
-function makeColor(name, color) {
+var hatColorPalette = new Map();
+function makeHatColor(name, color) {
     var ColorComponent = /** @class */ (function (_super) {
         __extends(ColorComponent, _super);
         function ColorComponent() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
         ColorComponent.prototype.render = function () {
-            return (React.createElement("g", { id: "Color/Palette/".concat(name), mask: "url(#".concat(this.props.uid, "-Hat-Color-Mask)"), fillRule: 'evenodd', fill: color },
+            return (React.createElement("g", { id: "".concat(this.props.uid, "-HatColor/").concat(name), mask: "url(#".concat(this.props.uid, "-Hat-Color-Mask)"), fillRule: 'evenodd', fill: color },
                 React.createElement("rect", { id: "".concat(this.props.uid, "-\uD83D\uDD8DColor"), x: '0', y: '0', width: '264', height: '280' })));
         };
         return ColorComponent;
@@ -32,45 +34,32 @@ function makeColor(name, color) {
     var anyComponent = ColorComponent;
     anyComponent.displayName = name;
     anyComponent.optionValue = name;
+    hatColorPalette.set(name, anyComponent);
     return anyComponent;
 }
-var Black = makeColor('Black', '#262E33');
-var Blue01 = makeColor('Blue01', '#65C9FF');
-var Blue02 = makeColor('Blue02', '#5199E4');
-var Blue03 = makeColor('Blue03', '#25557C');
-var Gray01 = makeColor('Gray01', '#E6E6E6');
-var Gray02 = makeColor('Gray02', '#929598');
-var Heather = makeColor('Heather', '#3C4F5C');
-var PastelBlue = makeColor('PastelBlue', '#B1E2FF');
-var PastelGreen = makeColor('PastelGreen', '#A7FFC4');
-var PastelOrange = makeColor('PastelOrange', '#FFDEB5');
-var PastelRed = makeColor('PastelRed', '#FFAFB9');
-var PastelYellow = makeColor('PastelYellow', '#FFFFB1');
-var Pink = makeColor('Pink', '#FF488E');
-var Red = makeColor('Red', '#FF5C5C');
-var White = makeColor('White', '#FFFFFF');
+makeHatColor('Black', '#262E33');
+makeHatColor('Blue01', '#65C9FF');
+makeHatColor('Blue02', '#5199E4');
+makeHatColor('Blue03', '#25557C');
+makeHatColor('Gray01', '#E6E6E6');
+makeHatColor('Gray02', '#929598');
+makeHatColor('Heather', '#3C4F5C');
+makeHatColor('PastelBlue', '#B1E2FF');
+makeHatColor('PastelGreen', '#A7FFC4');
+makeHatColor('PastelOrange', '#FFDEB5');
+makeHatColor('PastelRed', '#FFAFB9');
+makeHatColor('PastelYellow', '#FFFFB1');
+makeHatColor('Pink', '#FF488E');
+makeHatColor('Red', '#FF5C5C');
+makeHatColor('White', '#FFFFFF');
 var Colors = /** @class */ (function (_super) {
     __extends(Colors, _super);
     function Colors() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Colors.prototype.render = function () {
-        return (React.createElement(options_1.Selector, { option: options_1.HatColorOption, defaultOption: this.props.defaultColor || Gray01 },
-            React.createElement(Black, { uid: this.props.uid }),
-            React.createElement(Blue01, { uid: this.props.uid }),
-            React.createElement(Blue02, { uid: this.props.uid }),
-            React.createElement(Blue03, { uid: this.props.uid }),
-            React.createElement(Gray01, { uid: this.props.uid }),
-            React.createElement(Gray02, { uid: this.props.uid }),
-            React.createElement(Heather, { uid: this.props.uid }),
-            React.createElement(PastelBlue, { uid: this.props.uid }),
-            React.createElement(PastelGreen, { uid: this.props.uid }),
-            React.createElement(PastelOrange, { uid: this.props.uid }),
-            React.createElement(PastelRed, { uid: this.props.uid }),
-            React.createElement(PastelYellow, { uid: this.props.uid }),
-            React.createElement(Pink, { uid: this.props.uid }),
-            React.createElement(Red, { uid: this.props.uid }),
-            React.createElement(White, { uid: this.props.uid })));
+        var _this = this;
+        return (React.createElement(options_1.Selector, { option: options_1.HatColorOption, defaultOption: this.props.defaultColor || 'Gray01' }, Array.from(hatColorPalette.values()).map(function (ColorComponent, index) { return (React.createElement(ColorComponent, { key: index, uid: _this.props.uid })); })));
     };
     return Colors;
 }(React.Component));

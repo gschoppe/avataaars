@@ -7,7 +7,9 @@ export interface Props {
   defaultColor?: string
 }
 
-function makeHatColor(name: string, color: string) {
+const hatColorPalette: Map<string, any> = new Map()
+
+export function makeHatColor(name: string, color: string) {
   class ColorComponent extends React.Component<Props> {
     render() {
       return (
@@ -24,46 +26,34 @@ function makeHatColor(name: string, color: string) {
   const anyComponent = ColorComponent as any
   anyComponent.displayName = name
   anyComponent.optionValue = name
+  hatColorPalette.set(name, anyComponent)
+
   return anyComponent
 }
 
-const Black = makeHatColor('Black', '#262E33')
-const Blue01 = makeHatColor('Blue01', '#65C9FF')
-const Blue02 = makeHatColor('Blue02', '#5199E4')
-const Blue03 = makeHatColor('Blue03', '#25557C')
-const Gray01 = makeHatColor('Gray01', '#E6E6E6')
-const Gray02 = makeHatColor('Gray02', '#929598')
-const Heather = makeHatColor('Heather', '#3C4F5C')
-const PastelBlue = makeHatColor('PastelBlue', '#B1E2FF')
-const PastelGreen = makeHatColor('PastelGreen', '#A7FFC4')
-const PastelOrange = makeHatColor('PastelOrange', '#FFDEB5')
-const PastelRed = makeHatColor('PastelRed', '#FFAFB9')
-const PastelYellow = makeHatColor('PastelYellow', '#FFFFB1')
-const Pink = makeHatColor('Pink', '#FF488E')
-const Red = makeHatColor('Red', '#FF5C5C')
-const White = makeHatColor('White', '#FFFFFF')
+makeHatColor('Black', '#262E33')
+makeHatColor('Blue01', '#65C9FF')
+makeHatColor('Blue02', '#5199E4')
+makeHatColor('Blue03', '#25557C')
+makeHatColor('Gray01', '#E6E6E6')
+makeHatColor('Gray02', '#929598')
+makeHatColor('Heather', '#3C4F5C')
+makeHatColor('PastelBlue', '#B1E2FF')
+makeHatColor('PastelGreen', '#A7FFC4')
+makeHatColor('PastelOrange', '#FFDEB5')
+makeHatColor('PastelRed', '#FFAFB9')
+makeHatColor('PastelYellow', '#FFFFB1')
+makeHatColor('Pink', '#FF488E')
+makeHatColor('Red', '#FF5C5C')
+makeHatColor('White', '#FFFFFF')
 
 export default class Colors extends React.Component<Props> {
   render() {
     return (
-      <Selector
-        option={HatColorOption}
-        defaultOption={this.props.defaultColor || Gray01}>
-        <Black uid={this.props.uid} />
-        <Blue01 uid={this.props.uid} />
-        <Blue02 uid={this.props.uid} />
-        <Blue03 uid={this.props.uid} />
-        <Gray01 uid={this.props.uid} />
-        <Gray02 uid={this.props.uid} />
-        <Heather uid={this.props.uid} />
-        <PastelBlue uid={this.props.uid} />
-        <PastelGreen uid={this.props.uid} />
-        <PastelOrange uid={this.props.uid} />
-        <PastelRed uid={this.props.uid} />
-        <PastelYellow uid={this.props.uid} />
-        <Pink uid={this.props.uid} />
-        <Red uid={this.props.uid} />
-        <White uid={this.props.uid} />
+      <Selector option={HatColorOption} defaultOption={this.props.defaultColor || 'Gray01'}>
+        {Array.from(hatColorPalette.values()).map((ColorComponent, index) => (
+          <ColorComponent key={index} uid={this.props.uid} />
+        ))}
       </Selector>
     )
   }

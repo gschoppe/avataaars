@@ -1,6 +1,15 @@
 import * as React from 'react';
 export { default as Avatar } from './avatar';
 export { Option, OptionContext, OptionsContext, allOptions } from './options';
+export declare const PALETTES: {
+    BACKDROP: string;
+    SKIN: string;
+    HAIR: string;
+    FACIAL_HAIR: string;
+    CLOTHES: string;
+    HAT: string;
+};
+export declare function addPaletteColor(palette: string, name: string, color: string): any;
 export interface Props {
     className?: string;
     style?: React.CSSProperties;

@@ -1,0 +1,233 @@
+@keyframes eyeroll {
+  0.0% {
+    rotate: 0deg;
+  }
+
+  95.0% {
+    rotate: 0deg;
+  }
+
+  97.5% {
+    rotate: 180deg;
+  }
+
+  100.0% {
+    rotate: 360deg;
+  }
+}
+
+@keyframes sideeye {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  95% {
+    transform: rotateY(0deg);
+  }
+
+  96% {
+    transform: rotateY(180deg);
+  }
+
+  99% {
+    transform: rotateY(180deg);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes throbeye {
+  0% {
+    transform: scale(1.0);
+  }
+
+  88% {
+    transform: scale(1.0);
+  }
+
+  90% {
+    transform: scale(1.2);
+  }
+
+  92% {
+    transform: scale(0.8);
+  }
+
+  94% {
+    transform: scale(1.2);
+  }
+
+  96% {
+    transform: scale(0.9);
+  }
+
+  98% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1.0);
+  }
+}
+
+@keyframes teardrop {
+  0% {
+    transform: translateY(0) scale(1.0);
+  }
+
+  80% {
+    transform: translateY(0) scale(1.0);
+  }
+
+  81% {
+    transform: translateY(5px) scale(0.95);
+  }
+
+  82% {
+    transform: translateY(10px) scale(0.90);
+  }
+
+  83% {
+    transform: translateY(15px) scale(0.85);
+  }
+
+  84% {
+    transform: translateY(20px) scale(0.80);
+  }
+
+  85% {
+    transform: translateY(25px) scale(0.75);
+  }
+
+  86% {
+    transform: translateY(30px) scale(0.70);
+  }
+
+  87% {
+    transform: translateY(35px) scale(0.65);
+  }
+
+  88% {
+    transform: translateY(40px) scale(0.60);
+  }
+
+  89% {
+    transform: translateY(45px) scale(0.55);
+  }
+
+  90% {
+    transform: translateY(50px) scale(0.0);
+  }
+
+  91% {
+    transform: translateY(0) scale(0.0);
+  }
+
+  100% {
+    transform: translateY(0) scale(1.0);
+  }
+}
+
+@keyframes nosewiggle {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  96% {
+    transform: translate(0, 0);
+  }
+
+  97% {
+    transform: translate(1px, -1px);
+  }
+
+  98% {
+    transform: translate(0, 1px);
+  }
+
+  99% {
+    transform: translate(-1px, -1px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes mouthwiggle {
+  0% {
+    rotate: 0deg;
+  }
+
+  96% {
+    rotate: 0deg;
+  }
+
+  97% {
+    rotate: 5deg;
+  }
+
+  98% {
+    rotate: 0deg;
+  }
+
+  99% {
+    rotate: -5deg;
+  }
+
+  100% {
+    rotate: 0deg;
+  }
+}
+
+/* Eye Roll */
+[id$="-Avataaar"] [id*="Eyes/Eye-Roll"]>[id$="Eye-Left"] {
+  transform-origin: 30px 22px;
+  animation: eyeroll 10s linear infinite;
+}
+
+[id$="-Avataaar"] [id*="Eyes/Eye-Roll"]>[id$="Eye-Right"] {
+  transform-origin: 82px 22px;
+  animation: eyeroll 10s linear infinite;
+}
+
+/* Side Eye Swipe */
+[id$="-Avataaar"] [id*="Eyes/Side"]>[id$="Eye-Left"] {
+  transform-origin: 30px 22px;
+  animation: sideeye 15s linear infinite;
+}
+
+[id$="-Avataaar"] [id*="Eyes/Side"]>[id$="Eye-Right"] {
+  transform-origin: 82px 22px;
+  animation: sideeye 15s linear infinite;
+}
+
+/* Heart Eye Throb */
+[id$="-Avataaar"] [id*="Eyes/Hearts"]>[id$="Eye-Left"] {
+  transform-origin: 30px 22px;
+  animation: throbeye 7s linear infinite;
+}
+
+[id$="-Avataaar"] [id*="Eyes/Hearts"]>[id$="Eye-Right"] {
+  transform-origin: 82px 22px;
+  animation: throbeye 7s linear infinite;
+}
+
+/* Tear Drop Animation */
+[id$="-Avataaar"] [id*="Eyes/Cry"]>[id$="Teardrop"] {
+  transform-origin: 30px 25px;
+  animation: teardrop 7s linear infinite;
+}
+
+/* Nose Wiggle */
+[id$="-Avataaar"] [id*="Nose/Default"]>[id$="Nose"] {
+  animation: nosewiggle 20s linear infinite;
+}
+
+/* Serious Mouth Wiggle */
+[id$="-Avataaar"] [id*="Mouth/Serious"]>[id$="Mouth"] {
+  transform-origin: 51px 22px;
+  animation: mouthwiggle 13s linear infinite;
+}

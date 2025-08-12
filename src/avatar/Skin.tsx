@@ -6,7 +6,9 @@ export interface Props {
   uid: string
 }
 
-function makeSkinColor(name: string, color: string) {
+const skinColorPalette: Map<string, any> = new Map()
+
+export function makeSkinColor(name: string, color: string) {
   class ColorComponent extends React.Component<Props> {
     render() {
       return (
@@ -24,28 +26,26 @@ function makeSkinColor(name: string, color: string) {
   const anyComponent = ColorComponent as any
   anyComponent.displayName = name
   anyComponent.optionValue = name
+  skinColorPalette.set(name, anyComponent)
+
   return anyComponent
 }
 
-const Tanned = makeSkinColor('Tanned', '#FD9841')
-const Yellow = makeSkinColor('Yellow', '#F8D25C')
-const Pale = makeSkinColor('Pale', '#FFDBB4')
-const Light = makeSkinColor('Light', '#EDB98A')
-const Brown = makeSkinColor('Brown', '#D08B5B')
-const DarkBrown = makeSkinColor('DarkBrown', '#AE5D29')
-const Black = makeSkinColor('Black', '#614335')
+makeSkinColor('Tanned', '#FD9841')
+makeSkinColor('Yellow', '#F8D25C')
+makeSkinColor('Pale', '#FFDBB4')
+makeSkinColor('Light', '#EDB98A')
+makeSkinColor('Brown', '#D08B5B')
+makeSkinColor('DarkBrown', '#AE5D29')
+makeSkinColor('Black', '#614335')
 
 export default class Skin extends React.Component<Props> {
   render() {
     return (
-      <Selector option={SkinOption} defaultOption={Light}>
-        <Tanned uid={this.props.uid} />
-        <Yellow uid={this.props.uid} />
-        <Pale uid={this.props.uid} />
-        <Light uid={this.props.uid} />
-        <Brown uid={this.props.uid} />
-        <DarkBrown uid={this.props.uid} />
-        <Black uid={this.props.uid} />
+      <Selector option={SkinOption} defaultOption='Light'>
+        {Array.from(skinColorPalette.values()).map((ColorComponent, index) => (
+          <ColorComponent key={index} uid={this.props.uid} />
+        ))}
       </Selector>
     )
   }

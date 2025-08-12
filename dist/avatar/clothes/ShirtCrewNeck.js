@@ -16,7 +16,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var Colors_1 = require("./Colors");
+var ClotheColor_1 = require("./ClotheColor");
 var ShirtCrewNeck = /** @class */ (function (_super) {
     __extends(ShirtCrewNeck, _super);
     function ShirtCrewNeck() {
@@ -31,7 +31,7 @@ var ShirtCrewNeck = /** @class */ (function (_super) {
             React.createElement("mask", { id: clothingColorMask, fill: 'white' },
                 React.createElement("use", { xlinkHref: '#' + path1 })),
             React.createElement("use", { id: "".concat(this.props.uid, "-Clothes"), fill: '#E6E6E6', fillRule: 'evenodd', xlinkHref: '#' + path1 }),
-            React.createElement(Colors_1.default, { uid: this.props.uid }),
+            React.createElement(ClotheColor_1.default, { uid: this.props.uid }),
             React.createElement("g", { id: "".concat(this.props.uid, "-Shadowy"), opacity: '0.599999964', strokeWidth: '1', fillRule: 'evenodd', mask: "url(#".concat(clothingColorMask, ")"), fillOpacity: '0.16', fill: '#000000' },
                 React.createElement("g", { transform: 'translate(92.000000, 4.000000)', id: "".concat(this.props.uid, "-Hola-\uD83D\uDC4B\uD83C\uDFFC") },
                     React.createElement("ellipse", { cx: '40.5', cy: '27.8476251', rx: '39.6351047', ry: '26.9138272' })))));

@@ -7,7 +7,9 @@ export interface Props {
   defaultColor?: string
 }
 
-function makeBackdropColor(name: string, color: string) {
+const backdropColorPalette: Map<string, any> = new Map()
+
+export function makeBackdropColor(name: string, color: string) {
   class ColorComponent extends React.Component<Props> {
     render() {
       return (
@@ -23,46 +25,34 @@ function makeBackdropColor(name: string, color: string) {
   const anyComponent = ColorComponent as any
   anyComponent.displayName = name
   anyComponent.optionValue = name
+  backdropColorPalette.set(name, anyComponent)
+
   return anyComponent
 }
 
-const Black = makeBackdropColor('Black', '#262E33')
-const Blue01 = makeBackdropColor('Blue01', '#65C9FF')
-const Blue02 = makeBackdropColor('Blue02', '#5199E4')
-const Blue03 = makeBackdropColor('Blue03', '#25557C')
-const Gray01 = makeBackdropColor('Gray01', '#E6E6E6')
-const Gray02 = makeBackdropColor('Gray02', '#929598')
-const Heather = makeBackdropColor('Heather', '#3C4F5C')
-const PastelBlue = makeBackdropColor('PastelBlue', '#B1E2FF')
-const PastelGreen = makeBackdropColor('PastelGreen', '#A7FFC4')
-const PastelOrange = makeBackdropColor('PastelOrange', '#FFDEB5')
-const PastelRed = makeBackdropColor('PastelRed', '#FFAFB9')
-const PastelYellow = makeBackdropColor('PastelYellow', '#FFFFB1')
-const Pink = makeBackdropColor('Pink', '#FF488E')
-const Red = makeBackdropColor('Red', '#FF5C5C')
-const White = makeBackdropColor('White', '#FFFFFF')
+makeBackdropColor('Black', '#262E33')
+makeBackdropColor('Blue01', '#65C9FF')
+makeBackdropColor('Blue02', '#5199E4')
+makeBackdropColor('Blue03', '#25557C')
+makeBackdropColor('Gray01', '#E6E6E6')
+makeBackdropColor('Gray02', '#929598')
+makeBackdropColor('Heather', '#3C4F5C')
+makeBackdropColor('PastelBlue', '#B1E2FF')
+makeBackdropColor('PastelGreen', '#A7FFC4')
+makeBackdropColor('PastelOrange', '#FFDEB5')
+makeBackdropColor('PastelRed', '#FFAFB9')
+makeBackdropColor('PastelYellow', '#FFFFB1')
+makeBackdropColor('Pink', '#FF488E')
+makeBackdropColor('Red', '#FF5C5C')
+makeBackdropColor('White', '#FFFFFF')
 
 export default class BackdropColor extends React.Component<Props> {
   render() {
     return (
-      <Selector
-        option={BackdropColorOption}
-        defaultOption={this.props.defaultColor || Blue01}>
-        <Black uid={this.props.uid} />
-        <Blue01 uid={this.props.uid} />
-        <Blue02 uid={this.props.uid} />
-        <Blue03 uid={this.props.uid} />
-        <Gray01 uid={this.props.uid} />
-        <Gray02 uid={this.props.uid} />
-        <Heather uid={this.props.uid} />
-        <PastelBlue uid={this.props.uid} />
-        <PastelGreen uid={this.props.uid} />
-        <PastelOrange uid={this.props.uid} />
-        <PastelRed uid={this.props.uid} />
-        <PastelYellow uid={this.props.uid} />
-        <Pink uid={this.props.uid} />
-        <Red uid={this.props.uid} />
-        <White uid={this.props.uid} />
+      <Selector option={BackdropColorOption} defaultOption={this.props.defaultColor || 'Blue01'}>
+        {Array.from(backdropColorPalette.values()).map((ColorComponent, index) => {
+          return <ColorComponent key={index} uid={this.props.uid} />
+        })}
       </Selector>
     )
   }

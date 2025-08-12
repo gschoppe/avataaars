@@ -15,16 +15,18 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.makeFacialHairColor = makeFacialHairColor;
 var React = require("react");
 var options_1 = require("../../../options");
-function makeColor(name, color) {
+var facialHairColorPalette = new Map();
+function makeFacialHairColor(name, color) {
     var ColorComponent = /** @class */ (function (_super) {
         __extends(ColorComponent, _super);
         function ColorComponent() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
         ColorComponent.prototype.render = function () {
-            return (React.createElement("g", { id: "".concat(this.props.uid, "-Color/Hair/").concat(name), mask: "url(#".concat(this.props.uid, "-Facial-Hair-Mask)"), fill: color },
+            return (React.createElement("g", { id: "".concat(this.props.uid, "-FacialHairColor/").concat(name), mask: "url(#".concat(this.props.uid, "-Facial-Hair-Mask)"), fill: color },
                 React.createElement("g", { transform: 'translate(-32.000000, 0.000000)', id: "".concat(this.props.uid, "-Facial-Hair-Color") },
                     React.createElement("rect", { x: '0', y: '0', width: '264', height: '244' }))));
         };
@@ -33,34 +35,27 @@ function makeColor(name, color) {
     var anyComponent = ColorComponent;
     anyComponent.displayName = name;
     anyComponent.optionValue = name;
+    facialHairColorPalette.set(name, anyComponent);
     return anyComponent;
 }
-var Auburn = makeColor('Auburn', '#A55728');
-var Black = makeColor('Black', '#2C1B18');
-var Blonde = makeColor('Blonde', '#B58143');
-var BlondeGolden = makeColor('BlondeGolden', '#D6B370');
-var Brown = makeColor('Brown', '#724133');
-var BrownDark = makeColor('BrownDark', '#4A312C');
-var Platinum = makeColor('Platinum', '#ECDCBF');
-var Red = makeColor('Red', '#C93305');
-var SilverGray = makeColor('SilverGray', '#E8E1E1');
-var Colors = /** @class */ (function (_super) {
-    __extends(Colors, _super);
-    function Colors() {
+makeFacialHairColor('Auburn', '#A55728');
+makeFacialHairColor('Black', '#2C1B18');
+makeFacialHairColor('Blonde', '#B58143');
+makeFacialHairColor('BlondeGolden', '#D6B370');
+makeFacialHairColor('Brown', '#724133');
+makeFacialHairColor('BrownDark', '#4A312C');
+makeFacialHairColor('Platinum', '#ECDCBF');
+makeFacialHairColor('Red', '#C93305');
+makeFacialHairColor('SilverGray', '#E8E1E1');
+var FacialHairColor = /** @class */ (function (_super) {
+    __extends(FacialHairColor, _super);
+    function FacialHairColor() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Colors.prototype.render = function () {
-        return (React.createElement(options_1.Selector, { option: options_1.FacialHairColor, defaultOption: BrownDark },
-            React.createElement(Auburn, { uid: this.props.uid }),
-            React.createElement(Black, { uid: this.props.uid }),
-            React.createElement(Blonde, { uid: this.props.uid }),
-            React.createElement(BlondeGolden, { uid: this.props.uid }),
-            React.createElement(Brown, { uid: this.props.uid }),
-            React.createElement(BrownDark, { uid: this.props.uid }),
-            React.createElement(Platinum, { uid: this.props.uid }),
-            React.createElement(Red, { uid: this.props.uid }),
-            React.createElement(SilverGray, { uid: this.props.uid })));
+    FacialHairColor.prototype.render = function () {
+        var _this = this;
+        return (React.createElement(options_1.Selector, { option: options_1.FacialHairColorOption, defaultOption: 'BrownDark' }, Array.from(facialHairColorPalette.values()).map(function (ColorComponent, index) { return (React.createElement(ColorComponent, { key: index, uid: _this.props.uid })); })));
     };
-    return Colors;
+    return FacialHairColor;
 }(React.Component));
-exports.default = Colors;
+exports.default = FacialHairColor;

@@ -6,6 +6,8 @@ The core React component for [Avataaars Generator](https://getavataaars.com/) up
 
 ## Features
 
+ - **NEW** Idle CSS animations
+ - **NEW** Extendable color palettes
  - SVG based
  - Light weight 
  - Scalable
@@ -17,24 +19,30 @@ The core React component for [Avataaars Generator](https://getavataaars.com/) up
  and doesn't support backdropType, backdropColor, or several bugfixes in this version.
 
 
-## Usage
+## How To
+
+### Installation
 
 First, you need to install the avataaars component package, here you run
 
-```
+```bash
 yarn add @gschoppe/avataaars
 ```
 
 or
 
-```
+```bash
 npm install @gschoppe/avataaars --save
 ```
 
-if you are using npm. Then, in your React app, import the Avataaar component and put it where you like it to be, for example
+if you are using npm.
+
+### Usage
+
+In your React app, import the Avataaar component and put it where you like it to be, for example
 
 ```jsx
-import * as React from 'react'
+import React from 'react'
 import Avatar from '@gschoppe/avataaars'
 
 export default function MyComponent() {
@@ -58,10 +66,12 @@ export default function MyComponent() {
 }
 ```
 
+### Showcase pieces
+
 To showcase individual pieces of the avatar you can use the Piece component, for example:
 
 ```jsx
-import * as React from 'react'
+import React from 'react'
 import {Piece} from 'avataaars';
 
 export default function MyComponent() {
@@ -81,7 +91,74 @@ export default function MyComponent() {
 }
 ```
 
-To explore avatar options and generate the React code, please use [Avataaars Generator](https://getavataaars.com/)
+### Add colors
+
+To add custom colors to your avataaar, use the `addPaletteColor()` function, like so:
+
+```jsx
+import React, {useEffect} from 'react'
+import Avatar, {addPaletteColor, PALETTES} from '@gschoppe/avataaars'
+
+export default function MyComponent() {
+  useEffect(() => {
+    // Color names should be a single word, beginning with a capital letter.
+    // Warning: Adding a color with the same name as an existing palette
+    // entry will overwrite the existing color.
+    addPaletteColor(PALETTES.BACKDROP, 'CustomColor1', '#00FF00')
+  }, [])
+
+  return( 
+    <Avatar
+      style={{width: '100px', height: '100px'}}
+      backdropType='Circle'
+      backdropColor='CustomColor1'
+      topType='LongHairMiaWallace'
+      accessoriesType='Prescription02'
+      hairColor='BrownDark'
+      facialHairType='Blank'
+      clotheType='Hoodie'
+      clotheColor='PastelBlue'
+      eyeType='Happy'
+      eyebrowType='Default'
+      mouthType='Smile'
+      skinColor='Light'
+    />
+  );
+}
+```
+
+### BETA - Add CSS Idle Animations
+
+This is very much a work in progress. So far, Idle animations have only been added
+to a few of the various avatar components. To enable these animations, just
+import `@gschoppe/avataaars/dist/animations.css` in your component, like so:
+
+```jsx
+import React from 'react'
+import Avatar from '@gschoppe/avataaars'
+import '@gschoppe/avataaars/dist/animations.css'
+
+export default function MyComponent() {
+  return( 
+    <Avatar
+      style={{width: '100px', height: '100px'}}
+      backdropType='Circle'
+      backdropColor='Blue01'
+      topType='LongHairMiaWallace'
+      accessoriesType='Blank'
+      hairColor='BrownDark'
+      facialHairType='Blank'
+      clotheType='Hoodie'
+      clotheColor='PastelBlue'
+      eyeType='EyeRoll'
+      eyebrowType='Default'
+      mouthType='Serious'
+      skinColor='Light'
+    />
+  );
+}
+```
+
 
 ## Collect options
 

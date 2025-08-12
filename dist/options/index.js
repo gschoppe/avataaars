@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.allOptions = exports.SkinOption = exports.MouthOption = exports.EyebrowOption = exports.EyesOption = exports.GraphicOption = exports.ClotheColorOption = exports.ClotheOption = exports.FacialHairColor = exports.FacialHairOption = exports.HairColorOption = exports.HatColorOption = exports.AccessoriesOption = exports.TopOption = exports.BackdropColorOption = exports.BackdropOption = exports.Selector = exports.OptionsContext = exports.OptionContext = exports.Option = void 0;
+exports.allOptions = exports.SkinOption = exports.MouthOption = exports.EyebrowOption = exports.EyesOption = exports.GraphicOption = exports.ClotheColorOption = exports.ClotheOption = exports.FacialHairColorOption = exports.FacialHairOption = exports.HairColorOption = exports.HatColorOption = exports.AccessoriesOption = exports.TopOption = exports.BackdropColorOption = exports.BackdropOption = exports.Selector = exports.OptionsContext = exports.OptionContext = exports.Option = void 0;
 var Option_1 = require("./Option");
 var Option_2 = require("./Option");
 Object.defineProperty(exports, "Option", { enumerable: true, get: function () { return Option_2.default; } });
@@ -37,7 +37,7 @@ exports.FacialHairOption = new Option_1.default({
     key: 'facialHairType',
     label: 'Facial Hair',
 });
-exports.FacialHairColor = new Option_1.default({
+exports.FacialHairColorOption = new Option_1.default({
     key: 'facialHairColor',
     label: '↳ ✂️ Facial Hair Color',
 });
@@ -77,7 +77,7 @@ exports.allOptions = [
     exports.HatColorOption,
     exports.HairColorOption,
     exports.FacialHairOption,
-    exports.FacialHairColor,
+    exports.FacialHairColorOption,
     exports.ClotheOption,
     exports.ClotheColorOption,
     exports.GraphicOption,

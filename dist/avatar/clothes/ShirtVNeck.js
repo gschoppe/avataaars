@@ -16,7 +16,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var Colors_1 = require("./Colors");
+var ClotheColor_1 = require("./ClotheColor");
 var ShirtVNeck = /** @class */ (function (_super) {
     __extends(ShirtVNeck, _super);
     function ShirtVNeck() {
@@ -31,7 +31,7 @@ var ShirtVNeck = /** @class */ (function (_super) {
             React.createElement("mask", { id: clothingColorMask, fill: 'white' },
                 React.createElement("use", { xlinkHref: '#' + path1 })),
             React.createElement("use", { id: "".concat(this.props.uid, "-Clothes"), fill: '#E6E6E6', fillRule: 'evenodd', xlinkHref: '#' + path1 }),
-            React.createElement(Colors_1.default, { uid: this.props.uid })));
+            React.createElement(ClotheColor_1.default, { uid: this.props.uid })));
     };
     ShirtVNeck.optionValue = 'ShirtVNeck';
     return ShirtVNeck;

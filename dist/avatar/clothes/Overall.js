@@ -16,7 +16,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var Colors_1 = require("./Colors");
+var ClotheColor_1 = require("./ClotheColor");
 var Overall = /** @class */ (function (_super) {
     __extends(Overall, _super);
     function Overall() {
@@ -31,7 +31,7 @@ var Overall = /** @class */ (function (_super) {
             React.createElement("mask", { id: clothingColorMask, fill: 'white' },
                 React.createElement("use", { xlinkHref: '#' + path1 })),
             React.createElement("use", { id: "".concat(this.props.uid, "-Overall"), fill: '#B7C1DB', fillRule: 'evenodd', xlinkHref: '#' + path1 }),
-            React.createElement(Colors_1.default, { uid: this.props.uid }),
+            React.createElement(ClotheColor_1.default, { uid: this.props.uid }),
             React.createElement("circle", { id: "".concat(this.props.uid, "-ButtonLeft"), fill: '#F4F4F4', fillRule: 'evenodd', cx: '81', cy: '83', r: '5' }),
             React.createElement("circle", { id: "".concat(this.props.uid, "-ButtonRight"), fill: '#F4F4F4', fillRule: 'evenodd', cx: '183', cy: '83', r: '5' })));
     };

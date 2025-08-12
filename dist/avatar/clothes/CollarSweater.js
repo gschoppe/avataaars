@@ -16,7 +16,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var Colors_1 = require("./Colors");
+var ClotheColor_1 = require("./ClotheColor");
 var CollarSweater = /** @class */ (function (_super) {
     __extends(CollarSweater, _super);
     function CollarSweater() {
@@ -31,7 +31,7 @@ var CollarSweater = /** @class */ (function (_super) {
             React.createElement("mask", { id: ClothingColorMask, fill: 'white' },
                 React.createElement("use", { xlinkHref: '#' + path1 })),
             React.createElement("use", { id: "".concat(this.props.uid, "-Clothes"), fill: '#E6E6E6', fillRule: 'evenodd', xlinkHref: '#' + path1 }),
-            React.createElement(Colors_1.default, { uid: this.props.uid }),
+            React.createElement(ClotheColor_1.default, { uid: this.props.uid }),
             React.createElement("path", { d: 'M156,22.2794906 C162.181647,26.8351858 166,33.1057265 166,40.027915 C166,47.2334941 161.862605,53.7329769 155.228997,58.3271669 L149.57933,53.8764929 L145,54.207887 L146,51.0567821 L145.922229,50.995516 C152.022491,47.8530505 156,42.7003578 156,36.8768102 L156,22.2794906 Z M108,21.5714994 C101.232748,26.1740081 97,32.7397769 97,40.027915 C97,47.4261549 101.361602,54.080035 108.308428,58.6915723 L114.42067,53.8764929 L119,54.207887 L118,51.0567821 L118.077771,50.995516 C111.977509,47.8530505 108,42.7003578 108,36.8768102 L108,21.5714994 Z', id: "".concat(this.props.uid, "-Collar"), fill: '#F2F2F2', fillRule: 'evenodd' })));
     };
     CollarSweater.optionValue = 'CollarSweater';

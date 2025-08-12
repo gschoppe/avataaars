@@ -16,7 +16,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var Colors_1 = require("./Colors");
+var FacialHairColor_1 = require("./FacialHairColor");
 var MoustacheMagnum = /** @class */ (function (_super) {
     __extends(MoustacheMagnum, _super);
     function MoustacheMagnum() {
@@ -31,7 +31,7 @@ var MoustacheMagnum = /** @class */ (function (_super) {
             React.createElement("mask", { id: facialHairMask, fill: 'white' },
                 React.createElement("use", { xlinkHref: '#' + path1 })),
             React.createElement("use", { id: "".concat(this.props.uid, "-Mustache"), fill: '#28354B', fillRule: 'evenodd', xlinkHref: '#' + path1 }),
-            React.createElement(Colors_1.default, { uid: this.props.uid })));
+            React.createElement(FacialHairColor_1.default, { uid: this.props.uid })));
     };
     MoustacheMagnum.optionValue = 'MoustacheMagnum';
     return MoustacheMagnum;

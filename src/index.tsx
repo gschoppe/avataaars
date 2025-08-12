@@ -3,10 +3,45 @@ import * as React from 'react'
 import Avatar from './avatar'
 import { OptionContext, OptionsContext, allOptions } from './options'
 
+import { makeBackdropColor } from './avatar/backdrop/BackdropColor'
+import { makeSkinColor } from './avatar/Skin'
+import { makeHairColor } from './avatar/top/HairColor'
+import { makeFacialHairColor } from './avatar/top/facialHair/FacialHairColor'
+import { makeClotheColor } from './avatar/clothes/ClotheColor'
+import { makeHatColor } from './avatar/top/HatColor'
+
 export { default as Avatar } from './avatar'
 export { Option, OptionContext, OptionsContext, allOptions } from './options'
 
 import { default as PieceComponent } from './avatar/piece'
+
+export const PALETTES = {
+  BACKDROP: "BACKDROP",
+  SKIN: "SKIN",
+  HAIR: "HAIR",
+  FACIAL_HAIR: "FACIAL_HAIR",
+  CLOTHES: "CLOTHES",
+  HAT: "HAT"
+}
+
+export function addPaletteColor(palette: string, name: string, color: string) {
+  switch (palette) {
+    case PALETTES.BACKDROP:
+      return makeBackdropColor(name, color)
+    case PALETTES.SKIN:
+      return makeSkinColor(name, color)
+    case PALETTES.HAIR:
+      return makeHairColor(name, color)
+    case PALETTES.FACIAL_HAIR:
+      return makeFacialHairColor(name, color)
+    case PALETTES.CLOTHES:
+      return makeClotheColor(name, color)
+    case PALETTES.HAT:
+      return makeHatColor(name, color)
+    default:
+      throw new Error(`Unknown palette: ${palette}`)
+  }
+}
 
 export interface Props {
   className?: string
