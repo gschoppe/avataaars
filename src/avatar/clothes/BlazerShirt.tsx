@@ -1,4 +1,5 @@
 import * as React from 'react'
+import ClotheColor from './ClotheColor'
 
 export interface Props {
   uid: string
@@ -7,9 +8,9 @@ export interface Props {
 export default class BlazerShirt extends React.Component<Props> {
   static optionValue = 'BlazerShirt'
 
-  render () {
+  render() {
     const path1 = `${this.props.uid}-Clothing-path1`
-    const mask1 = `${this.props.uid}-Clothing-mask1`
+    const clothingColorMask = `${this.props.uid}-Clothing-Color-Mask`
 
     return (
       <g
@@ -22,19 +23,15 @@ export default class BlazerShirt extends React.Component<Props> {
           />
         </defs>
         <g id={`${this.props.uid}-Shirt`} transform='translate(32.000000, 29.000000)'>
-          <mask id={mask1} fill='white'>
+          <mask id={clothingColorMask} fill='white'>
             <use xlinkHref={'#' + path1} />
           </mask>
           <use id={`${this.props.uid}-Clothes`} fill='#E6E6E6' xlinkHref={'#' + path1} />
-          <g id={`${this.props.uid}-Color/Palette/Black`} mask={`url(#${mask1})`} fill='#262E33'>
-            <g transform='translate(-32.000000, -29.000000)' id='🖍Color'>
-              <rect x='0' y='0' width='264' height='110' />
-            </g>
-          </g>
+          <ClotheColor uid={this.props.uid} />
           <g
             id={`${this.props.uid}-Shadowy`}
             opacity='0.599999964'
-            mask={`url(#${mask1})`}
+            mask={`url(#${clothingColorMask})`}
             fillOpacity='0.16'
             fill='#000000'>
             <g transform='translate(60.000000, -25.000000)' id={`${this.props.uid}-Hola-👋🏼`}>

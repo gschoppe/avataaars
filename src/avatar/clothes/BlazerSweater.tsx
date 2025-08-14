@@ -1,4 +1,5 @@
 import * as React from 'react'
+import ClotheColor from './ClotheColor'
 
 export interface Props {
   uid: string
@@ -7,9 +8,9 @@ export interface Props {
 export default class BlazerSweater extends React.Component<Props> {
   static optionValue = 'BlazerSweater'
 
-  render () {
+  render() {
     const path1 = `${this.props.uid}-Clothing-path1`
-    const mask1 = `${this.props.uid}-Clothing-mask1`
+    const clothingColorMask = `${this.props.uid}-Clothing-Color-Mask`
 
     return (
       <g
@@ -21,7 +22,7 @@ export default class BlazerSweater extends React.Component<Props> {
             id={path1}
           />
         </defs>
-        <mask id={mask1} fill='white'>
+        <mask id={clothingColorMask} fill='white'>
           <use xlinkHref={'#' + path1} />
         </mask>
         <use
@@ -30,13 +31,7 @@ export default class BlazerSweater extends React.Component<Props> {
           fillRule='evenodd'
           xlinkHref={'#' + path1}
         />
-        <g
-          id={`${this.props.uid}-Color/Palette/Black`}
-          mask={`url(#${mask1})`}
-          fillRule='evenodd'
-          fill='#262E33'>
-          <rect id={`${this.props.uid}-🖍Color`} x='0' y='0' width='264' height='110' />
-        </g>
+        <ClotheColor uid={this.props.uid} />
         <g
           id={`${this.props.uid}-Blazer`}
           strokeWidth='1'
