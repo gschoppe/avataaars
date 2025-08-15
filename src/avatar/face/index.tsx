@@ -10,9 +10,9 @@ export interface Props {
 }
 
 export default class Face extends React.Component<Props> {
-  render () {
+  render() {
     return (
-      <g id='Face' transform='translate(76.000000, 82.000000)' fill='#000000'>
+      <g id={`${this.props.uid}-Face`} transform='translate(76.000000, 82.000000)' fill='#000000'>
         <Mouth uid={this.props.uid} />
         <Nose uid={this.props.uid} />
         <Eyes uid={this.props.uid} />

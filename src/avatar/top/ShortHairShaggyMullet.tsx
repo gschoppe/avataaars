@@ -11,14 +11,14 @@ export interface Props {
 export default class ShortHairShaggyMullet extends React.Component<Props> {
   static optionValue = 'ShortHairShaggyMullet'
 
-  render () {
+  render() {
     const path1 = `${this.props.uid}-top-path1`
     const path2 = `${this.props.uid}-top-path2`
     const path3 = `${this.props.uid}-top-path3`
     const mask1 = `${this.props.uid}-top-mask1`
     const hairColorMask = `${this.props.uid}-Hair-Color-Mask`
-    
-    
+
+
     return (
       <g id={`${this.props.uid}-Top`} strokeWidth='1' fillRule='evenodd'>
         <defs>
@@ -37,7 +37,6 @@ export default class ShortHairShaggyMullet extends React.Component<Props> {
         </mask>
         <g id={`${this.props.uid}-Top/Short-Hair/Shaggy-Mullet`} mask={`url(#${mask1})`}>
           <g transform='translate(-1.000000, 0.000000)'>
-            {this.props.children}
             <mask id={hairColorMask} fill='white'>
               <use xlinkHref={'#' + path2} />
             </mask>
@@ -58,6 +57,7 @@ export default class ShortHairShaggyMullet extends React.Component<Props> {
               fillRule='evenodd'
             />
             <FacialHair uid={this.props.uid} />
+            {this.props.children}
           </g>
         </g>
       </g>
