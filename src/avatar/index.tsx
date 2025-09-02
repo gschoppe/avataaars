@@ -15,7 +15,8 @@ export interface Props {
 }
 
 export interface AvatarState {
-  uid: string
+  uid: string,
+  animationDelay: string
 }
 
 export default class Avatar extends React.Component<Props> {
@@ -25,12 +26,17 @@ export default class Avatar extends React.Component<Props> {
     super(props);
     this.state = {
       uid: "error",
+      animationDelay: '0s'
     };
   }
 
   componentDidMount() {
     const uid = uniqueId('avatar-')
-    this.setState({ uid: uid })
+    const animationDelay = Math.random() * 5
+    this.setState({
+      uid: uid,
+      animationDelay: `${animationDelay}s`
+    })
   }
 
   render() {
@@ -61,7 +67,8 @@ export default class Avatar extends React.Component<Props> {
           stroke="none"
           strokeWidth="1"
           fill="none"
-          fillRule="evenodd">
+          fillRule="evenodd"
+          style={{ animationDelay: this.state.animationDelay }}>
           <g
             transform="translate(-825.000000, -1100.000000)"
             id={`${this.state.uid}-Avataaar/Backdrop`}>

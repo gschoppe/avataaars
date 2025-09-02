@@ -1,3 +1,26 @@
+/* Blinking animation for the eyes */
+@keyframes blink {
+  0% {
+    scale: 1 1;
+  }
+
+  4.5% {
+    scale: 1 1;
+  }
+
+  5% {
+    scale: 1 0;
+  }
+
+  5.5% {
+    scale: 1 1;
+  }
+
+  100% {
+    scale: 1 1;
+  }
+}
+
 @keyframes eyeroll {
   0.0% {
     rotate: 0deg;
@@ -40,35 +63,35 @@
 
 @keyframes throbeye {
   0% {
-    transform: scale(1.0);
+    scale: 1.0;
   }
 
   88% {
-    transform: scale(1.0);
+    scale: 1.0;
   }
 
   90% {
-    transform: scale(1.2);
+    scale: 1.2;
   }
 
   92% {
-    transform: scale(0.8);
+    scale: 0.8;
   }
 
   94% {
-    transform: scale(1.2);
+    scale: 1.2;
   }
 
   96% {
-    transform: scale(0.9);
+    scale: 0.9;
   }
 
   98% {
-    transform: scale(1.2);
+    scale: 1.2;
   }
 
   100% {
-    transform: scale(1.0);
+    scale: 1.0;
   }
 }
 
@@ -180,6 +203,41 @@
   100% {
     rotate: 0deg;
   }
+}
+
+[id$="-Avataaar"] * {
+  animation-delay: inherit !important;
+}
+
+/* Blinking Eyes */
+[id$="-Avataaar"] [id*="Eyes/Default"]>[id$="Eye-Left"] {
+  transform-origin: 30px 22px;
+  animation: blink 10s linear infinite;
+}
+
+[id$="-Avataaar"] [id*="Eyes/Default"]>[id$="Eye-Right"] {
+  transform-origin: 82px 22px;
+  animation: blink 10s linear infinite;
+}
+
+[id$="-Avataaar"] [id*="Eyes/Squint"]>[id$="Eye-Left"] {
+  transform-origin: 30px 22px;
+  animation: blink 10s linear infinite;
+}
+
+[id$="-Avataaar"] [id*="Eyes/Squint"]>[id$="Eye-Right"] {
+  transform-origin: 82px 22px;
+  animation: blink 10s linear infinite;
+}
+
+[id$="-Avataaar"] [id*="Eyes/Surprised"]>[id$="Eye-Left"] {
+  transform-origin: 30px 22px;
+  animation: blink 10s linear infinite;
+}
+
+[id$="-Avataaar"] [id*="Eyes/Surprised"]>[id$="Eye-Right"] {
+  transform-origin: 82px 22px;
+  animation: blink 10s linear infinite;
 }
 
 /* Eye Roll */
