@@ -129,6 +129,8 @@ export default function MyComponent() {
 
 ### BETA - Add CSS Idle Animations
 
+<p align="center"><img src='animation-example.png?raw=true' style='max-width: 80%;height:auto;' /></p>
+
 This is very much a work in progress. So far, Idle animations have only been added
 to a few of the various avatar components. To enable these animations, just
 import `@gschoppe/avataaars/dist/animations.css` in your component, like so:
