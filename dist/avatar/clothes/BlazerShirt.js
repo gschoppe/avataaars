@@ -16,6 +16,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
+var ClotheColor_1 = require("./ClotheColor");
 var BlazerShirt = /** @class */ (function (_super) {
     __extends(BlazerShirt, _super);
     function BlazerShirt() {
@@ -23,18 +24,16 @@ var BlazerShirt = /** @class */ (function (_super) {
     }
     BlazerShirt.prototype.render = function () {
         var path1 = "".concat(this.props.uid, "-Clothing-path1");
-        var mask1 = "".concat(this.props.uid, "-Clothing-mask1");
+        var clothingColorMask = "".concat(this.props.uid, "-Clothing-Color-Mask");
         return (React.createElement("g", { id: "".concat(this.props.uid, "-Clothing/Blazer-+-Shirt"), transform: 'translate(0.000000, 170.000000)' },
             React.createElement("defs", null,
                 React.createElement("path", { d: 'M133.960472,0.294916112 C170.936473,3.32499816 200,34.2942856 200,72.0517235 L200,81 L0,81 L0,72.0517235 C1.22536245e-14,33.9525631 29.591985,2.76498122 67.0454063,0.219526408 C67.0152598,0.593114549 67,0.969227185 67,1.34762511 C67,13.2107177 81.9984609,22.8276544 100.5,22.8276544 C119.001539,22.8276544 134,13.2107177 134,1.34762511 C134,0.994669088 133.986723,0.64370138 133.960472,0.294916112 Z', id: path1 })),
             React.createElement("g", { id: "".concat(this.props.uid, "-Shirt"), transform: 'translate(32.000000, 29.000000)' },
-                React.createElement("mask", { id: mask1, fill: 'white' },
+                React.createElement("mask", { id: clothingColorMask, fill: 'white' },
                     React.createElement("use", { xlinkHref: '#' + path1 })),
                 React.createElement("use", { id: "".concat(this.props.uid, "-Clothes"), fill: '#E6E6E6', xlinkHref: '#' + path1 }),
-                React.createElement("g", { id: "".concat(this.props.uid, "-Color/Palette/Black"), mask: "url(#".concat(mask1, ")"), fill: '#262E33' },
-                    React.createElement("g", { transform: 'translate(-32.000000, -29.000000)', id: '\uD83D\uDD8DColor' },
-                        React.createElement("rect", { x: '0', y: '0', width: '264', height: '110' }))),
-                React.createElement("g", { id: "".concat(this.props.uid, "-Shadowy"), opacity: '0.599999964', mask: "url(#".concat(mask1, ")"), fillOpacity: '0.16', fill: '#000000' },
+                React.createElement(ClotheColor_1.default, { uid: this.props.uid }),
+                React.createElement("g", { id: "".concat(this.props.uid, "-Shadowy"), opacity: '0.599999964', mask: "url(#".concat(clothingColorMask, ")"), fillOpacity: '0.16', fill: '#000000' },
                     React.createElement("g", { transform: 'translate(60.000000, -25.000000)', id: "".concat(this.props.uid, "-Hola-\uD83D\uDC4B\uD83C\uDFFC") },
                         React.createElement("ellipse", { cx: '40.5', cy: '27.8476251', rx: '39.6351047', ry: '26.9138272' })))),
             React.createElement("g", { id: "".concat(this.props.uid, "-Blazer"), transform: 'translate(32.000000, 28.000000)' },

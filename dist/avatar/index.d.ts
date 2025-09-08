@@ -5,6 +5,7 @@ export interface Props {
 }
 export interface AvatarState {
     uid: string;
+    animationDelay: string;
 }
 export default class Avatar extends React.Component<Props> {
     state: AvatarState;

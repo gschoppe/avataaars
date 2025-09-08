@@ -16,6 +16,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
+var ClotheColor_1 = require("./ClotheColor");
 var BlazerSweater = /** @class */ (function (_super) {
     __extends(BlazerSweater, _super);
     function BlazerSweater() {
@@ -23,15 +24,14 @@ var BlazerSweater = /** @class */ (function (_super) {
     }
     BlazerSweater.prototype.render = function () {
         var path1 = "".concat(this.props.uid, "-Clothing-path1");
-        var mask1 = "".concat(this.props.uid, "-Clothing-mask1");
+        var clothingColorMask = "".concat(this.props.uid, "-Clothing-Color-Mask");
         return (React.createElement("g", { id: "".concat(this.props.uid, "-Clothing/Blazer-+-Sweater"), transform: 'translate(0.000000, 170.000000)' },
             React.createElement("defs", null,
                 React.createElement("path", { d: 'M105.192402,29.0517235 L104,29.0517235 L104,29.0517235 C64.235498,29.0517235 32,61.2872215 32,101.051724 L32,110 L232,110 L232,101.051724 C232,61.2872215 199.764502,29.0517235 160,29.0517235 L160,29.0517235 L158.807598,29.0517235 C158.934638,30.0353144 159,31.0364513 159,32.0517235 C159,45.8588423 146.911688,57.0517235 132,57.0517235 C117.088312,57.0517235 105,45.8588423 105,32.0517235 C105,31.0364513 105.065362,30.0353144 105.192402,29.0517235 Z', id: path1 })),
-            React.createElement("mask", { id: mask1, fill: 'white' },
+            React.createElement("mask", { id: clothingColorMask, fill: 'white' },
                 React.createElement("use", { xlinkHref: '#' + path1 })),
             React.createElement("use", { id: "".concat(this.props.uid, "-Clothes"), fill: '#E6E6E6', fillRule: 'evenodd', xlinkHref: '#' + path1 }),
-            React.createElement("g", { id: "".concat(this.props.uid, "-Color/Palette/Black"), mask: "url(#".concat(mask1, ")"), fillRule: 'evenodd', fill: '#262E33' },
-                React.createElement("rect", { id: "".concat(this.props.uid, "-\uD83D\uDD8DColor"), x: '0', y: '0', width: '264', height: '110' })),
+            React.createElement(ClotheColor_1.default, { uid: this.props.uid }),
             React.createElement("g", { id: "".concat(this.props.uid, "-Blazer"), strokeWidth: '1', fillRule: 'evenodd', transform: 'translate(32.000000, 28.000000)' },
                 React.createElement("path", { d: 'M68.784807,1.12222847 C30.512317,2.80409739 1.24427139e-14,34.3646437 0,73.0517235 L0,82 L69.3616767,82 C65.9607412,69.9199941 64,55.7087296 64,40.5 C64,26.1729736 65.7399891,12.7311115 68.784807,1.12222847 Z M131.638323,82 L200,82 L200,73.0517235 C200,34.7067641 170.024954,3.36285166 132.228719,1.17384225 C135.265163,12.7709464 137,26.1942016 137,40.5 C137,55.7087296 135.039259,69.9199941 131.638323,82 Z', id: "".concat(this.props.uid, "-Saco"), fill: '#3A4C5A' }),
                 React.createElement("path", { d: 'M149,58 L158.555853,50.83311 L158.555853,50.83311 C159.998897,49.7508275 161.987779,49.7682725 163.411616,50.8757011 L170,56 L149,58 Z', id: "".concat(this.props.uid, "-Pocket-hanky"), fill: '#E6E6E6' }),

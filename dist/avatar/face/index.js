@@ -26,7 +26,7 @@ var Face = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Face.prototype.render = function () {
-        return (React.createElement("g", { id: 'Face', transform: 'translate(76.000000, 82.000000)', fill: '#000000' },
+        return (React.createElement("g", { id: "".concat(this.props.uid, "-Face"), transform: 'translate(76.000000, 82.000000)', fill: '#000000' },
             React.createElement(mouth_1.default, { uid: this.props.uid }),
             React.createElement(Default_1.default, { uid: this.props.uid }),
             React.createElement(eyes_1.default, { uid: this.props.uid }),

@@ -245,6 +245,18 @@
   animation-delay: inherit;
 }
 
+[id$="-Avataaar"] [id*="Eyes/X-Dizzy"]>[id$="Eye-Left"] {
+  transform-origin: 30px 22px;
+  animation: 10s linear infinite blinkeyes;
+  animation-delay: inherit;
+}
+
+[id$="-Avataaar"] [id*="Eyes/X-Dizzy"]>[id$="Eye-Right"] {
+  transform-origin: 82px 22px;
+  animation: 10s linear infinite blinkeyes;
+  animation-delay: inherit;
+}
+
 /* Eye Roll */
 [id$="-Avataaar"] [id*="Eyes/Eye-Roll"]>[id$="Eye-Left"] {
   transform-origin: 30px 22px;

@@ -1,3 +1,25 @@
+@keyframes blinkeyes {
+  0% {
+    scale: 1 1;
+  }
+
+  4.5% {
+    scale: 1 1;
+  }
+
+  5% {
+    scale: 1 0;
+  }
+
+  5.5% {
+    scale: 1 1;
+  }
+
+  100% {
+    scale: 1 1;
+  }
+}
+
 @keyframes eyeroll {
   0.0% {
     rotate: 0deg;
@@ -40,35 +62,35 @@
 
 @keyframes throbeye {
   0% {
-    transform: scale(1.0);
+    scale: 1.0;
   }
 
   88% {
-    transform: scale(1.0);
+    scale: 1.0;
   }
 
   90% {
-    transform: scale(1.2);
+    scale: 1.2;
   }
 
   92% {
-    transform: scale(0.8);
+    scale: 0.8;
   }
 
   94% {
-    transform: scale(1.2);
+    scale: 1.2;
   }
 
   96% {
-    transform: scale(0.9);
+    scale: 0.9;
   }
 
   98% {
-    transform: scale(1.2);
+    scale: 1.2;
   }
 
   100% {
-    transform: scale(1.0);
+    scale: 1.0;
   }
 }
 
@@ -182,52 +204,114 @@
   }
 }
 
+[id$="-Avataaar"] * {
+  animation-delay: inherit;
+}
+
+/* Blinking Eyes */
+[id$="-Avataaar"] [id*="Eyes/Default"]>[id$="Eye-Left"] {
+  transform-origin: 30px 22px;
+  animation: 10s linear infinite blinkeyes;
+  animation-delay: inherit;
+}
+
+[id$="-Avataaar"] [id*="Eyes/Default"]>[id$="Eye-Right"] {
+  transform-origin: 82px 22px;
+  animation: 10s linear infinite blinkeyes;
+  animation-delay: inherit;
+}
+
+[id$="-Avataaar"] [id*="Eyes/Squint"]>[id$="Eye-Left"] {
+  transform-origin: 30px 22px;
+  animation: 10s linear infinite blinkeyes;
+  animation-delay: inherit;
+}
+
+[id$="-Avataaar"] [id*="Eyes/Squint"]>[id$="Eye-Right"] {
+  transform-origin: 82px 22px;
+  animation: 10s linear infinite blinkeyes;
+  animation-delay: inherit;
+}
+
+[id$="-Avataaar"] [id*="Eyes/Surprised"]>[id$="Eye-Left"] {
+  transform-origin: 30px 22px;
+  animation: 10s linear infinite blinkeyes;
+  animation-delay: inherit;
+}
+
+[id$="-Avataaar"] [id*="Eyes/Surprised"]>[id$="Eye-Right"] {
+  transform-origin: 82px 22px;
+  animation: 10s linear infinite blinkeyes;
+  animation-delay: inherit;
+}
+
+[id$="-Avataaar"] [id*="Eyes/X-Dizzy"]>[id$="Eye-Left"] {
+  transform-origin: 30px 22px;
+  animation: 10s linear infinite blinkeyes;
+  animation-delay: inherit;
+}
+
+[id$="-Avataaar"] [id*="Eyes/X-Dizzy"]>[id$="Eye-Right"] {
+  transform-origin: 82px 22px;
+  animation: 10s linear infinite blinkeyes;
+  animation-delay: inherit;
+}
+
 /* Eye Roll */
 [id$="-Avataaar"] [id*="Eyes/Eye-Roll"]>[id$="Eye-Left"] {
   transform-origin: 30px 22px;
-  animation: eyeroll 10s linear infinite;
+  animation: 10s linear infinite eyeroll;
+  animation-delay: inherit;
 }
 
 [id$="-Avataaar"] [id*="Eyes/Eye-Roll"]>[id$="Eye-Right"] {
   transform-origin: 82px 22px;
-  animation: eyeroll 10s linear infinite;
+  animation: 10s linear infinite eyeroll;
+  animation-delay: inherit;
 }
 
 /* Side Eye Swipe */
 [id$="-Avataaar"] [id*="Eyes/Side"]>[id$="Eye-Left"] {
   transform-origin: 30px 22px;
-  animation: sideeye 15s linear infinite;
+  animation: 13s linear infinite sideeye;
+  animation-delay: inherit;
 }
 
 [id$="-Avataaar"] [id*="Eyes/Side"]>[id$="Eye-Right"] {
   transform-origin: 82px 22px;
-  animation: sideeye 15s linear infinite;
+  animation: 13s linear infinite sideeye;
+  animation-delay: inherit;
 }
 
 /* Heart Eye Throb */
 [id$="-Avataaar"] [id*="Eyes/Hearts"]>[id$="Eye-Left"] {
   transform-origin: 30px 22px;
-  animation: throbeye 7s linear infinite;
+  animation: 7s linear infinite throbeye;
+  animation-delay: inherit;
 }
 
 [id$="-Avataaar"] [id*="Eyes/Hearts"]>[id$="Eye-Right"] {
   transform-origin: 82px 22px;
-  animation: throbeye 7s linear infinite;
+  animation: 7s linear infinite throbeye;
+  animation-delay: inherit;
 }
 
 /* Tear Drop Animation */
 [id$="-Avataaar"] [id*="Eyes/Cry"]>[id$="Teardrop"] {
   transform-origin: 30px 25px;
-  animation: teardrop 7s linear infinite;
+  animation: 7s linear infinite teardrop;
+  animation-delay: inherit;
 }
 
 /* Nose Wiggle */
 [id$="-Avataaar"] [id*="Nose/Default"]>[id$="Nose"] {
-  animation: nosewiggle 20s linear infinite;
+  animation: 20s linear infinite nosewiggle;
+  animation-delay: inherit;
 }
 
 /* Serious Mouth Wiggle */
 [id$="-Avataaar"] [id*="Mouth/Serious"]>[id$="Mouth"] {
   transform-origin: 51px 22px;
-  animation: mouthwiggle 13s linear infinite;
+  animation: 13s linear infinite mouthwiggle;
+  animation-delay: inherit;
 }
