@@ -64,10 +64,16 @@ export interface Props {
   pieceType?: string
   pieceSize?: string
   viewBox?: string
+  uid?: string
 }
 
 export default class AvatarComponent extends React.Component<Props> {
   private optionContext: OptionContext = new OptionContext(allOptions)
+
+  constructor(props: Props) {
+    super(props)
+    this.updateOptionContext(this.props)
+  }
 
   componentDidMount() {
     this.updateOptionContext(this.props)

@@ -12,6 +12,8 @@ import Top from './top'
 export interface Props {
   className?: string
   style?: React.CSSProperties
+  uid?: string
+  animationDelay?: string
 }
 
 export interface AvatarState {
@@ -22,21 +24,31 @@ export interface AvatarState {
 export default class Avatar extends React.Component<Props> {
   public state: AvatarState
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
-    this.state = {
+    const state = {
       uid: "error",
       animationDelay: '0s'
-    };
+    }
+    if (props.uid) {
+      state.uid = props.uid
+    }
+    if (props.animationDelay) {
+      state.animationDelay = props.animationDelay
+    }
+    this.state = state;
   }
 
   componentDidMount() {
-    const uid = uniqueId('avatar-')
-    const animationDelay = Math.random() * 5
-    this.setState({
-      uid: uid,
-      animationDelay: `${animationDelay}s`
-    })
+    const state = { ...this.state }
+    if (!this.props.uid) {
+      state.uid = uniqueId('avatar-')
+    }
+    if (!this.props.animationDelay) {
+      const animationDelay = Math.random() * 5
+      state.animationDelay = `${animationDelay}s`
+    }
+    this.setState(state)
   }
 
   render() {
