@@ -18,17 +18,13 @@ export default class CircleBackdrop extends React.Component<Props> {
           fillRule="evenodd"
           transform="translate(12.000000, 40.000000)">
           <mask id={`${this.props.uid}-Backdrop-Color-Mask`} fill="white">
-            <use xlinkHref={`#${this.props.uid}-path-circle`} />
+            <circle cx="120" cy="120" r="120" />
           </mask>
-          <use
-            id={`${this.props.uid}-Circle-Background`}
-            fill="#E6E6E6"
-            xlinkHref={`#${this.props.uid}-path-circle`}
-          />
+          <circle cx="120" cy="120" r="120" fill="#E6E6E6" />
           <BackdropColor uid={this.props.uid} defaultColor="Blue01" />
         </g>
-        <mask id={`${this.props.uid}-mask-hemicircle`} fill="white">
-          <use xlinkHref={`#${this.props.uid}-path-hemicircle`} />
+        <mask id={`${this.props.uid}-Backdrop-Mask`} fill="white">
+          <path d="M12,160 C12,226.27417 65.72583,280 132,280 C198.27417,280 252,226.27417 252,160 L264,160 L264,-1.42108547e-14 L-3.19744231e-14,-1.42108547e-14 L-3.19744231e-14,160 L12,160 Z" />
         </mask>
       </>
     )

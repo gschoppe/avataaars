@@ -17,7 +17,7 @@ export function makeBackdropColor(name: string, color: string) {
           id={`${this.props.uid}-BackdropColor/${name}`}
           mask={`url(#${this.props.uid}-Backdrop-Color-Mask)`}
           fill={color}>
-          <rect id={`${this.props.uid}-🖍Color`} x="0" y="0" width="240" height="240" />
+          <rect id={`${this.props.uid}-🖍Color`} x="0" y="0" width="280" height="280" />
         </g>
       )
     }

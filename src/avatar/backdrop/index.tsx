@@ -1,6 +1,7 @@
 import React from 'react'
 
 import CircleBackdrop from './CircleBackdrop'
+import DiamondBackdrop from './DiamondBackdrop'
 import NoBackdrop from './NoBackdrop'
 import { Selector, BackdropOption } from '../../options'
 
@@ -14,6 +15,7 @@ export default class Backdrop extends React.Component<Props> {
       <Selector defaultOption={CircleBackdrop} option={BackdropOption}>
         <NoBackdrop uid={this.props.uid}></NoBackdrop>
         <CircleBackdrop uid={this.props.uid}></CircleBackdrop>
+        <DiamondBackdrop uid={this.props.uid}></DiamondBackdrop>
       </Selector>
     )
   }
