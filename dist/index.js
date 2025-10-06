@@ -62,9 +62,10 @@ function addPaletteColor(palette, name, color) {
 }
 var AvatarComponent = /** @class */ (function (_super) {
     __extends(AvatarComponent, _super);
-    function AvatarComponent() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
+    function AvatarComponent(props) {
+        var _this = _super.call(this, props) || this;
         _this.optionContext = new options_1.OptionContext(options_1.allOptions);
+        _this.updateOptionContext(_this.props);
         return _this;
     }
     AvatarComponent.prototype.componentDidMount = function () {

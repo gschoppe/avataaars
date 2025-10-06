@@ -17,6 +17,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = require("react");
 var CircleBackdrop_1 = require("./CircleBackdrop");
+var DiamondBackdrop_1 = require("./DiamondBackdrop");
 var NoBackdrop_1 = require("./NoBackdrop");
 var options_1 = require("../../options");
 var Backdrop = /** @class */ (function (_super) {
@@ -27,7 +28,8 @@ var Backdrop = /** @class */ (function (_super) {
     Backdrop.prototype.render = function () {
         return (react_1.default.createElement(options_1.Selector, { defaultOption: CircleBackdrop_1.default, option: options_1.BackdropOption },
             react_1.default.createElement(NoBackdrop_1.default, { uid: this.props.uid }),
-            react_1.default.createElement(CircleBackdrop_1.default, { uid: this.props.uid })));
+            react_1.default.createElement(CircleBackdrop_1.default, { uid: this.props.uid }),
+            react_1.default.createElement(DiamondBackdrop_1.default, { uid: this.props.uid })));
     };
     return Backdrop;
 }(react_1.default.Component));

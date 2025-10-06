@@ -26,11 +26,11 @@ var CircleBackdrop = /** @class */ (function (_super) {
         return (react_1.default.createElement(react_1.default.Fragment, null,
             react_1.default.createElement("g", { id: "".concat(this.props.uid, "-Circle"), strokeWidth: "1", fillRule: "evenodd", transform: "translate(12.000000, 40.000000)" },
                 react_1.default.createElement("mask", { id: "".concat(this.props.uid, "-Backdrop-Color-Mask"), fill: "white" },
-                    react_1.default.createElement("use", { xlinkHref: "#".concat(this.props.uid, "-path-circle") })),
-                react_1.default.createElement("use", { id: "".concat(this.props.uid, "-Circle-Background"), fill: "#E6E6E6", xlinkHref: "#".concat(this.props.uid, "-path-circle") }),
+                    react_1.default.createElement("circle", { cx: "120", cy: "120", r: "120" })),
+                react_1.default.createElement("circle", { cx: "120", cy: "120", r: "120", fill: "#E6E6E6" }),
                 react_1.default.createElement(BackdropColor_1.default, { uid: this.props.uid, defaultColor: "Blue01" })),
-            react_1.default.createElement("mask", { id: "".concat(this.props.uid, "-mask-hemicircle"), fill: "white" },
-                react_1.default.createElement("use", { xlinkHref: "#".concat(this.props.uid, "-path-hemicircle") }))));
+            react_1.default.createElement("mask", { id: "".concat(this.props.uid, "-Backdrop-Mask"), fill: "white" },
+                react_1.default.createElement("path", { d: "M12,160 C12,226.27417 65.72583,280 132,280 C198.27417,280 252,226.27417 252,160 L264,160 L264,-1.42108547e-14 L-3.19744231e-14,-1.42108547e-14 L-3.19744231e-14,160 L12,160 Z" }))));
     };
     CircleBackdrop.optionValue = 'Circle';
     return CircleBackdrop;

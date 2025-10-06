@@ -31,9 +31,11 @@ export interface Props {
     pieceType?: string;
     pieceSize?: string;
     viewBox?: string;
+    uid?: string;
 }
 export default class AvatarComponent extends React.Component<Props> {
     private optionContext;
+    constructor(props: Props);
     componentDidMount(): void;
     componentDidUpdate(prevProps: Props): void;
     render(): React.JSX.Element;

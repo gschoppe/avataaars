@@ -1,18 +1,3 @@
-@keyframes breathe {
-
-  0%,
-  10%,
-  90%,
-  100% {
-    transform-origin: center;
-    transform: scale(1) translateY(0) rotate(0);
-  }
-
-  50% {
-    transform: scale(1.015) translateY(-0.85%) rotate(1.5deg);
-  }
-}
-
 @keyframes blinkeyes {
   0% {
     scale: 1 1;
@@ -220,12 +205,6 @@
 }
 
 [id$="-Avataaar"] * {
-  animation-delay: inherit;
-}
-
-/* Breathing Animation */
-[id$="-Avataaar"] [id*="Person"] {
-  animation: 8s ease-in-out infinite breathe;
   animation-delay: inherit;
 }
 

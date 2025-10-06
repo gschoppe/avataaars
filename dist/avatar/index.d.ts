@@ -2,6 +2,8 @@ import React from 'react';
 export interface Props {
     className?: string;
     style?: React.CSSProperties;
+    uid?: string;
+    animationDelay?: string;
 }
 export interface AvatarState {
     uid: string;
@@ -9,7 +11,7 @@ export interface AvatarState {
 }
 export default class Avatar extends React.Component<Props> {
     state: AvatarState;
-    constructor(props: any);
+    constructor(props: Props);
     componentDidMount(): void;
     render(): React.JSX.Element;
 }

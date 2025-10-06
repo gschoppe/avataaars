@@ -27,7 +27,7 @@ function makeBackdropColor(name, color) {
         }
         ColorComponent.prototype.render = function () {
             return (react_1.default.createElement("g", { id: "".concat(this.props.uid, "-BackdropColor/").concat(name), mask: "url(#".concat(this.props.uid, "-Backdrop-Color-Mask)"), fill: color },
-                react_1.default.createElement("rect", { id: "".concat(this.props.uid, "-\uD83D\uDD8DColor"), x: "0", y: "0", width: "240", height: "240" })));
+                react_1.default.createElement("rect", { id: "".concat(this.props.uid, "-\uD83D\uDD8DColor"), x: "0", y: "0", width: "280", height: "280" })));
         };
         return ColorComponent;
     }(react_1.default.Component));
