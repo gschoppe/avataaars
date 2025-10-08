@@ -1,5 +1,6 @@
 import * as React from 'react'
 import HatColor from './HatColor'
+import FacialHair from './facialHair'
 
 export interface Props {
   uid: string
@@ -9,7 +10,7 @@ export interface Props {
 export default class Hijab extends React.Component<Props> {
   static optionValue = 'Hijab'
 
-  render () {
+  render() {
     const path1 = `${this.props.uid}-top-path1`
     const path2 = `${this.props.uid}-top-path2`
     const mask1 = `${this.props.uid}-top-mask1`
@@ -53,6 +54,7 @@ export default class Hijab extends React.Component<Props> {
           <use xlinkHref={'#' + path1} />
         </mask>
         <g id={`${this.props.uid}-Top/Accesories/Hijab`} mask={`url(#${mask1})`}>
+          <FacialHair uid={this.props.uid} />
           <g transform='translate(-1.000000, 0.000000)'>
             <mask id={hatColorMask} fill='white'>
               <use xlinkHref={'#' + path2} />
