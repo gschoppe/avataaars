@@ -47,7 +47,7 @@ var ShortHairShaggy = /** @class */ (function (_super) {
                     React.createElement(facialHair_1.default, { uid: this.props.uid }),
                     this.props.children,
                     React.createElement("mask", { id: hairColorMask, fill: 'white' },
-                        React.createElement("use", { xlinkHref: '#' + path1, transform: 'scale(-1, 1)' })),
+                        React.createElement("use", { xlinkHref: '#' + path1, transform: 'translate(143.465161, 67.234158) scale(-1, 1) translate(-143.465161, -67.234158) ' })),
                     React.createElement("use", { id: "".concat(this.props.uid, "-Shaggy-Hair"), stroke: 'none', fill: '#28354B', fillRule: 'evenodd', transform: 'translate(143.465161, 67.234158) scale(-1, 1) translate(-143.465161, -67.234158) ', xlinkHref: '#' + path1 }),
                     React.createElement(HairColor_1.default, { uid: this.props.uid })))));
     };

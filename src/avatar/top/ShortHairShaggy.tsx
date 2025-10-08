@@ -11,7 +11,7 @@ export interface Props {
 export default class ShortHairShaggy extends React.Component<Props> {
   static optionValue = 'ShortHairShaggy'
 
-  render () {
+  render() {
     const path1 = `${this.props.uid}-top-path1`
     const path2 = `${this.props.uid}-top-path2`
     const filter1 = `${this.props.uid}-top-filter1`
@@ -60,7 +60,7 @@ export default class ShortHairShaggy extends React.Component<Props> {
             <FacialHair uid={this.props.uid} />
             {this.props.children}
             <mask id={hairColorMask} fill='white'>
-              <use xlinkHref={'#' + path1} transform='scale(-1, 1)' />
+              <use xlinkHref={'#' + path1} transform='translate(143.465161, 67.234158) scale(-1, 1) translate(-143.465161, -67.234158) ' />
             </mask>
             {/*XXX: some how the mask is broken, fix it later.*/}
             <use
