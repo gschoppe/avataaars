@@ -17,6 +17,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var HatColor_1 = require("./HatColor");
+var facialHair_1 = require("./facialHair");
 var Hijab = /** @class */ (function (_super) {
     __extends(Hijab, _super);
     function Hijab() {
@@ -41,6 +42,7 @@ var Hijab = /** @class */ (function (_super) {
             React.createElement("mask", { id: mask1, fill: 'white' },
                 React.createElement("use", { xlinkHref: '#' + path1 })),
             React.createElement("g", { id: "".concat(this.props.uid, "-Top/Accesories/Hijab"), mask: "url(#".concat(mask1, ")") },
+                React.createElement(facialHair_1.default, { uid: this.props.uid }),
                 React.createElement("g", { transform: 'translate(-1.000000, 0.000000)' },
                     React.createElement("mask", { id: hatColorMask, fill: 'white' },
                         React.createElement("use", { xlinkHref: '#' + path2 })),
