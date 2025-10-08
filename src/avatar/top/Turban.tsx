@@ -10,7 +10,7 @@ export interface Props {
 export default class Turban extends React.Component<Props> {
   static optionValue = 'Turban'
 
-  render () {
+  render() {
     const path1 = `${this.props.uid}-top-path1`
     const path2 = `${this.props.uid}-top-path2`
     const path3 = `${this.props.uid}-top-path3`
@@ -18,7 +18,7 @@ export default class Turban extends React.Component<Props> {
     const mask2 = `${this.props.uid}-top-mask2`
     const hatColorMask = `${this.props.uid}-Hat-Color-Mask`
     const filter1 = `${this.props.uid}-top-filter1`
-    
+
     return (
       <g id={`${this.props.uid}-Top`} strokeWidth='1' fillRule='evenodd'>
         <defs>
@@ -95,6 +95,7 @@ export default class Turban extends React.Component<Props> {
                 fill='#000000'
               />
             </g>
+            {this.props.children}
           </g>
         </g>
       </g>
