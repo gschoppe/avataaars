@@ -71,7 +71,7 @@ var Avatar = /** @class */ (function (_super) {
                 react_1.default.createElement("g", { transform: "translate(-825.000000, -1100.000000)", id: "".concat(this.state.uid, "-Avataaar/Backdrop") },
                     react_1.default.createElement("g", { transform: "translate(825.000000, 1100.000000)" },
                         react_1.default.createElement(backdrop_1.default, { uid: this.state.uid }),
-                        react_1.default.createElement("g", { id: "".concat(this.state.uid, "-Person"), strokeWidth: "1", fillRule: "evenodd", mask: "url(#".concat(this.state.uid, "-mask-hemicircle)") },
+                        react_1.default.createElement("g", { id: "".concat(this.state.uid, "-Person"), strokeWidth: "1", fillRule: "evenodd", mask: "url(#".concat(this.state.uid, "-Backdrop-Mask)") },
                             react_1.default.createElement("g", { id: "".concat(this.state.uid, "-Body"), transform: "translate(32.000000, 36.000000)" },
                                 react_1.default.createElement("mask", { id: "".concat(this.state.uid, "-Skin-Color-Mask"), fill: "white" },
                                     react_1.default.createElement("use", { xlinkHref: "#".concat(this.state.uid, "-path-skin") })),
