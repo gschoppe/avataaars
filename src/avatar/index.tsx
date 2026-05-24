@@ -85,7 +85,7 @@ export default class Avatar extends React.Component<Props> {
                 id={`${this.state.uid}-Person`}
                 strokeWidth="1"
                 fillRule="evenodd"
-                mask={`url(#${this.state.uid}-mask-hemicircle)`}>
+                mask={`url(#${this.state.uid}-Backdrop-Mask)`}>
                 <g id={`${this.state.uid}-Body`} transform="translate(32.000000, 36.000000)">
                   <mask id={`${this.state.uid}-Skin-Color-Mask`} fill="white">
                     <use xlinkHref={`#${this.state.uid}-path-skin`} />
