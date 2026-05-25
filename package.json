@@ -1,6 +1,6 @@
 {
   "name": "@gschoppe/avataaars",
-  "version": "2.2.7",
+  "version": "2.2.8",
   "description": "React component for avataaars, updated with bugfixes, support for react 19, and new options.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,7 +14,10 @@
     "react",
     "avatar"
   ],
-  "repository": "git@github.com:gschoppe/avataaars.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gschoppe/avataaars.git"
+  },
   "author": "Greg Schoppe <contact@gschoppe.com> (https://gschoppe.com)",
   "license": "MIT",
   "peerDependencies": {
