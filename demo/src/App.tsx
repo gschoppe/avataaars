@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import '../../src/animations.css'
+import { DEBUG_CONFIGS, CUSTOM_COLORS } from './debugConfigs'
 
 // Import source version
 import {
@@ -108,6 +109,9 @@ export const App: React.FC = () => {
   const [customColorVal, setCustomColorVal] = useState('#ec4899')
   const [isAdvancedOpen, setIsAdvancedOpen] = useState(false)
   const [copySuccess, setCopySuccess] = useState(false)
+  
+  const [isDebugMode, setIsDebugMode] = useState(() => window.location.search.includes('debug=true'))
+  const [expandedConfigId, setExpandedConfigId] = useState<string | null>(null)
 
   const [displayBg, setDisplayBg] = useState<string>(() => {
     try {
@@ -136,6 +140,15 @@ export const App: React.FC = () => {
 
   // Sync custom colors into the active version's palettes
   useEffect(() => {
+    // First register the deterministic baseline custom colors
+    CUSTOM_COLORS.forEach(({ palette, name, color }) => {
+      try {
+        addPaletteColor(PALETTES[palette as keyof typeof PALETTES], name, color)
+      } catch (err) {
+        // Safe to ignore if already registered
+      }
+    })
+
     customColorsList.forEach(({ palette, name, color }) => {
       try {
         addPaletteColor(PALETTES[palette as keyof typeof PALETTES], name, color)
@@ -145,6 +158,17 @@ export const App: React.FC = () => {
     })
     setRenderTick((t) => t + 1)
   }, [version, customColorsList, addPaletteColor])
+
+  // Sync debug mode state to URL query parameter
+  useEffect(() => {
+    const url = new URL(window.location.href)
+    if (isDebugMode) {
+      url.searchParams.set('debug', 'true')
+    } else {
+      url.searchParams.delete('debug')
+    }
+    window.history.replaceState({}, '', url.toString())
+  }, [isDebugMode])
 
   // Sync states to localStorage
   useEffect(() => {
@@ -540,6 +564,15 @@ ${propStrings}
           </p>
         </div>
         <div className='header-controls'>
+          <button
+            className={`btn-debug ${isDebugMode ? 'active' : ''}`}
+            onClick={() => setIsDebugMode(!isDebugMode)}
+            style={{ marginRight: '8px' }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '6px' }}>
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+            </svg>
+            {isDebugMode ? 'Standard Mode' : 'Baseline Debug Page'}
+          </button>
           <div className='version-selector'>
             <button
               className={`version-btn ${version === 'src' ? 'active' : ''}`}
@@ -567,209 +600,310 @@ ${propStrings}
       </header>
 
       <main className='workspace-grid'>
-        {/* Left column: Live Preview */}
-        <section className='preview-card'>
-          <span className='preview-badge'>{version} Mode</span>
-          <div className='avatar-wrapper' style={{ background: displayBg }}>
-            <OptionsContext.Provider value={activeContext as any}>
-              <Avatar style={{ width: '264px', height: '280px' }} animated={enableAnimations} />
-            </OptionsContext.Provider>
-          </div>
-
-          {/* Avatar Display Background Picker */}
-          <div className='display-bg-picker'>
-            <span style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-              Preview Background
-            </span>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '6px', justifyContent: 'center' }}>
-              {BACKGROUNDS.map((bg) => (
-                <button
-                  key={bg.name}
-                  type='button'
-                  className={`bg-dot ${displayBg === bg.value ? 'active' : ''}`}
-                  style={{ background: bg.value }}
-                  title={bg.name}
-                  onClick={() => setDisplayBg(bg.value)}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Toggle Animations */}
-          <div style={{ marginTop: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <label className='switch-label' style={{ fontSize: '12px', fontWeight: 600, color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', userSelect: 'none' }}>
-              <input
-                type='checkbox'
-                checked={enableAnimations}
-                onChange={(e) => setEnableAnimations(e.target.checked)}
-                style={{ width: '16px', height: '16px', accentColor: 'var(--color-primary)', cursor: 'pointer' }}
-              />
-              Show idle animations (BETA)
-            </label>
-          </div>
-
-          {/* Export Actions */}
-          <div style={{ marginTop: '16px', display: 'flex', gap: '12px', justifyContent: 'center', width: '100%' }}>
-            <button className='btn-export btn-export-svg' onClick={handleExportSVG} title='Export as vector SVG'>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <polyline points="7 10 12 15 17 10" />
-                <line x1="12" y1="15" x2="12" y2="3" />
-              </svg>
-              Export SVG
-            </button>
-            <button className='btn-export btn-export-png' onClick={handleExportPNG} title='Export as transparent PNG'>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <polyline points="7 10 12 15 17 10" />
-                <line x1="12" y1="15" x2="12" y2="3" />
-              </svg>
-              Export PNG
-            </button>
-          </div>
-
-          <div className='code-panel' style={{ width: '100%' }}>
-            <div className='code-header'>
-              <span>JSX Implementation</span>
-              <button className='btn-copy' onClick={handleCopyCode}>
-                {copySuccess ? 'Copied!' : 'Copy Code'}
-              </button>
-            </div>
-            <pre className='code-pre'>
-              <code>{getJsxCode()}</code>
-            </pre>
-          </div>
-        </section>
-
-        {/* Right column: Dynamic Controls */}
-        <section className='controls-container'>
-          {/* Option groups */}
-          {controlGroups.map((group, groupIdx) => (
-            <div className='control-card' key={groupIdx}>
-              <h2>{group.title}</h2>
-              <div className='control-grid'>
-                {group.keys.map((key) => {
-                  const state = optionStates?.[key]
-                  const optionsList = state?.options || []
-                  const label = allOptions.find((o) => o.key === key)?.label || key
-
-                  return (
-                    <div className='form-group' key={key}>
-                      <label htmlFor={key}>{label}</label>
-                      <select
-                        id={key}
-                        className='form-control'
-                        value={avatarProps[key] || ''}
-                        onChange={(e) => setAvatarProps((prev) => ({
-                          ...prev,
-                          [key]: e.target.value
-                        }))}>
-                        {optionsList.map((val: string) => (
-                          <option key={val} value={val}>
-                            {val}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  )
-                })}
+        {isDebugMode ? (
+          <div className='debug-grid-container'>
+            <div className='debug-banner'>
+              <div className='debug-banner-text'>
+                <h2>Deterministic Baseline Testing Grid</h2>
+                <p>
+                  Rendering all 32 deterministic baseline configurations side-by-side. 
+                  Currently using the <strong>{version === 'src' ? 'Source library (src/)' : 'Distribution library (built dist/)'}</strong>.
+                  Toggle "Source" or "Distribution" above to compare. 
+                  The programmatic diff script verifies that both produce identical SVG source code.
+                </p>
+              </div>
+              <div className='debug-banner-actions'>
+                <button 
+                  className='btn-export' 
+                  onClick={() => {
+                    alert('Use the CLI command "npx tsx src/generate-baselines.ts baselines/[dir]" to programmatically export and diff all 32 baseline SVGs in seconds!')
+                  }}>
+                  Programmatic Diff Instructions
+                </button>
               </div>
             </div>
-          ))}
 
-          {/* Collapsible Advanced section */}
-          <div className='control-card'>
-            <div
-              className='advanced-header'
-              onClick={() => setIsAdvancedOpen(!isAdvancedOpen)}>
-              <h2>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="3" />
-                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
-                </svg>
-                Advanced Custom Colors
-              </h2>
-              <span className={`advanced-toggle-icon ${isAdvancedOpen ? 'open' : ''}`}>▼</span>
+            <div className='debug-grid'>
+              {DEBUG_CONFIGS.map((config) => {
+                // Render option context for each individual avatar
+                const OptionContextClass = version === 'src' ? SrcOptionContext : DistOptionContext
+                const cardOptionContext = new OptionContextClass(allOptions as any)
+                const data: Record<string, string> = {}
+                allOptions.forEach((option: any) => {
+                  const val = (config as any)[option.key]
+                  if (val) data[option.key] = val
+                })
+                cardOptionContext.setData(data)
+
+                const isExpanded = expandedConfigId === config.id
+
+                return (
+                  <div className='debug-card' key={config.id}>
+                    <div className='debug-card-header'>
+                      <span className='debug-card-id'>{config.id}</span>
+                      <span className='debug-card-badge' title={config.topType}>{config.topType}</span>
+                    </div>
+                    <div className='debug-avatar-wrapper'>
+                      <OptionsContext.Provider value={cardOptionContext as any}>
+                        <Avatar 
+                          uid={config.id} 
+                          style={{ width: '160px', height: '170px' }} 
+                          animated={false} 
+                          animationDelay='0s'
+                        />
+                      </OptionsContext.Provider>
+                    </div>
+                    <div className='debug-card-actions'>
+                      <button 
+                        className='btn-debug-action'
+                        onClick={() => setExpandedConfigId(isExpanded ? null : config.id)}>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                          <circle cx="12" cy="12" r="3"/>
+                          <path d="M3 12h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m11.4 0l-.7.7m0 11.4l.7.7m-12.1 0l.7-.7"/>
+                        </svg>
+                        {isExpanded ? 'Hide Config' : 'Show Config'}
+                      </button>
+                      <button 
+                        className='btn-debug-action'
+                        onClick={() => {
+                          const svgEl = document.querySelector(`[data-uid="${config.id}"]`) as SVGElement | null
+                          if (!svgEl) return
+                          const clonedSvg = svgEl.cloneNode(true) as SVGElement
+                          clonedSvg.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
+                          clonedSvg.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink')
+                          const serializer = new XMLSerializer()
+                          const svgString = serializer.serializeToString(clonedSvg)
+                          const blob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' })
+                          const url = URL.createObjectURL(blob)
+                          const link = document.createElement('a')
+                          link.href = url
+                          link.download = `${config.id}-${version}.svg`
+                          link.click()
+                          URL.revokeObjectURL(url)
+                        }}>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                        </svg>
+                        SVG
+                      </button>
+                    </div>
+                    {isExpanded && (
+                      <pre className='debug-code-drawer'>
+                        {JSON.stringify(config, null, 2)}
+                      </pre>
+                    )}
+                  </div>
+                )
+              })}
             </div>
+          </div>
+        ) : (
+          <>
+            {/* Left column: Live Preview */}
+            <section className='preview-card'>
+              <span className='preview-badge'>{version} Mode</span>
+              <div className='avatar-wrapper' style={{ background: displayBg }}>
+                <OptionsContext.Provider value={activeContext as any}>
+                  <Avatar style={{ width: '264px', height: '280px' }} animated={enableAnimations} />
+                </OptionsContext.Provider>
+              </div>
 
-            {isAdvancedOpen && (
-              <div className='advanced-content'>
-                <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: '0 0 8px 0' }}>
-                  Register custom HEX colors dynamically into any palette. Registered colors will instantly populate in the options menus above!
-                </p>
-                <form className='color-picker-grid' onSubmit={handleRegisterColor}>
-                  <div className='form-group'>
-                    <label htmlFor="palette-select">Target Component</label>
-                    <select
-                      id="palette-select"
-                      className='form-control'
-                      value={selectedPalette}
-                      onChange={(e) => setSelectedPalette(e.target.value)}>
-                      {Object.keys(PALETTES).map((p) => (
-                        <option key={p} value={p}>{p}</option>
-                      ))}
-                    </select>
-                  </div>
-                  <div className='form-group'>
-                    <label htmlFor="color-name">Color Name (alphanumeric)</label>
-                    <input
-                      id="color-name"
-                      type='text'
-                      placeholder='e.g., MintMagic'
-                      className='form-control'
-                      value={customColorName}
-                      onChange={(e) => setCustomColorName(e.target.value)}
+              {/* Avatar Display Background Picker */}
+              <div className='display-bg-picker'>
+                <span style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  Preview Background
+                </span>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '6px', justifyContent: 'center' }}>
+                  {BACKGROUNDS.map((bg) => (
+                    <button
+                      key={bg.name}
+                      type='button'
+                      className={`bg-dot ${displayBg === bg.value ? 'active' : ''}`}
+                      style={{ background: bg.value }}
+                      title={bg.name}
+                      onClick={() => setDisplayBg(bg.value)}
                     />
-                  </div>
-                  <div className='form-group'>
-                    <label>Hex Picker</label>
-                    <div className='color-input-wrapper'>
-                      <input
-                        type='color'
-                        className='color-picker-native'
-                        value={customColorVal}
-                        onChange={(e) => setCustomColorVal(e.target.value)}
-                      />
-                      <input
-                        type='text'
-                        className='form-control'
-                        style={{ width: '90px' }}
-                        value={customColorVal}
-                        onChange={(e) => setCustomColorVal(e.target.value)}
-                      />
-                      <button className='btn-register' type='submit'>Register</button>
-                    </div>
-                  </div>
-                </form>
+                  ))}
+                </div>
+              </div>
 
-                {/* List of custom registered colors */}
-                {getRegisteredCustomColors().length > 0 && (
-                  <div className='custom-colors-list'>
-                    <h3 style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-heading)', margin: '16px 0 10px 0' }}>
-                      Registered Custom Colors
-                    </h3>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                      {getRegisteredCustomColors().map(({ palette, name, color }) => (
-                        <div key={`${palette}-${name}`} className='color-chip' style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                          <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: color, display: 'inline-block', border: '1px solid rgba(255, 255, 255, 0.2)', flexShrink: 0 }} />
-                          <span className='chip-palette'>{palette}</span>
-                          <span className='chip-name'>{name}</span>
-                          <button
-                            type='button'
-                            className='chip-remove'
-                            title='Remove custom color'
-                            onClick={() => handleRemoveColor(palette, name)}>
-                            ×
-                          </button>
+              {/* Toggle Animations */}
+              <div style={{ marginTop: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <label className='switch-label' style={{ fontSize: '12px', fontWeight: 600, color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', userSelect: 'none' }}>
+                  <input
+                    type='checkbox'
+                    checked={enableAnimations}
+                    onChange={(e) => setEnableAnimations(e.target.checked)}
+                    style={{ width: '16px', height: '16px', accentColor: 'var(--color-primary)', cursor: 'pointer' }}
+                  />
+                  Show idle animations (BETA)
+                </label>
+              </div>
+
+              {/* Export Actions */}
+              <div style={{ marginTop: '16px', display: 'flex', gap: '12px', justifyContent: 'center', width: '100%' }}>
+                <button className='btn-export btn-export-svg' onClick={handleExportSVG} title='Export as vector SVG'>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  Export SVG
+                </button>
+                <button className='btn-export btn-export-png' onClick={handleExportPNG} title='Export as transparent PNG'>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  Export PNG
+                </button>
+              </div>
+
+              <div className='code-panel' style={{ width: '100%' }}>
+                <div className='code-header'>
+                  <span>JSX Implementation</span>
+                  <button className='btn-copy' onClick={handleCopyCode}>
+                    {copySuccess ? 'Copied!' : 'Copy Code'}
+                  </button>
+                </div>
+                <pre className='code-pre'>
+                  <code>{getJsxCode()}</code>
+                </pre>
+              </div>
+            </section>
+
+            {/* Right column: Dynamic Controls */}
+            <section className='controls-container'>
+              {/* Option groups */}
+              {controlGroups.map((group, groupIdx) => (
+                <div className='control-card' key={groupIdx}>
+                  <h2>{group.title}</h2>
+                  <div className='control-grid'>
+                    {group.keys.map((key) => {
+                      const state = optionStates?.[key]
+                      const optionsList = state?.options || []
+                      const label = allOptions.find((o) => o.key === key)?.label || key
+
+                      return (
+                        <div className='form-group' key={key}>
+                          <label htmlFor={key}>{label}</label>
+                          <select
+                            id={key}
+                            className='form-control'
+                            value={avatarProps[key] || ''}
+                            onChange={(e) => setAvatarProps((prev) => ({
+                              ...prev,
+                              [key]: e.target.value
+                            }))}>
+                            {optionsList.map((val: string) => (
+                              <option key={val} value={val}>
+                                {val}
+                              </option>
+                            ))}
+                          </select>
                         </div>
-                      ))}
-                    </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              ))}
+
+              {/* Collapsible Advanced section */}
+              <div className='control-card'>
+                <div
+                  className='advanced-header'
+                  onClick={() => setIsAdvancedOpen(!isAdvancedOpen)}>
+                  <h2>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="3" />
+                      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                    </svg>
+                    Advanced Custom Colors
+                  </h2>
+                  <span className={`advanced-toggle-icon ${isAdvancedOpen ? 'open' : ''}`}>▼</span>
+                </div>
+
+                {isAdvancedOpen && (
+                  <div className='advanced-content'>
+                    <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: '0 0 8px 0' }}>
+                      Register custom HEX colors dynamically into any palette. Registered colors will instantly populate in the options menus above!
+                    </p>
+                    <form className='color-picker-grid' onSubmit={handleRegisterColor}>
+                      <div className='form-group'>
+                        <label htmlFor="palette-select">Target Component</label>
+                        <select
+                          id="palette-select"
+                          className='form-control'
+                          value={selectedPalette}
+                          onChange={(e) => setSelectedPalette(e.target.value)}>
+                          {Object.keys(PALETTES).map((p) => (
+                            <option key={p} value={p}>{p}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <div className='form-group'>
+                        <label htmlFor="color-name">Color Name (alphanumeric)</label>
+                        <input
+                          id="color-name"
+                          type='text'
+                          placeholder='e.g., MintMagic'
+                          className='form-control'
+                          value={customColorName}
+                          onChange={(e) => setCustomColorName(e.target.value)}
+                        />
+                      </div>
+                      <div className='form-group'>
+                        <label>Hex Picker</label>
+                        <div className='color-input-wrapper'>
+                          <input
+                            type='color'
+                            className='color-picker-native'
+                            value={customColorVal}
+                            onChange={(e) => setCustomColorVal(e.target.value)}
+                          />
+                          <input
+                            type='text'
+                            className='form-control'
+                            style={{ width: '90px' }}
+                            value={customColorVal}
+                            onChange={(e) => setCustomColorVal(e.target.value)}
+                          />
+                          <button className='btn-register' type='submit'>Register</button>
+                        </div>
+                      </div>
+                    </form>
+
+                    {/* List of custom registered colors */}
+                    {getRegisteredCustomColors().length > 0 && (
+                      <div className='custom-colors-list'>
+                        <h3 style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-heading)', margin: '16px 0 10px 0' }}>
+                          Registered Custom Colors
+                        </h3>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                          {getRegisteredCustomColors().map(({ palette, name, color }) => (
+                            <div key={`${palette}-${name}`} className='color-chip' style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                              <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: color, display: 'inline-block', border: '1px solid rgba(255, 255, 255, 0.2)', flexShrink: 0 }} />
+                              <span className='chip-palette'>{palette}</span>
+                              <span className='chip-name'>{name}</span>
+                              <button
+                                type='button'
+                                className='chip-remove'
+                                title='Remove custom color'
+                                onClick={() => handleRemoveColor(palette, name)}>
+                                ×
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
-            )}
-          </div>
-        </section>
+            </section>
+          </>
+        )}
       </main>
     </div>
   )
