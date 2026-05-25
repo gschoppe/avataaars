@@ -33,6 +33,15 @@ export const SvgDictionaryRenderer: React.FC<Props> = (props) => {
       if (typeof val === 'string') {
         let processedVal = val.replace(/{{uid}}/g, uid).replace(/{uid}/g, uid)
         
+        // Handle style objects represented as strings (e.g. "{ mixBlendMode: 'screen' }")
+        if (key === 'style') {
+          const match = processedVal.match(/\{\s*([a-zA-Z0-9_]+)\s*:\s*['"]([^'"]+)['"]\s*\}/)
+          if (match) {
+            resolved[key] = { [match[1]]: match[2] }
+            return
+          }
+        }
+
         // Handle backticked string expressions like `url(#${clothingColorMask})`
         if (processedVal.startsWith('`') && processedVal.endsWith('`')) {
           processedVal = processedVal.substring(1, processedVal.length - 1)
