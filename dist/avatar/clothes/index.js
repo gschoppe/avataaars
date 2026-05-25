@@ -1,14 +1,15 @@
 import * as React from 'react';
-import BlazerShirt from './BlazerShirt';
-import BlazerSweater from './BlazerSweater';
-import CollarSweater from './CollarSweater';
-import GraphicShirt from './GraphicShirt';
-import Hoodie from './Hoodie';
-import Overall from './Overall';
-import ShirtCrewNeck from './ShirtCrewNeck';
-import ShirtScoopNeck from './ShirtScoopNeck';
-import ShirtVNeck from './ShirtVNeck';
 import { ClotheOption, Selector } from '../../options';
+import { makeOptionComponent } from '../makeOptionComponent';
+const BlazerShirt = makeOptionComponent('CLOTHES', 'BlazerShirt');
+const BlazerSweater = makeOptionComponent('CLOTHES', 'BlazerSweater');
+const CollarSweater = makeOptionComponent('CLOTHES', 'CollarSweater');
+const GraphicShirt = makeOptionComponent('CLOTHES', 'GraphicShirt');
+const Hoodie = makeOptionComponent('CLOTHES', 'Hoodie');
+const Overall = makeOptionComponent('CLOTHES', 'Overall');
+const ShirtCrewNeck = makeOptionComponent('CLOTHES', 'ShirtCrewNeck');
+const ShirtScoopNeck = makeOptionComponent('CLOTHES', 'ShirtScoopNeck');
+const ShirtVNeck = makeOptionComponent('CLOTHES', 'ShirtVNeck');
 export default class Clothes extends React.Component {
     render() {
         return (React.createElement(Selector, { option: ClotheOption, defaultOption: BlazerShirt },
