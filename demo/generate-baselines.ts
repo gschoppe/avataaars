@@ -85,8 +85,14 @@ DEBUG_CONFIGS.forEach((config) => {
     )
   )
 
+  const formattedSvg = svgMarkup
+    .replace(/>\s*</g, '>\n<')
+    .split('\n')
+    .map((line) => line.trim())
+    .join('\n')
+
   const outputPath = path.join(targetDir, `${config.id}.svg`)
-  fs.writeFileSync(outputPath, svgMarkup, 'utf8')
+  fs.writeFileSync(outputPath, formattedSvg, 'utf8')
   console.log(`- Saved ${config.id}.svg`)
 })
 
