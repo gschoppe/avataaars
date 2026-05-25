@@ -31,7 +31,6 @@
     "typescript": "^5.9.2"
   },
   "dependencies": {
-    "lodash.uniqueid": "^4.0.1",
     "prop-types": "^15.8.1"
   },
   "importSort": {

@@ -7,7 +7,7 @@ export interface Props {
   defaultColor?: string
 }
 
-const backdropColorPalette: Map<string, any> = new Map()
+export const backdropColorPalette: Map<string, any> = new Map()
 
 export function makeBackdropColor(name: string, color: string) {
   class ColorComponent extends React.Component<Props> {

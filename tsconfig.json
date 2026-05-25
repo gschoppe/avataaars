@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
+    "target": "es2020",
+    "module": "es2020",
     "moduleResolution": "node",
+    "rootDir": "./src",
     "jsx": "react",
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
@@ -14,12 +15,20 @@
     "newLine": "lf",
     "outDir": "./dist",
     "lib": [
-      "es6",
+      "es2020",
       "dom"
     ]
   },
   "types": [
     "jest",
     "node"
+  ],
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "demo"
   ]
 }

@@ -11,3 +11,5 @@ config.gypi
 CVS
 npm-debug.log
 avataaars-example.png
+animation-example.png
+demo/

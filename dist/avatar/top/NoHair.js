@@ -1,32 +1,11 @@
-"use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = require("react");
-var facialHair_1 = require("./facialHair");
-var NoHair = /** @class */ (function (_super) {
-    __extends(NoHair, _super);
-    function NoHair() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    NoHair.prototype.render = function () {
-        var path1 = "".concat(this.props.uid, "-top-path1");
-        var mask1 = "".concat(this.props.uid, "-top-mask1");
-        var filter1 = "".concat(this.props.uid, "-top-filter1");
-        return (React.createElement("g", { id: "".concat(this.props.uid, "-Top"), strokeWidth: '1', fillRule: 'evenodd' },
+import * as React from 'react';
+import FacialHair from './facialHair';
+class NoHair extends React.Component {
+    render() {
+        const path1 = `${this.props.uid}-top-path1`;
+        const mask1 = `${this.props.uid}-top-mask1`;
+        const filter1 = `${this.props.uid}-top-filter1`;
+        return (React.createElement("g", { id: `${this.props.uid}-Top`, strokeWidth: '1', fillRule: 'evenodd' },
             React.createElement("defs", null,
                 React.createElement("rect", { id: path1, x: '0', y: '0', width: '264', height: '280' }),
                 React.createElement("filter", { x: '-0.8%', y: '-2.0%', width: '101.5%', height: '108.0%', filterUnits: 'objectBoundingBox', id: filter1 },
@@ -37,12 +16,11 @@ var NoHair = /** @class */ (function (_super) {
                         React.createElement("feMergeNode", { in: 'SourceGraphic' })))),
             React.createElement("mask", { id: mask1, fill: 'white' },
                 React.createElement("use", { xlinkHref: '#' + path1 })),
-            React.createElement("g", { id: "".concat(this.props.uid, "-Top/No-Hair"), mask: "url(#".concat(mask1, ")") },
+            React.createElement("g", { id: `${this.props.uid}-Top/No-Hair`, mask: `url(#${mask1})` },
                 React.createElement("g", { transform: 'translate(-1.000000, 0.000000)' },
-                    React.createElement(facialHair_1.default, { uid: this.props.uid }),
+                    React.createElement(FacialHair, { uid: this.props.uid }),
                     this.props.children))));
-    };
-    NoHair.optionValue = 'NoHair';
-    return NoHair;
-}(React.Component));
-exports.default = NoHair;
+    }
+}
+NoHair.optionValue = 'NoHair';
+export default NoHair;

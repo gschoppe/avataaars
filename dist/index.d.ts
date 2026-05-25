@@ -11,6 +11,7 @@ export declare const PALETTES: {
 };
 export declare function addPaletteColor(palette: string, name: string, color: string): any;
 export interface Props {
+    [key: string]: any;
     className?: string;
     style?: React.CSSProperties;
     backdropType?: string;
@@ -33,18 +34,7 @@ export interface Props {
     viewBox?: string;
     uid?: string;
 }
-export default class AvatarComponent extends React.Component<Props> {
-    private optionContext;
-    constructor(props: Props);
-    componentDidMount(): void;
-    componentDidUpdate(prevProps: Props): void;
-    render(): React.JSX.Element;
-    private updateOptionContext;
-}
-export declare class Piece extends React.Component<Props> {
-    private optionContext;
-    componentDidMount(): void;
-    UNSAFE_componentWillReceiveProps(nextProps: Props): void;
-    render(): React.JSX.Element;
-    private updateOptionContext;
-}
+export declare const AvatarComponent: React.FC<Props>;
+export default AvatarComponent;
+export declare const Piece: React.FC<Props>;
+export declare function removePaletteColor(palette: string, name: string): void;

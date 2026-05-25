@@ -1,35 +1,14 @@
-"use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = require("react");
-var facialHair_1 = require("./facialHair");
-var HatColor_1 = require("./HatColor");
-var WinterHat3 = /** @class */ (function (_super) {
-    __extends(WinterHat3, _super);
-    function WinterHat3() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    WinterHat3.prototype.render = function () {
-        var path1 = "".concat(this.props.uid, "-top-path1");
-        var path2 = "".concat(this.props.uid, "-top-path2");
-        var path3 = "".concat(this.props.uid, "-top-path3");
-        var mask1 = "".concat(this.props.uid, "-top-mask1");
-        var hatColorMask = "".concat(this.props.uid, "-Hat-Color-Mask");
-        var filter1 = "".concat(this.props.uid, "-top-filter1");
+import * as React from 'react';
+import FacialHair from './facialHair';
+import HatColor from './HatColor';
+class WinterHat3 extends React.Component {
+    render() {
+        const path1 = `${this.props.uid}-top-path1`;
+        const path2 = `${this.props.uid}-top-path2`;
+        const path3 = `${this.props.uid}-top-path3`;
+        const mask1 = `${this.props.uid}-top-mask1`;
+        const hatColorMask = `${this.props.uid}-Hat-Color-Mask`;
+        const filter1 = `${this.props.uid}-top-filter1`;
         return (React.createElement("g", { id: 'Top' },
             React.createElement("defs", null,
                 React.createElement("rect", { id: path3, x: '0', y: '0', width: '264', height: '280' }),
@@ -47,14 +26,13 @@ var WinterHat3 = /** @class */ (function (_super) {
                     React.createElement("mask", { id: hatColorMask, fill: 'white' },
                         React.createElement("use", { xlinkHref: '#' + path1 })),
                     React.createElement("use", { id: 'hat-mask', fill: '#D8D8D8', xlinkHref: '#' + path1 }),
-                    React.createElement(HatColor_1.default, { uid: this.props.uid, defaultColor: 'Red' })),
+                    React.createElement(HatColor, { uid: this.props.uid, defaultColor: 'Red' })),
                 React.createElement("g", { id: 'hat-front' },
-                    React.createElement("use", { fill: 'black', fillOpacity: '1', filter: "url(#".concat(path2, ")"), xlinkHref: '#' + path2 }),
+                    React.createElement("use", { fill: 'black', fillOpacity: '1', filter: `url(#${path2})`, xlinkHref: '#' + path2 }),
                     React.createElement("use", { fill: '#F4F4F4', fillRule: 'evenodd', xlinkHref: '#' + path2 })),
-                React.createElement(facialHair_1.default, { uid: this.props.uid }),
+                React.createElement(FacialHair, { uid: this.props.uid }),
                 this.props.children)));
-    };
-    WinterHat3.optionValue = 'WinterHat3';
-    return WinterHat3;
-}(React.Component));
-exports.default = WinterHat3;
+    }
+}
+WinterHat3.optionValue = 'WinterHat3';
+export default WinterHat3;

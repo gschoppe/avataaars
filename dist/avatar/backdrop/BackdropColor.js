@@ -1,37 +1,14 @@
-"use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeBackdropColor = makeBackdropColor;
-var react_1 = require("react");
-var options_1 = require("../../options");
-var backdropColorPalette = new Map();
-function makeBackdropColor(name, color) {
-    var ColorComponent = /** @class */ (function (_super) {
-        __extends(ColorComponent, _super);
-        function ColorComponent() {
-            return _super !== null && _super.apply(this, arguments) || this;
+import React from 'react';
+import { BackdropColorOption, Selector } from '../../options';
+export const backdropColorPalette = new Map();
+export function makeBackdropColor(name, color) {
+    class ColorComponent extends React.Component {
+        render() {
+            return (React.createElement("g", { id: `${this.props.uid}-BackdropColor/${name}`, mask: `url(#${this.props.uid}-Backdrop-Color-Mask)`, fill: color },
+                React.createElement("rect", { id: `${this.props.uid}-🖍Color`, x: "0", y: "0", width: "280", height: "280" })));
         }
-        ColorComponent.prototype.render = function () {
-            return (react_1.default.createElement("g", { id: "".concat(this.props.uid, "-BackdropColor/").concat(name), mask: "url(#".concat(this.props.uid, "-Backdrop-Color-Mask)"), fill: color },
-                react_1.default.createElement("rect", { id: "".concat(this.props.uid, "-\uD83D\uDD8DColor"), x: "0", y: "0", width: "280", height: "280" })));
-        };
-        return ColorComponent;
-    }(react_1.default.Component));
-    var anyComponent = ColorComponent;
+    }
+    const anyComponent = ColorComponent;
     anyComponent.displayName = name;
     anyComponent.optionValue = name;
     backdropColorPalette.set(name, anyComponent);
@@ -52,17 +29,10 @@ makeBackdropColor('PastelYellow', '#FFFFB1');
 makeBackdropColor('Pink', '#FF488E');
 makeBackdropColor('Red', '#FF5C5C');
 makeBackdropColor('White', '#FFFFFF');
-var BackdropColor = /** @class */ (function (_super) {
-    __extends(BackdropColor, _super);
-    function BackdropColor() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    BackdropColor.prototype.render = function () {
-        var _this = this;
-        return (react_1.default.createElement(options_1.Selector, { option: options_1.BackdropColorOption, defaultOption: this.props.defaultColor || 'Blue01' }, Array.from(backdropColorPalette.values()).map(function (ColorComponent, index) {
-            return react_1.default.createElement(ColorComponent, { key: index, uid: _this.props.uid });
+export default class BackdropColor extends React.Component {
+    render() {
+        return (React.createElement(Selector, { option: BackdropColorOption, defaultOption: this.props.defaultColor || 'Blue01' }, Array.from(backdropColorPalette.values()).map((ColorComponent, index) => {
+            return React.createElement(ColorComponent, { key: index, uid: this.props.uid });
         })));
-    };
-    return BackdropColor;
-}(react_1.default.Component));
-exports.default = BackdropColor;
+    }
+}

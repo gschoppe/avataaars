@@ -1,88 +1,81 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.allOptions = exports.SkinOption = exports.MouthOption = exports.EyebrowOption = exports.EyesOption = exports.GraphicOption = exports.ClotheColorOption = exports.ClotheOption = exports.FacialHairColorOption = exports.FacialHairOption = exports.HairColorOption = exports.HatColorOption = exports.AccessoriesOption = exports.TopOption = exports.BackdropColorOption = exports.BackdropOption = exports.Selector = exports.OptionsContext = exports.OptionContext = exports.Option = void 0;
-var Option_1 = require("./Option");
-var Option_2 = require("./Option");
-Object.defineProperty(exports, "Option", { enumerable: true, get: function () { return Option_2.default; } });
-var OptionContext_1 = require("./OptionContext");
-Object.defineProperty(exports, "OptionContext", { enumerable: true, get: function () { return OptionContext_1.OptionContext; } });
-Object.defineProperty(exports, "OptionsContext", { enumerable: true, get: function () { return OptionContext_1.OptionsContext; } });
-var Selector_1 = require("./Selector");
-Object.defineProperty(exports, "Selector", { enumerable: true, get: function () { return Selector_1.default; } });
-exports.BackdropOption = new Option_1.default({
+import Option from './Option';
+export { default as Option } from './Option';
+export { OptionContext, OptionsContext } from './OptionContext';
+export { default as Selector } from './Selector';
+export const BackdropOption = new Option({
     key: 'backdropType',
     label: 'Backdrop',
 });
-exports.BackdropColorOption = new Option_1.default({
+export const BackdropColorOption = new Option({
     key: 'backdropColor',
     label: '🔵 BackdropColor',
 });
-exports.TopOption = new Option_1.default({
+export const TopOption = new Option({
     key: 'topType',
     label: 'Top',
 });
-exports.AccessoriesOption = new Option_1.default({
+export const AccessoriesOption = new Option({
     key: 'accessoriesType',
     label: '↳ 👓 Accessories',
 });
-exports.HatColorOption = new Option_1.default({
+export const HatColorOption = new Option({
     key: 'hatColor',
     label: '🎨 HatColor',
 });
-exports.HairColorOption = new Option_1.default({
+export const HairColorOption = new Option({
     key: 'hairColor',
     label: '↳ 💈 Hair Color',
 });
-exports.FacialHairOption = new Option_1.default({
+export const FacialHairOption = new Option({
     key: 'facialHairType',
     label: 'Facial Hair',
 });
-exports.FacialHairColorOption = new Option_1.default({
+export const FacialHairColorOption = new Option({
     key: 'facialHairColor',
     label: '↳ ✂️ Facial Hair Color',
 });
-exports.ClotheOption = new Option_1.default({
+export const ClotheOption = new Option({
     key: 'clotheType',
     label: '👔 Clothes',
 });
-exports.ClotheColorOption = new Option_1.default({
+export const ClotheColorOption = new Option({
     key: 'clotheColor',
     label: '↳ Color Fabric',
 });
-exports.GraphicOption = new Option_1.default({
+export const GraphicOption = new Option({
     key: 'graphicType',
     label: '↳ Graphic',
 });
-exports.EyesOption = new Option_1.default({
+export const EyesOption = new Option({
     key: 'eyeType',
     label: '👁 Eyes',
 });
-exports.EyebrowOption = new Option_1.default({
+export const EyebrowOption = new Option({
     key: 'eyebrowType',
     label: '✏️ Eyebrow',
 });
-exports.MouthOption = new Option_1.default({
+export const MouthOption = new Option({
     key: 'mouthType',
     label: '👄 Mouth',
 });
-exports.SkinOption = new Option_1.default({
+export const SkinOption = new Option({
     key: 'skinColor',
     label: '🎨 Skin',
 });
-exports.allOptions = [
-    exports.BackdropOption,
-    exports.BackdropColorOption,
-    exports.TopOption,
-    exports.AccessoriesOption,
-    exports.HatColorOption,
-    exports.HairColorOption,
-    exports.FacialHairOption,
-    exports.FacialHairColorOption,
-    exports.ClotheOption,
-    exports.ClotheColorOption,
-    exports.GraphicOption,
-    exports.EyesOption,
-    exports.EyebrowOption,
-    exports.MouthOption,
-    exports.SkinOption,
+export const allOptions = [
+    BackdropOption,
+    BackdropColorOption,
+    TopOption,
+    AccessoriesOption,
+    HatColorOption,
+    HairColorOption,
+    FacialHairOption,
+    FacialHairColorOption,
+    ClotheOption,
+    ClotheColorOption,
+    GraphicOption,
+    EyesOption,
+    EyebrowOption,
+    MouthOption,
+    SkinOption,
 ];

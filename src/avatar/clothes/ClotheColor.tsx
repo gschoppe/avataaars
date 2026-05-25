@@ -6,7 +6,7 @@ export interface Props {
   uid: string
 }
 
-const clotheColorPalette: Map<string, any> = new Map()
+export const clotheColorPalette: Map<string, any> = new Map()
 
 export function makeClotheColor(name: string, color: string) {
   class ColorComponent extends React.Component<Props> {

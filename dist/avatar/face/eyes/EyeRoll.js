@@ -1,36 +1,14 @@
-"use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = require("react");
-var EyeRoll = /** @class */ (function (_super) {
-    __extends(EyeRoll, _super);
-    function EyeRoll() {
-        return _super !== null && _super.apply(this, arguments) || this;
+import * as React from 'react';
+class EyeRoll extends React.Component {
+    render() {
+        return (React.createElement("g", { id: `${this.props.uid}-Eyes/Eye-Roll-🙄`, transform: 'translate(0.000000, 8.000000)' },
+            React.createElement("g", { id: `${this.props.uid}-Eye-Left` },
+                React.createElement("circle", { id: `${this.props.uid}-Eyeball-Left`, fill: '#FFFFFF', cx: '30', cy: '22', r: '14' }),
+                React.createElement("circle", { id: `${this.props.uid}-Pupil-Left`, fillOpacity: '0.699999988', fill: '#000000', cx: '30', cy: '14', r: '6' })),
+            React.createElement("g", { id: `${this.props.uid}-Eye-Right` },
+                React.createElement("circle", { id: `${this.props.uid}-Eyeball-Right`, fill: '#FFFFFF', cx: '82', cy: '22', r: '14' }),
+                React.createElement("circle", { id: `${this.props.uid}-Pupil-Right`, fillOpacity: '0.699999988', fill: '#000000', cx: '82', cy: '14', r: '6' }))));
     }
-    EyeRoll.prototype.render = function () {
-        return (React.createElement("g", { id: "".concat(this.props.uid, "-Eyes/Eye-Roll-\uD83D\uDE44"), transform: 'translate(0.000000, 8.000000)' },
-            React.createElement("g", { id: "".concat(this.props.uid, "-Eye-Left") },
-                React.createElement("circle", { id: "".concat(this.props.uid, "-Eyeball-Left"), fill: '#FFFFFF', cx: '30', cy: '22', r: '14' }),
-                React.createElement("circle", { id: "".concat(this.props.uid, "-Pupil-Left"), fillOpacity: '0.699999988', fill: '#000000', cx: '30', cy: '14', r: '6' })),
-            React.createElement("g", { id: "".concat(this.props.uid, "-Eye-Right") },
-                React.createElement("circle", { id: "".concat(this.props.uid, "-Eyeball-Right"), fill: '#FFFFFF', cx: '82', cy: '22', r: '14' }),
-                React.createElement("circle", { id: "".concat(this.props.uid, "-Pupil-Right"), fillOpacity: '0.699999988', fill: '#000000', cx: '82', cy: '14', r: '6' }))));
-    };
-    EyeRoll.optionValue = 'EyeRoll';
-    return EyeRoll;
-}(React.Component));
-exports.default = EyeRoll;
+}
+EyeRoll.optionValue = 'EyeRoll';
+export default EyeRoll;

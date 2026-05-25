@@ -7,7 +7,7 @@ export interface Props {
   defaultColor?: string
 }
 
-const hatColorPalette: Map<string, any> = new Map()
+export const hatColorPalette: Map<string, any> = new Map()
 
 export function makeHatColor(name: string, color: string) {
   class ColorComponent extends React.Component<Props> {

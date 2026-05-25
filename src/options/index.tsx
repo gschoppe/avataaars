@@ -1,7 +1,8 @@
 import Option from './Option'
 
 export { default as Option } from './Option'
-export { OptionContext, OptionContextState, OptionsContext } from './OptionContext'
+export { OptionContext, OptionsContext } from './OptionContext'
+export type { OptionContextState } from './OptionContext'
 export { default as Selector } from './Selector'
 
 export const BackdropOption = new Option({

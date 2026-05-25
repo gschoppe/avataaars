@@ -1,37 +1,16 @@
-"use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = require("react");
-var facialHair_1 = require("./facialHair");
-var HatColor_1 = require("./HatColor");
-var Turban = /** @class */ (function (_super) {
-    __extends(Turban, _super);
-    function Turban() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Turban.prototype.render = function () {
-        var path1 = "".concat(this.props.uid, "-top-path1");
-        var path2 = "".concat(this.props.uid, "-top-path2");
-        var path3 = "".concat(this.props.uid, "-top-path3");
-        var mask1 = "".concat(this.props.uid, "-top-mask1");
-        var mask2 = "".concat(this.props.uid, "-top-mask2");
-        var hatColorMask = "".concat(this.props.uid, "-Hat-Color-Mask");
-        var filter1 = "".concat(this.props.uid, "-top-filter1");
-        return (React.createElement("g", { id: "".concat(this.props.uid, "-Top"), strokeWidth: '1', fillRule: 'evenodd' },
+import * as React from 'react';
+import FacialHair from './facialHair';
+import HatColor from './HatColor';
+class Turban extends React.Component {
+    render() {
+        const path1 = `${this.props.uid}-top-path1`;
+        const path2 = `${this.props.uid}-top-path2`;
+        const path3 = `${this.props.uid}-top-path3`;
+        const mask1 = `${this.props.uid}-top-mask1`;
+        const mask2 = `${this.props.uid}-top-mask2`;
+        const hatColorMask = `${this.props.uid}-Hat-Color-Mask`;
+        const filter1 = `${this.props.uid}-top-filter1`;
+        return (React.createElement("g", { id: `${this.props.uid}-Top`, strokeWidth: '1', fillRule: 'evenodd' },
             React.createElement("defs", null,
                 React.createElement("rect", { id: path1, x: '0', y: '0', width: '264', height: '280' }),
                 React.createElement("path", { d: 'M83.9715543,55.8170792 C107.404232,69.414362 145.114919,82.1112884 139,138 C158.377483,132.360101 168.044149,116.801277 168,91.3235294 C167.918252,44.1482824 115.850571,6.80154462e-15 86,0 C85.3259486,0 84.6559706,0.0296343787 83.9916946,0.0880669528 C83.3328225,0.0296343217 82.6684563,0 82.0002187,0 C52.0737254,6.80154462e-15 0.0804892181,44.1482783 0.00021866091,91.3235294 C-0.0442202163,117.440393 9.62244645,132.999216 29.0002187,138 C22.8618971,82.1112789 60.5101967,69.4143577 83.9715662,55.8170722 Z', id: path2 }),
@@ -44,23 +23,22 @@ var Turban = /** @class */ (function (_super) {
                         React.createElement("feMergeNode", { in: 'SourceGraphic' })))),
             React.createElement("mask", { id: mask1, fill: 'white' },
                 React.createElement("use", { xlinkHref: '#' + path1 })),
-            React.createElement("g", { id: "".concat(this.props.uid, "-Top/Accesories/Turban"), mask: "url(#".concat(mask1, ")") },
+            React.createElement("g", { id: `${this.props.uid}-Top/Accesories/Turban`, mask: `url(#${mask1})` },
                 React.createElement("g", { transform: 'translate(-1.000000, 0.000000)' },
-                    React.createElement(facialHair_1.default, { uid: this.props.uid }),
-                    React.createElement("g", { id: "".concat(this.props.uid, "-Turban-Behind"), strokeWidth: '1', fillRule: 'evenodd', transform: 'translate(1.000000, 0.000000)' },
+                    React.createElement(FacialHair, { uid: this.props.uid }),
+                    React.createElement("g", { id: `${this.props.uid}-Turban-Behind`, strokeWidth: '1', fillRule: 'evenodd', transform: 'translate(1.000000, 0.000000)' },
                         React.createElement("mask", { id: mask2, fill: 'white' },
                             React.createElement("use", { xlinkHref: '#' + path3 }))),
-                    React.createElement("g", { id: "".concat(this.props.uid, "-Turban"), strokeWidth: '1', fillRule: 'evenodd', transform: 'translate(1.000000, 0.000000)' },
-                        React.createElement("path", { d: 'M74.5304294,97.5 C73.529284,95.0905557 73,92.5798498 73,90 C73,71.7746033 99.4151998,57 132,57 C164.5848,57 191,71.7746033 191,90 C191,92.5798498 190.470716,95.0905557 189.469571,97.5 C183.398106,82.8878805 159.972341,72 132,72 C104.027659,72 80.6018941,82.8878805 74.5304294,97.5 Z', id: "".concat(this.props.uid, "-Turban-Band"), fill: '#EDECE3' }),
+                    React.createElement("g", { id: `${this.props.uid}-Turban`, strokeWidth: '1', fillRule: 'evenodd', transform: 'translate(1.000000, 0.000000)' },
+                        React.createElement("path", { d: 'M74.5304294,97.5 C73.529284,95.0905557 73,92.5798498 73,90 C73,71.7746033 99.4151998,57 132,57 C164.5848,57 191,71.7746033 191,90 C191,92.5798498 190.470716,95.0905557 189.469571,97.5 C183.398106,82.8878805 159.972341,72 132,72 C104.027659,72 80.6018941,82.8878805 74.5304294,97.5 Z', id: `${this.props.uid}-Turban-Band`, fill: '#EDECE3' }),
                         React.createElement("g", { transform: 'translate(48.000000, 3.000000)' },
                             React.createElement("mask", { id: hatColorMask, fill: 'white' },
                                 React.createElement("use", { xlinkHref: '#' + path2 })),
-                            React.createElement("use", { id: "".concat(this.props.uid, "-Turban-Mask"), fill: '#124C74', xlinkHref: '#' + path2 }),
-                            React.createElement(HatColor_1.default, { uid: this.props.uid, defaultColor: 'Blue03' })),
-                        React.createElement("path", { d: 'M48.0110963,96.0123559 C48.3807929,121.112082 58.0438337,136.107963 77.0002187,141 C57.6224465,136.289117 47.9557798,121.632254 48.0002187,97.0294118 C48.0008313,96.6902213 48.0044682,96.351197 48.0110963,96.0123559 Z M152.645822,30.4681115 C153.39011,36.1953086 152.126202,42.8891982 148.000219,50.135763 C136.847465,71.5667661 76.561434,72.0039826 76.3339794,129.679698 C76.1051437,67.7612631 136.805324,67.3799133 148.000219,44.5441176 C150.669864,39.5668152 152.141299,34.8351296 152.645822,30.4681115 Z', id: "".concat(this.props.uid, "-Turban-Shadow"), fillOpacity: '0.16', fill: '#000000' })),
+                            React.createElement("use", { id: `${this.props.uid}-Turban-Mask`, fill: '#124C74', xlinkHref: '#' + path2 }),
+                            React.createElement(HatColor, { uid: this.props.uid, defaultColor: 'Blue03' })),
+                        React.createElement("path", { d: 'M48.0110963,96.0123559 C48.3807929,121.112082 58.0438337,136.107963 77.0002187,141 C57.6224465,136.289117 47.9557798,121.632254 48.0002187,97.0294118 C48.0008313,96.6902213 48.0044682,96.351197 48.0110963,96.0123559 Z M152.645822,30.4681115 C153.39011,36.1953086 152.126202,42.8891982 148.000219,50.135763 C136.847465,71.5667661 76.561434,72.0039826 76.3339794,129.679698 C76.1051437,67.7612631 136.805324,67.3799133 148.000219,44.5441176 C150.669864,39.5668152 152.141299,34.8351296 152.645822,30.4681115 Z', id: `${this.props.uid}-Turban-Shadow`, fillOpacity: '0.16', fill: '#000000' })),
                     this.props.children))));
-    };
-    Turban.optionValue = 'Turban';
-    return Turban;
-}(React.Component));
-exports.default = Turban;
+    }
+}
+Turban.optionValue = 'Turban';
+export default Turban;

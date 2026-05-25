@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useMemo } from 'react'
 
 import Avatar from './avatar'
 import { OptionContext, OptionsContext, allOptions } from './options'
@@ -44,6 +45,7 @@ export function addPaletteColor(palette: string, name: string, color: string) {
 }
 
 export interface Props {
+  [key: string]: any
   className?: string
   style?: React.CSSProperties
   backdropType?: string
@@ -67,83 +69,84 @@ export interface Props {
   uid?: string
 }
 
-export default class AvatarComponent extends React.Component<Props> {
-  private optionContext: OptionContext = new OptionContext(allOptions)
+export const AvatarComponent: React.FC<Props> = (props) => {
+  const { style, className } = props
+  const optionContext = useMemo(() => new OptionContext(allOptions), [])
 
-  constructor(props: Props) {
-    super(props)
-    this.updateOptionContext(this.props)
-  }
-
-  componentDidMount() {
-    this.updateOptionContext(this.props)
-  }
-
-  componentDidUpdate(prevProps: Props) {
-    if (prevProps !== this.props) {
-      this.updateOptionContext(this.props)
-    }
-  }
-
-  render() {
-    const { style, className } = this.props
-    return (
-      <OptionsContext.Provider value={this.optionContext}>
-        <Avatar
-          style={style}
-          className={className}
-        />
-      </OptionsContext.Provider>
-    )
-  }
-
-  private updateOptionContext(props: Props) {
-    const data: { [index: string]: string } = {}
-    for (const option of allOptions) {
-      const value = props[option.key]
-      if (!value) {
-        continue
-      }
+  const data: { [index: string]: string } = {}
+  for (const option of allOptions) {
+    const value = props[option.key]
+    if (value) {
       data[option.key] = value
     }
-    this.optionContext.setData(data)
   }
+  optionContext.setData(data)
+
+  return (
+    <OptionsContext.Provider value={optionContext}>
+      <Avatar
+        style={style}
+        className={className}
+      />
+    </OptionsContext.Provider>
+  )
 }
 
-export class Piece extends React.Component<Props> {
-  private optionContext: OptionContext = new OptionContext(allOptions)
+export default AvatarComponent
 
-  componentDidMount() {
-    this.updateOptionContext(this.props)
-  }
+export const Piece: React.FC<Props> = (props) => {
+  const { style, pieceType, pieceSize, viewBox } = props
+  const optionContext = useMemo(() => new OptionContext(allOptions), [])
 
-  UNSAFE_componentWillReceiveProps(nextProps: Props) {
-    this.updateOptionContext(nextProps)
-  }
-
-  render() {
-    const { style, pieceType, pieceSize, viewBox } = this.props
-    return (
-      <OptionsContext.Provider value={this.optionContext}>
-        <PieceComponent
-          style={style}
-          pieceType={pieceType}
-          pieceSize={pieceSize}
-          viewBox={viewBox}
-        />
-      </OptionsContext.Provider>
-    )
-  }
-
-  private updateOptionContext(props: Props) {
-    const data: { [index: string]: string } = {}
-    for (const option of allOptions) {
-      const value = props[option.key]
-      if (!value) {
-        continue
-      }
+  const data: { [index: string]: string } = {}
+  for (const option of allOptions) {
+    const value = props[option.key]
+    if (value) {
       data[option.key] = value
     }
-    this.optionContext.setData(data)
+  }
+  optionContext.setData(data)
+
+  return (
+    <OptionsContext.Provider value={optionContext}>
+      <PieceComponent
+        style={style}
+        pieceType={pieceType}
+        pieceSize={pieceSize}
+        viewBox={viewBox}
+      />
+    </OptionsContext.Provider>
+  )
+}
+
+import { backdropColorPalette } from './avatar/backdrop/BackdropColor'
+import { skinColorPalette } from './avatar/Skin'
+import { hairColorPalette } from './avatar/top/HairColor'
+import { facialHairColorPalette } from './avatar/top/facialHair/FacialHairColor'
+import { clotheColorPalette } from './avatar/clothes/ClotheColor'
+import { hatColorPalette } from './avatar/top/HatColor'
+
+export function removePaletteColor(palette: string, name: string) {
+  switch (palette) {
+    case PALETTES.BACKDROP:
+      backdropColorPalette.delete(name)
+      break
+    case PALETTES.SKIN:
+      skinColorPalette.delete(name)
+      break
+    case PALETTES.HAIR:
+      hairColorPalette.delete(name)
+      break
+    case PALETTES.FACIAL_HAIR:
+      facialHairColorPalette.delete(name)
+      break
+    case PALETTES.CLOTHES:
+      clotheColorPalette.delete(name)
+      break
+    case PALETTES.HAT:
+      hatColorPalette.delete(name)
+      break
+    default:
+      throw new Error(`Unknown palette: ${palette}`)
   }
 }

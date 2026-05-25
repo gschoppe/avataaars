@@ -1,59 +1,33 @@
-"use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = require("react");
-var lodash_uniqueid_1 = require("lodash.uniqueid");
-var clothes_1 = require("./clothes");
-var Graphics_1 = require("./clothes/Graphics");
-var accessories_1 = require("./top/accessories");
-var facialHair_1 = require("./top/facialHair");
-var top_1 = require("./top");
-var eyes_1 = require("./face/eyes");
-var eyebrow_1 = require("./face/eyebrow");
-var mouth_1 = require("./face/mouth");
-var nose_1 = require("./face/nose");
-var Skin_1 = require("./Skin");
-var PieceComponent = /** @class */ (function (_super) {
-    __extends(PieceComponent, _super);
-    function PieceComponent(props) {
-        var _this = _super.call(this, props) || this;
-        _this.state = {
-            uid: "error",
-        };
-        return _this;
-    }
-    PieceComponent.prototype.componentDidMount = function () {
-        var uid = (0, lodash_uniqueid_1.default)('avatar-');
-        this.setState({ uid: uid });
-    };
-    PieceComponent.prototype.render = function () {
-        return (React.createElement("svg", { style: this.props.style, width: "".concat(this.props.pieceSize, "px"), height: "".concat(this.props.pieceSize, "px"), viewBox: this.props.viewBox || "0 0 264 280", version: "1.1", xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink" },
-            this.props.pieceType === 'top' && React.createElement(top_1.default, { uid: this.state.uid }),
-            this.props.pieceType === 'clothe' && React.createElement(clothes_1.default, { uid: this.state.uid }),
-            this.props.pieceType === 'graphics' && React.createElement(Graphics_1.default, { uid: this.state.uid }),
-            (this.props.pieceType === 'accessories' ||
-                this.props.pieceType === 'accesories') && React.createElement(accessories_1.default, { uid: this.state.uid }),
-            this.props.pieceType === 'facialHair' && React.createElement(facialHair_1.default, { uid: this.state.uid }),
-            this.props.pieceType === 'eyes' && React.createElement(eyes_1.default, { uid: this.state.uid }),
-            this.props.pieceType === 'eyebrows' && React.createElement(eyebrow_1.default, { uid: this.state.uid }),
-            this.props.pieceType === 'mouth' && React.createElement(mouth_1.default, { uid: this.state.uid }),
-            this.props.pieceType === 'nose' && React.createElement(nose_1.default, { uid: this.state.uid }),
-            this.props.pieceType === 'skin' && React.createElement(Skin_1.default, { uid: this.state.uid })));
-    };
-    return PieceComponent;
-}(React.Component));
-exports.default = PieceComponent;
+import * as React from 'react';
+import { useState, useEffect } from 'react';
+import uniqueId from '../uniqueId';
+import Clothe from './clothes';
+import Graphics from './clothes/Graphics';
+import Accessories from './top/accessories';
+import FacialHair from './top/facialHair';
+import Top from './top';
+import Eyes from './face/eyes';
+import Eyebrows from './face/eyebrow';
+import Mouth from './face/mouth';
+import Nose from './face/nose';
+import Skin from './Skin';
+export const PieceComponent = (props) => {
+    const { pieceSize, pieceType, style, viewBox } = props;
+    const [uid, setUid] = useState('error');
+    useEffect(() => {
+        setUid(uniqueId('avatar-'));
+    }, []);
+    return (React.createElement("svg", { style: style, width: `${pieceSize}px`, height: `${pieceSize}px`, viewBox: viewBox || "0 0 264 280", version: "1.1", xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink" },
+        pieceType === 'top' && React.createElement(Top, { uid: uid }),
+        pieceType === 'clothe' && React.createElement(Clothe, { uid: uid }),
+        pieceType === 'graphics' && React.createElement(Graphics, { uid: uid }),
+        (pieceType === 'accessories' ||
+            pieceType === 'accesories') && React.createElement(Accessories, { uid: uid }),
+        pieceType === 'facialHair' && React.createElement(FacialHair, { uid: uid }),
+        pieceType === 'eyes' && React.createElement(Eyes, { uid: uid }),
+        pieceType === 'eyebrows' && React.createElement(Eyebrows, { uid: uid }),
+        pieceType === 'mouth' && React.createElement(Mouth, { uid: uid }),
+        pieceType === 'nose' && React.createElement(Nose, { uid: uid }),
+        pieceType === 'skin' && React.createElement(Skin, { uid: uid })));
+};
+export default PieceComponent;

@@ -4,14 +4,7 @@ export interface Props {
     style?: React.CSSProperties;
     uid?: string;
     animationDelay?: string;
+    animated?: boolean;
 }
-export interface AvatarState {
-    uid: string;
-    animationDelay: string;
-}
-export default class Avatar extends React.Component<Props> {
-    state: AvatarState;
-    constructor(props: Props);
-    componentDidMount(): void;
-    render(): React.JSX.Element;
-}
+export declare const Avatar: React.FC<Props>;
+export default Avatar;

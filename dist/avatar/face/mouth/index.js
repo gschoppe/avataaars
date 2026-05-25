@@ -1,54 +1,31 @@
-"use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var React = require("react");
-var Concerned_1 = require("./Concerned");
-var Default_1 = require("./Default");
-var Disbelief_1 = require("./Disbelief");
-var Eating_1 = require("./Eating");
-var Grimace_1 = require("./Grimace");
-var Sad_1 = require("./Sad");
-var ScreamOpen_1 = require("./ScreamOpen");
-var Serious_1 = require("./Serious");
-var Smile_1 = require("./Smile");
-var Tongue_1 = require("./Tongue");
-var Twinkle_1 = require("./Twinkle");
-var Vomit_1 = require("./Vomit");
-var options_1 = require("../../../options");
-var Mouth = /** @class */ (function (_super) {
-    __extends(Mouth, _super);
-    function Mouth() {
-        return _super !== null && _super.apply(this, arguments) || this;
+import * as React from 'react';
+import Concerned from './Concerned';
+import Default from './Default';
+import Disbelief from './Disbelief';
+import Eating from './Eating';
+import Grimace from './Grimace';
+import Sad from './Sad';
+import ScreamOpen from './ScreamOpen';
+import Serious from './Serious';
+import Smile from './Smile';
+import Tongue from './Tongue';
+import Twinkle from './Twinkle';
+import Vomit from './Vomit';
+import { MouthOption, Selector } from '../../../options';
+export default class Mouth extends React.Component {
+    render() {
+        return (React.createElement(Selector, { defaultOption: Default, option: MouthOption },
+            React.createElement(Concerned, { uid: this.props.uid }),
+            React.createElement(Default, { uid: this.props.uid }),
+            React.createElement(Disbelief, { uid: this.props.uid }),
+            React.createElement(Eating, { uid: this.props.uid }),
+            React.createElement(Grimace, { uid: this.props.uid }),
+            React.createElement(Sad, { uid: this.props.uid }),
+            React.createElement(ScreamOpen, { uid: this.props.uid }),
+            React.createElement(Serious, { uid: this.props.uid }),
+            React.createElement(Smile, { uid: this.props.uid }),
+            React.createElement(Tongue, { uid: this.props.uid }),
+            React.createElement(Twinkle, { uid: this.props.uid }),
+            React.createElement(Vomit, { uid: this.props.uid })));
     }
-    Mouth.prototype.render = function () {
-        return (React.createElement(options_1.Selector, { defaultOption: Default_1.default, option: options_1.MouthOption },
-            React.createElement(Concerned_1.default, { uid: this.props.uid }),
-            React.createElement(Default_1.default, { uid: this.props.uid }),
-            React.createElement(Disbelief_1.default, { uid: this.props.uid }),
-            React.createElement(Eating_1.default, { uid: this.props.uid }),
-            React.createElement(Grimace_1.default, { uid: this.props.uid }),
-            React.createElement(Sad_1.default, { uid: this.props.uid }),
-            React.createElement(ScreamOpen_1.default, { uid: this.props.uid }),
-            React.createElement(Serious_1.default, { uid: this.props.uid }),
-            React.createElement(Smile_1.default, { uid: this.props.uid }),
-            React.createElement(Tongue_1.default, { uid: this.props.uid }),
-            React.createElement(Twinkle_1.default, { uid: this.props.uid }),
-            React.createElement(Vomit_1.default, { uid: this.props.uid })));
-    };
-    return Mouth;
-}(React.Component));
-exports.default = Mouth;
+}

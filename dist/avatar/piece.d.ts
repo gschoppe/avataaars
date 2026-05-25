@@ -5,12 +5,5 @@ export interface Props {
     style?: React.CSSProperties;
     viewBox?: string;
 }
-export interface AvatarState {
-    uid: string;
-}
-export default class PieceComponent extends React.Component<Props> {
-    state: AvatarState;
-    constructor(props: any);
-    componentDidMount(): void;
-    render(): React.JSX.Element;
-}
+export declare const PieceComponent: React.FC<Props>;
+export default PieceComponent;

@@ -1,5 +1,6 @@
 import * as React from 'react'
-import uniqueId from 'lodash.uniqueid'
+import { useState, useEffect } from 'react'
+import uniqueId from '../uniqueId'
 
 import Clothe from './clothes'
 import Graphics from './clothes/Graphics'
@@ -20,47 +21,36 @@ export interface Props {
   viewBox?: string
 }
 
-export interface AvatarState {
-  uid: string
+export const PieceComponent: React.FC<Props> = (props) => {
+  const { pieceSize, pieceType, style, viewBox } = props
+  const [uid, setUid] = useState('error')
+
+  useEffect(() => {
+    setUid(uniqueId('avatar-'))
+  }, [])
+
+  return (
+    <svg
+      style={style}
+      width={`${pieceSize}px`}
+      height={`${pieceSize}px`}
+      viewBox={viewBox || "0 0 264 280"}
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink">
+      {pieceType === 'top' && <Top uid={uid} />}
+      {pieceType === 'clothe' && <Clothe uid={uid} />}
+      {pieceType === 'graphics' && <Graphics uid={uid} />}
+      {(pieceType === 'accessories' ||
+        pieceType === 'accesories') && <Accessories uid={uid} />}
+      {pieceType === 'facialHair' && <FacialHair uid={uid} />}
+      {pieceType === 'eyes' && <Eyes uid={uid} />}
+      {pieceType === 'eyebrows' && <Eyebrows uid={uid} />}
+      {pieceType === 'mouth' && <Mouth uid={uid} />}
+      {pieceType === 'nose' && <Nose uid={uid} />}
+      {pieceType === 'skin' && <Skin uid={uid} />}
+    </svg>
+  )
 }
 
-export default class PieceComponent extends React.Component<Props> {
-  public state: AvatarState
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      uid: "error",
-    };
-  }
-
-  componentDidMount() {
-    const uid = uniqueId('avatar-')
-    this.setState({ uid: uid })
-  }
-
-  render() {
-    return (
-      <svg
-        style={this.props.style}
-        width={`${this.props.pieceSize}px`}
-        height={`${this.props.pieceSize}px`}
-        viewBox={this.props.viewBox || "0 0 264 280"}
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlnsXlink="http://www.w3.org/1999/xlink">
-        {this.props.pieceType === 'top' && <Top uid={this.state.uid} />}
-        {this.props.pieceType === 'clothe' && <Clothe uid={this.state.uid} />}
-        {this.props.pieceType === 'graphics' && <Graphics uid={this.state.uid} />}
-        {(this.props.pieceType === 'accessories' ||
-          this.props.pieceType === 'accesories') && <Accessories uid={this.state.uid} />}
-        {this.props.pieceType === 'facialHair' && <FacialHair uid={this.state.uid} />}
-        {this.props.pieceType === 'eyes' && <Eyes uid={this.state.uid} />}
-        {this.props.pieceType === 'eyebrows' && <Eyebrows uid={this.state.uid} />}
-        {this.props.pieceType === 'mouth' && <Mouth uid={this.state.uid} />}
-        {this.props.pieceType === 'nose' && <Nose uid={this.state.uid} />}
-        {this.props.pieceType === 'skin' && <Skin uid={this.state.uid} />}
-      </svg>
-    )
-  }
-}
+export default PieceComponent
