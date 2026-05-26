@@ -25,20 +25,34 @@ export const PALETTES = {
   HAT: "HAT"
 }
 
-export function addPaletteColor(palette: string, name: string, color: string) {
+export function addPaletteColor(palette: string, name: string, color?: string | GradientConfig) {
+  let resolvedColor: string
+  if (color === undefined) {
+    if (registeredGradients.has(name)) {
+      resolvedColor = `url(#${name})`
+    } else {
+      throw new Error(`Color parameter is required unless '${name}' is a registered gradient.`)
+    }
+  } else if (typeof color === 'object' && color !== null) {
+    registerGradient(name, color)
+    resolvedColor = `url(#${name})`
+  } else {
+    resolvedColor = color
+  }
+
   switch (palette) {
     case PALETTES.BACKDROP:
-      return makeBackdropColor(name, color)
+      return makeBackdropColor(name, resolvedColor)
     case PALETTES.SKIN:
-      return makeSkinColor(name, color)
+      return makeSkinColor(name, resolvedColor)
     case PALETTES.HAIR:
-      return makeHairColor(name, color)
+      return makeHairColor(name, resolvedColor)
     case PALETTES.FACIAL_HAIR:
-      return makeFacialHairColor(name, color)
+      return makeFacialHairColor(name, resolvedColor)
     case PALETTES.CLOTHES:
-      return makeClotheColor(name, color)
+      return makeClotheColor(name, resolvedColor)
     case PALETTES.HAT:
-      return makeHatColor(name, color)
+      return makeHatColor(name, resolvedColor)
     default:
       throw new Error(`Unknown palette: ${palette}`)
   }
@@ -146,7 +160,23 @@ export function removePaletteColor(palette: string, name: string) {
     case PALETTES.HAT:
       hatColorPalette.delete(name)
       break
-    default:
-      throw new Error(`Unknown palette: ${palette}`)
   }
+}
+
+export interface GradientStop {
+  offset: string
+  color: string
+  opacity?: number | string
+}
+
+export interface GradientConfig {
+  type: 'linear' | 'radial'
+  attrs?: Record<string, any>
+  stops: GradientStop[]
+}
+
+export const registeredGradients: Map<string, GradientConfig> = new Map()
+
+export function registerGradient(name: string, config: GradientConfig) {
+  registeredGradients.set(name, config)
 }

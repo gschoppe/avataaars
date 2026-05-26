@@ -1,17 +1,18 @@
 import * as React from 'react';
-import Close from './Close';
-import Cry from './Cry';
-import Default from './Default';
-import Dizzy from './Dizzy';
-import EyeRoll from './EyeRoll';
-import Happy from './Happy';
-import Hearts from './Hearts';
-import Side from './Side';
-import Squint from './Squint';
-import Surprised from './Surprised';
-import Wink from './Wink';
-import WinkWacky from './WinkWacky';
 import { EyesOption, Selector } from '../../../options';
+import { makeOptionComponent } from '../../makeOptionComponent';
+const Close = makeOptionComponent('EYES', 'Close');
+const Cry = makeOptionComponent('EYES', 'Cry');
+const Default = makeOptionComponent('EYES', 'Default');
+const Dizzy = makeOptionComponent('EYES', 'Dizzy');
+const EyeRoll = makeOptionComponent('EYES', 'EyeRoll');
+const Happy = makeOptionComponent('EYES', 'Happy');
+const Hearts = makeOptionComponent('EYES', 'Hearts');
+const Side = makeOptionComponent('EYES', 'Side');
+const Squint = makeOptionComponent('EYES', 'Squint');
+const Surprised = makeOptionComponent('EYES', 'Surprised');
+const Wink = makeOptionComponent('EYES', 'Wink');
+const WinkWacky = makeOptionComponent('EYES', 'WinkWacky');
 export default class Eyes extends React.Component {
     render() {
         return (React.createElement(Selector, { defaultOption: Default, option: EyesOption },

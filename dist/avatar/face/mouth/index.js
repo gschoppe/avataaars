@@ -1,17 +1,18 @@
 import * as React from 'react';
-import Concerned from './Concerned';
-import Default from './Default';
-import Disbelief from './Disbelief';
-import Eating from './Eating';
-import Grimace from './Grimace';
-import Sad from './Sad';
-import ScreamOpen from './ScreamOpen';
-import Serious from './Serious';
-import Smile from './Smile';
-import Tongue from './Tongue';
-import Twinkle from './Twinkle';
-import Vomit from './Vomit';
 import { MouthOption, Selector } from '../../../options';
+import { makeOptionComponent } from '../../makeOptionComponent';
+const Concerned = makeOptionComponent('MOUTH', 'Concerned');
+const Default = makeOptionComponent('MOUTH', 'Default');
+const Disbelief = makeOptionComponent('MOUTH', 'Disbelief');
+const Eating = makeOptionComponent('MOUTH', 'Eating');
+const Grimace = makeOptionComponent('MOUTH', 'Grimace');
+const Sad = makeOptionComponent('MOUTH', 'Sad');
+const ScreamOpen = makeOptionComponent('MOUTH', 'ScreamOpen');
+const Serious = makeOptionComponent('MOUTH', 'Serious');
+const Smile = makeOptionComponent('MOUTH', 'Smile');
+const Tongue = makeOptionComponent('MOUTH', 'Tongue');
+const Twinkle = makeOptionComponent('MOUTH', 'Twinkle');
+const Vomit = makeOptionComponent('MOUTH', 'Vomit');
 export default class Mouth extends React.Component {
     render() {
         return (React.createElement(Selector, { defaultOption: Default, option: MouthOption },

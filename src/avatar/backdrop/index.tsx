@@ -1,9 +1,14 @@
 import React from 'react'
-
-import CircleBackdrop from './CircleBackdrop'
-import DiamondBackdrop from './DiamondBackdrop'
-import NoBackdrop from './NoBackdrop'
 import { Selector, BackdropOption } from '../../options'
+import { makeOptionComponent } from '../makeOptionComponent'
+
+const NoBackdrop: React.FC<{ uid: string }> = () => null
+const anyNoBackdrop = NoBackdrop as any
+anyNoBackdrop.displayName = 'NoBackdrop'
+anyNoBackdrop.optionValue = 'NoBackdrop'
+
+const Circle = makeOptionComponent('BACKDROP', 'Circle')
+const Diamond = makeOptionComponent('BACKDROP', 'Diamond')
 
 export interface Props {
   uid: string
@@ -12,10 +17,10 @@ export interface Props {
 export default class Backdrop extends React.Component<Props> {
   render() {
     return (
-      <Selector defaultOption={CircleBackdrop} option={BackdropOption}>
+      <Selector defaultOption={Circle} option={BackdropOption}>
         <NoBackdrop uid={this.props.uid}></NoBackdrop>
-        <CircleBackdrop uid={this.props.uid}></CircleBackdrop>
-        <DiamondBackdrop uid={this.props.uid}></DiamondBackdrop>
+        <Circle uid={this.props.uid}></Circle>
+        <Diamond uid={this.props.uid}></Diamond>
       </Selector>
     )
   }

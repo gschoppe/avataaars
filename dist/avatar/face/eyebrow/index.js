@@ -1,17 +1,18 @@
 import * as React from 'react';
-import Angry from './Angry';
-import AngryNatural from './AngryNatural';
-import Default from './Default';
-import DefaultNatural from './DefaultNatural';
-import FlatNatural from './FlatNatural';
-import RaisedExcited from './RaisedExcited';
-import RaisedExcitedNatural from './RaisedExcitedNatural';
-import SadConcerned from './SadConcerned';
-import SadConcernedNatural from './SadConcernedNatural';
-import UnibrowNatural from './UnibrowNatural';
-import UpDown from './UpDown';
-import UpDownNatural from './UpDownNatural';
 import { EyebrowOption, Selector } from '../../../options';
+import { makeOptionComponent } from '../../makeOptionComponent';
+const Angry = makeOptionComponent('EYEBROW', 'Angry');
+const AngryNatural = makeOptionComponent('EYEBROW', 'AngryNatural');
+const Default = makeOptionComponent('EYEBROW', 'Default');
+const DefaultNatural = makeOptionComponent('EYEBROW', 'DefaultNatural');
+const FlatNatural = makeOptionComponent('EYEBROW', 'FlatNatural');
+const RaisedExcited = makeOptionComponent('EYEBROW', 'RaisedExcited');
+const RaisedExcitedNatural = makeOptionComponent('EYEBROW', 'RaisedExcitedNatural');
+const SadConcerned = makeOptionComponent('EYEBROW', 'SadConcerned');
+const SadConcernedNatural = makeOptionComponent('EYEBROW', 'SadConcernedNatural');
+const UnibrowNatural = makeOptionComponent('EYEBROW', 'UnibrowNatural');
+const UpDown = makeOptionComponent('EYEBROW', 'UpDown');
+const UpDownNatural = makeOptionComponent('EYEBROW', 'UpDownNatural');
 export default class Eyebrow extends React.Component {
     render() {
         return (React.createElement(Selector, { defaultOption: Default, option: EyebrowOption },

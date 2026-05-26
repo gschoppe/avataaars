@@ -1,50 +1,17 @@
 import * as React from 'react';
+export declare const Skull: any;
+export declare const SkullOutline: any;
+export declare const Bat: any;
+export declare const Cumbia: any;
+export declare const Deer: any;
+export declare const Diamond: any;
+export declare const Hola: any;
+export declare const Selena: any;
+export declare const Pizza: any;
+export declare const Resist: any;
+export declare const Bear: any;
 export interface Props {
     uid: string;
-}
-export declare class Skull extends React.Component<Props> {
-    static optionValue: string;
-    render(): React.JSX.Element;
-}
-export declare class SkullOutline extends React.Component<Props> {
-    static optionValue: string;
-    render(): React.JSX.Element;
-}
-export declare class Bat extends React.Component<Props> {
-    static optionValue: string;
-    render(): React.JSX.Element;
-}
-export declare class Cumbia extends React.Component<Props> {
-    static optionValue: string;
-    render(): React.JSX.Element;
-}
-export declare class Deer extends React.Component<Props> {
-    static optionValue: string;
-    render(): React.JSX.Element;
-}
-export declare class Diamond extends React.Component<Props> {
-    static optionValue: string;
-    render(): React.JSX.Element;
-}
-export declare class Hola extends React.Component<Props> {
-    static optionValue: string;
-    render(): React.JSX.Element;
-}
-export declare class Selena extends React.Component<Props> {
-    static optionValue: string;
-    render(): React.JSX.Element;
-}
-export declare class Pizza extends React.Component<Props> {
-    static optionValue: string;
-    render(): React.JSX.Element;
-}
-export declare class Resist extends React.Component<Props> {
-    static optionValue: string;
-    render(): React.JSX.Element;
-}
-export declare class Bear extends React.Component<Props> {
-    static optionValue: string;
-    render(): React.JSX.Element;
 }
 export default class Graphics extends React.Component<Props> {
     render(): React.JSX.Element;

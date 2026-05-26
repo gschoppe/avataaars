@@ -9,7 +9,7 @@ export declare const PALETTES: {
     CLOTHES: string;
     HAT: string;
 };
-export declare function addPaletteColor(palette: string, name: string, color: string): any;
+export declare function addPaletteColor(palette: string, name: string, color?: string | GradientConfig): any;
 export interface Props {
     [key: string]: any;
     className?: string;
@@ -38,3 +38,15 @@ export declare const AvatarComponent: React.FC<Props>;
 export default AvatarComponent;
 export declare const Piece: React.FC<Props>;
 export declare function removePaletteColor(palette: string, name: string): void;
+export interface GradientStop {
+    offset: string;
+    color: string;
+    opacity?: number | string;
+}
+export interface GradientConfig {
+    type: 'linear' | 'radial';
+    attrs?: Record<string, any>;
+    stops: GradientStop[];
+}
+export declare const registeredGradients: Map<string, GradientConfig>;
+export declare function registerGradient(name: string, config: GradientConfig): void;
