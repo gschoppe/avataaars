@@ -7,10 +7,13 @@
     "dev": "vite --config vite.config.mts",
     "build": "tsc -b && vite build --config vite.config.mts",
     "lint": "eslint .",
-    "preview": "vite preview --config vite.config.mts"
+    "preview": "vite preview --config vite.config.mts",
+    "api": "tsx api-server.ts"
   },
   "dependencies": {
     "@gschoppe/avataaars": "file:..",
+    "@types/express": "^5.0.6",
+    "express": "^5.2.1",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },
@@ -28,6 +31,7 @@
     "globals": "^17.6.0",
     "pixelmatch": "^7.2.0",
     "pngjs": "^7.0.0",
+    "tsx": "^4.22.3",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.59.2",
     "vite": "^8.0.12"
