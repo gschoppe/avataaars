@@ -35,7 +35,8 @@ import {
   OptionsContext,
   allOptions,
   addPaletteColor,
-  PALETTES
+  PALETTES,
+  registerGradient
 } from '../src/index'
 
 const app = express()
@@ -103,8 +104,26 @@ app.get(['/api/avatar', '/api/avatar.svg', '/api/avatar.png', '/api/avatar.json'
       const lowerKey = option.key.toLowerCase()
       const queryVal = queryLower[lowerKey]
       if (queryVal) {
-        // Handle custom color parameters dynamically (supports hex with alpha, rgb/rgba, hsl/hsla, transparent)
-        if (colorKeys[lowerKey] && isCustomColor(queryVal)) {
+        // Handle custom color parameters dynamically (supports hex with alpha, rgb/rgba, hsl/hsla, transparent, and gradients)
+        if (colorKeys[lowerKey] && queryVal.trim().toLowerCase().startsWith('gradient:')) {
+          const parts = queryVal.trim().split(':')
+          const type = parts[1] === 'radial' ? 'radial' : 'linear'
+          const color1 = cleanCustomColor(parts[2] || '#FFFFFF')
+          const color2 = cleanCustomColor(parts[3] || '#000000')
+          const cleanName = 'api_grad_' + `${type}_${color1}_${color2}`.replace(/[^a-zA-Z0-9]/g, '_')
+          // Register dynamic custom gradient
+          registerGradient(cleanName, {
+            type,
+            attrs: type === 'linear' ? { x1: '0%', y1: '0%', x2: '100%', y2: '100%' } : { cx: '50%', cy: '50%', r: '50%' },
+            stops: [
+              { offset: '0%', color: color1 },
+              { offset: '100%', color: color2 }
+            ]
+          })
+          // Register pointer in target palette
+          addPaletteColor(colorKeys[lowerKey], cleanName, `url(#${cleanName})`)
+          data[option.key] = cleanName
+        } else if (colorKeys[lowerKey] && isCustomColor(queryVal)) {
           const cleanedColor = cleanCustomColor(queryVal)
           const cleanName = 'custom_' + cleanedColor.replace(/[^a-zA-Z0-9]/g, '_')
           // Register dynamic color in PALETTES

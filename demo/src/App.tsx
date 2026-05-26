@@ -113,6 +113,21 @@ export const App: React.FC = () => {
   const [isAdvancedOpen, setIsAdvancedOpen] = useState(false)
   const [copySuccess, setCopySuccess] = useState(false)
   
+  // Advanced custom gradient registration states
+  const [gradNameInput, setGradNameInput] = useState('')
+  const [gradTypeInput, setGradTypeInput] = useState<'linear' | 'radial'>('linear')
+  const [gradStop1Color, setGradStop1Color] = useState('#ff5733')
+  const [gradStop1Opacity, setGradStop1Opacity] = useState('1.0')
+  const [gradStop2Color, setGradStop2Color] = useState('#ffc0cb')
+  const [gradStop2Opacity, setGradStop2Opacity] = useState('1.0')
+  const [registeredGradientsList, setRegisteredGradientsList] = useState<any[]>(() => {
+    try {
+      const saved = localStorage.getItem('avataaars_registered_gradients')
+      if (saved) return JSON.parse(saved)
+    } catch (e) { }
+    return []
+  })
+  
   const [isDebugMode, setIsDebugMode] = useState(() => window.location.search.includes('debug=true'))
   const [expandedConfigId, setExpandedConfigId] = useState<string | null>(null)
 
@@ -163,9 +178,31 @@ export const App: React.FC = () => {
         ]
       })
       addPaletteColor(PALETTES.CLOTHES, 'SunsetGradient', 'url(#sunset)')
+      addPaletteColor(PALETTES.BACKDROP, 'SunsetGradient', 'url(#sunset)')
+      addPaletteColor(PALETTES.HAIR, 'SunsetGradient', 'url(#sunset)')
+      addPaletteColor(PALETTES.HAT, 'SunsetGradient', 'url(#sunset)')
+      addPaletteColor(PALETTES.FACIAL_HAIR, 'SunsetGradient', 'url(#sunset)')
     } catch (err) {
-      console.error('Error registering custom gradient:', err)
+      // ignore
     }
+
+    // Register dynamically created custom gradients
+    registeredGradientsList.forEach((grad) => {
+      try {
+        registerGradient(grad.name, {
+          type: grad.type,
+          attrs: grad.attrs,
+          stops: grad.stops
+        })
+        addPaletteColor(PALETTES.CLOTHES, grad.displayName, `url(#${grad.name})`)
+        addPaletteColor(PALETTES.BACKDROP, grad.displayName, `url(#${grad.name})`)
+        addPaletteColor(PALETTES.HAIR, grad.displayName, `url(#${grad.name})`)
+        addPaletteColor(PALETTES.HAT, grad.displayName, `url(#${grad.name})`)
+        addPaletteColor(PALETTES.FACIAL_HAIR, grad.displayName, `url(#${grad.name})`)
+      } catch (err) {
+        // ignore
+      }
+    })
 
     customColorsList.forEach(({ palette, name, color }) => {
       try {
@@ -175,7 +212,7 @@ export const App: React.FC = () => {
       }
     })
     setRenderTick((t) => t + 1)
-  }, [version, customColorsList, addPaletteColor])
+  }, [version, customColorsList, registeredGradientsList, addPaletteColor])
 
   // Sync debug mode state to URL query parameter
   useEffect(() => {
@@ -442,6 +479,102 @@ export const App: React.FC = () => {
         [propKey]: defaultVal
       }))
     }
+  }
+
+  // Register custom dynamic gradient
+  const handleRegisterGradient = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!gradNameInput.trim() || !gradStop1Color.trim() || !gradStop2Color.trim()) return
+
+    const cleanedName = gradNameInput.replace(/[^a-zA-Z0-9]/g, '')
+    if (!cleanedName) return
+
+    const gradName = `grad_${cleanedName.toLowerCase()}`
+    const displayName = `${cleanedName}Gradient`
+
+    const stops = [
+      { offset: '0%', color: gradStop1Color, opacity: parseFloat(gradStop1Opacity) || 1 },
+      { offset: '100%', color: gradStop2Color, opacity: parseFloat(gradStop2Opacity) || 1 }
+    ]
+
+    const attrs = gradTypeInput === 'linear' 
+      ? { x1: '0%', y1: '0%', x2: '100%', y2: '100%' }
+      : { cx: '50%', cy: '50%', r: '50%' }
+
+    const newGrad = {
+      name: gradName,
+      displayName,
+      type: gradTypeInput,
+      attrs,
+      stops
+    }
+
+    const exists = registeredGradientsList.some((item) => item.name === gradName)
+    let updated = registeredGradientsList
+    if (!exists) {
+      updated = [...registeredGradientsList, newGrad]
+      setRegisteredGradientsList(updated)
+      localStorage.setItem('avataaars_registered_gradients', JSON.stringify(updated))
+    }
+
+    // Register gradient definition
+    registerGradient(gradName, {
+      type: gradTypeInput,
+      attrs,
+      stops
+    })
+
+    // Register dynamic gradient pointer url in all palettes
+    try {
+      addPaletteColor(PALETTES.CLOTHES, displayName, `url(#${gradName})`)
+      addPaletteColor(PALETTES.BACKDROP, displayName, `url(#${gradName})`)
+      addPaletteColor(PALETTES.HAIR, displayName, `url(#${gradName})`)
+      addPaletteColor(PALETTES.HAT, displayName, `url(#${gradName})`)
+      addPaletteColor(PALETTES.FACIAL_HAIR, displayName, `url(#${gradName})`)
+    } catch (err) {
+      console.error(err)
+    }
+
+    setRenderTick((t) => t + 1)
+
+    // Auto-select in clotheColor by default for instant feedback
+    setAvatarProps((prev) => ({
+      ...prev,
+      clotheColor: displayName
+    }))
+
+    setGradNameInput('')
+  }
+
+  // Remove dynamic custom gradient
+  const handleRemoveGradient = (gradName: string, displayName: string) => {
+    const updated = registeredGradientsList.filter((item) => item.name !== gradName)
+    setRegisteredGradientsList(updated)
+    localStorage.setItem('avataaars_registered_gradients', JSON.stringify(updated))
+
+    try {
+      // Remove from palettes
+      removePaletteColor(PALETTES.CLOTHES, displayName)
+      removePaletteColor(PALETTES.BACKDROP, displayName)
+      removePaletteColor(PALETTES.HAIR, displayName)
+      removePaletteColor(PALETTES.HAT, displayName)
+      removePaletteColor(PALETTES.FACIAL_HAIR, displayName)
+    } catch (err) {
+      console.error(err)
+    }
+
+    setRenderTick((t) => t + 1)
+
+    // Reset props if currently selected
+    setAvatarProps((prev) => {
+      const next = { ...prev }
+      if (next.clotheColor === displayName) next.clotheColor = BUILT_IN_COLORS.CLOTHES[0]
+      if (next.backdropColor === displayName) next.backdropColor = BUILT_IN_COLORS.BACKDROP[0]
+      if (next.hairColor === displayName) next.hairColor = BUILT_IN_COLORS.HAIR[0]
+      if (next.hatColor === displayName) next.hatColor = BUILT_IN_COLORS.HAT[0]
+      if (next.facialHairColor === displayName) next.facialHairColor = BUILT_IN_COLORS.FACIAL_HAIR[0]
+      return next
+    })
   }
 
   // Copy JSX Code to clipboard
@@ -916,8 +1049,225 @@ ${propStrings}
                         </div>
                       </div>
                     )}
+
+                    <hr style={{ border: 'none', borderTop: '1px solid rgba(255, 255, 255, 0.08)', margin: '20px 0' }} />
+
+                    {/* Dynamic Custom Gradient Builder */}
+                    <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: '0 0 8px 0' }}>
+                      Build custom SVG Multi-Stop Gradients (linear or radial). Registered gradients are dynamically injected into Defs and instantly available across Backdrop, Clothes, Hair, Hat, and Facial Hair options!
+                    </p>
+                    <form className='color-picker-grid' onSubmit={handleRegisterGradient}>
+                      <div className='form-group'>
+                        <label htmlFor="grad-name">Gradient Name</label>
+                        <input
+                          id="grad-name"
+                          type='text'
+                          placeholder='e.g., NeonGlow'
+                          className='form-control'
+                          value={gradNameInput}
+                          onChange={(e) => setGradNameInput(e.target.value)}
+                        />
+                      </div>
+                      <div className='form-group'>
+                        <label htmlFor="grad-type">Gradient Type</label>
+                        <select
+                          id="grad-type"
+                          className='form-control'
+                          value={gradTypeInput}
+                          onChange={(e) => setGradTypeInput(e.target.value as any)}>
+                          <option value="linear">Linear (Diagonal)</option>
+                          <option value="radial">Radial (Centered)</option>
+                        </select>
+                      </div>
+                      <div className='form-group'>
+                        <label>Color Stop 1</label>
+                        <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+                          <input
+                            type='color'
+                            className='color-picker-native'
+                            value={gradStop1Color}
+                            onChange={(e) => setGradStop1Color(e.target.value)}
+                          />
+                          <select
+                            className='form-control'
+                            style={{ width: '80px', padding: '0 6px' }}
+                            value={gradStop1Opacity}
+                            onChange={(e) => setGradStop1Opacity(e.target.value)}>
+                            <option value="1.0">Opaque</option>
+                            <option value="0.8">80%</option>
+                            <option value="0.5">50%</option>
+                            <option value="0.2">20%</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div className='form-group'>
+                        <label>Color Stop 2</label>
+                        <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+                          <input
+                            type='color'
+                            className='color-picker-native'
+                            value={gradStop2Color}
+                            onChange={(e) => setGradStop2Color(e.target.value)}
+                          />
+                          <select
+                            className='form-control'
+                            style={{ width: '80px', padding: '0 6px' }}
+                            value={gradStop2Opacity}
+                            onChange={(e) => setGradStop2Opacity(e.target.value)}>
+                            <option value="1.0">Opaque</option>
+                            <option value="0.8">80%</option>
+                            <option value="0.5">50%</option>
+                            <option value="0.2">20%</option>
+                          </select>
+                          <button className='btn-register' type='submit'>Register</button>
+                        </div>
+                      </div>
+                    </form>
+
+                    {/* List of custom registered gradients */}
+                    {registeredGradientsList.length > 0 && (
+                      <div className='custom-colors-list' style={{ marginTop: '16px' }}>
+                        <h3 style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-heading)', margin: '16px 0 10px 0' }}>
+                          Registered Custom Gradients
+                        </h3>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                          {registeredGradientsList.map((grad) => {
+                            const stop1 = grad.stops[0]
+                            const stop2 = grad.stops[1]
+                            const gradBackground = grad.type === 'linear'
+                              ? `linear-gradient(135deg, ${stop1.color}, ${stop2.color})`
+                              : `radial-gradient(circle, ${stop1.color}, ${stop2.color})`
+                            return (
+                              <div key={grad.name} className='color-chip' style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                                <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: gradBackground, display: 'inline-block', border: '1px solid rgba(255, 255, 255, 0.2)', flexShrink: 0 }} />
+                                <span className='chip-palette' style={{ backgroundColor: 'var(--accent-dim)', color: 'var(--accent)' }}>{grad.type}</span>
+                                <span className='chip-name'>{grad.displayName}</span>
+                                <button
+                                  type='button'
+                                  className='chip-remove'
+                                  title='Remove custom gradient'
+                                  onClick={() => handleRemoveGradient(grad.name, grad.displayName)}>
+                                  ×
+                                </button>
+                              </div>
+                            )
+                          })}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
+              </div>
+            </section>
+
+            {/* Developers' Documentation Section */}
+            <section className='doc-section' style={{ gridColumn: 'span 2', marginTop: '40px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '40px' }}>
+              <h2 style={{ fontSize: '22px', fontWeight: 700, color: 'var(--text-heading)', margin: '0 0 10px 0', letterSpacing: '-0.02em' }}>
+                📚 Developers' Integration & REST API Guide
+              </h2>
+              <p style={{ color: 'var(--text-muted)', fontSize: '14px', margin: '0 0 24px 0', lineHeight: 1.6 }}>
+                Integrate the high-performance SVG Path &amp; Node Dictionary Avataaars library into your own React apps, backend render pipelines, or REST applications.
+              </p>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+                {/* React Integration Card */}
+                <div className='control-card' style={{ height: '100%', margin: 0 }}>
+                  <h3 style={{ fontSize: '15px', fontWeight: 600, color: 'var(--accent)', margin: '0 0 12px 0', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    💻 React Library Integration
+                  </h3>
+                  <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: '0 0 12px 0', lineHeight: 1.5 }}>
+                    Import and render avatars synchronously in React 19 with no layout flickering.
+                  </p>
+                  <pre className='code-block' style={{ fontSize: '12px', overflowX: 'auto', backgroundColor: '#0f172a', padding: '12px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)', color: '#38bdf8', whiteSpace: 'pre-wrap', wordBreak: 'break-all', margin: 0 }}>
+{`import Avatar from '@gschoppe/avataaars'
+
+const App = () => (
+  <Avatar 
+    avatarStyle="Transparent"
+    topType="LongHairBob"
+    hairColor="Red"
+    clotheType="Hoodie"
+    clotheColor="White"
+  />
+)`}
+                  </pre>
+                </div>
+
+                {/* Dynamic Palettes & Gradients Card */}
+                <div className='control-card' style={{ height: '100%', margin: 0 }}>
+                  <h3 style={{ fontSize: '15px', fontWeight: 600, color: 'var(--accent)', margin: '0 0 12px 0' }}>
+                    🎨 Palettes & Custom Gradients API
+                  </h3>
+                  <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: '0 0 12px 0', lineHeight: 1.5 }}>
+                    Dynamically register custom colors and multi-stop gradients globally.
+                  </p>
+                  <pre className='code-block' style={{ fontSize: '12px', overflowX: 'auto', backgroundColor: '#0f172a', padding: '12px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)', color: '#38bdf8', whiteSpace: 'pre-wrap', wordBreak: 'break-all', margin: 0 }}>
+{`import { 
+  addPaletteColor, 
+  registerGradient, 
+  PALETTES 
+} from '@gschoppe/avataaars'
+
+// 1. Register a dynamic sunset gradient
+registerGradient('mySunset', {
+  type: 'linear',
+  attrs: { x1: '0%', y1: '0%', x2: '100%', y2: '100%' },
+  stops: [
+    { offset: '0%', color: '#FF5733', opacity: 1 },
+    { offset: '100%', color: '#FFC0CB', opacity: 0.5 }
+  ]
+})
+
+// 2. Add as choice to clothing palette
+addPaletteColor(
+  PALETTES.CLOTHES, 
+  'SunsetGrad', 
+  'url(#mySunset)'
+)`}
+                  </pre>
+                </div>
+
+                {/* REST API Card */}
+                <div className='control-card' style={{ gridColumn: 'span 2', height: '100%', margin: 0 }}>
+                  <h3 style={{ fontSize: '15px', fontWeight: 600, color: 'var(--accent)', margin: '0 0 12px 0' }}>
+                    🌐 High-Performance REST API Service
+                  </h3>
+                  <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: '0 0 14px 0', lineHeight: 1.5 }}>
+                    Request dynamically styled avatars in raw vector **SVG**, high-resolution raster **PNG**, or **JSON** wrapper formats.
+                  </p>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px', marginBottom: '16px' }}>
+                    <div>
+                      <h4 style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-heading)', margin: '0 0 6px 0' }}>Endpoint Standard Forms</h4>
+                      <ul style={{ fontSize: '12.5px', color: 'var(--text-muted)', paddingLeft: '20px', lineHeight: 1.8, margin: 0 }}>
+                        <li><strong>SVG Avatar</strong>: <code>/api/avatar.svg?...</code></li>
+                        <li><strong>PNG Avatar</strong>: <code>/api/avatar.png?...</code></li>
+                        <li><strong>JSON Payload</strong>: <code>/api/avatar.json?...</code></li>
+                        <li><strong>Size parameter (PNG)</strong>: <code>&amp;size=1056</code></li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-heading)', margin: '0 0 6px 0' }}>Dynamic Parameter Extenders</h4>
+                      <ul style={{ fontSize: '12.5px', color: 'var(--text-muted)', paddingLeft: '20px', lineHeight: 1.8, margin: 0 }}>
+                        <li><strong>Hex with Alpha</strong>: <code>&amp;clotheColor=FF573380</code></li>
+                        <li><strong>rgba Colors</strong>: <code>&amp;clotheColor=rgba(255,87,51,0.5)</code></li>
+                        <li><strong>Custom Gradients</strong>: <code>&amp;clotheColor=gradient:linear:FF5733:FFC0CB</code></li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div style={{ marginTop: '16px' }}>
+                    <h4 style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-heading)', margin: '0 0 6px 0' }}>Example API Queries (cURL)</h4>
+                    <pre className='code-block' style={{ fontSize: '12px', overflowX: 'auto', backgroundColor: '#0f172a', padding: '12px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)', color: '#34d399', margin: 0, whiteSpace: 'pre-wrap', wordBreak: 'break-all' }}>
+{`# 1. Fetch high-res PNG with custom size & transparency hex color
+curl -o avatar.png "http://localhost:3000/api/avatar.png?clotheType=Hoodie&clotheColor=FF573380&size=1000"
+
+# 2. Fetch raw vector SVG styled with a dynamic linear gradient
+curl -o avatar.svg "http://localhost:3000/api/avatar.svg?clotheColor=gradient:linear:FF5733:FFC0CB&backdropColor=gradient:radial:00FFCC:021B1A"`}
+                    </pre>
+                  </div>
+                </div>
               </div>
             </section>
           </>
