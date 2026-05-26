@@ -11,7 +11,7 @@ import {
   addPaletteColor as SrcAddPaletteColor,
   removePaletteColor as SrcRemovePaletteColor,
   PALETTES as SrcPALETTES,
-  registerGradient as SrcRegisterGradient
+  registeredGradients as SrcRegisteredGradients
 } from '../../src/index'
 
 // Import dist version
@@ -23,7 +23,7 @@ import {
   addPaletteColor as DistAddPaletteColor,
   removePaletteColor as DistRemovePaletteColor,
   PALETTES as DistPALETTES,
-  registerGradient as DistRegisterGradient
+  registeredGradients as DistRegisteredGradients
 } from '@gschoppe/avataaars'
 
 const BUILT_IN_COLORS: Record<string, string[]> = {
@@ -53,6 +53,21 @@ const BACKGROUNDS = [
   { name: 'Studio White', value: '#ffffff' }
 ]
 
+const getColorFamily = (color: string): string => {
+  const c = color.toLowerCase();
+  if (c.includes('red') || c.includes('auburn')) return 'red';
+  if (c.includes('blue')) return 'blue';
+  if (c.includes('green')) return 'green';
+  if (c.includes('yellow') || c.includes('blonde') || c.includes('platinum')) return 'yellow';
+  if (c.includes('pink')) return 'pink';
+  if (c.includes('gray') || c.includes('grey') || c.includes('heather') || c.includes('silver')) return 'gray';
+  if (c.includes('black')) return 'black';
+  if (c.includes('white')) return 'white';
+  if (c.includes('orange')) return 'orange';
+  if (c.includes('brown')) return 'brown';
+  return c;
+}
+
 export const App: React.FC = () => {
   const [version, setVersion] = useState<'src' | 'dist'>(() => {
     try {
@@ -73,8 +88,8 @@ export const App: React.FC = () => {
   const allOptions = isSrc ? SrcAllOptions : DistAllOptions
   const addPaletteColor = isSrc ? SrcAddPaletteColor : DistAddPaletteColor
   const removePaletteColor = isSrc ? SrcRemovePaletteColor : DistRemovePaletteColor
-  const registerGradient = isSrc ? SrcRegisterGradient : DistRegisterGradient
   const PALETTES = isSrc ? SrcPALETTES : DistPALETTES
+  const registeredGradients = isSrc ? SrcRegisteredGradients : DistRegisteredGradients
   const activeContext = isSrc ? srcContext : distContext
 
   // Avatar props state
@@ -106,27 +121,21 @@ export const App: React.FC = () => {
   const [optionStates, setOptionStates] = useState<any>(null)
   const [renderTick, setRenderTick] = useState(0)
 
-  // Advanced color registration states
+  // Advanced color & gradient registration states
   const [selectedPalette, setSelectedPalette] = useState('HAIR')
   const [customColorName, setCustomColorName] = useState('')
   const [customColorVal, setCustomColorVal] = useState('#ec4899')
+  const [customColorOpacity, setCustomColorOpacity] = useState('1.0')
+  const [customPaintType, setCustomPaintType] = useState<'color' | 'gradient'>('color')
   const [isAdvancedOpen, setIsAdvancedOpen] = useState(false)
   const [copySuccess, setCopySuccess] = useState(false)
   
   // Advanced custom gradient registration states
-  const [gradNameInput, setGradNameInput] = useState('')
   const [gradTypeInput, setGradTypeInput] = useState<'linear' | 'radial'>('linear')
   const [gradStop1Color, setGradStop1Color] = useState('#ff5733')
   const [gradStop1Opacity, setGradStop1Opacity] = useState('1.0')
   const [gradStop2Color, setGradStop2Color] = useState('#ffc0cb')
   const [gradStop2Opacity, setGradStop2Opacity] = useState('1.0')
-  const [registeredGradientsList, setRegisteredGradientsList] = useState<any[]>(() => {
-    try {
-      const saved = localStorage.getItem('avataaars_registered_gradients')
-      if (saved) return JSON.parse(saved)
-    } catch (e) { }
-    return []
-  })
   
   const [isDebugMode, setIsDebugMode] = useState(() => window.location.search.includes('debug=true'))
   const [expandedConfigId, setExpandedConfigId] = useState<string | null>(null)
@@ -147,16 +156,49 @@ export const App: React.FC = () => {
     return true
   })
 
-  // Custom colors list
-  const [customColorsList, setCustomColorsList] = useState<Array<{ palette: string; name: string; color: string }>>(() => {
+  // Custom colors & gradients list
+  const [customColorsList, setCustomColorsList] = useState<Array<{ palette: string; name: string; color: any }>>(() => {
+    let list: any[] = []
     try {
-      const saved = localStorage.getItem('avataaars_custom_colors')
-      if (saved) return JSON.parse(saved)
+      const savedColors = localStorage.getItem('avataaars_custom_colors')
+      if (savedColors) {
+        list = JSON.parse(savedColors)
+      }
     } catch (e) { }
-    return []
+
+    // Migrate old registered gradients if they exist
+    try {
+      const savedGradients = localStorage.getItem('avataaars_registered_gradients')
+      if (savedGradients) {
+        const grads = JSON.parse(savedGradients)
+        grads.forEach((grad: any) => {
+          // Check if already in the list
+          const exists = list.some((item) => item.name === grad.displayName)
+          if (!exists) {
+            // Register across all palettes like before
+            const palettesToRegister = ['CLOTHES', 'BACKDROP', 'HAIR', 'HAT', 'FACIAL_HAIR']
+            palettesToRegister.forEach((pal) => {
+              list.push({
+                palette: pal,
+                name: grad.displayName,
+                color: {
+                  type: grad.type,
+                  attrs: grad.attrs,
+                  stops: grad.stops
+                }
+              })
+            })
+          }
+        })
+        localStorage.removeItem('avataaars_registered_gradients')
+        localStorage.setItem('avataaars_custom_colors', JSON.stringify(list))
+      }
+    } catch (e) { }
+
+    return list
   })
 
-  // Sync custom colors into the active version's palettes
+  // Sync custom colors & gradients into the active version's palettes
   useEffect(() => {
     // First register the deterministic baseline custom colors
     CUSTOM_COLORS.forEach(({ palette, name, color }) => {
@@ -169,7 +211,7 @@ export const App: React.FC = () => {
 
     // Register dynamic custom gradient Sunset
     try {
-      registerGradient('sunset', {
+      addPaletteColor(PALETTES.CLOTHES, 'SunsetGradient', {
         type: 'linear',
         attrs: { x1: '0%', y1: '0%', x2: '100%', y2: '100%' },
         stops: [
@@ -177,42 +219,24 @@ export const App: React.FC = () => {
           { offset: '100%', color: '#ffc0cb', opacity: 0.5 }
         ]
       })
-      addPaletteColor(PALETTES.CLOTHES, 'SunsetGradient', 'url(#sunset)')
-      addPaletteColor(PALETTES.BACKDROP, 'SunsetGradient', 'url(#sunset)')
-      addPaletteColor(PALETTES.HAIR, 'SunsetGradient', 'url(#sunset)')
-      addPaletteColor(PALETTES.HAT, 'SunsetGradient', 'url(#sunset)')
-      addPaletteColor(PALETTES.FACIAL_HAIR, 'SunsetGradient', 'url(#sunset)')
+      addPaletteColor(PALETTES.BACKDROP, 'SunsetGradient')
+      addPaletteColor(PALETTES.HAIR, 'SunsetGradient')
+      addPaletteColor(PALETTES.HAT, 'SunsetGradient')
+      addPaletteColor(PALETTES.FACIAL_HAIR, 'SunsetGradient')
     } catch (err) {
       // ignore
     }
 
-    // Register dynamically created custom gradients
-    registeredGradientsList.forEach((grad) => {
-      try {
-        registerGradient(grad.name, {
-          type: grad.type,
-          attrs: grad.attrs,
-          stops: grad.stops
-        })
-        addPaletteColor(PALETTES.CLOTHES, grad.displayName, `url(#${grad.name})`)
-        addPaletteColor(PALETTES.BACKDROP, grad.displayName, `url(#${grad.name})`)
-        addPaletteColor(PALETTES.HAIR, grad.displayName, `url(#${grad.name})`)
-        addPaletteColor(PALETTES.HAT, grad.displayName, `url(#${grad.name})`)
-        addPaletteColor(PALETTES.FACIAL_HAIR, grad.displayName, `url(#${grad.name})`)
-      } catch (err) {
-        // ignore
-      }
-    })
-
+    // Register custom colors/gradients from list
     customColorsList.forEach(({ palette, name, color }) => {
       try {
         addPaletteColor(PALETTES[palette as keyof typeof PALETTES], name, color)
       } catch (err) {
-        console.error('Error registering custom color:', err)
+        console.error('Error registering custom item:', err)
       }
     })
     setRenderTick((t) => t + 1)
-  }, [version, customColorsList, registeredGradientsList, addPaletteColor])
+  }, [version, customColorsList, addPaletteColor])
 
   // Sync debug mode state to URL query parameter
   useEffect(() => {
@@ -269,14 +293,10 @@ export const App: React.FC = () => {
     if (!optionStates) return
     const newProps: Record<string, string> = {}
 
-    // 1. Randomize Backdrop
+    // 1. Randomize Backdrop Type
     const backdropTypes = optionStates.backdropType?.options || []
     if (backdropTypes.length > 0) {
       newProps.backdropType = backdropTypes[Math.floor(Math.random() * backdropTypes.length)]
-    }
-    const backdropColors = optionStates.backdropColor?.options || []
-    if (backdropColors.length > 0) {
-      newProps.backdropColor = backdropColors[Math.floor(Math.random() * backdropColors.length)]
     }
 
     // 2. Randomize Top (Hairstyle / Headwear)
@@ -407,6 +427,50 @@ export const App: React.FC = () => {
       }
     })
 
+    // 9. Randomize Backdrop Color (strongly avoiding matching character colors)
+    const backdropColors = optionStates.backdropColor?.options || []
+    if (backdropColors.length > 0) {
+      const activeFamilies = new Set<string>()
+      
+      const addColorFamily = (colorName: string | undefined) => {
+        if (colorName && colorName !== 'Blank') {
+          activeFamilies.add(getColorFamily(colorName))
+        }
+      }
+
+      // Clothes color is always visible
+      addColorFamily(newProps.clotheColor)
+
+      // Hat color is visible if wearing a hat
+      if (isHat) {
+        addColorFamily(newProps.hatColor)
+      }
+
+      // Hair color is visible if not covered by a hijab, winter hat, or baldness
+      const hairIsVisible = !isHijab && !isWinterHat && topType !== 'NoHair' && topType !== 'Eyepatch'
+      if (hairIsVisible) {
+        addColorFamily(newProps.hairColor)
+      }
+
+      // Facial hair is visible if not Blank
+      if (newProps.facialHairType && newProps.facialHairType !== 'Blank') {
+        addColorFamily(newProps.facialHairColor)
+      }
+
+      // Filter backdrop colors to avoid matching any active family
+      const safeBackdropColors = backdropColors.filter((color: string) => {
+        const family = getColorFamily(color)
+        return !activeFamilies.has(family)
+      })
+
+      if (safeBackdropColors.length > 0) {
+        newProps.backdropColor = safeBackdropColors[Math.floor(Math.random() * safeBackdropColors.length)]
+      } else {
+        // Fallback to the full list if all colors are excluded
+        newProps.backdropColor = backdropColors[Math.floor(Math.random() * backdropColors.length)]
+      }
+    }
+
     setAvatarProps(newProps)
   }
 
@@ -423,23 +487,51 @@ export const App: React.FC = () => {
     }
   }
 
-  // Register custom color
-  const handleRegisterColor = (e: React.FormEvent) => {
+  // Register custom color or gradient paint
+  const handleRegisterPaint = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!customColorName.trim() || !customColorVal.trim()) return
+    if (!customColorName.trim()) return
 
     const cleanedName = customColorName.replace(/[^a-zA-Z0-9]/g, '')
     if (!cleanedName) return
 
+    let finalColor: string | any
+
+    if (customPaintType === 'color') {
+      const alpha = parseFloat(customColorOpacity)
+      if (alpha < 1) {
+        // Convert hex to rgba
+        const cleanHex = customColorVal.replace('#', '')
+        const r = parseInt(cleanHex.substring(0, 2), 16)
+        const g = parseInt(cleanHex.substring(2, 4), 16)
+        const b = parseInt(cleanHex.substring(4, 6), 16)
+        finalColor = `rgba(${r}, ${g}, ${b}, ${alpha})`
+      } else {
+        finalColor = customColorVal
+      }
+    } else {
+      // Create GradientConfig object
+      finalColor = {
+        type: gradTypeInput,
+        attrs: gradTypeInput === 'linear' 
+          ? { x1: '0%', y1: '0%', x2: '100%', y2: '100%' }
+          : { cx: '50%', cy: '50%', r: '50%' },
+        stops: [
+          { offset: '0%', color: gradStop1Color, opacity: parseFloat(gradStop1Opacity) || 1 },
+          { offset: '100%', color: gradStop2Color, opacity: parseFloat(gradStop2Opacity) || 1 }
+        ]
+      }
+    }
+
     const exists = customColorsList.some((item) => item.palette === selectedPalette && item.name === cleanedName)
     if (!exists) {
-      const newColor = { palette: selectedPalette, name: cleanedName, color: customColorVal }
+      const newColor = { palette: selectedPalette, name: cleanedName, color: finalColor }
       const updated = [...customColorsList, newColor]
       setCustomColorsList(updated)
       localStorage.setItem('avataaars_custom_colors', JSON.stringify(updated))
     }
 
-    addPaletteColor(PALETTES[selectedPalette as keyof typeof PALETTES], cleanedName, customColorVal)
+    addPaletteColor(PALETTES[selectedPalette as keyof typeof PALETTES], cleanedName, finalColor)
     setRenderTick((t) => t + 1)
 
     const propKey = getOptionKeyForPalette(selectedPalette)
@@ -458,13 +550,17 @@ export const App: React.FC = () => {
     return customColorsList
   }
 
-  // Remove registered custom color
+  // Remove registered custom paint (color or gradient)
   const handleRemoveColor = (palette: string, name: string) => {
     try {
       removePaletteColor(PALETTES[palette as keyof typeof PALETTES], name)
     } catch (err) {
       console.error(err)
     }
+
+    try {
+      registeredGradients.delete(name)
+    } catch (e) {}
 
     const updated = customColorsList.filter((item) => !(item.palette === palette && item.name === name))
     setCustomColorsList(updated)
@@ -479,102 +575,6 @@ export const App: React.FC = () => {
         [propKey]: defaultVal
       }))
     }
-  }
-
-  // Register custom dynamic gradient
-  const handleRegisterGradient = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!gradNameInput.trim() || !gradStop1Color.trim() || !gradStop2Color.trim()) return
-
-    const cleanedName = gradNameInput.replace(/[^a-zA-Z0-9]/g, '')
-    if (!cleanedName) return
-
-    const gradName = `grad_${cleanedName.toLowerCase()}`
-    const displayName = `${cleanedName}Gradient`
-
-    const stops = [
-      { offset: '0%', color: gradStop1Color, opacity: parseFloat(gradStop1Opacity) || 1 },
-      { offset: '100%', color: gradStop2Color, opacity: parseFloat(gradStop2Opacity) || 1 }
-    ]
-
-    const attrs = gradTypeInput === 'linear' 
-      ? { x1: '0%', y1: '0%', x2: '100%', y2: '100%' }
-      : { cx: '50%', cy: '50%', r: '50%' }
-
-    const newGrad = {
-      name: gradName,
-      displayName,
-      type: gradTypeInput,
-      attrs,
-      stops
-    }
-
-    const exists = registeredGradientsList.some((item) => item.name === gradName)
-    let updated = registeredGradientsList
-    if (!exists) {
-      updated = [...registeredGradientsList, newGrad]
-      setRegisteredGradientsList(updated)
-      localStorage.setItem('avataaars_registered_gradients', JSON.stringify(updated))
-    }
-
-    // Register gradient definition
-    registerGradient(gradName, {
-      type: gradTypeInput,
-      attrs,
-      stops
-    })
-
-    // Register dynamic gradient pointer url in all palettes
-    try {
-      addPaletteColor(PALETTES.CLOTHES, displayName, `url(#${gradName})`)
-      addPaletteColor(PALETTES.BACKDROP, displayName, `url(#${gradName})`)
-      addPaletteColor(PALETTES.HAIR, displayName, `url(#${gradName})`)
-      addPaletteColor(PALETTES.HAT, displayName, `url(#${gradName})`)
-      addPaletteColor(PALETTES.FACIAL_HAIR, displayName, `url(#${gradName})`)
-    } catch (err) {
-      console.error(err)
-    }
-
-    setRenderTick((t) => t + 1)
-
-    // Auto-select in clotheColor by default for instant feedback
-    setAvatarProps((prev) => ({
-      ...prev,
-      clotheColor: displayName
-    }))
-
-    setGradNameInput('')
-  }
-
-  // Remove dynamic custom gradient
-  const handleRemoveGradient = (gradName: string, displayName: string) => {
-    const updated = registeredGradientsList.filter((item) => item.name !== gradName)
-    setRegisteredGradientsList(updated)
-    localStorage.setItem('avataaars_registered_gradients', JSON.stringify(updated))
-
-    try {
-      // Remove from palettes
-      removePaletteColor(PALETTES.CLOTHES, displayName)
-      removePaletteColor(PALETTES.BACKDROP, displayName)
-      removePaletteColor(PALETTES.HAIR, displayName)
-      removePaletteColor(PALETTES.HAT, displayName)
-      removePaletteColor(PALETTES.FACIAL_HAIR, displayName)
-    } catch (err) {
-      console.error(err)
-    }
-
-    setRenderTick((t) => t + 1)
-
-    // Reset props if currently selected
-    setAvatarProps((prev) => {
-      const next = { ...prev }
-      if (next.clotheColor === displayName) next.clotheColor = BUILT_IN_COLORS.CLOTHES[0]
-      if (next.backdropColor === displayName) next.backdropColor = BUILT_IN_COLORS.BACKDROP[0]
-      if (next.hairColor === displayName) next.hairColor = BUILT_IN_COLORS.HAIR[0]
-      if (next.hatColor === displayName) next.hatColor = BUILT_IN_COLORS.HAT[0]
-      if (next.facialHairColor === displayName) next.facialHairColor = BUILT_IN_COLORS.FACIAL_HAIR[0]
-      return next
-    })
   }
 
   // Copy JSX Code to clipboard
@@ -977,10 +977,10 @@ ${propStrings}
 
                 {isAdvancedOpen && (
                   <div className='advanced-content'>
-                    <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: '0 0 8px 0' }}>
-                      Register custom HEX colors dynamically into any palette. Registered colors will instantly populate in the options menus above!
+                    <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: '0 0 12px 0' }}>
+                      Create and register custom paint servers globally into any palette. Supports flat colors, translucent colors with alpha transparency, or dynamic multi-stop linear/radial gradients.
                     </p>
-                    <form className='color-picker-grid' onSubmit={handleRegisterColor}>
+                    <form className='color-picker-grid' onSubmit={handleRegisterPaint}>
                       <div className='form-group'>
                         <label htmlFor="palette-select">Target Component</label>
                         <select
@@ -993,160 +993,163 @@ ${propStrings}
                           ))}
                         </select>
                       </div>
+
                       <div className='form-group'>
-                        <label htmlFor="color-name">Color Name (alphanumeric)</label>
+                        <label htmlFor="paint-type">Paint Type</label>
+                        <select
+                          id="paint-type"
+                          className='form-control'
+                          value={customPaintType}
+                          onChange={(e) => setCustomPaintType(e.target.value as any)}>
+                          <option value="color">Solid / Translucent Color</option>
+                          <option value="gradient">Custom Gradient</option>
+                        </select>
+                      </div>
+
+                      <div className='form-group'>
+                        <label htmlFor="color-name">Paint Name (alphanumeric)</label>
                         <input
                           id="color-name"
                           type='text'
-                          placeholder='e.g., MintMagic'
+                          placeholder='e.g., MagicMint'
                           className='form-control'
                           value={customColorName}
                           onChange={(e) => setCustomColorName(e.target.value)}
                         />
                       </div>
-                      <div className='form-group'>
-                        <label>Hex Picker</label>
-                        <div className='color-input-wrapper'>
-                          <input
-                            type='color'
-                            className='color-picker-native'
-                            value={customColorVal}
-                            onChange={(e) => setCustomColorVal(e.target.value)}
-                          />
-                          <input
-                            type='text'
-                            className='form-control'
-                            style={{ width: '90px' }}
-                            value={customColorVal}
-                            onChange={(e) => setCustomColorVal(e.target.value)}
-                          />
-                          <button className='btn-register' type='submit'>Register</button>
-                        </div>
-                      </div>
-                    </form>
 
-                    {/* List of custom registered colors */}
-                    {getRegisteredCustomColors().length > 0 && (
-                      <div className='custom-colors-list'>
-                        <h3 style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-heading)', margin: '16px 0 10px 0' }}>
-                          Registered Custom Colors
-                        </h3>
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                          {getRegisteredCustomColors().map(({ palette, name, color }) => (
-                            <div key={`${palette}-${name}`} className='color-chip' style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                              <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: color, display: 'inline-block', border: '1px solid rgba(255, 255, 255, 0.2)', flexShrink: 0 }} />
-                              <span className='chip-palette'>{palette}</span>
-                              <span className='chip-name'>{name}</span>
-                              <button
-                                type='button'
-                                className='chip-remove'
-                                title='Remove custom color'
-                                onClick={() => handleRemoveColor(palette, name)}>
-                                ×
-                              </button>
+                      {customPaintType === 'color' ? (
+                        <>
+                          <div className='form-group'>
+                            <label>Hex Picker</label>
+                            <div className='color-input-wrapper'>
+                              <input
+                                type='color'
+                                className='color-picker-native'
+                                value={customColorVal}
+                                onChange={(e) => setCustomColorVal(e.target.value)}
+                              />
+                              <input
+                                type='text'
+                                className='form-control'
+                                style={{ width: '90px' }}
+                                value={customColorVal}
+                                onChange={(e) => setCustomColorVal(e.target.value)}
+                              />
                             </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
+                          </div>
+                          <div className='form-group'>
+                            <label htmlFor="color-opacity">Opacity (Alpha)</label>
+                            <select
+                              id="color-opacity"
+                              className='form-control'
+                              value={customColorOpacity}
+                              onChange={(e) => setCustomColorOpacity(e.target.value)}>
+                              <option value="1.0">Opaque (100%)</option>
+                              <option value="0.8">80%</option>
+                              <option value="0.5">50%</option>
+                              <option value="0.2">20%</option>
+                              <option value="0.0">Transparent (0%)</option>
+                            </select>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <div className='form-group'>
+                            <label htmlFor="grad-type">Gradient Type</label>
+                            <select
+                              id="grad-type"
+                              className='form-control'
+                              value={gradTypeInput}
+                              onChange={(e) => setGradTypeInput(e.target.value as any)}>
+                              <option value="linear">Linear (Diagonal)</option>
+                              <option value="radial">Radial (Centered)</option>
+                            </select>
+                          </div>
+                          <div className='form-group'>
+                            <label>Color Stop 1</label>
+                            <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+                              <input
+                                type='color'
+                                className='color-picker-native'
+                                value={gradStop1Color}
+                                onChange={(e) => setGradStop1Color(e.target.value)}
+                              />
+                              <select
+                                className='form-control'
+                                style={{ width: '80px', padding: '0 6px' }}
+                                value={gradStop1Opacity}
+                                onChange={(e) => setGradStop1Opacity(e.target.value)}>
+                                <option value="1.0">Opaque</option>
+                                <option value="0.8">80%</option>
+                                <option value="0.5">50%</option>
+                                <option value="0.2">20%</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div className='form-group'>
+                            <label>Color Stop 2</label>
+                            <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+                              <input
+                                type='color'
+                                className='color-picker-native'
+                                value={gradStop2Color}
+                                onChange={(e) => setGradStop2Color(e.target.value)}
+                              />
+                              <select
+                                className='form-control'
+                                style={{ width: '80px', padding: '0 6px' }}
+                                value={gradStop2Opacity}
+                                onChange={(e) => setGradStop2Opacity(e.target.value)}>
+                                <option value="1.0">Opaque</option>
+                                <option value="0.8">80%</option>
+                                <option value="0.5">50%</option>
+                                <option value="0.2">20%</option>
+                              </select>
+                            </div>
+                          </div>
+                        </>
+                      )}
 
-                    <hr style={{ border: 'none', borderTop: '1px solid rgba(255, 255, 255, 0.08)', margin: '20px 0' }} />
-
-                    {/* Dynamic Custom Gradient Builder */}
-                    <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: '0 0 8px 0' }}>
-                      Build custom SVG Multi-Stop Gradients (linear or radial). Registered gradients are dynamically injected into Defs and instantly available across Backdrop, Clothes, Hair, Hat, and Facial Hair options!
-                    </p>
-                    <form className='color-picker-grid' onSubmit={handleRegisterGradient}>
-                      <div className='form-group'>
-                        <label htmlFor="grad-name">Gradient Name</label>
-                        <input
-                          id="grad-name"
-                          type='text'
-                          placeholder='e.g., NeonGlow'
-                          className='form-control'
-                          value={gradNameInput}
-                          onChange={(e) => setGradNameInput(e.target.value)}
-                        />
-                      </div>
-                      <div className='form-group'>
-                        <label htmlFor="grad-type">Gradient Type</label>
-                        <select
-                          id="grad-type"
-                          className='form-control'
-                          value={gradTypeInput}
-                          onChange={(e) => setGradTypeInput(e.target.value as any)}>
-                          <option value="linear">Linear (Diagonal)</option>
-                          <option value="radial">Radial (Centered)</option>
-                        </select>
-                      </div>
-                      <div className='form-group'>
-                        <label>Color Stop 1</label>
-                        <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
-                          <input
-                            type='color'
-                            className='color-picker-native'
-                            value={gradStop1Color}
-                            onChange={(e) => setGradStop1Color(e.target.value)}
-                          />
-                          <select
-                            className='form-control'
-                            style={{ width: '80px', padding: '0 6px' }}
-                            value={gradStop1Opacity}
-                            onChange={(e) => setGradStop1Opacity(e.target.value)}>
-                            <option value="1.0">Opaque</option>
-                            <option value="0.8">80%</option>
-                            <option value="0.5">50%</option>
-                            <option value="0.2">20%</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div className='form-group'>
-                        <label>Color Stop 2</label>
-                        <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
-                          <input
-                            type='color'
-                            className='color-picker-native'
-                            value={gradStop2Color}
-                            onChange={(e) => setGradStop2Color(e.target.value)}
-                          />
-                          <select
-                            className='form-control'
-                            style={{ width: '80px', padding: '0 6px' }}
-                            value={gradStop2Opacity}
-                            onChange={(e) => setGradStop2Opacity(e.target.value)}>
-                            <option value="1.0">Opaque</option>
-                            <option value="0.8">80%</option>
-                            <option value="0.5">50%</option>
-                            <option value="0.2">20%</option>
-                          </select>
-                          <button className='btn-register' type='submit'>Register</button>
-                        </div>
+                      <div className='form-group' style={{ display: 'flex', alignItems: 'flex-end' }}>
+                        <button className='btn-register' type='submit' style={{ width: '100%', height: '38px', margin: 0 }}>
+                          Register Paint
+                        </button>
                       </div>
                     </form>
 
-                    {/* List of custom registered gradients */}
-                    {registeredGradientsList.length > 0 && (
-                      <div className='custom-colors-list' style={{ marginTop: '16px' }}>
+                    {/* List of custom registered colors & gradients */}
+                    {getRegisteredCustomColors().length > 0 && (
+                      <div className='custom-colors-list' style={{ marginTop: '20px' }}>
                         <h3 style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-heading)', margin: '16px 0 10px 0' }}>
-                          Registered Custom Gradients
+                          Registered Custom Paints
                         </h3>
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                          {registeredGradientsList.map((grad) => {
-                            const stop1 = grad.stops[0]
-                            const stop2 = grad.stops[1]
-                            const gradBackground = grad.type === 'linear'
-                              ? `linear-gradient(135deg, ${stop1.color}, ${stop2.color})`
-                              : `radial-gradient(circle, ${stop1.color}, ${stop2.color})`
+                          {getRegisteredCustomColors().map(({ palette, name, color }) => {
+                            let chipBg = 'var(--text-muted)'
+                            let isGrad = false
+                            if (typeof color === 'string') {
+                              chipBg = color
+                            } else if (color && typeof color === 'object') {
+                              isGrad = true
+                              const stop1 = color.stops?.[0]
+                              const stop2 = color.stops?.[1]
+                              if (stop1 && stop2) {
+                                chipBg = color.type === 'linear'
+                                  ? `linear-gradient(135deg, ${stop1.color}, ${stop2.color})`
+                                  : `radial-gradient(circle, ${stop1.color}, ${stop2.color})`
+                              }
+                            }
                             return (
-                              <div key={grad.name} className='color-chip' style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                                <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: gradBackground, display: 'inline-block', border: '1px solid rgba(255, 255, 255, 0.2)', flexShrink: 0 }} />
-                                <span className='chip-palette' style={{ backgroundColor: 'var(--accent-dim)', color: 'var(--accent)' }}>{grad.type}</span>
-                                <span className='chip-name'>{grad.displayName}</span>
+                              <div key={`${palette}-${name}`} className='color-chip' style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                                <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: chipBg, display: 'inline-block', border: '1px solid rgba(255, 255, 255, 0.2)', flexShrink: 0 }} />
+                                <span className='chip-palette'>{palette}</span>
+                                <span className='chip-name' style={{ color: isGrad ? 'var(--accent)' : 'var(--text-heading)' }}>{name}</span>
                                 <button
                                   type='button'
                                   className='chip-remove'
-                                  title='Remove custom gradient'
-                                  onClick={() => handleRemoveGradient(grad.name, grad.displayName)}>
+                                  title='Remove custom paint'
+                                  onClick={() => handleRemoveColor(palette, name)}>
                                   ×
                                 </button>
                               </div>
@@ -1161,7 +1164,7 @@ ${propStrings}
             </section>
 
             {/* Developers' Documentation Section */}
-            <section className='doc-section' style={{ gridColumn: 'span 2', marginTop: '40px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '40px' }}>
+            <section className='doc-section'>
               <h2 style={{ fontSize: '22px', fontWeight: 700, color: 'var(--text-heading)', margin: '0 0 10px 0', letterSpacing: '-0.02em' }}>
                 📚 Developers' Integration & REST API Guide
               </h2>
@@ -1204,26 +1207,24 @@ const App = () => (
                   <pre className='code-block' style={{ fontSize: '12px', overflowX: 'auto', backgroundColor: '#0f172a', padding: '12px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)', color: '#38bdf8', whiteSpace: 'pre-wrap', wordBreak: 'break-all', margin: 0 }}>
 {`import { 
   addPaletteColor, 
-  registerGradient, 
   PALETTES 
 } from '@gschoppe/avataaars'
 
-// 1. Register a dynamic sunset gradient
-registerGradient('mySunset', {
+// 1. Register a standard flat color
+addPaletteColor(PALETTES.HAIR, 'flatEmerald', '#10B981')
+
+// 2. Register a translucent color with an alpha channel
+addPaletteColor(PALETTES.BACKDROP, 'semiTransparentBlue', 'rgba(59, 130, 246, 0.4)')
+
+// 3. Register & add a dynamic sunset gradient in a single call!
+addPaletteColor(PALETTES.CLOTHES, 'mySunset', {
   type: 'linear',
   attrs: { x1: '0%', y1: '0%', x2: '100%', y2: '100%' },
   stops: [
     { offset: '0%', color: '#FF5733', opacity: 1 },
     { offset: '100%', color: '#FFC0CB', opacity: 0.5 }
   ]
-})
-
-// 2. Add as choice to clothing palette
-addPaletteColor(
-  PALETTES.CLOTHES, 
-  'SunsetGrad', 
-  'url(#mySunset)'
-)`}
+})`}
                   </pre>
                 </div>
 

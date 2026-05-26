@@ -737,3 +737,18 @@ body {
   animation: slideDown 0.2s ease;
 }
 
+/* Developers' Documentation Section Layout */
+.doc-section {
+  grid-column: 2;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 40px;
+}
+
+@media (max-width: 900px) {
+  .doc-section {
+    grid-column: 1 / -1;
+  }
+}
+
+

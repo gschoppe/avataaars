@@ -9,7 +9,7 @@ export declare const PALETTES: {
     CLOTHES: string;
     HAT: string;
 };
-export declare function addPaletteColor(palette: string, name: string, color: string): any;
+export declare function addPaletteColor(palette: string, name: string, color?: string | GradientConfig): any;
 export interface Props {
     [key: string]: any;
     className?: string;

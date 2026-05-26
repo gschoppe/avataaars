@@ -34,7 +34,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-1',
     backdropType: 'Circle',
-    backdropColor: 'Black',
+    backdropColor: 'Blue01',
     topType: 'NoHair',
     accessoriesType: 'Blank',
     hairColor: 'Auburn',
@@ -52,7 +52,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-2',
     backdropType: 'Circle',
-    backdropColor: 'Blue01',
+    backdropColor: 'Gray01',
     topType: 'Eyepatch',
     accessoriesType: 'Kurt',
     hairColor: 'Black',
@@ -70,7 +70,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-3',
     backdropType: 'Circle',
-    backdropColor: 'Blue02',
+    backdropColor: 'Gray01',
     topType: 'Hat',
     accessoriesType: 'Prescription01',
     hairColor: 'Blonde',
@@ -88,7 +88,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-4',
     backdropType: 'Circle',
-    backdropColor: 'Blue03',
+    backdropColor: 'Gray01',
     topType: 'Hijab',
     accessoriesType: 'Prescription02',
     hairColor: 'BlondeGolden',
@@ -106,7 +106,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-5',
     backdropType: 'Circle',
-    backdropColor: 'Gray01',
+    backdropColor: 'PastelBlue',
     topType: 'Turban',
     accessoriesType: 'Round',
     hairColor: 'Brown',
@@ -124,7 +124,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-6',
     backdropType: 'Circle',
-    backdropColor: 'Gray02',
+    backdropColor: 'PastelBlue',
     topType: 'WinterHat1',
     accessoriesType: 'Sunglasses',
     hairColor: 'BrownDark',
@@ -142,7 +142,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-7',
     backdropType: 'Circle',
-    backdropColor: 'Heather',
+    backdropColor: 'PastelBlue',
     topType: 'WinterHat2',
     accessoriesType: 'Wayfarers',
     hairColor: 'PastelPink',
@@ -160,7 +160,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-8',
     backdropType: 'Circle',
-    backdropColor: 'PastelBlue',
+    backdropColor: 'PastelGreen',
     topType: 'WinterHat3',
     accessoriesType: 'Blank',
     hairColor: 'Blue',
@@ -173,12 +173,12 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
     eyeType: 'Side',
     eyebrowType: 'RaisedExcitedNatural',
     mouthType: 'Serious',
-    skinColor: 'CustomSkinPurple', // Custom color
+    skinColor: 'CustomSkinPurple',
   },
   {
     id: 'avatar-9',
     backdropType: 'Circle',
-    backdropColor: 'PastelGreen',
+    backdropColor: 'PastelOrange',
     topType: 'WinterHat4',
     accessoriesType: 'Kurt',
     hairColor: 'Platinum',
@@ -196,13 +196,13 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-10',
     backdropType: 'Circle',
-    backdropColor: 'PastelOrange',
+    backdropColor: 'PastelYellow',
     topType: 'LongHairBigHair',
     accessoriesType: 'Prescription01',
     hairColor: 'Red',
     hatColor: 'PastelOrange',
     facialHairType: 'BeardMajestic',
-    facialHairColor: 'CustomFacialHairTeal', // Custom color
+    facialHairColor: 'CustomFacialHairTeal',
     clotheType: 'BlazerShirt',
     clotheColor: 'PastelOrange',
     graphicType: 'SkullOutline',
@@ -214,7 +214,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-11',
     backdropType: 'Circle',
-    backdropColor: 'PastelRed',
+    backdropColor: 'PastelYellow',
     topType: 'LongHairBob',
     accessoriesType: 'Prescription02',
     hairColor: 'SilverGray',
@@ -232,10 +232,10 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-12',
     backdropType: 'Circle',
-    backdropColor: 'PastelYellow',
+    backdropColor: 'Red',
     topType: 'LongHairBun',
     accessoriesType: 'Round',
-    hairColor: 'CustomHairHotPink', // Custom color
+    hairColor: 'CustomHairHotPink',
     hatColor: 'PastelYellow',
     facialHairType: 'MoustacheMagnum',
     facialHairColor: 'Black',
@@ -250,7 +250,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-13',
     backdropType: 'Circle',
-    backdropColor: 'Pink',
+    backdropColor: 'White',
     topType: 'LongHairCurly',
     accessoriesType: 'Sunglasses',
     hairColor: 'Auburn',
@@ -268,7 +268,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-14',
     backdropType: 'Circle',
-    backdropColor: 'Red',
+    backdropColor: 'White',
     topType: 'LongHairCurvy',
     accessoriesType: 'Wayfarers',
     hairColor: 'Black',
@@ -286,7 +286,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-15',
     backdropType: 'Circle',
-    backdropColor: 'White',
+    backdropColor: 'CustomBackdropGreen',
     topType: 'LongHairDreads',
     accessoriesType: 'Blank',
     hairColor: 'Blonde',
@@ -304,15 +304,15 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-16',
     backdropType: 'Circle',
-    backdropColor: 'CustomBackdropGreen', // Custom color
+    backdropColor: 'CustomBackdropGreen',
     topType: 'LongHairFrida',
     accessoriesType: 'Kurt',
     hairColor: 'BlondeGolden',
-    hatColor: 'CustomHatLime', // Custom color
+    hatColor: 'CustomHatLime',
     facialHairType: 'BeardMajestic',
     facialHairColor: 'BrownDark',
     clotheType: 'ShirtCrewNeck',
-    clotheColor: 'CustomClotheOrange', // Custom color
+    clotheColor: 'CustomClotheOrange',
     graphicType: 'Hola',
     eyeType: 'Dizzy',
     eyebrowType: 'Default',
@@ -322,7 +322,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-17',
     backdropType: 'None',
-    backdropColor: 'Black',
+    backdropColor: 'Blue01',
     topType: 'LongHairFro',
     accessoriesType: 'Prescription01',
     hairColor: 'Brown',
@@ -340,7 +340,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-18',
     backdropType: 'None',
-    backdropColor: 'Blue01',
+    backdropColor: 'Gray01',
     topType: 'LongHairFroBand',
     accessoriesType: 'Prescription02',
     hairColor: 'BrownDark',
@@ -358,7 +358,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-19',
     backdropType: 'None',
-    backdropColor: 'Blue02',
+    backdropColor: 'Gray01',
     topType: 'LongHairNotTooLong',
     accessoriesType: 'Round',
     hairColor: 'PastelPink',
@@ -376,7 +376,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-20',
     backdropType: 'None',
-    backdropColor: 'Blue03',
+    backdropColor: 'Gray01',
     topType: 'LongHairShavedSides',
     accessoriesType: 'Sunglasses',
     hairColor: 'Blue',
@@ -394,7 +394,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-21',
     backdropType: 'None',
-    backdropColor: 'Gray01',
+    backdropColor: 'PastelBlue',
     topType: 'LongHairMiaWallace',
     accessoriesType: 'Wayfarers',
     hairColor: 'Platinum',
@@ -412,7 +412,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-22',
     backdropType: 'None',
-    backdropColor: 'Gray02',
+    backdropColor: 'PastelBlue',
     topType: 'LongHairStraight',
     accessoriesType: 'Blank',
     hairColor: 'Red',
@@ -430,7 +430,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-23',
     backdropType: 'None',
-    backdropColor: 'Heather',
+    backdropColor: 'PastelBlue',
     topType: 'LongHairStraight2',
     accessoriesType: 'Kurt',
     hairColor: 'SilverGray',
@@ -448,7 +448,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-24',
     backdropType: 'None',
-    backdropColor: 'PastelBlue',
+    backdropColor: 'PastelGreen',
     topType: 'LongHairStraightStrand',
     accessoriesType: 'Prescription01',
     hairColor: 'CustomHairHotPink',
@@ -466,7 +466,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-25',
     backdropType: 'None',
-    backdropColor: 'PastelGreen',
+    backdropColor: 'PastelOrange',
     topType: 'ShortHairDreads01',
     accessoriesType: 'Prescription02',
     hairColor: 'Auburn',
@@ -484,7 +484,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-26',
     backdropType: 'None',
-    backdropColor: 'PastelOrange',
+    backdropColor: 'PastelRed',
     topType: 'ShortHairDreads02',
     accessoriesType: 'Round',
     hairColor: 'Black',
@@ -502,7 +502,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-27',
     backdropType: 'None',
-    backdropColor: 'PastelRed',
+    backdropColor: 'Pink',
     topType: 'ShortHairFrizzle',
     accessoriesType: 'Sunglasses',
     hairColor: 'Blonde',
@@ -520,7 +520,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-28',
     backdropType: 'None',
-    backdropColor: 'PastelYellow',
+    backdropColor: 'Pink',
     topType: 'ShortHairShaggy',
     accessoriesType: 'Wayfarers',
     hairColor: 'BlondeGolden',
@@ -538,7 +538,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-29',
     backdropType: 'None',
-    backdropColor: 'Pink',
+    backdropColor: 'Red',
     topType: 'ShortHairShaggyMullet',
     accessoriesType: 'Blank',
     hairColor: 'Brown',
@@ -556,7 +556,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-30',
     backdropType: 'None',
-    backdropColor: 'Red',
+    backdropColor: 'White',
     topType: 'ShortHairShortCurly',
     accessoriesType: 'Kurt',
     hairColor: 'BrownDark',
@@ -574,7 +574,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-31',
     backdropType: 'None',
-    backdropColor: 'White',
+    backdropColor: 'CustomBackdropGreen',
     topType: 'ShortHairShortFlat',
     accessoriesType: 'Prescription01',
     hairColor: 'PastelPink',
