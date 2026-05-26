@@ -41,13 +41,23 @@ import {
 const app = express()
 const PORT = process.env.PORT || 3000
 
-// Helper to determine if string is hex color
-function isHexColor(str: string): boolean {
-  return /^#?[0-9A-Fa-f]{6}$|^#?[0-9A-Fa-f]{3}$/.test(str)
+// Helper to determine if string represents a custom CSS color (hex, rgb/rgba, hsl/hsla, or transparent keyword)
+function isCustomColor(str: string): boolean {
+  const s = str.trim().toLowerCase()
+  const isHex = /^#?[0-9A-Fa-f]{3}$|^#?[0-9A-Fa-f]{4}$|^#?[0-9A-Fa-f]{6}$|^#?[0-9A-Fa-f]{8}$/.test(s)
+  const isRgb = /^rgba?\(.+\)$/i.test(s)
+  const isHsl = /^hsla?\(.+\)$/i.test(s)
+  const isTransparent = s === 'transparent'
+  return isHex || isRgb || isHsl || isTransparent
 }
 
-function cleanHexColor(str: string): string {
-  return str.startsWith('#') ? str : `#${str}`
+function cleanCustomColor(str: string): string {
+  const s = str.trim()
+  const isHex = /^#?[0-9A-Fa-f]{3}$|^#?[0-9A-Fa-f]{4}$|^#?[0-9A-Fa-f]{6}$|^#?[0-9A-Fa-f]{8}$/.test(s)
+  if (isHex) {
+    return s.startsWith('#') ? s : `#${s}`
+  }
+  return s
 }
 
 app.get(['/api/avatar', '/api/avatar.svg', '/api/avatar.png', '/api/avatar.json'], async (req, res) => {
@@ -93,12 +103,12 @@ app.get(['/api/avatar', '/api/avatar.svg', '/api/avatar.png', '/api/avatar.json'
       const lowerKey = option.key.toLowerCase()
       const queryVal = queryLower[lowerKey]
       if (queryVal) {
-        // Handle hex color parameters dynamically
-        if (colorKeys[lowerKey] && isHexColor(queryVal)) {
-          const hex = cleanHexColor(queryVal)
-          const cleanName = `hex_${hex.substring(1)}`
+        // Handle custom color parameters dynamically (supports hex with alpha, rgb/rgba, hsl/hsla, transparent)
+        if (colorKeys[lowerKey] && isCustomColor(queryVal)) {
+          const cleanedColor = cleanCustomColor(queryVal)
+          const cleanName = 'custom_' + cleanedColor.replace(/[^a-zA-Z0-9]/g, '_')
           // Register dynamic color in PALETTES
-          addPaletteColor(colorKeys[lowerKey], cleanName, hex)
+          addPaletteColor(colorKeys[lowerKey], cleanName, cleanedColor)
           data[option.key] = cleanName
         } else {
           data[option.key] = queryVal
