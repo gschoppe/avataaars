@@ -153,6 +153,22 @@ function cleanJSX(jsxStr, catKey, optionVal) {
   clean = clean.replace(/<HairColor\s+uid=\{.*?\}\s*\/>/g, '<HairColor />');
   clean = clean.replace(/<Accessories\s+uid=\{.*?\}\s*\/>/g, '<Accessories />');
 
+  // Compile-time linearGradient resolution
+  clean = clean.replace(/id="linearGradient1"/g, 'id="{uid}-accessories-linearGradient1"');
+  clean = clean.replace(/id="linearGradient2"/g, 'id="{uid}-accessories-linearGradient2"');
+  clean = clean.replace(/id=\{linearGradient1\}/g, 'id="{uid}-accessories-linearGradient1"');
+  clean = clean.replace(/id=\{linearGradient2\}/g, 'id="{uid}-accessories-linearGradient2"');
+  clean = clean.replace(/fill="url\(#linearGradient1\)"/g, 'fill="url(#{uid}-accessories-linearGradient1)"');
+  clean = clean.replace(/fill="url\(#linearGradient2\)"/g, 'fill="url(#{uid}-accessories-linearGradient2)"');
+  clean = clean.replace(/fill=\{"url\(#linearGradient1\)"\}/g, 'fill="url(#{uid}-accessories-linearGradient1)"');
+  clean = clean.replace(/fill=\{"url\(#linearGradient2\)"\}/g, 'fill="url(#{uid}-accessories-linearGradient2)"');
+  clean = clean.replace(/fill={`url\(#\${linearGradient1}\)`}/g, 'fill="url(#{uid}-accessories-linearGradient1)"');
+  clean = clean.replace(/fill={`url\(#\${linearGradient2}\)`}/g, 'fill="url(#{uid}-accessories-linearGradient2)"');
+  clean = clean.replace(/\{\s*linearGradient1\s*\}/g, '{uid}-accessories-linearGradient1');
+  clean = clean.replace(/\{\s*linearGradient2\s*\}/g, '{uid}-accessories-linearGradient2');
+  clean = clean.replace(/`url\(#\${linearGradient1}\)`/g, 'url(#{uid}-accessories-linearGradient1)');
+  clean = clean.replace(/`url\(#\${linearGradient2}\)`/g, 'url(#{uid}-accessories-linearGradient2)');
+
   return clean;
 }
 

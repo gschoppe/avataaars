@@ -16,77 +16,12 @@ export interface Props {
   node: SvgNode
   uid: string
   children?: React.ReactNode
-  category?: string
-  optionName?: string
 }
 
 export const SvgDictionaryRenderer: React.FC<Props> = (props) => {
-  const { node, uid, children, optionName } = props
+  const { node, uid, children } = props
 
   if (!node) return null
-
-  // Determine if the current node has an ID indicating a category
-  let currentCategory = props.category || ''
-
-  // Initialize currentCategory based on TOP/FACIAL_HAIR/etc. category passed from top level
-  if (props.category === 'TOP' && optionName) {
-    if (optionName === 'LongHairBob' || optionName === 'LongHairBun') {
-      currentCategory = 'Hair'
-    } else if (optionName === 'Eyepatch') {
-      currentCategory = 'Eyepatch'
-    } else {
-      currentCategory = 'top'
-    }
-  } else if (props.category === 'FACIAL_HAIR') {
-    currentCategory = 'Facial-Hair'
-  } else if (props.category === 'ACCESSORIES') {
-    currentCategory = 'Accessories'
-  } else if (props.category === 'TOP') {
-    currentCategory = 'top'
-  } else if (props.category === 'CLOTHES' && optionName && (
-    optionName === 'Skull' || optionName === 'SkullOutline' || optionName === 'Bat' ||
-    optionName === 'Cumbia' || optionName === 'Deer' || optionName === 'Diamond' ||
-    optionName === 'Hola' || optionName === 'Selena' || optionName === 'Pizza' ||
-    optionName === 'Resist' || optionName === 'Bear'
-  )) {
-    currentCategory = 'Graphic'
-  }
-
-  // Refine category based on the live ID of the node
-  if (node.props && typeof node.props.id === 'string') {
-    const id = node.props.id
-    if (id.includes('Clothing/Graphic/') || id.includes('Graphic')) {
-      if (id.includes('Clothing/Graphic-Shirt')) {
-        currentCategory = 'Clothing'
-      } else {
-        currentCategory = 'Graphic'
-      }
-    } else if (id.includes('Clothing/') || id.includes('clothing') || id.includes('Clothing')) {
-      currentCategory = 'Clothing'
-    } else if (id.includes('Mouth/')) {
-      currentCategory = 'Mouth'
-    } else if (id.includes('Winter-Hat') || id.includes('WinterHat')) {
-      currentCategory = 'top'
-    } else if (id.includes('Accessories/') || id.includes('Accewssories/')) {
-      currentCategory = 'Accessories'
-    } else if (id.includes('Eyes/') || id.includes('Eye-')) {
-      currentCategory = 'Eyes'
-    } else if (id.includes('Facial-Hair/') || id.includes('Facial-Hair') || id.includes('facialHair') || id.includes('Beard') || id.includes('Moustache') || id.includes('Mustache')) {
-      currentCategory = 'Facial-Hair'
-    } else if (id.includes('Eyebrows/') || id.includes('Eyebrow/') || id.includes('Eyebrow-')) {
-      currentCategory = 'Eyebrows'
-    } else if (id.includes('Eyepatch')) {
-      currentCategory = 'Eyepatch'
-    } else if (id.includes('Long-Hair/') || id.includes('Short-Hair/') || id.includes('hairColor') || id.includes('HairColor') || id.includes('Hair')) {
-      if (optionName === 'LongHairBob' || optionName === 'LongHairBun') {
-        currentCategory = 'Hair'
-      } else {
-        currentCategory = 'top'
-      }
-    } else if (id.includes('Top/')) {
-      currentCategory = 'top'
-    }
-  }
 
   // Parameterize strings containing {uid} recursively in props
   // Parameterize strings containing {uid} recursively in props
@@ -141,11 +76,7 @@ export const SvgDictionaryRenderer: React.FC<Props> = (props) => {
         processedVal = processedVal.replace(/#facialHairMask/g, `#${uid}-Facial-Hair-Mask`)
         processedVal = processedVal.replace(/#hairColorMask/g, `#${uid}-Hair-Color-Mask`)
 
-        // Accessories linearGradient mapping
-        processedVal = processedVal.replace(/url\(#linearGradient1\)/g, `url(#${uid}-accessories-linearGradient1)`)
-        processedVal = processedVal.replace(/url\(#linearGradient2\)/g, `url(#${uid}-accessories-linearGradient2)`)
-        processedVal = processedVal.replace(/#linearGradient1/g, `#${uid}-accessories-linearGradient1`)
-        processedVal = processedVal.replace(/#linearGradient2/g, `#${uid}-accessories-linearGradient2`)
+        // resolved via compile-time mapping
 
         resolved[key] = processedVal
       } else {
@@ -170,10 +101,6 @@ export const SvgDictionaryRenderer: React.FC<Props> = (props) => {
       resolved.id = `${uid}-Facial-Hair-Mask`
     } else if (resolved.id === 'hairColorMask') {
       resolved.id = `${uid}-Hair-Color-Mask`
-    } else if (resolved.id === 'linearGradient1' && currentCategory === 'Accessories') {
-      resolved.id = `${uid}-accessories-linearGradient1`
-    } else if (resolved.id === 'linearGradient2' && currentCategory === 'Accessories') {
-      resolved.id = `${uid}-accessories-linearGradient2`
     }
 
     // Detect if we have an id that is just "{uid}" or "uid" and a top-level suffix attribute
@@ -206,8 +133,6 @@ export const SvgDictionaryRenderer: React.FC<Props> = (props) => {
               key={index}
               node={child}
               uid={uid}
-              category={currentCategory}
-              optionName={optionName}
             >
               {children}
             </SvgDictionaryRenderer>
@@ -262,8 +187,6 @@ export const SvgDictionaryRenderer: React.FC<Props> = (props) => {
               key={index}
               node={child}
               uid={uid}
-              category={currentCategory}
-              optionName={optionName}
             >
               {children}
             </SvgDictionaryRenderer>

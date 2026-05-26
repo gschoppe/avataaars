@@ -3780,7 +3780,7 @@ export const SVG_DICTIONARY: Record<string, Record<string, SvgNode>> = {
                 "y1": "0%",
                 "x2": "50%",
                 "y2": "70.5058195%",
-                "id": "linearGradient1"
+                "id": "{uid}-accessories-linearGradient1"
               },
               "children": [
                 {
@@ -3810,7 +3810,7 @@ export const SVG_DICTIONARY: Record<string, Record<string, SvgNode>> = {
                 "y1": "0%",
                 "x2": "50%",
                 "y2": "100%",
-                "id": "linearGradient2"
+                "id": "{uid}-accessories-linearGradient2"
               },
               "children": [
                 {
@@ -3861,7 +3861,7 @@ export const SVG_DICTIONARY: Record<string, Record<string, SvgNode>> = {
                 {
                   "type": "use",
                   "props": {
-                    "fill": "`url(#${linearGradient1})`",
+                    "fill": "url(#{uid}-accessories-linearGradient1)",
                     "style": "{ mixBlendMode: 'screen' }",
                     "xlinkHref": "#{uid}-accessories-path1"
                   },
@@ -3887,7 +3887,7 @@ export const SVG_DICTIONARY: Record<string, Record<string, SvgNode>> = {
                 {
                   "type": "use",
                   "props": {
-                    "fill": "`url(#${linearGradient2})`",
+                    "fill": "url(#{uid}-accessories-linearGradient2)",
                     "style": "{ mixBlendMode: 'screen' }",
                     "xlinkHref": "#{uid}-accessories-path2"
                   },
@@ -4022,7 +4022,7 @@ export const SVG_DICTIONARY: Record<string, Record<string, SvgNode>> = {
                 "y1": "0%",
                 "x2": "50%",
                 "y2": "100%",
-                "id": "linearGradient1"
+                "id": "{uid}-accessories-linearGradient1"
               },
               "children": [
                 {
@@ -4100,7 +4100,7 @@ export const SVG_DICTIONARY: Record<string, Record<string, SvgNode>> = {
                     {
                       "type": "use",
                       "props": {
-                        "fill": "`url(#${linearGradient1})`",
+                        "fill": "url(#{uid}-accessories-linearGradient1)",
                         "fillRule": "evenodd",
                         "style": "{ mixBlendMode: 'screen' }",
                         "xlinkHref": "#{uid}-accessories-path1"
@@ -4128,7 +4128,7 @@ export const SVG_DICTIONARY: Record<string, Record<string, SvgNode>> = {
                     {
                       "type": "use",
                       "props": {
-                        "fill": "`url(#${linearGradient1})`",
+                        "fill": "url(#{uid}-accessories-linearGradient1)",
                         "fillRule": "evenodd",
                         "style": "{ mixBlendMode: 'screen' }",
                         "xlinkHref": "#{uid}-accessories-path2"

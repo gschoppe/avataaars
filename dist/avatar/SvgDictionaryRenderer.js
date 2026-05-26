@@ -10,85 +10,10 @@ import Skin from './Skin';
 import Graphics from './clothes/Graphics';
 import FacialHairColor from './top/facialHair/FacialHairColor';
 export const SvgDictionaryRenderer = (props) => {
-    const { node, uid, children, optionName } = props;
+    const { node, uid, children } = props;
     if (!node)
         return null;
-    // Determine if the current node has an ID indicating a category
-    let currentCategory = props.category || '';
-    // Initialize currentCategory based on TOP/FACIAL_HAIR/etc. category passed from top level
-    if (props.category === 'TOP' && optionName) {
-        if (optionName === 'LongHairBob' || optionName === 'LongHairBun') {
-            currentCategory = 'Hair';
-        }
-        else if (optionName === 'Eyepatch') {
-            currentCategory = 'Eyepatch';
-        }
-        else {
-            currentCategory = 'top';
-        }
-    }
-    else if (props.category === 'FACIAL_HAIR') {
-        currentCategory = 'Facial-Hair';
-    }
-    else if (props.category === 'ACCESSORIES') {
-        currentCategory = 'Accessories';
-    }
-    else if (props.category === 'TOP') {
-        currentCategory = 'top';
-    }
-    else if (props.category === 'CLOTHES' && optionName && (optionName === 'Skull' || optionName === 'SkullOutline' || optionName === 'Bat' ||
-        optionName === 'Cumbia' || optionName === 'Deer' || optionName === 'Diamond' ||
-        optionName === 'Hola' || optionName === 'Selena' || optionName === 'Pizza' ||
-        optionName === 'Resist' || optionName === 'Bear')) {
-        currentCategory = 'Graphic';
-    }
-    // Refine category based on the live ID of the node
-    if (node.props && typeof node.props.id === 'string') {
-        const id = node.props.id;
-        if (id.includes('Clothing/Graphic/') || id.includes('Graphic')) {
-            if (id.includes('Clothing/Graphic-Shirt')) {
-                currentCategory = 'Clothing';
-            }
-            else {
-                currentCategory = 'Graphic';
-            }
-        }
-        else if (id.includes('Clothing/') || id.includes('clothing') || id.includes('Clothing')) {
-            currentCategory = 'Clothing';
-        }
-        else if (id.includes('Mouth/')) {
-            currentCategory = 'Mouth';
-        }
-        else if (id.includes('Winter-Hat') || id.includes('WinterHat')) {
-            currentCategory = 'top';
-        }
-        else if (id.includes('Accessories/') || id.includes('Accewssories/')) {
-            currentCategory = 'Accessories';
-        }
-        else if (id.includes('Eyes/') || id.includes('Eye-')) {
-            currentCategory = 'Eyes';
-        }
-        else if (id.includes('Facial-Hair/') || id.includes('Facial-Hair') || id.includes('facialHair') || id.includes('Beard') || id.includes('Moustache') || id.includes('Mustache')) {
-            currentCategory = 'Facial-Hair';
-        }
-        else if (id.includes('Eyebrows/') || id.includes('Eyebrow/') || id.includes('Eyebrow-')) {
-            currentCategory = 'Eyebrows';
-        }
-        else if (id.includes('Eyepatch')) {
-            currentCategory = 'Eyepatch';
-        }
-        else if (id.includes('Long-Hair/') || id.includes('Short-Hair/') || id.includes('hairColor') || id.includes('HairColor') || id.includes('Hair')) {
-            if (optionName === 'LongHairBob' || optionName === 'LongHairBun') {
-                currentCategory = 'Hair';
-            }
-            else {
-                currentCategory = 'top';
-            }
-        }
-        else if (id.includes('Top/')) {
-            currentCategory = 'top';
-        }
-    }
+    // Parameterize strings containing {uid} recursively in props
     // Parameterize strings containing {uid} recursively in props
     const resolveProps = (rawProps) => {
         if (!rawProps)
@@ -134,66 +59,7 @@ export const SvgDictionaryRenderer = (props) => {
                 processedVal = processedVal.replace(/#hatColorMask/g, `#${uid}-Hat-Color-Mask`);
                 processedVal = processedVal.replace(/#facialHairMask/g, `#${uid}-Facial-Hair-Mask`);
                 processedVal = processedVal.replace(/#hairColorMask/g, `#${uid}-Hair-Color-Mask`);
-                // Accessories linearGradient mapping
-                processedVal = processedVal.replace(/url\(#linearGradient1\)/g, `url(#${uid}-accessories-linearGradient1)`);
-                processedVal = processedVal.replace(/url\(#linearGradient2\)/g, `url(#${uid}-accessories-linearGradient2)`);
-                processedVal = processedVal.replace(/#linearGradient1/g, `#${uid}-accessories-linearGradient1`);
-                processedVal = processedVal.replace(/#linearGradient2/g, `#${uid}-accessories-linearGradient2`);
-                // Remap references based on category
-                if (currentCategory === 'Clothing') {
-                    processedVal = processedVal.replace(new RegExp(`#${uid}-top-path1`, 'g'), `#${uid}-Clothing-path1`);
-                    processedVal = processedVal.replace(new RegExp(`url\\(#${uid}-top-path1\\)`, 'g'), `url(#${uid}-Clothing-path1)`);
-                }
-                else if (currentCategory === 'Graphic') {
-                    processedVal = processedVal.replace(new RegExp(`#${uid}-top-path([0-9]+)`, 'g'), `#${uid}-Graphic-path$1`);
-                    processedVal = processedVal.replace(new RegExp(`#${uid}-top-mask([0-9]+)`, 'g'), `#${uid}-Graphic-mask$1`);
-                    processedVal = processedVal.replace(new RegExp(`url\\(#${uid}-top-mask([0-9]+)\\)`, 'g'), `url(#${uid}-Graphic-mask$1)`);
-                }
-                else if (currentCategory === 'Mouth') {
-                    processedVal = processedVal.replace(new RegExp(`#${uid}-top-path([0-9]+)`, 'g'), `#${uid}-Mouth-path$1`);
-                    processedVal = processedVal.replace(new RegExp(`#${uid}-top-filter([0-9]+)`, 'g'), `#${uid}-Mouth-filter$1`);
-                    processedVal = processedVal.replace(new RegExp(`url\\(#${uid}-top-filter([0-9]+)\\)`, 'g'), `url(#${uid}-Mouth-filter$1)`);
-                    processedVal = processedVal.replace(new RegExp(`#${uid}-top-mask([0-9]+)`, 'g'), `#${uid}-Mouth-mask$1`);
-                    processedVal = processedVal.replace(new RegExp(`url\\(#${uid}-top-mask([0-9]+)\\)`, 'g'), `url(#${uid}-Mouth-mask$1)`);
-                }
-                else if (currentCategory === 'Accessories') {
-                    processedVal = processedVal.replace(new RegExp(`#${uid}-top-path([0-9]+)`, 'g'), `#${uid}-accessories-path$1`);
-                    processedVal = processedVal.replace(new RegExp(`#${uid}-top-filter([0-9]+)`, 'g'), `#${uid}-accessories-filter$1`);
-                    processedVal = processedVal.replace(new RegExp(`url\\(#${uid}-top-filter([0-9]+)\\)`, 'g'), `url(#${uid}-accessories-filter$1)`);
-                }
-                else if (currentCategory === 'Eyes') {
-                    processedVal = processedVal.replace(new RegExp(`#${uid}-top-path([0-9]+)`, 'g'), `#${uid}-Eyes-path$1`);
-                    processedVal = processedVal.replace(new RegExp(`#${uid}-top-mask([0-9]+)`, 'g'), `#${uid}-Eyes-mask$1`);
-                    processedVal = processedVal.replace(new RegExp(`url\\(#${uid}-top-mask([0-9]+)\\)`, 'g'), `url(#${uid}-Eyes-mask$1)`);
-                }
-                else if (currentCategory === 'Facial-Hair') {
-                    if (optionName === 'BeardLight') {
-                        processedVal = processedVal.replace(new RegExp(`#${uid}-top-path1`, 'g'), `#${uid}-Facial-Hair-path1`);
-                        processedVal = processedVal.replace(new RegExp(`#${uid}-top-mask1`, 'g'), `#${uid}-Facial-Hair-Mask`);
-                        processedVal = processedVal.replace(new RegExp(`url\\(#${uid}-top-mask1\\)`, 'g'), `url(#${uid}-Facial-Hair-Mask)`);
-                    }
-                    else {
-                        processedVal = processedVal.replace(new RegExp(`#${uid}-top-path1`, 'g'), `#${uid}-Facial-Hair-Path`);
-                        processedVal = processedVal.replace(new RegExp(`#${uid}-top-mask1`, 'g'), `#${uid}-Facial-Hair-Mask`);
-                        processedVal = processedVal.replace(new RegExp(`url\\(#${uid}-top-mask1\\)`, 'g'), `url(#${uid}-Facial-Hair-Mask)`);
-                    }
-                    processedVal = processedVal.replace(new RegExp(`#${uid}-top-path([0-9]+)`, 'g'), `#${uid}-Facial-Hair-path$1`);
-                    processedVal = processedVal.replace(new RegExp(`#${uid}-top-mask([0-9]+)`, 'g'), `#${uid}-Facial-Hair-mask$1`);
-                    processedVal = processedVal.replace(new RegExp(`url\\(#${uid}-top-mask([0-9]+)\\)`, 'g'), `url(#${uid}-Facial-Hair-mask$1)`);
-                }
-                else if (currentCategory === 'Eyebrows') {
-                    processedVal = processedVal.replace(new RegExp(`#${uid}-top-path([0-9]+)`, 'g'), `#${uid}-Eyebrows-path$1`);
-                }
-                else if (currentCategory === 'Eyepatch') {
-                    processedVal = processedVal.replace(new RegExp(`#${uid}-top-path1`, 'g'), `#${uid}-Eyepatch-Path`);
-                    processedVal = processedVal.replace(new RegExp(`#${uid}-top-mask1`, 'g'), `#${uid}-Eyepatch-Mask`);
-                    processedVal = processedVal.replace(new RegExp(`url\\(#${uid}-top-mask1\\)`, 'g'), `url(#${uid}-Eyepatch-Mask)`);
-                }
-                else if (currentCategory === 'Hair') {
-                    processedVal = processedVal.replace(new RegExp(`#${uid}-top-path([0-9]+)`, 'g'), `#${uid}-Hair-Path-$1`);
-                    processedVal = processedVal.replace(new RegExp(`#${uid}-top-mask([0-9]+)`, 'g'), `#${uid}-Hair-Mask-$1`);
-                    processedVal = processedVal.replace(new RegExp(`url\\(#${uid}-top-mask([0-9]+)\\)`, 'g'), `url(#${uid}-Hair-Mask-$1)`);
-                }
+                // resolved via compile-time mapping
                 resolved[key] = processedVal;
             }
             else {
@@ -220,61 +86,16 @@ export const SvgDictionaryRenderer = (props) => {
         else if (resolved.id === 'hairColorMask') {
             resolved.id = `${uid}-Hair-Color-Mask`;
         }
-        else if (resolved.id === 'linearGradient1' && currentCategory === 'Accessories') {
-            resolved.id = `${uid}-accessories-linearGradient1`;
-        }
-        else if (resolved.id === 'linearGradient2' && currentCategory === 'Accessories') {
-            resolved.id = `${uid}-accessories-linearGradient2`;
-        }
-        // Detect if we have an id that is just "{uid}" or "uid" or "{uid}" and a top-level suffix attribute
+        // Detect if we have an id that is just "{uid}" or "uid" and a top-level suffix attribute
         let idSuffix = '';
         Object.keys(resolved).forEach((key) => {
-            if (key.startsWith('-top-') || key.startsWith('-Hair-')) {
-                // This is a parsed suffix token, e.g. "-top-path1"
+            if (key.startsWith('-') && !key.startsWith('--')) {
                 idSuffix = key.substring(1); // remove leading "-"
                 delete resolved[key]; // remove the invalid boolean prop
             }
         });
-        if (idSuffix && (resolved.id === '{uid}' || resolved.id === uid || resolved.id === '{uid}')) {
-            let finalSuffix = idSuffix;
-            if (currentCategory === 'Clothing') {
-                finalSuffix = finalSuffix.replace('top-', 'Clothing-');
-            }
-            else if (currentCategory === 'Mouth') {
-                finalSuffix = finalSuffix.replace('top-', 'Mouth-');
-            }
-            else if (currentCategory === 'Accessories') {
-                finalSuffix = finalSuffix.replace('top-', 'accessories-');
-            }
-            else if (currentCategory === 'Eyes') {
-                finalSuffix = finalSuffix.replace('top-', 'Eyes-');
-            }
-            else if (currentCategory === 'Facial-Hair') {
-                if (optionName === 'BeardLight') {
-                    finalSuffix = finalSuffix.replace('top-path1', 'Facial-Hair-path1');
-                    finalSuffix = finalSuffix.replace('top-mask1', 'Facial-Hair-Mask');
-                }
-                else {
-                    finalSuffix = finalSuffix.replace('top-path1', 'Facial-Hair-Path');
-                    finalSuffix = finalSuffix.replace('top-mask1', 'Facial-Hair-Mask');
-                }
-                finalSuffix = finalSuffix.replace('top-', 'Facial-Hair-');
-            }
-            else if (currentCategory === 'Eyebrows') {
-                finalSuffix = finalSuffix.replace('top-', 'Eyebrows-');
-            }
-            else if (currentCategory === 'Eyepatch') {
-                finalSuffix = finalSuffix.replace('top-path1', 'Eyepatch-Path');
-                finalSuffix = finalSuffix.replace('top-mask1', 'Eyepatch-Mask');
-            }
-            else if (currentCategory === 'Hair') {
-                finalSuffix = finalSuffix.replace('top-path', 'Hair-Path-');
-                finalSuffix = finalSuffix.replace('top-mask', 'Hair-Mask-');
-            }
-            else if (currentCategory === 'Graphic') {
-                finalSuffix = finalSuffix.replace('top-', 'Graphic-');
-            }
-            resolved.id = `${uid}-${finalSuffix}`;
+        if (idSuffix && (resolved.id === '{uid}' || resolved.id === 'uid' || resolved.id === uid)) {
+            resolved.id = `${uid}-${idSuffix}`;
         }
         return resolved;
     };
@@ -284,7 +105,7 @@ export const SvgDictionaryRenderer = (props) => {
     switch (type) {
         case '':
         case 'React.Fragment':
-            return (React.createElement(React.Fragment, null, nodeChildren && nodeChildren.map((child, index) => (React.createElement(SvgDictionaryRenderer, { key: index, node: child, uid: uid, category: currentCategory, optionName: optionName }, children)))));
+            return (React.createElement(React.Fragment, null, nodeChildren && nodeChildren.map((child, index) => (React.createElement(SvgDictionaryRenderer, { key: index, node: child, uid: uid }, children)))));
         case 'Children':
             return React.createElement(React.Fragment, null, children);
         case 'FacialHair':
@@ -314,7 +135,7 @@ export const SvgDictionaryRenderer = (props) => {
             return React.createElement(React.Fragment, null, txt);
         default:
             const Tag = type;
-            return (React.createElement(Tag, { ...resolvedProps }, nodeChildren && nodeChildren.map((child, index) => (React.createElement(SvgDictionaryRenderer, { key: index, node: child, uid: uid, category: currentCategory, optionName: optionName }, children)))));
+            return (React.createElement(Tag, { ...resolvedProps }, nodeChildren && nodeChildren.map((child, index) => (React.createElement(SvgDictionaryRenderer, { key: index, node: child, uid: uid }, children)))));
     }
 };
 export default SvgDictionaryRenderer;
