@@ -92,7 +92,9 @@ export function removePaletteColor(palette, name) {
         case PALETTES.HAT:
             hatColorPalette.delete(name);
             break;
-        default:
-            throw new Error(`Unknown palette: ${palette}`);
     }
+}
+export const registeredGradients = new Map();
+export function registerGradient(name, config) {
+    registeredGradients.set(name, config);
 }

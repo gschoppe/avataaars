@@ -10,7 +10,8 @@ import {
   allOptions as SrcAllOptions,
   addPaletteColor as SrcAddPaletteColor,
   removePaletteColor as SrcRemovePaletteColor,
-  PALETTES as SrcPALETTES
+  PALETTES as SrcPALETTES,
+  registerGradient as SrcRegisterGradient
 } from '../../src/index'
 
 // Import dist version
@@ -21,7 +22,8 @@ import {
   allOptions as DistAllOptions,
   addPaletteColor as DistAddPaletteColor,
   removePaletteColor as DistRemovePaletteColor,
-  PALETTES as DistPALETTES
+  PALETTES as DistPALETTES,
+  registerGradient as DistRegisterGradient
 } from '@gschoppe/avataaars'
 
 const BUILT_IN_COLORS: Record<string, string[]> = {
@@ -71,6 +73,7 @@ export const App: React.FC = () => {
   const allOptions = isSrc ? SrcAllOptions : DistAllOptions
   const addPaletteColor = isSrc ? SrcAddPaletteColor : DistAddPaletteColor
   const removePaletteColor = isSrc ? SrcRemovePaletteColor : DistRemovePaletteColor
+  const registerGradient = isSrc ? SrcRegisterGradient : DistRegisterGradient
   const PALETTES = isSrc ? SrcPALETTES : DistPALETTES
   const activeContext = isSrc ? srcContext : distContext
 
@@ -148,6 +151,21 @@ export const App: React.FC = () => {
         // Safe to ignore if already registered
       }
     })
+
+    // Register dynamic custom gradient Sunset
+    try {
+      registerGradient('sunset', {
+        type: 'linear',
+        attrs: { x1: '0%', y1: '0%', x2: '100%', y2: '100%' },
+        stops: [
+          { offset: '0%', color: '#ff5733', opacity: 1 },
+          { offset: '100%', color: '#ffc0cb', opacity: 0.5 }
+        ]
+      })
+      addPaletteColor(PALETTES.CLOTHES, 'SunsetGradient', 'url(#sunset)')
+    } catch (err) {
+      console.error('Error registering custom gradient:', err)
+    }
 
     customColorsList.forEach(({ palette, name, color }) => {
       try {

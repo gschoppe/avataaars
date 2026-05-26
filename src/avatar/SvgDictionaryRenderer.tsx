@@ -11,6 +11,7 @@ import HatColor from './top/HatColor'
 import Skin from './Skin'
 import Graphics from './clothes/Graphics'
 import FacialHairColor from './top/facialHair/FacialHairColor'
+import { registeredGradients } from '../index'
 
 export interface Props {
   node: SvgNode
@@ -77,6 +78,10 @@ export const SvgDictionaryRenderer: React.FC<Props> = (props) => {
         processedVal = processedVal.replace(/#hairColorMask/g, `#${uid}-Hair-Color-Mask`)
 
         // resolved via compile-time mapping
+        for (const gradName of registeredGradients.keys()) {
+          processedVal = processedVal.replace(new RegExp(`url\\(#${gradName}\\)`, 'g'), `url(#${uid}-gradient-${gradName})`)
+          processedVal = processedVal.replace(new RegExp(`#${gradName}`, 'g'), `#${uid}-gradient-${gradName}`)
+        }
 
         resolved[key] = processedVal
       } else {

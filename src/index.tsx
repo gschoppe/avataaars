@@ -146,7 +146,23 @@ export function removePaletteColor(palette: string, name: string) {
     case PALETTES.HAT:
       hatColorPalette.delete(name)
       break
-    default:
-      throw new Error(`Unknown palette: ${palette}`)
   }
+}
+
+export interface GradientStop {
+  offset: string
+  color: string
+  opacity?: number | string
+}
+
+export interface GradientConfig {
+  type: 'linear' | 'radial'
+  attrs?: Record<string, any>
+  stops: GradientStop[]
+}
+
+export const registeredGradients: Map<string, GradientConfig> = new Map()
+
+export function registerGradient(name: string, config: GradientConfig) {
+  registeredGradients.set(name, config)
 }
