@@ -89,6 +89,7 @@ export const SvgDictionaryRenderer: React.FC<Props> = (props) => {
   }
 
   // Parameterize strings containing {uid} recursively in props
+  // Parameterize strings containing {uid} recursively in props
   const resolveProps = (rawProps?: Record<string, any>): Record<string, any> => {
     if (!rawProps) return {}
     const resolved: Record<string, any> = {}
@@ -146,53 +147,6 @@ export const SvgDictionaryRenderer: React.FC<Props> = (props) => {
         processedVal = processedVal.replace(/#linearGradient1/g, `#${uid}-accessories-linearGradient1`)
         processedVal = processedVal.replace(/#linearGradient2/g, `#${uid}-accessories-linearGradient2`)
 
-        // Remap references based on category
-        if (currentCategory === 'Clothing') {
-          processedVal = processedVal.replace(new RegExp(`#${uid}-top-path1`, 'g'), `#${uid}-Clothing-path1`)
-          processedVal = processedVal.replace(new RegExp(`url\\(#${uid}-top-path1\\)`, 'g'), `url(#${uid}-Clothing-path1)`)
-        } else if (currentCategory === 'Graphic') {
-          processedVal = processedVal.replace(new RegExp(`#${uid}-top-path([0-9]+)`, 'g'), `#${uid}-Graphic-path$1`)
-          processedVal = processedVal.replace(new RegExp(`#${uid}-top-mask([0-9]+)`, 'g'), `#${uid}-Graphic-mask$1`)
-          processedVal = processedVal.replace(new RegExp(`url\\(#${uid}-top-mask([0-9]+)\\)`, 'g'), `url(#${uid}-Graphic-mask$1)`)
-        } else if (currentCategory === 'Mouth') {
-          processedVal = processedVal.replace(new RegExp(`#${uid}-top-path([0-9]+)`, 'g'), `#${uid}-Mouth-path$1`)
-          processedVal = processedVal.replace(new RegExp(`#${uid}-top-filter([0-9]+)`, 'g'), `#${uid}-Mouth-filter$1`)
-          processedVal = processedVal.replace(new RegExp(`url\\(#${uid}-top-filter([0-9]+)\\)`, 'g'), `url(#${uid}-Mouth-filter$1)`)
-          processedVal = processedVal.replace(new RegExp(`#${uid}-top-mask([0-9]+)`, 'g'), `#${uid}-Mouth-mask$1`)
-          processedVal = processedVal.replace(new RegExp(`url\\(#${uid}-top-mask([0-9]+)\\)`, 'g'), `url(#${uid}-Mouth-mask$1)`)
-        } else if (currentCategory === 'Accessories') {
-          processedVal = processedVal.replace(new RegExp(`#${uid}-top-path([0-9]+)`, 'g'), `#${uid}-accessories-path$1`)
-          processedVal = processedVal.replace(new RegExp(`#${uid}-top-filter([0-9]+)`, 'g'), `#${uid}-accessories-filter$1`)
-          processedVal = processedVal.replace(new RegExp(`url\\(#${uid}-top-filter([0-9]+)\\)`, 'g'), `url(#${uid}-accessories-filter$1)`)
-        } else if (currentCategory === 'Eyes') {
-          processedVal = processedVal.replace(new RegExp(`#${uid}-top-path([0-9]+)`, 'g'), `#${uid}-Eyes-path$1`)
-          processedVal = processedVal.replace(new RegExp(`#${uid}-top-mask([0-9]+)`, 'g'), `#${uid}-Eyes-mask$1`)
-          processedVal = processedVal.replace(new RegExp(`url\\(#${uid}-top-mask([0-9]+)\\)`, 'g'), `url(#${uid}-Eyes-mask$1)`)
-        } else if (currentCategory === 'Facial-Hair') {
-          if (optionName === 'BeardLight') {
-            processedVal = processedVal.replace(new RegExp(`#${uid}-top-path1`, 'g'), `#${uid}-Facial-Hair-path1`)
-            processedVal = processedVal.replace(new RegExp(`#${uid}-top-mask1`, 'g'), `#${uid}-Facial-Hair-Mask`)
-            processedVal = processedVal.replace(new RegExp(`url\\(#${uid}-top-mask1\\)`, 'g'), `url(#${uid}-Facial-Hair-Mask)`)
-          } else {
-            processedVal = processedVal.replace(new RegExp(`#${uid}-top-path1`, 'g'), `#${uid}-Facial-Hair-Path`)
-            processedVal = processedVal.replace(new RegExp(`#${uid}-top-mask1`, 'g'), `#${uid}-Facial-Hair-Mask`)
-            processedVal = processedVal.replace(new RegExp(`url\\(#${uid}-top-mask1\\)`, 'g'), `url(#${uid}-Facial-Hair-Mask)`)
-          }
-          processedVal = processedVal.replace(new RegExp(`#${uid}-top-path([0-9]+)`, 'g'), `#${uid}-Facial-Hair-path$1`)
-          processedVal = processedVal.replace(new RegExp(`#${uid}-top-mask([0-9]+)`, 'g'), `#${uid}-Facial-Hair-mask$1`)
-          processedVal = processedVal.replace(new RegExp(`url\\(#${uid}-top-mask([0-9]+)\\)`, 'g'), `url(#${uid}-Facial-Hair-mask$1)`)
-        } else if (currentCategory === 'Eyebrows') {
-          processedVal = processedVal.replace(new RegExp(`#${uid}-top-path([0-9]+)`, 'g'), `#${uid}-Eyebrows-path$1`)
-        } else if (currentCategory === 'Eyepatch') {
-          processedVal = processedVal.replace(new RegExp(`#${uid}-top-path1`, 'g'), `#${uid}-Eyepatch-Path`)
-          processedVal = processedVal.replace(new RegExp(`#${uid}-top-mask1`, 'g'), `#${uid}-Eyepatch-Mask`)
-          processedVal = processedVal.replace(new RegExp(`url\\(#${uid}-top-mask1\\)`, 'g'), `url(#${uid}-Eyepatch-Mask)`)
-        } else if (currentCategory === 'Hair') {
-          processedVal = processedVal.replace(new RegExp(`#${uid}-top-path([0-9]+)`, 'g'), `#${uid}-Hair-Path-$1`)
-          processedVal = processedVal.replace(new RegExp(`#${uid}-top-mask([0-9]+)`, 'g'), `#${uid}-Hair-Mask-$1`)
-          processedVal = processedVal.replace(new RegExp(`url\\(#${uid}-top-mask([0-9]+)\\)`, 'g'), `url(#${uid}-Hair-Mask-$1)`)
-        }
-
         resolved[key] = processedVal
       } else {
         resolved[key] = val
@@ -222,47 +176,17 @@ export const SvgDictionaryRenderer: React.FC<Props> = (props) => {
       resolved.id = `${uid}-accessories-linearGradient2`
     }
 
-    // Detect if we have an id that is just "{uid}" or "uid" or "{uid}" and a top-level suffix attribute
+    // Detect if we have an id that is just "{uid}" or "uid" and a top-level suffix attribute
     let idSuffix = ''
     Object.keys(resolved).forEach((key) => {
-      if (key.startsWith('-top-') || key.startsWith('-Hair-')) {
-        // This is a parsed suffix token, e.g. "-top-path1"
+      if (key.startsWith('-') && !key.startsWith('--')) {
         idSuffix = key.substring(1) // remove leading "-"
         delete resolved[key] // remove the invalid boolean prop
       }
     })
 
-    if (idSuffix && (resolved.id === '{uid}' || resolved.id === uid || resolved.id === '{uid}')) {
-      let finalSuffix = idSuffix
-      if (currentCategory === 'Clothing') {
-        finalSuffix = finalSuffix.replace('top-', 'Clothing-')
-      } else if (currentCategory === 'Mouth') {
-        finalSuffix = finalSuffix.replace('top-', 'Mouth-')
-      } else if (currentCategory === 'Accessories') {
-        finalSuffix = finalSuffix.replace('top-', 'accessories-')
-      } else if (currentCategory === 'Eyes') {
-        finalSuffix = finalSuffix.replace('top-', 'Eyes-')
-      } else if (currentCategory === 'Facial-Hair') {
-        if (optionName === 'BeardLight') {
-          finalSuffix = finalSuffix.replace('top-path1', 'Facial-Hair-path1')
-          finalSuffix = finalSuffix.replace('top-mask1', 'Facial-Hair-Mask')
-        } else {
-          finalSuffix = finalSuffix.replace('top-path1', 'Facial-Hair-Path')
-          finalSuffix = finalSuffix.replace('top-mask1', 'Facial-Hair-Mask')
-        }
-        finalSuffix = finalSuffix.replace('top-', 'Facial-Hair-')
-      } else if (currentCategory === 'Eyebrows') {
-        finalSuffix = finalSuffix.replace('top-', 'Eyebrows-')
-      } else if (currentCategory === 'Eyepatch') {
-        finalSuffix = finalSuffix.replace('top-path1', 'Eyepatch-Path')
-        finalSuffix = finalSuffix.replace('top-mask1', 'Eyepatch-Mask')
-      } else if (currentCategory === 'Hair') {
-        finalSuffix = finalSuffix.replace('top-path', 'Hair-Path-')
-        finalSuffix = finalSuffix.replace('top-mask', 'Hair-Mask-')
-      } else if (currentCategory === 'Graphic') {
-        finalSuffix = finalSuffix.replace('top-', 'Graphic-')
-      }
-      resolved.id = `${uid}-${finalSuffix}`
+    if (idSuffix && (resolved.id === '{uid}' || resolved.id === 'uid' || resolved.id === uid)) {
+      resolved.id = `${uid}-${idSuffix}`
     }
 
     return resolved

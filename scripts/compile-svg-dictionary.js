@@ -5,7 +5,7 @@ const ROOT_DIR = path.join(__dirname, '..');
 const SRC_DIR = path.join(ROOT_DIR, 'src');
 const OUTPUT_FILE = path.join(SRC_DIR, 'avatar', 'svgDictionary.ts');
 
-function cleanJSX(jsxStr) {
+function cleanJSX(jsxStr, catKey, optionVal) {
   let clean = jsxStr;
 
   // Clean backticks, props, variables, and expressions to yield standard XML
@@ -15,27 +15,135 @@ function cleanJSX(jsxStr) {
   clean = clean.replace(/\$\{this\.props\.uid\}/g, '{uid}');
   clean = clean.replace(/this\.props\.uid/g, '{uid}');
 
-  clean = clean.replace(/\{\s*path1\s*\}/g, '{uid}-top-path1');
-  clean = clean.replace(/\{\s*path2\s*\}/g, '{uid}-top-path2');
-  clean = clean.replace(/\{\s*path3\s*\}/g, '{uid}-top-path3');
-  clean = clean.replace(/\{\s*mask1\s*\}/g, '{uid}-top-mask1');
-  clean = clean.replace(/\{\s*mask2\s*\}/g, '{uid}-top-mask2');
+  // Determine currentCategory
+  let currentCategory = '';
+  if (catKey === 'TOP' && optionVal) {
+    if (optionVal === 'LongHairBob' || optionVal === 'LongHairBun') {
+      currentCategory = 'Hair';
+    } else if (optionVal === 'Eyepatch') {
+      currentCategory = 'Eyepatch';
+    } else {
+      currentCategory = 'top';
+    }
+  } else if (catKey === 'FACIAL_HAIR') {
+    currentCategory = 'Facial-Hair';
+  } else if (catKey === 'ACCESSORIES') {
+    currentCategory = 'Accessories';
+  } else if (catKey === 'TOP') {
+    currentCategory = 'top';
+  } else if (catKey === 'CLOTHES') {
+    if (optionVal === 'Skull' || optionVal === 'SkullOutline' || optionVal === 'Bat' ||
+        optionVal === 'Cumbia' || optionVal === 'Deer' || optionVal === 'Diamond' ||
+        optionVal === 'Hola' || optionVal === 'Selena' || optionVal === 'Pizza' ||
+        optionVal === 'Resist' || optionVal === 'Bear') {
+      currentCategory = 'Graphic';
+    } else {
+      currentCategory = 'Clothing';
+    }
+  } else if (catKey === 'MOUTH') {
+    currentCategory = 'Mouth';
+  } else if (catKey === 'EYES') {
+    currentCategory = 'Eyes';
+  } else if (catKey === 'EYEBROW') {
+    currentCategory = 'Eyebrows';
+  }
+
+  let pathPrefix = 'top-path';
+  let maskPrefix = 'top-mask';
+  let filterPrefix = 'top-filter';
+
+  if (currentCategory === 'Clothing') {
+    pathPrefix = 'Clothing-path';
+    maskPrefix = 'Clothing-mask';
+    filterPrefix = 'Clothing-filter';
+  } else if (currentCategory === 'Graphic') {
+    pathPrefix = 'Graphic-path';
+    maskPrefix = 'Graphic-mask';
+    filterPrefix = 'Graphic-filter';
+  } else if (currentCategory === 'Mouth') {
+    pathPrefix = 'Mouth-path';
+    maskPrefix = 'Mouth-mask';
+    filterPrefix = 'Mouth-filter';
+  } else if (currentCategory === 'Accessories') {
+    pathPrefix = 'accessories-path';
+    maskPrefix = 'accessories-mask';
+    filterPrefix = 'accessories-filter';
+  } else if (currentCategory === 'Eyes') {
+    pathPrefix = 'Eyes-path';
+    maskPrefix = 'Eyes-mask';
+    filterPrefix = 'Eyes-filter';
+  } else if (currentCategory === 'Facial-Hair') {
+    pathPrefix = 'Facial-Hair-path';
+    maskPrefix = 'Facial-Hair-mask';
+    filterPrefix = 'Facial-Hair-filter';
+  } else if (currentCategory === 'Eyebrows') {
+    pathPrefix = 'Eyebrows-path';
+    maskPrefix = 'Eyebrows-mask';
+    filterPrefix = 'Eyebrows-filter';
+  } else if (currentCategory === 'Eyepatch') {
+    pathPrefix = 'Eyepatch-path';
+    maskPrefix = 'Eyepatch-mask';
+    filterPrefix = 'Eyepatch-filter';
+  } else if (currentCategory === 'Hair') {
+    pathPrefix = 'Hair-Path-';
+    maskPrefix = 'Hair-Mask-';
+    filterPrefix = 'Hair-Filter-';
+  }
+
+  function getPathName(num) {
+    if (currentCategory === 'Facial-Hair') {
+      if (num === 1) {
+        return optionVal === 'BeardLight' ? 'Facial-Hair-path1' : 'Facial-Hair-Path';
+      }
+      return `Facial-Hair-path${num}`;
+    }
+    if (currentCategory === 'Eyepatch' && num === 1) {
+      return 'Eyepatch-Path';
+    }
+    if (currentCategory === 'Hair') {
+      return `Hair-Path-${num}`;
+    }
+    return `${pathPrefix}${num}`;
+  }
+
+  function getMaskName(num) {
+    if (currentCategory === 'Facial-Hair' && num === 1) {
+      return 'Facial-Hair-Mask';
+    }
+    if (currentCategory === 'Eyepatch' && num === 1) {
+      return 'Eyepatch-Mask';
+    }
+    if (currentCategory === 'Hair') {
+      return `Hair-Mask-${num}`;
+    }
+    return `${maskPrefix}${num}`;
+  }
+
+  function getFilterName(num) {
+    return `${filterPrefix}${num}`;
+  }
+
+  clean = clean.replace(/\{\s*path1\s*\}/g, `{uid}-${getPathName(1)}`);
+  clean = clean.replace(/\{\s*path2\s*\}/g, `{uid}-${getPathName(2)}`);
+  clean = clean.replace(/\{\s*path3\s*\}/g, `{uid}-${getPathName(3)}`);
+  clean = clean.replace(/\{\s*mask1\s*\}/g, `{uid}-${getMaskName(1)}`);
+  clean = clean.replace(/\{\s*mask2\s*\}/g, `{uid}-${getMaskName(2)}`);
   clean = clean.replace(/\{\s*hairMask\s*\}/g, '{uid}-Hair-Color-Mask');
-  clean = clean.replace(/\{\s*filter1\s*\}/g, '{uid}-top-filter1');
+  clean = clean.replace(/\{\s*filter1\s*\}/g, `{uid}-${getFilterName(1)}`);
 
-  clean = clean.replace(/\{\s*'#'\s*\+\s*path1\s*\}/g, '#{uid}-top-path1');
-  clean = clean.replace(/\{\s*'#'\s*\+\s*path2\s*\}/g, '#{uid}-top-path2');
-  clean = clean.replace(/\{\s*'#'\s*\+\s*path3\s*\}/g, '#{uid}-top-path3');
-  clean = clean.replace(/\{\s*'#'\s*\+\s*mask1\s*\}/g, '#{uid}-top-mask1');
-  clean = clean.replace(/\{\s*'#'\s*\+\s*mask2\s*\}/g, '#{uid}-top-mask2');
+  clean = clean.replace(/\{\s*'#'\s*\+\s*path1\s*\}/g, `#{uid}-${getPathName(1)}`);
+  clean = clean.replace(/\{\s*'#'\s*\+\s*path2\s*\}/g, `#{uid}-${getPathName(2)}`);
+  clean = clean.replace(/\{\s*'#'\s*\+\s*path3\s*\}/g, `#{uid}-${getPathName(3)}`);
+  clean = clean.replace(/\{\s*'#'\s*\+\s*mask1\s*\}/g, `#{uid}-${getMaskName(1)}`);
+  clean = clean.replace(/\{\s*'#'\s*\+\s*mask2\s*\}/g, `#{uid}-${getMaskName(2)}`);
   clean = clean.replace(/\{\s*'#'\s*\+\s*hairMask\s*\}/g, '#{uid}-Hair-Color-Mask');
-  clean = clean.replace(/\{\s*'#'\s*\+\s*filter1\s*\}/g, '#{uid}-top-filter1');
+  clean = clean.replace(/\{\s*'#'\s*\+\s*filter1\s*\}/g, `#{uid}-${getFilterName(1)}`);
 
-  clean = clean.replace(/\{\s*`url\(#\${mask1}\)`\s*\}/g, 'url(#{uid}-top-mask1)');
-  clean = clean.replace(/\{\s*`url\(#\${mask2}\)`\s*\}/g, 'url(#{uid}-top-mask2)');
+  clean = clean.replace(/\{\s*`url\(#\${mask1}\)`\s*\}/g, `url(#{uid}-${getMaskName(1)})`);
+  clean = clean.replace(/\{\s*`url\(#\${mask2}\)`\s*\}/g, `url(#{uid}-${getMaskName(2)})`);
   clean = clean.replace(/\{\s*`url\(#\${hairMask}\)`\s*\}/g, 'url(#{uid}-Hair-Color-Mask)');
-  clean = clean.replace(/mask={`url\(#\${mask1}\)`}`/g, 'mask="url(#{uid}-top-mask1)"');
-  clean = clean.replace(/mask={`url\(#\${mask2}\)`}`/g, 'mask="url(#{uid}-top-mask2)"');
+  clean = clean.replace(/mask={`url\(#\${mask1}\)`}`/g, `mask="url(#{uid}-${getMaskName(1)})"`);
+  clean = clean.replace(/mask={`url\(#\${mask2}\)`}`/g, `mask="url(#{uid}-${getMaskName(2)})"`);
   clean = clean.replace(/mask={`url\(#\${hairMask}\)`}`/g, 'mask="url(#{uid}-Hair-Color-Mask)"');
   clean = clean.replace(/mask={`url\(#\${this.props.uid}-Clothing-Color-Mask\)`}/g, 'mask="url(#{uid}-Clothing-Color-Mask)"');
   clean = clean.replace(/mask=\{"url\(#" \+ this.props.uid \+ "-Backdrop-Mask\)"\}/g, 'mask="url(#{uid}-Backdrop-Mask)"');
@@ -213,7 +321,7 @@ Object.entries(CATEGORIES).forEach(([catKey, catInfo]) => {
     while ((match = classRegex.exec(content)) !== null) {
       const optionVal = match[2];
       const jsxStr = match[4];
-      const cleaned = cleanJSX(jsxStr);
+      const cleaned = cleanJSX(jsxStr, catKey, optionVal);
       try {
         const tree = parseJSXToTree(cleaned);
         if (tree) {
@@ -231,7 +339,7 @@ Object.entries(CATEGORIES).forEach(([catKey, catInfo]) => {
       if (simpleReturnMatch) {
         const optionVal = path.basename(file, '.tsx');
         const jsxStr = simpleReturnMatch[1];
-        const cleaned = cleanJSX(jsxStr);
+        const cleaned = cleanJSX(jsxStr, catKey, optionVal);
         try {
           const tree = parseJSXToTree(cleaned);
           if (tree) {
