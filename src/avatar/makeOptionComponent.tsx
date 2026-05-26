@@ -10,7 +10,7 @@ export function makeOptionComponent(category: string, name: string) {
     }
 
     return (
-      <SvgDictionaryRenderer node={node} uid={props.uid}>
+      <SvgDictionaryRenderer node={node} uid={props.uid} category={category} optionName={name}>
         {props.children}
       </SvgDictionaryRenderer>
     )

@@ -7,7 +7,7 @@ export function makeOptionComponent(category, name) {
         if (!node) {
             throw new Error(`SVG node not found in dictionary for category: ${category}, name: ${name}`);
         }
-        return (React.createElement(SvgDictionaryRenderer, { node: node, uid: props.uid }, props.children));
+        return (React.createElement(SvgDictionaryRenderer, { node: node, uid: props.uid, category: category, optionName: name }, props.children));
     };
     const anyComp = OptionComp;
     anyComp.displayName = name;

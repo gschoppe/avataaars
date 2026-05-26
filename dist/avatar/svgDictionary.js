@@ -8,7 +8,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Circle",
+                        "id": "{uid}-Circle",
                         "strokeWidth": "1",
                         "fillRule": "evenodd",
                         "transform": "translate(12.000000, 40.000000)"
@@ -17,7 +17,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "mask",
                             "props": {
-                                "id": "{{uid}}-Backdrop-Color-Mask",
+                                "id": "{uid}-Backdrop-Color-Mask",
                                 "fill": "white"
                             },
                             "children": [
@@ -55,7 +55,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "mask",
                     "props": {
-                        "id": "{{uid}}-Backdrop-Mask",
+                        "id": "{uid}-Backdrop-Mask",
                         "fill": "white"
                     },
                     "children": [
@@ -77,7 +77,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Diamond",
+                        "id": "{uid}-Diamond",
                         "strokeWidth": "1",
                         "fillRule": "evenodd"
                     },
@@ -85,7 +85,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "mask",
                             "props": {
-                                "id": "{{uid}}-Backdrop-Color-Mask",
+                                "id": "{uid}-Backdrop-Color-Mask",
                                 "fill": "white"
                             },
                             "children": [
@@ -119,7 +119,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "mask",
                     "props": {
-                        "id": "{{uid}}-Backdrop-Mask",
+                        "id": "{uid}-Backdrop-Mask",
                         "fill": "white"
                     },
                     "children": [
@@ -139,7 +139,7 @@ export const SVG_DICTIONARY = {
         "BlazerShirt": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Clothing/Blazer-+-Shirt",
+                "id": "{uid}-Clothing/Blazer-+-Shirt",
                 "transform": "translate(0.000000, 170.000000)"
             },
             "children": [
@@ -161,7 +161,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Shirt",
+                        "id": "{uid}-Shirt",
                         "transform": "translate(32.000000, 29.000000)"
                     },
                     "children": [
@@ -175,7 +175,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "use",
                                     "props": {
-                                        "xlinkHref": "#{{uid}}-top-path1"
+                                        "xlinkHref": "#{uid}-top-path1"
                                     },
                                     "children": []
                                 }
@@ -184,9 +184,9 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "id": "{{uid}}-Clothes",
+                                "id": "{uid}-Clothes",
                                 "fill": "#E6E6E6",
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         },
@@ -200,7 +200,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "g",
                             "props": {
-                                "id": "{{uid}}-Shadowy",
+                                "id": "{uid}-Shadowy",
                                 "opacity": "0.599999964",
                                 "mask": "`url(#${clothingColorMask})`",
                                 "fillOpacity": "0.16",
@@ -211,7 +211,7 @@ export const SVG_DICTIONARY = {
                                     "type": "g",
                                     "props": {
                                         "transform": "translate(60.000000, -25.000000)",
-                                        "id": "{{uid}}-Hola-👋🏼"
+                                        "id": "{uid}-Hola-👋🏼"
                                     },
                                     "children": [
                                         {
@@ -233,7 +233,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Blazer",
+                        "id": "{uid}-Blazer",
                         "transform": "translate(32.000000, 28.000000)"
                     },
                     "children": [
@@ -241,7 +241,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M68.784807,1.12222847 C30.512317,2.80409739 -1.89486556e-14,34.3646437 -1.42108547e-14,73.0517235 L0,73.0517235 L0,82 L69.3616767,82 C65.9607412,69.9199941 64,55.7087296 64,40.5 C64,26.1729736 65.7399891,12.7311115 68.784807,1.12222847 Z M131.638323,82 L200,82 L200,73.0517235 C200,34.7067641 170.024954,3.36285166 132.228719,1.17384225 C135.265163,12.7709464 137,26.1942016 137,40.5 C137,55.7087296 135.039259,69.9199941 131.638323,82 Z",
-                                "id": "{{uid}}-Saco",
+                                "id": "{uid}-Saco",
                                 "fill": "#3A4C5A"
                             },
                             "children": []
@@ -250,7 +250,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M149,58 L158.555853,50.83311 L158.555853,50.83311 C159.998897,49.7508275 161.987779,49.7682725 163.411616,50.8757011 L170,56 L149,58 Z",
-                                "id": "{{uid}}-Pocket-hanky",
+                                "id": "{uid}-Pocket-hanky",
                                 "fill": "#E6E6E6"
                             },
                             "children": []
@@ -259,7 +259,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M69,1.13686838e-13 C65,19.3333333 66.6666667,46.6666667 74,82 L58,82 L44,46 L50,37 L44,31 L63,1 C65.027659,0.369238637 67.027659,0.0359053037 69,1.13686838e-13 Z",
-                                "id": "{{uid}}-Wing-Left",
+                                "id": "{uid}-Wing-Left",
                                 "fill": "#2F4351"
                             },
                             "children": []
@@ -268,7 +268,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M151,1.13686838e-13 C147,19.3333333 148.666667,46.6666667 156,82 L140,82 L126,46 L132,37 L126,31 L145,1 C147.027659,0.369238637 149.027659,0.0359053037 151,1.13686838e-13 Z",
-                                "id": "{{uid}}-Wing-Right",
+                                "id": "{uid}-Wing-Right",
                                 "fill": "#2F4351",
                                 "transform": "translate(141.000000, 41.000000) scale(-1, 1) translate(-141.000000, -41.000000) "
                             },
@@ -281,7 +281,7 @@ export const SVG_DICTIONARY = {
         "BlazerSweater": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Clothing/Blazer-+-Sweater",
+                "id": "{uid}-Clothing/Blazer-+-Sweater",
                 "transform": "translate(0.000000, 170.000000)"
             },
             "children": [
@@ -310,7 +310,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -319,10 +319,10 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "use",
                     "props": {
-                        "id": "{{uid}}-Clothes",
+                        "id": "{uid}-Clothes",
                         "fill": "#E6E6E6",
                         "fillRule": "evenodd",
-                        "xlinkHref": "#{{uid}}-top-path1"
+                        "xlinkHref": "#{uid}-top-path1"
                     },
                     "children": []
                 },
@@ -336,7 +336,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Blazer",
+                        "id": "{uid}-Blazer",
                         "strokeWidth": "1",
                         "fillRule": "evenodd",
                         "transform": "translate(32.000000, 28.000000)"
@@ -346,7 +346,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M68.784807,1.12222847 C30.512317,2.80409739 1.24427139e-14,34.3646437 0,73.0517235 L0,82 L69.3616767,82 C65.9607412,69.9199941 64,55.7087296 64,40.5 C64,26.1729736 65.7399891,12.7311115 68.784807,1.12222847 Z M131.638323,82 L200,82 L200,73.0517235 C200,34.7067641 170.024954,3.36285166 132.228719,1.17384225 C135.265163,12.7709464 137,26.1942016 137,40.5 C137,55.7087296 135.039259,69.9199941 131.638323,82 Z",
-                                "id": "{{uid}}-Saco",
+                                "id": "{uid}-Saco",
                                 "fill": "#3A4C5A"
                             },
                             "children": []
@@ -355,7 +355,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M149,58 L158.555853,50.83311 L158.555853,50.83311 C159.998897,49.7508275 161.987779,49.7682725 163.411616,50.8757011 L170,56 L149,58 Z",
-                                "id": "{{uid}}-Pocket-hanky",
+                                "id": "{uid}-Pocket-hanky",
                                 "fill": "#E6E6E6"
                             },
                             "children": []
@@ -364,7 +364,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M69,1.13686838e-13 C65,19.3333333 66.6666667,46.6666667 74,82 L58,82 L44,46 L50,37 L44,31 L63,1 C65.027659,0.369238637 67.027659,0.0359053037 69,1.13686838e-13 Z",
-                                "id": "{{uid}}-Wing-Left",
+                                "id": "{uid}-Wing-Left",
                                 "fill": "#2F4351"
                             },
                             "children": []
@@ -373,7 +373,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M151,1.13686838e-13 C147,19.3333333 148.666667,46.6666667 156,82 L140,82 L126,46 L132,37 L126,31 L145,1 C147.027659,0.369238637 149.027659,0.0359053037 151,1.13686838e-13 Z",
-                                "id": "{{uid}}-Wing-Right",
+                                "id": "{uid}-Wing-Right",
                                 "fill": "#2F4351",
                                 "transform": "translate(141.000000, 41.000000) scale(-1, 1) translate(-141.000000, -41.000000) "
                             },
@@ -385,7 +385,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M156,21.5390062 C162.772319,26.1359565 167,32.6563196 167,39.8878801 C167,47.2887711 162.572015,53.9447688 155.520105,58.5564942 L149.57933,53.8764929 L145,54.207887 L146,51.0567821 L145.922229,50.995516 C152.022491,47.8530505 156,42.7003578 156,36.8768102 L156,21.5390062 Z M108,21.5390062 C101.227681,26.1359565 97,32.6563196 97,39.8878801 C97,47.2887711 101.427985,53.9447688 108.479895,58.5564942 L114.42067,53.8764929 L119,54.207887 L118,51.0567821 L118.077771,50.995516 C111.977509,47.8530505 108,42.7003578 108,36.8768102 L108,21.5390062 Z",
-                        "id": "{{uid}}-Collar",
+                        "id": "{uid}-Collar",
                         "fill": "#F2F2F2",
                         "fillRule": "evenodd"
                     },
@@ -396,7 +396,7 @@ export const SVG_DICTIONARY = {
         "CollarSweater": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Clothing/Collar-+-Sweater",
+                "id": "{uid}-Clothing/Collar-+-Sweater",
                 "transform": "translate(0.000000, 170.000000)"
             },
             "children": [
@@ -425,7 +425,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -434,10 +434,10 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "use",
                     "props": {
-                        "id": "{{uid}}-Clothes",
+                        "id": "{uid}-Clothes",
                         "fill": "#E6E6E6",
                         "fillRule": "evenodd",
-                        "xlinkHref": "#{{uid}}-top-path1"
+                        "xlinkHref": "#{uid}-top-path1"
                     },
                     "children": []
                 },
@@ -452,7 +452,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M156,22.2794906 C162.181647,26.8351858 166,33.1057265 166,40.027915 C166,47.2334941 161.862605,53.7329769 155.228997,58.3271669 L149.57933,53.8764929 L145,54.207887 L146,51.0567821 L145.922229,50.995516 C152.022491,47.8530505 156,42.7003578 156,36.8768102 L156,22.2794906 Z M108,21.5714994 C101.232748,26.1740081 97,32.7397769 97,40.027915 C97,47.4261549 101.361602,54.080035 108.308428,58.6915723 L114.42067,53.8764929 L119,54.207887 L118,51.0567821 L118.077771,50.995516 C111.977509,47.8530505 108,42.7003578 108,36.8768102 L108,21.5714994 Z",
-                        "id": "{{uid}}-Collar",
+                        "id": "{uid}-Collar",
                         "fill": "#F2F2F2",
                         "fillRule": "evenodd"
                     },
@@ -463,7 +463,7 @@ export const SVG_DICTIONARY = {
         "GraphicShirt": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Clothing/Graphic-Shirt",
+                "id": "{uid}-Clothing/Graphic-Shirt",
                 "transform": "translate(0.000000, 170.000000)"
             },
             "children": [
@@ -492,7 +492,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -501,10 +501,10 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "use",
                     "props": {
-                        "id": "{{uid}}-Clothes",
+                        "id": "{uid}-Clothes",
                         "fill": "#E6E6E6",
                         "fillRule": "evenodd",
-                        "xlinkHref": "#{{uid}}-top-path1"
+                        "xlinkHref": "#{uid}-top-path1"
                     },
                     "children": []
                 },
@@ -527,8 +527,8 @@ export const SVG_DICTIONARY = {
         "Skull": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Clothing/Graphic/Skull",
-                "mask": "`url(#${{uid}}-Clothing-Color-Mask)`",
+                "id": "{uid}-Clothing/Graphic/Skull",
+                "mask": "`url(#${uid}-Clothing-Color-Mask)`",
                 "fillRule": "evenodd",
                 "fill": "#FFFFFF"
             },
@@ -554,8 +554,8 @@ export const SVG_DICTIONARY = {
         "SkullOutline": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Clothing/Graphic/Skull-Outline",
-                "mask": "`url(#${{uid}}-Clothing-Color-Mask)`",
+                "id": "{uid}-Clothing/Graphic/Skull-Outline",
+                "mask": "`url(#${uid}-Clothing-Color-Mask)`",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -618,8 +618,8 @@ export const SVG_DICTIONARY = {
         "Bat": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Clothing/Graphic/Bat",
-                "mask": "`url(#${{uid}}-Clothing-Color-Mask)`",
+                "id": "{uid}-Clothing/Graphic/Bat",
+                "mask": "`url(#${uid}-Clothing-Color-Mask)`",
                 "fillRule": "evenodd",
                 "fill": "#FFFFFF"
             },
@@ -645,8 +645,8 @@ export const SVG_DICTIONARY = {
         "Cumbia": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Clothing/Graphic/Cumbia",
-                "mask": "`url(#${{uid}}-Clothing-Color-Mask)`",
+                "id": "{uid}-Clothing/Graphic/Cumbia",
+                "mask": "`url(#${uid}-Clothing-Color-Mask)`",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -754,8 +754,8 @@ export const SVG_DICTIONARY = {
         "Deer": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Clothing/Graphic/Deer",
-                "mask": "`url(#${{uid}}-Clothing-Color-Mask)`",
+                "id": "{uid}-Clothing/Graphic/Deer",
+                "mask": "`url(#${uid}-Clothing-Color-Mask)`",
                 "fillRule": "evenodd",
                 "fill": "#FFFFFF"
             },
@@ -781,8 +781,8 @@ export const SVG_DICTIONARY = {
         "Diamond": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Clothing/Graphic/Diamond",
-                "mask": "`url(#${{uid}}-Clothing-Color-Mask)`",
+                "id": "{uid}-Clothing/Graphic/Diamond",
+                "mask": "`url(#${uid}-Clothing-Color-Mask)`",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -845,8 +845,8 @@ export const SVG_DICTIONARY = {
         "Hola": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Clothing/Graphic/Hola",
-                "mask": "`url(#${{uid}}-Clothing-Color-Mask)`",
+                "id": "{uid}-Clothing/Graphic/Hola",
+                "mask": "`url(#${uid}-Clothing-Color-Mask)`",
                 "fillRule": "evenodd",
                 "fill": "#FFFFFF"
             },
@@ -872,8 +872,8 @@ export const SVG_DICTIONARY = {
         "Selena": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Clothing/Graphic/Selena",
-                "mask": "`url(#${{uid}}-Clothing-Color-Mask)`",
+                "id": "{uid}-Clothing/Graphic/Selena",
+                "mask": "`url(#${uid}-Clothing-Color-Mask)`",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -927,8 +927,8 @@ export const SVG_DICTIONARY = {
         "Pizza": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Clothing/Graphic/Pizza",
-                "mask": "`url(#${{uid}}-Clothing-Color-Mask)`",
+                "id": "{uid}-Clothing/Graphic/Pizza",
+                "mask": "`url(#${uid}-Clothing-Color-Mask)`",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -982,8 +982,8 @@ export const SVG_DICTIONARY = {
         "Resist": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Clothing/Graphic/Resist",
-                "mask": "`url(#${{uid}}-Clothing-Color-Mask)`",
+                "id": "{uid}-Clothing/Graphic/Resist",
+                "mask": "`url(#${uid}-Clothing-Color-Mask)`",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -1082,8 +1082,8 @@ export const SVG_DICTIONARY = {
         "Bear": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Clothing/Graphic/Bear",
-                "mask": "`url(#${{uid}}-Clothing-Color-Mask)`",
+                "id": "{uid}-Clothing/Graphic/Bear",
+                "mask": "`url(#${uid}-Clothing-Color-Mask)`",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -1127,7 +1127,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "xlinkHref": "#{{uid}}-top-path1"
+                                                "xlinkHref": "#{uid}-top-path1"
                                             },
                                             "children": []
                                         }
@@ -1139,7 +1139,7 @@ export const SVG_DICTIONARY = {
                                         "d": "M34.4465814,31.5861741 C33.968066,34.4016565 30.3675711,38.9307388 27.2995299,35.97048 C23.8326433,32.6262918 31.5245196,31.1602447 28.7810969,28.3763859 C27.5974268,27.1761741 24.3685608,27.83928 22.7791175,27.96528 C21.289633,28.0833741 18.9133856,28.4198682 19.4834474,30.5900329 C19.9159423,32.2398918 21.1926433,31.5342918 21.8715711,32.4815153 C22.4069938,33.2301035 22.1798598,35.9887624 21.3826639,36.7492094 C20.3796124,37.7053271 19.193468,37.4123153 17.7975093,36.7996094 C14.6057567,35.39928 13.1212206,31.4868565 15.2228289,28.5829271 C19.3780454,22.8417741 35.2897979,21.5244565 34.4465814,31.5861741 M14.9853031,14.7244094 C15.9695505,14.2811859 17.132932,14.5213271 17.7173443,15.5110447 C18.5189938,16.8669035 17.3595711,18.6842682 15.7424165,18.4668565 C14.0347052,18.2365976 13.1726845,15.5481035 14.9853031,14.7244094 M32.9472,16.3787153 C32.0911175,19.3854212 27.3109113,16.0012094 30.0112825,14.08848 C31.5626227,12.9900565 33.4583753,14.5801271 32.9472,16.3787153 M47.8267052,23.16888 C47.5911588,20.7887153 46.9270763,18.5231859 45.7389526,16.4385035 C45.1164371,15.3460094 44.3464577,14.3276329 43.5492619,13.35768 C43.2483959,12.9930212 42.6432,12.34968 42.5264165,12.1446212 C41.8173031,10.90488 41.888066,11.7834212 42.2789938,10.3598682 C42.8950763,8.11657412 44.2262103,6.28043294 43.1627876,3.87062118 C42.1735918,1.62930353 39.5078598,0.576832941 37.1791175,0.443915294 C36.0914474,0.382150588 35.0017979,0.525938824 33.9720247,0.892574118 C32.9368082,1.26069176 31.9708701,2.53255059 31.0717361,2.79393882 C30.3740041,2.99702118 28.3872,2.33391529 27.6305814,2.28549176 C26.2356124,2.19605647 24.8332206,2.23558588 23.4387464,2.31859765 C21.8087258,2.41544471 18.0632412,3.58205647 16.5257567,3.19565647 C15.5108289,2.94069176 14.3172619,1.41485647 13.1449732,1.03191529 C11.852932,0.610432941 10.4673649,0.467632941 9.17829278,0.954338824 C6.89260206,1.81805647 5.17845773,4.50605647 5.12501443,6.89560941 C5.09680825,8.15066824 5.78018969,9.01092706 5.91528247,10.1469035 C6.11816907,11.8619859 6.35223093,10.5026682 5.42835464,11.8718682 C4.9577567,12.5690682 4.13284948,13.1822682 3.60385979,13.8537741 C0.778787629,17.4405741 -0.278696907,22.73208 0.974746392,27.0733976 C4.13284948,38.0131624 14.6423753,42.4676329 25.4136742,41.86728 C34.6648082,41.3509271 48.9782103,34.1491624 47.8267052,23.16888",
                                         "id": "Fill-74",
                                         "fill": "#FFFFFF",
-                                        "mask": "`url(#${{uid}}-top-mask1)`"
+                                        "mask": "`url(#${uid}-top-mask1)`"
                                     },
                                     "children": []
                                 }
@@ -1152,7 +1152,7 @@ export const SVG_DICTIONARY = {
         "Hoodie": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Clothing/Hoodie",
+                "id": "{uid}-Clothing/Hoodie",
                 "transform": "translate(0.000000, 170.000000)"
             },
             "children": [
@@ -1181,7 +1181,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -1190,10 +1190,10 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "use",
                     "props": {
-                        "id": "{{uid}}-Hoodie",
+                        "id": "{uid}-Hoodie",
                         "fill": "#B7C1DB",
                         "fillRule": "evenodd",
-                        "xlinkHref": "#{{uid}}-top-path1"
+                        "xlinkHref": "#{uid}-top-path1"
                     },
                     "children": []
                 },
@@ -1208,7 +1208,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M102,61.7390531 L102,110 L95,110 L95,58.1502625 C97.2037542,59.4600576 99.5467694,60.6607878 102,61.7390531 Z M169,58.1502625 L169,98.5 C169,100.432997 167.432997,102 165.5,102 C163.567003,102 162,100.432997 162,98.5 L162,61.7390531 C164.453231,60.6607878 166.796246,59.4600576 169,58.1502625 Z",
-                        "id": "{{uid}}-Straps",
+                        "id": "{uid}-Straps",
                         "fill": "#F4F4F4",
                         "fillRule": "evenodd",
                         "mask": "`url(#${clothingColorMask})`"
@@ -1219,7 +1219,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M90.9601329,12.7243537 C75.9093095,15.5711782 65.5,21.2428847 65.5,32.3076923 C65.5,52.0200095 98.5376807,68 132,68 C165.462319,68 198.5,52.0200095 198.5,32.3076923 C198.5,21.2428847 188.09069,15.5711782 173.039867,12.7243537 C182.124921,16.0744598 188,21.7060546 188,31.0769231 C188,51.4689754 160.178795,68 132,68 C103.821205,68 76,51.4689754 76,31.0769231 C76,21.7060546 81.8750795,16.0744598 90.9601329,12.7243537 Z",
-                        "id": "{{uid}}-Shadow",
+                        "id": "{uid}-Shadow",
                         "fillOpacity": "0.16",
                         "fill": "#000000",
                         "fillRule": "evenodd",
@@ -1232,7 +1232,7 @@ export const SVG_DICTIONARY = {
         "Overall": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Clothing/Overall",
+                "id": "{uid}-Clothing/Overall",
                 "transform": "translate(0.000000, 170.000000)"
             },
             "children": [
@@ -1261,7 +1261,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -1270,10 +1270,10 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "use",
                     "props": {
-                        "id": "{{uid}}-Overall",
+                        "id": "{uid}-Overall",
                         "fill": "#B7C1DB",
                         "fillRule": "evenodd",
-                        "xlinkHref": "#{{uid}}-top-path1"
+                        "xlinkHref": "#{uid}-top-path1"
                     },
                     "children": []
                 },
@@ -1287,7 +1287,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "circle",
                     "props": {
-                        "id": "{{uid}}-ButtonLeft",
+                        "id": "{uid}-ButtonLeft",
                         "fill": "#F4F4F4",
                         "fillRule": "evenodd",
                         "cx": "81",
@@ -1299,7 +1299,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "circle",
                     "props": {
-                        "id": "{{uid}}-ButtonRight",
+                        "id": "{uid}-ButtonRight",
                         "fill": "#F4F4F4",
                         "fillRule": "evenodd",
                         "cx": "183",
@@ -1313,7 +1313,7 @@ export const SVG_DICTIONARY = {
         "ShirtCrewNeck": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Clothing/Shirt-Crew-Neck",
+                "id": "{uid}-Clothing/Shirt-Crew-Neck",
                 "transform": "translate(0.000000, 170.000000)"
             },
             "children": [
@@ -1342,7 +1342,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -1351,10 +1351,10 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "use",
                     "props": {
-                        "id": "{{uid}}-Clothes",
+                        "id": "{uid}-Clothes",
                         "fill": "#E6E6E6",
                         "fillRule": "evenodd",
-                        "xlinkHref": "#{{uid}}-top-path1"
+                        "xlinkHref": "#{uid}-top-path1"
                     },
                     "children": []
                 },
@@ -1368,7 +1368,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Shadowy",
+                        "id": "{uid}-Shadowy",
                         "opacity": "0.599999964",
                         "strokeWidth": "1",
                         "fillRule": "evenodd",
@@ -1381,7 +1381,7 @@ export const SVG_DICTIONARY = {
                             "type": "g",
                             "props": {
                                 "transform": "translate(92.000000, 4.000000)",
-                                "id": "{{uid}}-Hola-👋🏼"
+                                "id": "{uid}-Hola-👋🏼"
                             },
                             "children": [
                                 {
@@ -1403,7 +1403,7 @@ export const SVG_DICTIONARY = {
         "ShirtScoopNeck": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Clothing/Shirt-Scoop-Neck",
+                "id": "{uid}-Clothing/Shirt-Scoop-Neck",
                 "transform": "translate(0.000000, 170.000000)"
             },
             "children": [
@@ -1432,7 +1432,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -1441,10 +1441,10 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "use",
                     "props": {
-                        "id": "{{uid}}-Clothes",
+                        "id": "{uid}-Clothes",
                         "fill": "#E6E6E6",
                         "fillRule": "evenodd",
-                        "xlinkHref": "#{{uid}}-top-path1"
+                        "xlinkHref": "#{uid}-top-path1"
                     },
                     "children": []
                 },
@@ -1460,7 +1460,7 @@ export const SVG_DICTIONARY = {
         "ShirtVNeck": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Clothing/Shirt-V-Neck",
+                "id": "{uid}-Clothing/Shirt-V-Neck",
                 "transform": "translate(0.000000, 170.000000)"
             },
             "children": [
@@ -1489,7 +1489,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -1498,10 +1498,10 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "use",
                     "props": {
-                        "id": "{{uid}}-Clothes",
+                        "id": "{uid}-Clothes",
                         "fill": "#E6E6E6",
                         "fillRule": "evenodd",
-                        "xlinkHref": "#{{uid}}-top-path1"
+                        "xlinkHref": "#{uid}-top-path1"
                     },
                     "children": []
                 },
@@ -1519,7 +1519,7 @@ export const SVG_DICTIONARY = {
         "Angry": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyebrow/Outline/Angry",
+                "id": "{uid}-Eyebrow/Outline/Angry",
                 "fillOpacity": "0.599999964",
                 "fillRule": "nonzero"
             },
@@ -1528,7 +1528,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M15.6114904,15.1845247 C19.8515017,9.41618792 22.4892046,9.70087612 28.9238518,14.5564693 C29.1057771,14.6937504 29.2212592,14.7812575 29.5936891,15.063789 C34.4216439,18.7263562 36.7081807,20 40,20 C41.1045695,20 42,19.1045695 42,18 C42,16.8954305 41.1045695,16 40,16 C37.9337712,16 36.0986396,14.9777974 32.011227,11.8770179 C31.6358269,11.5922331 31.5189458,11.5036659 31.3332441,11.3635351 C27.5737397,8.52660822 25.3739873,7.28738405 22.6379899,6.99208688 C18.9538127,6.59445233 15.5799484,8.47367246 12.3885096,12.8154753 C11.7343147,13.7054768 11.9254737,14.9572954 12.8154753,15.6114904 C13.7054768,16.2656853 14.9572954,16.0745263 15.6114904,15.1845247 Z",
-                        "id": "{{uid}}-Eyebrow-Left"
+                        "id": "{uid}-Eyebrow-Left"
                     },
                     "children": []
                 },
@@ -1536,7 +1536,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M73.6114904,15.1845247 C77.8515017,9.41618792 80.4892046,9.70087612 86.9238518,14.5564693 C87.1057771,14.6937504 87.2212592,14.7812575 87.5936891,15.063789 C92.4216439,18.7263562 94.7081807,20 98,20 C99.1045695,20 100,19.1045695 100,18 C100,16.8954305 99.1045695,16 98,16 C95.9337712,16 94.0986396,14.9777974 90.011227,11.8770179 C89.6358269,11.5922331 89.5189458,11.5036659 89.3332441,11.3635351 C85.5737397,8.52660822 83.3739873,7.28738405 80.6379899,6.99208688 C76.9538127,6.59445233 73.5799484,8.47367246 70.3885096,12.8154753 C69.7343147,13.7054768 69.9254737,14.9572954 70.8154753,15.6114904 C71.7054768,16.2656853 72.9572954,16.0745263 73.6114904,15.1845247 Z",
-                        "id": "{{uid}}-Eyebrow-Right",
+                        "id": "{uid}-Eyebrow-Right",
                         "transform": "translate(84.999934, 13.470064) scale(-1, 1) translate(-84.999934, -13.470064) "
                     },
                     "children": []
@@ -1546,7 +1546,7 @@ export const SVG_DICTIONARY = {
         "AngryNatural": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyebrow/Natural/Angry-Natural",
+                "id": "{uid}-Eyebrow/Natural/Angry-Natural",
                 "fillOpacity": "0.599999964"
             },
             "children": [
@@ -1554,7 +1554,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M44.8565785,12.2282877 C44.8578785,12.2192877 44.8578785,12.2192877 44.8565785,12.2282877 M17.5862288,7.89238094 C15.2441598,8.3302947 13.0866155,9.78806858 12.1523766,12.0987479 C11.8009169,12.967391 11.3917103,14.9243181 11.7083227,15.8073302 C11.8284629,16.14295 12.0332321,16.1008692 12.9555234,16.0430509 C14.643791,15.9369937 16.9330912,13.6622369 18.7484684,13.2557982 C21.2753939,12.6899315 23.9825295,13.1148447 26.4961798,13.6882381 C30.8109365,14.6725177 36.4854008,17.7875215 40.9461842,16.1699775 C41.2783949,16.0495512 45.6210294,12.9225732 44.3685187,12.2769925 C43.9238011,11.9068186 41.1370145,12.0854053 40.6216067,11.9988489 C38.2277647,11.5971998 35.7297127,10.9345131 33.373373,10.3265657 C28.2329017,9.00016592 22.9666484,6.88073171 17.5862288,7.89238094",
-                        "id": "{{uid}}-Eyebrow-Left",
+                        "id": "{uid}-Eyebrow-Left",
                         "transform": "translate(28.094701, 12.127505) rotate(17.000000) translate(-28.094701, -12.127505) "
                     },
                     "children": []
@@ -1563,7 +1563,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M100.918293,12.2094196 C100.919593,12.2004196 100.919593,12.2004196 100.918293,12.2094196 M73.5862288,7.89238094 C71.2441598,8.3302947 69.0866155,9.78806858 68.1523766,12.0987479 C67.8009169,12.967391 67.3917103,14.9243181 67.7083227,15.8073302 C67.8284629,16.14295 68.0332321,16.1008692 68.9555234,16.0430509 C70.643791,15.9369937 72.9330912,13.6622369 74.7484684,13.2557982 C77.2753939,12.6899315 79.9825295,13.1148447 82.4961798,13.6882381 C86.8109365,14.6725177 92.4854008,17.7875215 96.9461842,16.1699775 C97.2783949,16.0495512 101.621029,12.9225732 100.368519,12.2769925 C99.9238011,11.9068186 97.1370145,12.0854053 96.6216067,11.9988489 C94.2277647,11.5971998 91.7297127,10.9345131 89.373373,10.3265657 C84.2329017,9.00016592 78.9666484,6.88073171 73.5862288,7.89238094",
-                        "id": "{{uid}}-Eyebrow-Right",
+                        "id": "{uid}-Eyebrow-Right",
                         "transform": "translate(84.094701, 12.127505) scale(-1, 1) rotate(17.000000) translate(-84.094701, -12.127505) "
                     },
                     "children": []
@@ -1573,14 +1573,14 @@ export const SVG_DICTIONARY = {
         "Default": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyebrow/Outline/Default",
+                "id": "{uid}-Eyebrow/Outline/Default",
                 "fillOpacity": "0.599999964"
             },
             "children": [
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Eyebrows",
+                        "id": "{uid}-Eyebrows",
                         "transform": "translate(12.000000, 6.000000)"
                     },
                     "children": [
@@ -1588,7 +1588,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M3.63024536,11.1585767 C7.54515501,5.64986673 18.2779197,2.56083721 27.5230268,4.83118046 C28.5957248,5.0946055 29.6788665,4.43856013 29.9422916,3.36586212 C30.2057166,2.2931641 29.5496712,1.21002236 28.4769732,0.94659732 C17.7403633,-1.69001789 5.31209962,1.88699832 0.369754639,8.84142326 C-0.270109626,9.74178291 -0.0589363917,10.9903811 0.84142326,11.6302454 C1.74178291,12.2701096 2.9903811,12.0589364 3.63024536,11.1585767 Z",
-                                "id": "{{uid}}-Eyebrow-Left",
+                                "id": "{uid}-Eyebrow-Left",
                                 "fillRule": "nonzero"
                             },
                             "children": []
@@ -1597,7 +1597,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M61.6302454,11.1585767 C65.545155,5.64986673 76.2779197,2.56083721 85.5230268,4.83118046 C86.5957248,5.0946055 87.6788665,4.43856013 87.9422916,3.36586212 C88.2057166,2.2931641 87.5496712,1.21002236 86.4769732,0.94659732 C75.7403633,-1.69001789 63.3120996,1.88699832 58.3697546,8.84142326 C57.7298904,9.74178291 57.9410636,10.9903811 58.8414233,11.6302454 C59.7417829,12.2701096 60.9903811,12.0589364 61.6302454,11.1585767 Z",
-                                "id": "{{uid}}-Eyebrow-Right",
+                                "id": "{uid}-Eyebrow-Right",
                                 "fillRule": "nonzero",
                                 "transform": "translate(73.000154, 6.039198) scale(-1, 1) translate(-73.000154, -6.039198) "
                             },
@@ -1610,7 +1610,7 @@ export const SVG_DICTIONARY = {
         "DefaultNatural": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyebrow/Natural/Default-Natural",
+                "id": "{uid}-Eyebrow/Natural/Default-Natural",
                 "fillOpacity": "0.599999964"
             },
             "children": [
@@ -1618,7 +1618,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M26.0390934,6.21012364 C20.2775554,6.98346216 11.2929313,12.0052479 12.04426,17.8178111 C12.0689481,18.0080543 12.3567302,18.0673468 12.4809077,17.9084937 C14.9674041,14.7203351 34.1927973,10.0365481 41.1942673,11.0147151 C41.8350523,11.1044465 42.2580662,10.4430343 41.8210501,10.0302067 C38.0765663,6.49485426 31.2003792,5.51224825 26.0390934,6.21012364",
-                        "id": "{{uid}}-Eyebrow-Left",
+                        "id": "{uid}-Eyebrow-Left",
                         "transform": "translate(27.000000, 12.000000) rotate(5.000000) translate(-27.000000, -12.000000) "
                     },
                     "children": []
@@ -1627,7 +1627,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M85.0390934,6.21012364 C79.2775554,6.98346216 70.2929313,12.0052479 71.04426,17.8178111 C71.0689481,18.0080543 71.3567302,18.0673468 71.4809077,17.9084937 C73.9674041,14.7203351 93.1927973,10.0365481 100.194267,11.0147151 C100.835052,11.1044465 101.258066,10.4430343 100.82105,10.0302067 C97.0765663,6.49485426 90.2003792,5.51224825 85.0390934,6.21012364",
-                        "id": "{{uid}}-Eyebrow-Right",
+                        "id": "{uid}-Eyebrow-Right",
                         "transform": "translate(86.000000, 12.000000) scale(-1, 1) rotate(5.000000) translate(-86.000000, -12.000000) "
                     },
                     "children": []
@@ -1637,7 +1637,7 @@ export const SVG_DICTIONARY = {
         "FlatNatural": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyebrow/Natural/Flat-Natural",
+                "id": "{uid}-Eyebrow/Natural/Flat-Natural",
                 "fillOpacity": "0.599999964"
             },
             "children": [
@@ -1645,7 +1645,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M38.5686071,10.7022978 C33.5865557,11.2384494 28.6553385,11.1338998 23.6562444,11.1010606 C19.8231061,11.0762636 15.91974,10.6892291 12.3246118,12.5091287 C11.6361455,12.8572921 7.8767609,14.9449324 8.00311195,16.0108688 C8.10389896,16.8633498 12.0128479,18.0636592 12.7165939,18.2838164 C16.4280826,19.4452548 19.9241869,18.9282036 23.6870976,18.5703225 C28.3024371,18.1316834 32.9139567,18.1745756 37.5322346,17.8739956 C40.6422336,17.6719334 45.4224171,16.9769469 46.8293214,13.1484895 C47.2530382,11.9954284 46.8152171,9.73353891 46.3074622,8.50642195 C46.1050066,8.01751871 45.5634602,7.84963624 45.1688335,8.14921095 C43.7560524,9.22218432 40.9851444,10.4425994 38.5686071,10.7022978",
-                        "id": "{{uid}}-Eyebrow-Left",
+                        "id": "{uid}-Eyebrow-Left",
                         "transform": "translate(27.500000, 13.500000) rotate(2.000000) translate(-27.500000, -13.500000) "
                     },
                     "children": []
@@ -1654,7 +1654,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M95.5686071,10.7022978 C90.5865557,11.2384494 85.6553385,11.1338998 80.6562444,11.1010606 C76.8231061,11.0762636 72.91974,10.6892291 69.3246118,12.5091287 C68.6361455,12.8572921 64.8767609,14.9449324 65.003112,16.0108688 C65.103899,16.8633498 69.0128479,18.0636592 69.7165939,18.2838164 C73.4280826,19.4452548 76.9241869,18.9282036 80.6870976,18.5703225 C85.3024371,18.1316834 89.9139567,18.1745756 94.5322346,17.8739956 C97.6422336,17.6719334 102.422417,16.9769469 103.829321,13.1484895 C104.253038,11.9954284 103.815217,9.73353891 103.307462,8.50642195 C103.105007,8.01751871 102.56346,7.84963624 102.168833,8.14921095 C100.756052,9.22218432 97.9851444,10.4425994 95.5686071,10.7022978",
-                        "id": "{{uid}}-Eyebrow-Right",
+                        "id": "{uid}-Eyebrow-Right",
                         "transform": "translate(84.500000, 13.500000) scale(-1, 1) rotate(2.000000) translate(-84.500000, -13.500000) "
                     },
                     "children": []
@@ -1664,7 +1664,7 @@ export const SVG_DICTIONARY = {
         "FrownNatural": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyebrow/Natural/Frown-Natural",
+                "id": "{uid}-Eyebrow/Natural/Frown-Natural",
                 "fillOpacity": "0.599999964"
             },
             "children": [
@@ -1672,7 +1672,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M36.3692975,6.87618545 C34.3991755,9.78053246 30.8236346,11.5165625 27.6315757,12.5601676 C23.6890255,13.8490851 9.08080143,15.9390364 12.5196198,23.9079177 C12.572332,24.029546 12.7390347,24.0312591 12.7920764,23.9096308 C13.9448284,21.2646433 30.256648,18.7865093 31.7648785,18.2064622 C36.2101722,16.4974987 40.1579937,12.7153722 40.9269343,7.66282939 C41.2794477,5.34640965 40.2901039,1.6143049 39.3791695,0.113308759 C39.2697915,-0.0669067099 39.0052417,-0.02339461 38.9498938,0.181831751 C38.5898029,1.51323348 37.5385221,5.15317482 36.3692975,6.87618545",
-                        "id": "{{uid}}-Eyebrow-Left"
+                        "id": "{uid}-Eyebrow-Left"
                     },
                     "children": []
                 },
@@ -1680,7 +1680,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M95.3692975,6.87618545 C93.3991755,9.78053246 89.8236346,11.5165625 86.6315757,12.5601676 C82.6890255,13.8490851 68.0808014,15.9390364 71.5196198,23.9079177 C71.572332,24.029546 71.7390347,24.0312591 71.7920764,23.9096308 C72.9448284,21.2646433 89.256648,18.7865093 90.7648785,18.2064622 C95.2101722,16.4974987 99.1579937,12.7153722 99.9269343,7.66282939 C100.279448,5.34640965 99.2901039,1.6143049 98.3791695,0.113308759 C98.2697915,-0.0669067099 98.0052417,-0.02339461 97.9498938,0.181831751 C97.5898029,1.51323348 96.5385221,5.15317482 95.3692975,6.87618545",
-                        "id": "{{uid}}-Eyebrow-Right",
+                        "id": "{uid}-Eyebrow-Right",
                         "transform": "translate(85.500000, 12.000000) scale(-1, 1) translate(-85.500000, -12.000000) "
                     },
                     "children": []
@@ -1690,14 +1690,14 @@ export const SVG_DICTIONARY = {
         "RaisedExcited": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyebrow/Outline/Raised-Excited",
+                "id": "{uid}-Eyebrow/Outline/Raised-Excited",
                 "fillOpacity": "0.599999964"
             },
             "children": [
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Eyebrows",
+                        "id": "{uid}-Eyebrows",
                         "transform": "translate(12.000000, 0.000000)"
                     },
                     "children": [
@@ -1705,7 +1705,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M3.97579559,17.1279169 C5.47099148,7.60476158 18.0585488,1.10867597 27.1635167,5.30104271 C28.1668367,5.76301969 29.3546946,5.32417444 29.8166716,4.32085442 C30.2786486,3.3175344 29.8398033,2.12967649 28.8364833,1.66769952 C17.3488212,-3.62177466 1.93575948,4.3324746 0.0242044059,16.507492 C-0.147121205,17.5986938 0.598585765,18.6221744 1.68978754,18.7935 C2.78098932,18.9648257 3.80446998,18.2191187 3.97579559,17.1279169 Z",
-                                "id": "{{uid}}-Eyebrow-Left",
+                                "id": "{uid}-Eyebrow-Left",
                                 "fillRule": "nonzero"
                             },
                             "children": []
@@ -1714,7 +1714,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M61.9757956,17.1279169 C63.4709915,7.60476158 76.0585488,1.10867597 85.1635167,5.30104271 C86.1668367,5.76301969 87.3546946,5.32417444 87.8166716,4.32085442 C88.2786486,3.3175344 87.8398033,2.12967649 86.8364833,1.66769952 C75.3488212,-3.62177466 59.9357595,4.3324746 58.0242044,16.507492 C57.8528788,17.5986938 58.5985858,18.6221744 59.6897875,18.7935 C60.7809893,18.9648257 61.80447,18.2191187 61.9757956,17.1279169 Z",
-                                "id": "{{uid}}-Eyebrow-Right",
+                                "id": "{uid}-Eyebrow-Right",
                                 "fillRule": "nonzero",
                                 "transform": "translate(73.000097, 9.410436) scale(-1, 1) translate(-73.000097, -9.410436) "
                             },
@@ -1727,7 +1727,7 @@ export const SVG_DICTIONARY = {
         "RaisedExcitedNatural": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyebrow/Natural/Raised-Excited-Natural",
+                "id": "{uid}-Eyebrow/Natural/Raised-Excited-Natural",
                 "fillOpacity": "0.599999964"
             },
             "children": [
@@ -1735,7 +1735,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M22.7663531,1.57844898 L23.6772984,1.17582144 C28.9190996,-0.905265751 36.8645466,-0.0328729562 41.7227321,2.29911638 C42.2897848,2.57148957 41.9021563,3.4519421 41.3211012,3.40711006 C26.4021788,2.25602197 16.3582869,11.5525942 12.9460869,17.8470939 C12.8449215,18.0337142 12.5391523,18.05489 12.4635344,17.8808353 C10.156283,12.5620676 16.9134476,3.89614725 22.7663531,1.57844898 Z",
-                        "id": "{{uid}}-Eyebrow-Left"
+                        "id": "{uid}-Eyebrow-Left"
                     },
                     "children": []
                 },
@@ -1743,7 +1743,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M80.7663531,1.57844898 L81.6772984,1.17582144 C86.9190996,-0.905265751 94.8645466,-0.0328729562 99.7227321,2.29911638 C100.289785,2.57148957 99.9021563,3.4519421 99.3211012,3.40711006 C84.4021788,2.25602197 74.3582869,11.5525942 70.9460869,17.8470939 C70.8449215,18.0337142 70.5391523,18.05489 70.4635344,17.8808353 C68.156283,12.5620676 74.9134476,3.89614725 80.7663531,1.57844898 Z",
-                        "id": "{{uid}}-Eyebrow-Right",
+                        "id": "{uid}-Eyebrow-Right",
                         "transform": "translate(85.000000, 9.000000) scale(-1, 1) translate(-85.000000, -9.000000) "
                     },
                     "children": []
@@ -1753,7 +1753,7 @@ export const SVG_DICTIONARY = {
         "SadConcerned": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyebrow/Outline/Sad-Concerned",
+                "id": "{uid}-Eyebrow/Outline/Sad-Concerned",
                 "fillOpacity": "0.599999964",
                 "fillRule": "nonzero"
             },
@@ -1762,7 +1762,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M15.9726042,19.4088529 C17.452356,11.0203704 30.0622688,5.22829657 39.2106453,8.9774793 C40.2254706,9.39337449 41.4016967,8.94600219 41.8378196,7.97824531 C42.2739426,7.01048842 41.8048116,5.88881678 40.7899862,5.47292159 C29.3457328,0.782843812 13.9550264,7.85221132 12.0280273,18.7760684 C11.84479,19.8148122 12.5792704,20.798534 13.6685352,20.9732726 C14.7578,21.1480113 15.7893668,20.4475967 15.9726042,19.4088529 Z",
-                        "id": "{{uid}}-Eyebrow-Left",
+                        "id": "{uid}-Eyebrow-Left",
                         "transform": "translate(27.000414, 12.500000) scale(-1, -1) translate(-27.000414, -12.500000) "
                     },
                     "children": []
@@ -1771,7 +1771,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M73.9726042,19.4088529 C75.452356,11.0203704 88.0622688,5.22829657 97.2106453,8.9774793 C98.2254706,9.39337449 99.4016967,8.94600219 99.8378196,7.97824531 C100.273943,7.01048842 99.8048116,5.88881678 98.7899862,5.47292159 C87.3457328,0.782843812 71.9550264,7.85221132 70.0280273,18.7760684 C69.84479,19.8148122 70.5792704,20.798534 71.6685352,20.9732726 C72.7578,21.1480113 73.7893668,20.4475967 73.9726042,19.4088529 Z",
-                        "id": "{{uid}}-Eyebrow-Right",
+                        "id": "{uid}-Eyebrow-Right",
                         "transform": "translate(85.000414, 12.500000) scale(1, -1) translate(-85.000414, -12.500000) "
                     },
                     "children": []
@@ -1781,7 +1781,7 @@ export const SVG_DICTIONARY = {
         "SadConcernedNatural": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyebrow/Natural/Sad-Concerned-Natural",
+                "id": "{uid}-Eyebrow/Natural/Sad-Concerned-Natural",
                 "fillOpacity": "0.599999964"
             },
             "children": [
@@ -1789,7 +1789,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M22.7663531,5.57844898 L23.6772984,5.17582144 C28.9190996,3.09473425 36.8645466,3.96712704 41.7227321,6.29911638 C42.2897848,6.57148957 41.9021563,7.4519421 41.3211012,7.40711006 C26.4021788,6.25602197 16.3582869,15.5525942 12.9460869,21.8470939 C12.8449215,22.0337142 12.5391523,22.05489 12.4635344,21.8808353 C10.156283,16.5620676 16.9134476,7.89614725 22.7663531,5.57844898 Z",
-                        "id": "{{uid}}-Eyebrow-Left",
+                        "id": "{uid}-Eyebrow-Left",
                         "transform": "translate(27.000000, 13.000000) scale(-1, -1) translate(-27.000000, -13.000000) "
                     },
                     "children": []
@@ -1798,7 +1798,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M80.7663531,5.57844898 L81.6772984,5.17582144 C86.9190996,3.09473425 94.8645466,3.96712704 99.7227321,6.29911638 C100.289785,6.57148957 99.9021563,7.4519421 99.3211012,7.40711006 C84.4021788,6.25602197 74.3582869,15.5525942 70.9460869,21.8470939 C70.8449215,22.0337142 70.5391523,22.05489 70.4635344,21.8808353 C68.156283,16.5620676 74.9134476,7.89614725 80.7663531,5.57844898 Z",
-                        "id": "{{uid}}-Eyebrow-Right",
+                        "id": "{uid}-Eyebrow-Right",
                         "transform": "translate(85.000000, 13.000000) scale(1, -1) translate(-85.000000, -13.000000) "
                     },
                     "children": []
@@ -1808,7 +1808,7 @@ export const SVG_DICTIONARY = {
         "UnibrowNatural": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyebrow/Natural/Unibrow-Natural",
+                "id": "{uid}-Eyebrow/Natural/Unibrow-Natural",
                 "fillOpacity": "0.599999964"
             },
             "children": [
@@ -1816,7 +1816,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M57.000525,12 C56.999825,11.9961 56.999825,11.9961 57.000525,12 M59.4596631,14.892451 C61.3120123,16.058698 64.1131185,16.7894891 65.7030886,17.0505179 C71.9486685,18.0766191 78.0153663,15.945512 84.1715051,15.0153209 C89.636055,14.1895424 95.8563653,13.4967455 100.86041,16.507708 C100.987756,16.584232 101.997542,17.2147893 102.524546,17.7511372 C102.91024,18.1443003 103.563259,18.0619945 103.822605,17.5722412 C105.241692,14.8939029 97.7243204,8.76008291 96.2812935,8.14993193 C89.7471082,5.39200867 81.0899445,8.32440654 74.4284137,9.38927986 C70.6888462,9.98718701 66.9279989,10.3803501 63.2409655,11.2908151 C61.9188284,11.6171635 60.6278928,12.2066818 59.3382119,12.3724317 C59.1848981,12.1429782 58.9889964,12 58.7633758,12 C57.5922879,12 55.8451696,15.4574504 58.0750241,15.6547468 C58.7728345,15.7164887 59.215997,15.3816732 59.4596631,14.892451 Z",
-                        "id": "{{uid}}-Eyebrow-Left",
+                        "id": "{uid}-Eyebrow-Left",
                         "transform": "translate(80.500000, 12.500000) rotate(-2.000000) translate(-80.500000, -12.500000) "
                     },
                     "children": []
@@ -1825,7 +1825,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M54.999475,12 C55.000175,11.9961 55.000175,11.9961 54.999475,12 M15.7187065,8.14993193 C22.2528918,5.39200867 30.9100555,8.32440654 37.5715863,9.38927986 C41.3111538,9.98718701 45.0720011,10.3803501 48.7590345,11.2908151 C50.2416282,11.6567696 51.6849876,12.3536477 53.1313394,12.4128263 C53.8325707,12.4413952 54.2674737,13.2763566 53.8149484,13.8242681 C52.3320222,15.6179895 48.3271239,16.7172136 46.2969114,17.0505179 C40.0513315,18.0766191 33.9846337,15.945512 27.8284949,15.0153209 C22.363945,14.1895424 16.1436347,13.4967455 11.1395899,16.507708 C11.0122444,16.584232 10.0024581,17.2147893 9.47545402,17.7511372 C9.0897602,18.1443003 8.43674067,18.0619945 8.17739482,17.5722412 C6.75830756,14.8939029 14.2756796,8.76008291 15.7187065,8.14993193 Z M54.9339874,11 C56.1050753,11 57.8521936,15.4015737 55.6223391,15.6527457 C53.3924847,15.9039176 53.7628995,11 54.9339874,11 Z",
-                        "id": "{{uid}}-Eyebrow-Right",
+                        "id": "{uid}-Eyebrow-Right",
                         "transform": "translate(32.348682, 12.500000) rotate(2.000000) translate(-32.348682, -12.500000) "
                     },
                     "children": []
@@ -1835,7 +1835,7 @@ export const SVG_DICTIONARY = {
         "UpDown": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyebrow/Outline/Up-Down",
+                "id": "{uid}-Eyebrow/Outline/Up-Down",
                 "fillOpacity": "0.599999964",
                 "fillRule": "nonzero"
             },
@@ -1844,7 +1844,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M15.5914402,14.1619718 C20.0874642,7.83556966 29.6031809,4.65350252 39.3473715,7.79575991 C40.3986323,8.13476518 41.5256656,7.55736801 41.8646708,6.50610724 C42.2036761,5.45484647 41.6262789,4.32781316 40.5750182,3.98880789 C29.1665516,0.309863172 17.8358054,4.09887835 12.3309495,11.8448183 C11.6910852,12.7451779 11.9022584,13.9937761 12.8026181,14.6336404 C13.7029777,15.2735046 14.9515759,15.0623314 15.5914402,14.1619718 Z",
-                        "id": "{{uid}}-Eyebrow-Left"
+                        "id": "{uid}-Eyebrow-Left"
                     },
                     "children": []
                 },
@@ -1852,7 +1852,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M73.6376405,21.1577995 C77.5525501,15.6490895 88.2853148,12.56006 97.5304219,14.8304032 C98.6031199,15.0938282 99.6862617,14.4377829 99.9496867,13.3650849 C100.213112,12.2923868 99.5570664,11.2092451 98.4843684,10.9458201 C87.7477584,8.30920485 75.3194947,11.8862211 70.3771498,18.840646 C69.7372855,19.7410057 69.9484587,20.9896038 70.8488184,21.6294681 C71.749178,22.2693324 72.9977762,22.0581591 73.6376405,21.1577995 Z",
-                        "id": "{{uid}}-Eyebrow-Right",
+                        "id": "{uid}-Eyebrow-Right",
                         "transform": "translate(85.007549, 16.038421) scale(-1, 1) translate(-85.007549, -16.038421) "
                     },
                     "children": []
@@ -1862,7 +1862,7 @@ export const SVG_DICTIONARY = {
         "UpDownNatural": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyebrow/Natural/Up-Down-Natural",
+                "id": "{uid}-Eyebrow/Natural/Up-Down-Natural",
                 "fillOpacity": "0.599999964"
             },
             "children": [
@@ -1870,7 +1870,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M22.7663531,1.57844898 L23.6772984,1.17582144 C28.9190996,-0.905265751 36.8645466,-0.0328729562 41.7227321,2.29911638 C42.2897848,2.57148957 41.9021563,3.4519421 41.3211012,3.40711006 C26.4021788,2.25602197 16.3582869,11.5525942 12.9460869,17.8470939 C12.8449215,18.0337142 12.5391523,18.05489 12.4635344,17.8808353 C10.156283,12.5620676 16.9134476,3.89614725 22.7663531,1.57844898 Z",
-                        "id": "{{uid}}-Eyebrow-Left"
+                        "id": "{uid}-Eyebrow-Left"
                     },
                     "children": []
                 },
@@ -1878,7 +1878,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M86.535177,12.0246305 C92.3421916,12.2928751 101.730304,16.5124899 101.488432,22.3684172 C101.480419,22.5600881 101.1989,22.6442368 101.06135,22.496811 C98.306449,19.5374968 78.7459953,16.5471364 71.8564209,18.1317995 C71.2258949,18.2770375 70.7468448,17.6550104 71.1462176,17.2056651 C74.5683263,13.3574126 81.3327077,11.7792465 86.535177,12.0246305 Z",
-                        "id": "{{uid}}-Eyebrow-Right",
+                        "id": "{uid}-Eyebrow-Right",
                         "transform": "translate(86.246508, 17.285912) rotate(5.000000) translate(-86.246508, -17.285912) "
                     },
                     "children": []
@@ -1890,7 +1890,7 @@ export const SVG_DICTIONARY = {
         "Close": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyes/Closed-😌",
+                "id": "{uid}-Eyes/Closed-😌",
                 "transform": "translate(0.000000, 8.000000)",
                 "fillOpacity": "0.599999964"
             },
@@ -1899,7 +1899,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M16.1601674,32.4473116 C18.006676,28.648508 22.1644225,26 26.9975803,26 C31.8136766,26 35.9591217,28.629842 37.8153518,32.4071242 C38.3667605,33.5291977 37.5821037,34.4474817 36.790607,33.7670228 C34.3395063,31.6597833 30.8587163,30.3437884 26.9975803,30.3437884 C23.2572061,30.3437884 19.8737584,31.5787519 17.4375392,33.5716412 C16.5467928,34.3002944 15.6201012,33.5583844 16.1601674,32.4473116 Z",
-                        "id": "{{uid}}-Eye-Left",
+                        "id": "{uid}-Eye-Left",
                         "transform": "translate(27.000000, 30.000000) scale(1, -1) translate(-27.000000, -30.000000) "
                     },
                     "children": []
@@ -1908,7 +1908,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M74.1601674,32.4473116 C76.006676,28.648508 80.1644225,26 84.9975803,26 C89.8136766,26 93.9591217,28.629842 95.8153518,32.4071242 C96.3667605,33.5291977 95.5821037,34.4474817 94.790607,33.7670228 C92.3395063,31.6597833 88.8587163,30.3437884 84.9975803,30.3437884 C81.2572061,30.3437884 77.8737584,31.5787519 75.4375392,33.5716412 C74.5467928,34.3002944 73.6201012,33.5583844 74.1601674,32.4473116 Z",
-                        "id": "{{uid}}-Eye-Right",
+                        "id": "{uid}-Eye-Right",
                         "transform": "translate(85.000000, 30.000000) scale(1, -1) translate(-85.000000, -30.000000) "
                     },
                     "children": []
@@ -1918,14 +1918,14 @@ export const SVG_DICTIONARY = {
         "Cry": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyes/Cry-😢",
+                "id": "{uid}-Eyes/Cry-😢",
                 "transform": "translate(0.000000, 8.000000)"
             },
             "children": [
                 {
                     "type": "circle",
                     "props": {
-                        "id": "{{uid}}-Eye-Left",
+                        "id": "{uid}-Eye-Left",
                         "fillOpacity": "0.599999964",
                         "fill": "#000000",
                         "fillRule": "evenodd",
@@ -1939,7 +1939,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M25,27 C25,27 19,34.2706667 19,38.2706667 C19,41.5846667 21.686,44.2706667 25,44.2706667 C28.314,44.2706667 31,41.5846667 31,38.2706667 C31,34.2706667 25,27 25,27 Z",
-                        "id": "{{uid}}-Teardrop",
+                        "id": "{uid}-Teardrop",
                         "fill": "#92D9FF",
                         "fillRule": "nonzero"
                     },
@@ -1948,7 +1948,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "circle",
                     "props": {
-                        "id": "{{uid}}-Eye-Right",
+                        "id": "{uid}-Eye-Right",
                         "fillOpacity": "0.599999964",
                         "fill": "#000000",
                         "fillRule": "evenodd",
@@ -1963,7 +1963,7 @@ export const SVG_DICTIONARY = {
         "Default": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyes/Default-😀",
+                "id": "{uid}-Eyes/Default-😀",
                 "transform": "translate(0.000000, 8.000000)",
                 "fillOpacity": "0.599999964"
             },
@@ -1971,7 +1971,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "circle",
                     "props": {
-                        "id": "{{uid}}-Eye-Left",
+                        "id": "{uid}-Eye-Left",
                         "cx": "30",
                         "cy": "22",
                         "r": "6"
@@ -1981,7 +1981,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "circle",
                     "props": {
-                        "id": "{{uid}}-Eye-Right",
+                        "id": "{uid}-Eye-Right",
                         "cx": "82",
                         "cy": "22",
                         "r": "6"
@@ -1993,7 +1993,7 @@ export const SVG_DICTIONARY = {
         "Dizzy": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyes/X-Dizzy-😵",
+                "id": "{uid}-Eyes/X-Dizzy-😵",
                 "transform": "translate(0.000000, 8.000000)",
                 "fillOpacity": "0.599999964",
                 "fillRule": "nonzero"
@@ -2003,7 +2003,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M29,25.2 L34.5,30.7 C35,31.1 35.7,31.1 36.1,30.7 L37.7,29.1 C38.1,28.6 38.1,27.9 37.7,27.5 L32.2,22 L37.7,16.5 C38.1,16 38.1,15.3 37.7,14.9 L36.1,13.3 C35.6,12.9 34.9,12.9 34.5,13.3 L29,18.8 L23.5,13.3 C23,12.9 22.3,12.9 21.9,13.3 L20.3,14.9 C19.9,15.3 19.9,16 20.3,16.5 L25.8,22 L20.3,27.5 C19.9,28 19.9,28.7 20.3,29.1 L21.9,30.7 C22.4,31.1 23.1,31.1 23.5,30.7 L29,25.2 Z",
-                        "id": "{{uid}}-Eye-Left"
+                        "id": "{uid}-Eye-Left"
                     },
                     "children": []
                 },
@@ -2011,7 +2011,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M83,25.2 L88.5,30.7 C89,31.1 89.7,31.1 90.1,30.7 L91.7,29.1 C92.1,28.6 92.1,27.9 91.7,27.5 L86.2,22 L91.7,16.5 C92.1,16 92.1,15.3 91.7,14.9 L90.1,13.3 C89.6,12.9 88.9,12.9 88.5,13.3 L83,18.8 L77.5,13.3 C77,12.9 76.3,12.9 75.9,13.3 L74.3,14.9 C73.9,15.3 73.9,16 74.3,16.5 L79.8,22 L74.3,27.5 C73.9,28 73.9,28.7 74.3,29.1 L75.9,30.7 C76.4,31.1 77.1,31.1 77.5,30.7 L83,25.2 Z",
-                        "id": "{{uid}}-Eye-Right"
+                        "id": "{uid}-Eye-Right"
                     },
                     "children": []
                 }
@@ -2020,20 +2020,20 @@ export const SVG_DICTIONARY = {
         "EyeRoll": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyes/Eye-Roll-🙄",
+                "id": "{uid}-Eyes/Eye-Roll-🙄",
                 "transform": "translate(0.000000, 8.000000)"
             },
             "children": [
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Eye-Left"
+                        "id": "{uid}-Eye-Left"
                     },
                     "children": [
                         {
                             "type": "circle",
                             "props": {
-                                "id": "{{uid}}-Eyeball-Left",
+                                "id": "{uid}-Eyeball-Left",
                                 "fill": "#FFFFFF",
                                 "cx": "30",
                                 "cy": "22",
@@ -2044,7 +2044,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "circle",
                             "props": {
-                                "id": "{{uid}}-Pupil-Left",
+                                "id": "{uid}-Pupil-Left",
                                 "fillOpacity": "0.699999988",
                                 "fill": "#000000",
                                 "cx": "30",
@@ -2058,13 +2058,13 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Eye-Right"
+                        "id": "{uid}-Eye-Right"
                     },
                     "children": [
                         {
                             "type": "circle",
                             "props": {
-                                "id": "{{uid}}-Eyeball-Right",
+                                "id": "{uid}-Eyeball-Right",
                                 "fill": "#FFFFFF",
                                 "cx": "82",
                                 "cy": "22",
@@ -2075,7 +2075,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "circle",
                             "props": {
-                                "id": "{{uid}}-Pupil-Right",
+                                "id": "{uid}-Pupil-Right",
                                 "fillOpacity": "0.699999988",
                                 "fill": "#000000",
                                 "cx": "82",
@@ -2091,7 +2091,7 @@ export const SVG_DICTIONARY = {
         "Happy": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyes/Happy-😁",
+                "id": "{uid}-Eyes/Happy-😁",
                 "transform": "translate(0.000000, 8.000000)",
                 "fillOpacity": "0.599999964"
             },
@@ -2100,7 +2100,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M16.1601674,22.4473116 C18.006676,18.648508 22.1644225,16 26.9975803,16 C31.8136766,16 35.9591217,18.629842 37.8153518,22.4071242 C38.3667605,23.5291977 37.5821037,24.4474817 36.790607,23.7670228 C34.3395063,21.6597833 30.8587163,20.3437884 26.9975803,20.3437884 C23.2572061,20.3437884 19.8737584,21.5787519 17.4375392,23.5716412 C16.5467928,24.3002944 15.6201012,23.5583844 16.1601674,22.4473116 Z",
-                        "id": "{{uid}}-Eye-Left"
+                        "id": "{uid}-Eye-Left"
                     },
                     "children": []
                 },
@@ -2108,7 +2108,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M74.1601674,22.4473116 C76.006676,18.648508 80.1644225,16 84.9975803,16 C89.8136766,16 93.9591217,18.629842 95.8153518,22.4071242 C96.3667605,23.5291977 95.5821037,24.4474817 94.790607,23.7670228 C92.3395063,21.6597833 88.8587163,20.3437884 84.9975803,20.3437884 C81.2572061,20.3437884 77.8737584,21.5787519 75.4375392,23.5716412 C74.5467928,24.3002944 73.6201012,23.5583844 74.1601674,22.4473116 Z",
-                        "id": "{{uid}}-Eye-Right"
+                        "id": "{uid}-Eye-Right"
                     },
                     "children": []
                 }
@@ -2117,7 +2117,7 @@ export const SVG_DICTIONARY = {
         "Hearts": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyes/Hearts-😍",
+                "id": "{uid}-Eyes/Hearts-😍",
                 "transform": "translate(0.000000, 8.000000)",
                 "fillOpacity": "0.8",
                 "fillRule": "nonzero",
@@ -2128,7 +2128,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M35.9583333,10 C33.4074091,10 30.8837273,11.9797894 29.5,13.8206358 C28.1106364,11.9797894 25.5925909,10 23.0416667,10 C17.5523182,10 14,13.3341032 14,17.6412715 C14,23.3708668 18.4118636,26.771228 23.0416667,30.376724 C24.695,31.6133636 27.8223436,34.7777086 28.2083333,35.470905 C28.5943231,36.1641015 30.3143077,36.1885229 30.7916667,35.470905 C31.2690257,34.7532872 34.3021818,31.6133636 35.9583333,30.376724 C40.5853182,26.771228 45,23.3708668 45,17.6412715 C45,13.3341032 41.4476818,10 35.9583333,10 Z",
-                        "id": "{{uid}}-Eye-Left"
+                        "id": "{uid}-Eye-Left"
                     },
                     "children": []
                 },
@@ -2136,7 +2136,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M88.9583333,10 C86.4074091,10 83.8837273,11.9797894 82.5,13.8206358 C81.1106364,11.9797894 78.5925909,10 76.0416667,10 C70.5523182,10 67,13.3341032 67,17.6412715 C67,23.3708668 71.4118636,26.771228 76.0416667,30.376724 C77.695,31.6133636 80.8223436,34.7777086 81.2083333,35.470905 C81.5943231,36.1641015 83.3143077,36.1885229 83.7916667,35.470905 C84.2690257,34.7532872 87.3021818,31.6133636 88.9583333,30.376724 C93.5853182,26.771228 98,23.3708668 98,17.6412715 C98,13.3341032 94.4476818,10 88.9583333,10 Z",
-                        "id": "{{uid}}-Eye-Right"
+                        "id": "{uid}-Eye-Right"
                     },
                     "children": []
                 }
@@ -2145,7 +2145,7 @@ export const SVG_DICTIONARY = {
         "Side": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyes/Side-😒",
+                "id": "{uid}-Eyes/Side-😒",
                 "transform": "translate(0.000000, 8.000000)",
                 "fillOpacity": "0.599999964"
             },
@@ -2154,7 +2154,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M27.2409577,20.3455337 C26.462715,21.3574913 26,22.6247092 26,24 C26,27.3137085 28.6862915,30 32,30 C35.3137085,30 38,27.3137085 38,24 C38,23.7097898 37.9793961,23.4243919 37.9395713,23.1451894 C37.9474218,22.9227843 37.9097825,22.6709538 37.8153518,22.4071242 C37.7703692,22.2814477 37.7221152,22.1572512 37.6706873,22.0345685 C37.3370199,21.0717264 36.7650456,20.2202109 36.0253277,19.550585 C33.898886,17.3173253 30.5064735,16 26.9975803,16 C22.1644225,16 18.006676,18.648508 16.1601674,22.4473116 C15.6201012,23.5583844 16.5467928,24.3002944 17.4375392,23.5716412 C19.8737584,21.5787519 23.2572061,20.3437884 26.9975803,20.3437884 C27.0788767,20.3437884 27.1600045,20.3443718 27.2409577,20.3455337 Z",
-                        "id": "{{uid}}-Eye-Left"
+                        "id": "{uid}-Eye-Left"
                     },
                     "children": []
                 },
@@ -2162,7 +2162,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M85.2409577,20.3455337 C84.462715,21.3574913 84,22.6247092 84,24 C84,27.3137085 86.6862915,30 90,30 C93.3137085,30 96,27.3137085 96,24 C96,23.7097898 95.9793961,23.4243919 95.9395713,23.1451894 C95.9474218,22.9227843 95.9097825,22.6709538 95.8153518,22.4071242 C95.7703692,22.2814477 95.7221152,22.1572512 95.6706873,22.0345685 C95.3370199,21.0717264 94.7650456,20.2202109 94.0253277,19.550585 C91.898886,17.3173253 88.5064735,16 84.9975803,16 C80.1644225,16 76.006676,18.648508 74.1601674,22.4473116 C73.6201012,23.5583844 74.5467928,24.3002944 75.4375392,23.5716412 C77.8737584,21.5787519 81.2572061,20.3437884 84.9975803,20.3437884 C85.0788767,20.3437884 85.1600045,20.3443718 85.2409577,20.3455337 Z",
-                        "id": "{{uid}}-Eye-Right"
+                        "id": "{uid}-Eye-Right"
                     },
                     "children": []
                 }
@@ -2171,7 +2171,7 @@ export const SVG_DICTIONARY = {
         "Squint": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyes/Squint-😊",
+                "id": "{uid}-Eyes/Squint-😊",
                 "transform": "translate(0.000000, 8.000000)"
             },
             "children": [
@@ -2202,7 +2202,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Eye-Left",
+                        "id": "{uid}-Eye-Left",
                         "transform": "translate(16.000000, 13.000000)"
                     },
                     "children": [
@@ -2217,7 +2217,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "use",
                                     "props": {
-                                        "xlinkHref": "#{{uid}}-top-path1"
+                                        "xlinkHref": "#{uid}-top-path1"
                                     },
                                     "children": []
                                 }
@@ -2226,19 +2226,19 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "id": "{{uid}}-Eyeball-Left",
+                                "id": "{uid}-Eyeball-Left",
                                 "fill": "#FFFFFF",
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         },
                         {
                             "type": "circle",
                             "props": {
-                                "id": "{{uid}}-Pupil-Left",
+                                "id": "{uid}-Pupil-Left",
                                 "fillOpacity": "0.699999988",
                                 "fill": "#000000",
-                                "mask": "`url(#${{uid}}-top-mask1)`",
+                                "mask": "`url(#${uid}-top-mask1)`",
                                 "cx": "14",
                                 "cy": "10",
                                 "r": "6"
@@ -2250,7 +2250,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Eye-Right",
+                        "id": "{uid}-Eye-Right",
                         "transform": "translate(68.000000, 13.000000)"
                     },
                     "children": [
@@ -2265,7 +2265,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "use",
                                     "props": {
-                                        "xlinkHref": "#{{uid}}-top-path2"
+                                        "xlinkHref": "#{uid}-top-path2"
                                     },
                                     "children": []
                                 }
@@ -2274,19 +2274,19 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "id": "{{uid}}-Eyeball-Right",
+                                "id": "{uid}-Eyeball-Right",
                                 "fill": "#FFFFFF",
-                                "xlinkHref": "#{{uid}}-top-path2"
+                                "xlinkHref": "#{uid}-top-path2"
                             },
                             "children": []
                         },
                         {
                             "type": "circle",
                             "props": {
-                                "id": "{{uid}}-Pupil-Right",
+                                "id": "{uid}-Pupil-Right",
                                 "fillOpacity": "0.699999988",
                                 "fill": "#000000",
-                                "mask": "`url(#${{uid}}-top-mask2)`",
+                                "mask": "`url(#${uid}-top-mask2)`",
                                 "cx": "14",
                                 "cy": "10",
                                 "r": "6"
@@ -2300,20 +2300,20 @@ export const SVG_DICTIONARY = {
         "Surprised": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyes/Surprised-😳",
+                "id": "{uid}-Eyes/Surprised-😳",
                 "transform": "translate(0.000000, 8.000000)"
             },
             "children": [
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Eye-Left"
+                        "id": "{uid}-Eye-Left"
                     },
                     "children": [
                         {
                             "type": "circle",
                             "props": {
-                                "id": "{{uid}}-Eyeball-Left",
+                                "id": "{uid}-Eyeball-Left",
                                 "cx": "30",
                                 "cy": "22",
                                 "r": "14",
@@ -2324,7 +2324,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "circle",
                             "props": {
-                                "id": "{{uid}}-Pupil-Left",
+                                "id": "{uid}-Pupil-Left",
                                 "fillOpacity": "0.699999988",
                                 "cx": "30",
                                 "cy": "22",
@@ -2338,13 +2338,13 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Eye-Right"
+                        "id": "{uid}-Eye-Right"
                     },
                     "children": [
                         {
                             "type": "circle",
                             "props": {
-                                "id": "{{uid}}-Eyeball-Right",
+                                "id": "{uid}-Eyeball-Right",
                                 "cx": "82",
                                 "cy": "22",
                                 "r": "14",
@@ -2355,7 +2355,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "circle",
                             "props": {
-                                "id": "{{uid}}-Pupil-Right",
+                                "id": "{uid}-Pupil-Right",
                                 "fillOpacity": "0.699999988",
                                 "cx": "82",
                                 "cy": "22",
@@ -2371,7 +2371,7 @@ export const SVG_DICTIONARY = {
         "Wink": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyes/Wink-😉",
+                "id": "{uid}-Eyes/Wink-😉",
                 "transform": "translate(0.000000, 8.000000)",
                 "fillOpacity": "0.599999964"
             },
@@ -2379,7 +2379,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "circle",
                     "props": {
-                        "id": "{{uid}}-Eye-Left",
+                        "id": "{uid}-Eye-Left",
                         "cx": "30",
                         "cy": "22",
                         "r": "6"
@@ -2389,7 +2389,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "path",
                     "props": {
-                        "id": "{{uid}}-Eye-Right",
+                        "id": "{uid}-Eye-Right",
                         "d": "M70.4123979,24.204889 C72.2589064,20.4060854 76.4166529,17.7575774 81.2498107,17.7575774 C86.065907,17.7575774 90.2113521,20.3874194 92.0675822,24.1647016 C92.618991,25.2867751 91.8343342,26.2050591 91.0428374,25.5246002 C88.5917368,23.4173607 85.1109468,22.1013658 81.2498107,22.1013658 C77.5094365,22.1013658 74.1259889,23.3363293 71.6897696,25.3292186 C70.7990233,26.0578718 69.8723316,25.3159619 70.4123979,24.204889 Z",
                         "transform": "translate(81.252230, 21.757577) rotate(-4.000000) translate(-81.252230, -21.757577) "
                     },
@@ -2400,7 +2400,7 @@ export const SVG_DICTIONARY = {
         "WinkWacky": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Eyes/Wink-Wacky-😜",
+                "id": "{uid}-Eyes/Wink-Wacky-😜",
                 "transform": "translate(0.000000, 8.000000)"
             },
             "children": [
@@ -2408,7 +2408,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M16.1601674,25.4473116 C18.006676,21.648508 22.1644225,19 26.9975803,19 C31.8136766,19 35.9591217,21.629842 37.8153518,25.4071242 C38.3667605,26.5291977 37.5821037,27.4474817 36.790607,26.7670228 C34.3395063,24.6597833 30.8587163,23.3437884 26.9975803,23.3437884 C23.2572061,23.3437884 19.8737584,24.5787519 17.4375392,26.5716412 C16.5467928,27.3002944 15.6201012,26.5583844 16.1601674,25.4473116 Z",
-                        "id": "{{uid}}-Eye-Left",
+                        "id": "{uid}-Eye-Left",
                         "fillOpacity": "0.599999964",
                         "fill": "#000000"
                     },
@@ -2417,13 +2417,13 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Eye-Right"
+                        "id": "{uid}-Eye-Right"
                     },
                     "children": [
                         {
                             "type": "circle",
                             "props": {
-                                "id": "{{uid}}-Eyeball-Right",
+                                "id": "{uid}-Eyeball-Right",
                                 "fill": "#FFFFFF",
                                 "cx": "82",
                                 "cy": "22",
@@ -2434,7 +2434,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "circle",
                             "props": {
-                                "id": "{{uid}}-Pupil-Right",
+                                "id": "{uid}-Pupil-Right",
                                 "fillOpacity": "0.699999988",
                                 "fill": "#000000",
                                 "cx": "82",
@@ -2452,7 +2452,7 @@ export const SVG_DICTIONARY = {
         "Concerned": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Mouth/Concerned",
+                "id": "{uid}-Mouth/Concerned",
                 "transform": "translate(2.000000, 52.000000)"
             },
             "children": [
@@ -2482,7 +2482,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1",
+                                "xlinkHref": "#{uid}-top-path1",
                                 "transform": "translate(54.003637, 22.500000) scale(1, -1) translate(-54.003637, -22.500000) "
                             },
                             "children": []
@@ -2492,22 +2492,22 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "use",
                     "props": {
-                        "id": "{{uid}}-Mouth",
+                        "id": "{uid}-Mouth",
                         "fillOpacity": "0.699999988",
                         "fill": "#000000",
                         "fillRule": "evenodd",
                         "transform": "translate(54.003637, 22.500000) scale(1, -1) translate(-54.003637, -22.500000) ",
-                        "xlinkHref": "#{{uid}}-top-path1"
+                        "xlinkHref": "#{uid}-top-path1"
                     },
                     "children": []
                 },
                 {
                     "type": "rect",
                     "props": {
-                        "id": "{{uid}}-Teeth",
+                        "id": "{uid}-Teeth",
                         "fill": "#FFFFFF",
                         "fillRule": "evenodd",
-                        "mask": "`url(#${{uid}}-top-mask1)`",
+                        "mask": "`url(#${uid}-top-mask1)`",
                         "x": "39",
                         "y": "2",
                         "width": "31",
@@ -2519,10 +2519,10 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Tongue",
+                        "id": "{uid}-Tongue",
                         "strokeWidth": "1",
                         "fillRule": "evenodd",
-                        "mask": "`url(#${{uid}}-top-mask1)`",
+                        "mask": "`url(#${uid}-top-mask1)`",
                         "fill": "#FF4F6D"
                     },
                     "children": [
@@ -2559,7 +2559,7 @@ export const SVG_DICTIONARY = {
         "Default": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Mouth/Default",
+                "id": "{uid}-Mouth/Default",
                 "transform": "translate(2.000000, 52.000000)",
                 "fillOpacity": "0.699999988"
             },
@@ -2568,7 +2568,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M40,15 C40,22.7319865 46.2680135,29 54,29 L54,29 C61.7319865,29 68,22.7319865 68,15",
-                        "id": "{{uid}}-Mouth"
+                        "id": "{uid}-Mouth"
                     },
                     "children": []
                 }
@@ -2577,7 +2577,7 @@ export const SVG_DICTIONARY = {
         "Disbelief": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Mouth/Disbelief",
+                "id": "{uid}-Mouth/Disbelief",
                 "transform": "translate(2.000000, 52.000000)",
                 "fillOpacity": "0.699999988",
                 "fill": "#000000"
@@ -2587,7 +2587,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M40,15 C40,22.7319865 46.2680135,29 54,29 L54,29 C61.7319865,29 68,22.7319865 68,15",
-                        "id": "{{uid}}-Mouth",
+                        "id": "{uid}-Mouth",
                         "transform": "translate(54.000000, 22.000000) scale(1, -1) translate(-54.000000, -22.000000) "
                     },
                     "children": []
@@ -2597,14 +2597,14 @@ export const SVG_DICTIONARY = {
         "Eating": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Mouth/Eating",
+                "id": "{uid}-Mouth/Eating",
                 "transform": "translate(2.000000, 52.000000)"
             },
             "children": [
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Mouth",
+                        "id": "{uid}-Mouth",
                         "opacity": "0.599999964",
                         "strokeWidth": "1",
                         "transform": "translate(28.000000, 6.000000)",
@@ -2616,7 +2616,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M16.1906378,10.106319 C16.0179484,4.99553347 11.7923466,0.797193688 6.29352385,0 C9.66004124,1.95870633 11.9804619,5.49520667 11.9804619,9.67694348 C11.9804619,15.344608 6.50694731,20.2451296 0.176591694,20.2451296 C0.11761218,20.2451296 0.0587475828,20.2447983 0,20.244138 L8.8963743e-11,20.244138 C1.35764479,20.7317259 2.83995964,21 4.39225962,21 C9.71395931,21 14.2131224,17.8469699 15.6863572,13.5136402 C18.1609431,15.6698775 21.8629994,17.0394229 26,17.0394229 C30.1370006,17.0394229 33.8390569,15.6698775 36.3136428,13.5136402 C37.7868776,17.8469699 42.2860407,21 47.6077404,21 C49.1600404,21 50.6423552,20.7317259 52,20.244138 L52,20.244138 C51.9412524,20.2447983 51.8823878,20.2451296 51.8234083,20.2451296 C45.4930527,20.2451296 40.0195381,15.344608 40.0195381,9.67694348 C40.0195381,5.49520667 42.3399588,1.95870633 45.7064761,0 C40.2076534,0.797193688 35.9820516,4.99553347 35.8093622,10.106319 C33.2452605,11.8422828 29.7948543,12.9056086 26,12.9056086 C22.2051457,12.9056086 18.7547395,11.8422828 16.1906378,10.106319 Z",
-                                "id": "{{uid}}-Mouth-Path"
+                                "id": "{uid}-Mouth-Path"
                             },
                             "children": []
                         }
@@ -2625,7 +2625,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "circle",
                     "props": {
-                        "id": "{{uid}}-Cheek-Left",
+                        "id": "{uid}-Cheek-Left",
                         "fillOpacity": "0.2",
                         "fill": "#FF4646",
                         "cx": "17",
@@ -2637,7 +2637,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "circle",
                     "props": {
-                        "id": "{{uid}}-Cheek-Right",
+                        "id": "{uid}-Cheek-Right",
                         "fillOpacity": "0.2",
                         "fill": "#FF4646",
                         "cx": "91",
@@ -2651,7 +2651,7 @@ export const SVG_DICTIONARY = {
         "Grimace": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Mouth/Grimace",
+                "id": "{uid}-Mouth/Grimace",
                 "transform": "translate(2.000000, 52.000000)"
             },
             "children": [
@@ -2677,7 +2677,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "rect",
                     "props": {
-                        "id": "{{uid}}-Mouth",
+                        "id": "{uid}-Mouth",
                         "fillOpacity": "0.599999964",
                         "fill": "#000000",
                         "fillRule": "evenodd",
@@ -2700,7 +2700,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -2709,10 +2709,10 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "use",
                     "props": {
-                        "id": "{{uid}}-Teeth",
+                        "id": "{uid}-Teeth",
                         "fill": "#FFFFFF",
                         "fillRule": "evenodd",
-                        "xlinkHref": "#{{uid}}-top-path1"
+                        "xlinkHref": "#{uid}-top-path1"
                     },
                     "children": []
                 },
@@ -2720,10 +2720,10 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M71,22 L62,22 L62,34 L58,34 L58,22 L49,22 L49,34 L45,34 L45,22 L36,22 L36,34 L32,34 L32,22 L24,22 L24,18 L32,18 L32,6 L36,6 L36,18 L45,18 L45,6 L49,6 L49,18 L58,18 L58,6 L62,6 L62,18 L71,18 L71,6 L75,6 L75,18 L83.8666667,18 L83.8666667,22 L75,22 L75,34 L71,34 L71,22 Z",
-                        "id": "{{uid}}-Grimace-Teeth",
+                        "id": "{uid}-Grimace-Teeth",
                         "fill": "#E6E6E6",
                         "fillRule": "evenodd",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": []
                 }
@@ -2732,7 +2732,7 @@ export const SVG_DICTIONARY = {
         "Sad": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Mouth/Sad",
+                "id": "{uid}-Mouth/Sad",
                 "transform": "translate(2.000000, 52.000000)",
                 "fillOpacity": "0.699999988",
                 "fill": "#000000"
@@ -2742,7 +2742,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M40.0582943,16.6539438 C40.7076459,23.6831146 46.7016363,28.3768187 54,28.3768187 C61.3416045,28.3768187 67.3633339,23.627332 67.9526838,16.5287605 C67.9840218,16.1513016 67.0772329,15.8529531 66.6289111,16.077395 C61.0902255,18.8502083 56.8805885,20.2366149 54,20.2366149 C51.1558456,20.2366149 47.0072148,18.8804569 41.5541074,16.168141 C41.0473376,15.9160792 40.0197139,16.2363147 40.0582943,16.6539438 Z",
-                        "id": "{{uid}}-Mouth",
+                        "id": "{uid}-Mouth",
                         "transform": "translate(54.005357, 22.188409) scale(1, -1) translate(-54.005357, -22.188409) "
                     },
                     "children": []
@@ -2752,7 +2752,7 @@ export const SVG_DICTIONARY = {
         "ScreamOpen": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Mouth/Scream-Open",
+                "id": "{uid}-Mouth/Scream-Open",
                 "transform": "translate(2.000000, 52.000000)"
             },
             "children": [
@@ -2782,7 +2782,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1",
+                                "xlinkHref": "#{uid}-top-path1",
                                 "transform": "translate(54.000000, 26.999998) scale(1, -1) translate(-54.000000, -26.999998) "
                             },
                             "children": []
@@ -2792,22 +2792,22 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "use",
                     "props": {
-                        "id": "{{uid}}-Mouth",
+                        "id": "{uid}-Mouth",
                         "fillOpacity": "0.699999988",
                         "fill": "#000000",
                         "fillRule": "evenodd",
                         "transform": "translate(54.000000, 26.999998) scale(1, -1) translate(-54.000000, -26.999998) ",
-                        "xlinkHref": "#{{uid}}-top-path1"
+                        "xlinkHref": "#{uid}-top-path1"
                     },
                     "children": []
                 },
                 {
                     "type": "rect",
                     "props": {
-                        "id": "{{uid}}-Teeth",
+                        "id": "{uid}-Teeth",
                         "fill": "#FFFFFF",
                         "fillRule": "evenodd",
-                        "mask": "`url(#${{uid}}-top-mask1)`",
+                        "mask": "`url(#${uid}-top-mask1)`",
                         "x": "39",
                         "y": "2",
                         "width": "31",
@@ -2819,10 +2819,10 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Tongue",
+                        "id": "{uid}-Tongue",
                         "strokeWidth": "1",
                         "fillRule": "evenodd",
-                        "mask": "`url(#${{uid}}-top-mask1)`",
+                        "mask": "`url(#${uid}-top-mask1)`",
                         "fill": "#FF4F6D"
                     },
                     "children": [
@@ -2859,7 +2859,7 @@ export const SVG_DICTIONARY = {
         "Serious": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Mouth/Serious",
+                "id": "{uid}-Mouth/Serious",
                 "transform": "translate(2.000000, 52.000000)",
                 "fill": "#000000",
                 "fillOpacity": "0.699999988"
@@ -2868,7 +2868,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "rect",
                     "props": {
-                        "id": "{{uid}}-Mouth",
+                        "id": "{uid}-Mouth",
                         "x": "42",
                         "y": "18",
                         "width": "24",
@@ -2882,7 +2882,7 @@ export const SVG_DICTIONARY = {
         "Smile": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Mouth/Smile",
+                "id": "{uid}-Mouth/Smile",
                 "transform": "translate(2.000000, 52.000000)"
             },
             "children": [
@@ -2912,7 +2912,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -2921,21 +2921,21 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "use",
                     "props": {
-                        "id": "{{uid}}-Mouth",
+                        "id": "{uid}-Mouth",
                         "fillOpacity": "0.699999988",
                         "fill": "#000000",
                         "fillRule": "evenodd",
-                        "xlinkHref": "#{{uid}}-top-path1"
+                        "xlinkHref": "#{uid}-top-path1"
                     },
                     "children": []
                 },
                 {
                     "type": "rect",
                     "props": {
-                        "id": "{{uid}}-Teeth",
+                        "id": "{uid}-Teeth",
                         "fill": "#FFFFFF",
                         "fillRule": "evenodd",
-                        "mask": "`url(#${{uid}}-top-mask1)`",
+                        "mask": "`url(#${uid}-top-mask1)`",
                         "x": "39",
                         "y": "2",
                         "width": "31",
@@ -2947,10 +2947,10 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Tongue",
+                        "id": "{uid}-Tongue",
                         "strokeWidth": "1",
                         "fillRule": "evenodd",
-                        "mask": "`url(#${{uid}}-top-mask1)`",
+                        "mask": "`url(#${uid}-top-mask1)`",
                         "fill": "#FF4F6D"
                     },
                     "children": [
@@ -2987,7 +2987,7 @@ export const SVG_DICTIONARY = {
         "Tongue": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Mouth/Tongue",
+                "id": "{uid}-Mouth/Tongue",
                 "transform": "translate(2.000000, 52.000000)"
             },
             "children": [
@@ -3017,7 +3017,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -3026,21 +3026,21 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "use",
                     "props": {
-                        "id": "{{uid}}-Mouth",
+                        "id": "{uid}-Mouth",
                         "fillOpacity": "0.699999988",
                         "fill": "#000000",
                         "fillRule": "evenodd",
-                        "xlinkHref": "#{{uid}}-top-path1"
+                        "xlinkHref": "#{uid}-top-path1"
                     },
                     "children": []
                 },
                 {
                     "type": "rect",
                     "props": {
-                        "id": "{{uid}}-Teeth",
+                        "id": "{uid}-Teeth",
                         "fill": "#FFFFFF",
                         "fillRule": "evenodd",
-                        "mask": "`url(#${{uid}}-top-mask1)`",
+                        "mask": "`url(#${uid}-top-mask1)`",
                         "x": "39",
                         "y": "2",
                         "width": "31",
@@ -3053,7 +3053,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M65.9841079,23.7466656 C65.9945954,23.8296335 66,23.9141856 66,24 L66,33 C66,39.0751322 61.0751322,44 55,44 L54,44 C47.9248678,44 43,39.0751322 43,33 L43,24 L43,24 C43,23.9141856 43.0054046,23.8296335 43.0158921,23.7466656 C43.0053561,23.6651805 43,23.5829271 43,23.5 C43,21.5670034 45.9101491,20 49.5,20 C51.510438,20 53.3076958,20.4914717 54.5,21.2634601 C55.6923042,20.4914717 57.489562,20 59.5,20 C63.0898509,20 66,21.5670034 66,23.5 C66,23.5829271 65.9946439,23.6651805 65.9841079,23.7466656 Z",
-                        "id": "{{uid}}-Tongue",
+                        "id": "{uid}-Tongue",
                         "fill": "#FF4F6D",
                         "fillRule": "evenodd"
                     },
@@ -3064,7 +3064,7 @@ export const SVG_DICTIONARY = {
         "Twinkle": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Mouth/Twinkle",
+                "id": "{uid}-Mouth/Twinkle",
                 "transform": "translate(2.000000, 52.000000)",
                 "fillOpacity": "0.599999964",
                 "fillRule": "nonzero",
@@ -3075,7 +3075,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M40,16 C40,21.371763 46.1581544,25 54,25 C61.8418456,25 68,21.371763 68,16 C68,14.8954305 67.050301,14 66,14 C64.7072748,14 64.1302316,14.9051755 64,16 C62.7575758,18.9378973 59.6832595,20.7163149 54,21 C48.3167405,20.7163149 45.2424242,18.9378973 44,16 C43.8697684,14.9051755 43.2927252,14 42,14 C40.949699,14 40,14.8954305 40,16 Z",
-                        "id": "{{uid}}-Mouth"
+                        "id": "{uid}-Mouth"
                     },
                     "children": []
                 }
@@ -3084,7 +3084,7 @@ export const SVG_DICTIONARY = {
         "Vomit": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Mouth/Vomit",
+                "id": "{uid}-Mouth/Vomit",
                 "transform": "translate(2.000000, 52.000000)"
             },
             "children": [
@@ -3168,7 +3168,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1",
+                                "xlinkHref": "#{uid}-top-path1",
                                 "transform": "translate(54.000000, 21.499998) scale(1, -1) translate(-54.000000, -21.499998) "
                             },
                             "children": []
@@ -3178,22 +3178,22 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "use",
                     "props": {
-                        "id": "{{uid}}-Mouth",
+                        "id": "{uid}-Mouth",
                         "fillOpacity": "0.699999988",
                         "fill": "#000000",
                         "fillRule": "evenodd",
                         "transform": "translate(54.000000, 21.499998) scale(1, -1) translate(-54.000000, -21.499998) ",
-                        "xlinkHref": "#{{uid}}-top-path1"
+                        "xlinkHref": "#{uid}-top-path1"
                     },
                     "children": []
                 },
                 {
                     "type": "rect",
                     "props": {
-                        "id": "{{uid}}-Teeth",
+                        "id": "{uid}-Teeth",
                         "fill": "#FFFFFF",
                         "fillRule": "evenodd",
-                        "mask": "`url(#${{uid}}-top-mask1)`",
+                        "mask": "`url(#${uid}-top-mask1)`",
                         "x": "39",
                         "y": "0",
                         "width": "31",
@@ -3205,7 +3205,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Vomit"
+                        "id": "{uid}-Vomit"
                     },
                     "children": [
                         {
@@ -3213,7 +3213,7 @@ export const SVG_DICTIONARY = {
                             "props": {
                                 "fill": "#88C553",
                                 "fillRule": "evenodd",
-                                "xlinkHref": "#{{uid}}-top-path2"
+                                "xlinkHref": "#{uid}-top-path2"
                             },
                             "children": []
                         },
@@ -3222,8 +3222,8 @@ export const SVG_DICTIONARY = {
                             "props": {
                                 "fill": "black",
                                 "fillOpacity": "1",
-                                "filter": "`url(#${{uid}}-top-filter1)`",
-                                "xlinkHref": "#{{uid}}-top-path2"
+                                "filter": "`url(#${uid}-top-filter1)`",
+                                "xlinkHref": "#{uid}-top-path2"
                             },
                             "children": []
                         }
@@ -3236,7 +3236,7 @@ export const SVG_DICTIONARY = {
         "Default": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Nose/Default",
+                "id": "{uid}-Nose/Default",
                 "transform": "translate(28.000000, 40.000000)",
                 "fillOpacity": "0.16"
             },
@@ -3245,7 +3245,7 @@ export const SVG_DICTIONARY = {
                     "type": "path",
                     "props": {
                         "d": "M16,8 C16,12.418278 21.372583,16 28,16 L28,16 C34.627417,16 40,12.418278 40,8",
-                        "id": "{{uid}}-Nose"
+                        "id": "{uid}-Nose"
                     },
                     "children": []
                 }
@@ -3256,7 +3256,7 @@ export const SVG_DICTIONARY = {
         "Kurt": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top/Accessories/Kurt",
+                "id": "{uid}-Top/Accessories/Kurt",
                 "fill": "none",
                 "transform": "translate(62.000000, 85.000000)",
                 "strokeWidth": "1"
@@ -3325,8 +3325,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Kurts",
-                        "filter": "`url(#${{uid}}-top-filter1)`",
+                        "id": "{uid}-Kurts",
+                        "filter": "`url(#${uid}-top-filter1)`",
                         "transform": "translate(5.000000, 2.000000)"
                     },
                     "children": [
@@ -3344,7 +3344,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M55.1294118,21.4814815 C55.5103632,13.8233491 42.2156493,5.64243259 27.9529412,5.92592593 C13.6973442,6.22450879 11.8417942,15.3786982 11.6470588,18.8888889 C11.2982286,27.0220633 20.014463,45.3037598 36.1058824,44.8148148 C52.1972736,44.305848 54.9092435,26.5344305 55.1294118,21.4814815 Z",
-                                "id": "{{uid}}-Lens-Left",
+                                "id": "{uid}-Lens-Left",
                                 "fill": "#2F383B",
                                 "fillRule": "nonzero"
                             },
@@ -3354,7 +3354,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M120.352941,21.4814815 C120.733893,13.8233491 107.439179,5.64243259 93.1764706,5.92592593 C78.9208736,6.22450879 77.0653236,15.3786982 76.8705882,18.8888889 C76.521758,27.0220633 85.2379924,45.3037598 101.329412,44.8148148 C117.420803,44.305848 120.132773,26.5344305 120.352941,21.4814815 Z",
-                                "id": "{{uid}}-Lens-Right",
+                                "id": "{uid}-Lens-Right",
                                 "fill": "#2F383B",
                                 "fillRule": "nonzero",
                                 "transform": "translate(98.611765, 25.370370) scale(-1, 1) translate(-98.611765, -25.370370) "
@@ -3368,7 +3368,7 @@ export const SVG_DICTIONARY = {
         "Prescription01": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top/Accessories/Prescription-01",
+                "id": "{uid}-Top/Accessories/Prescription-01",
                 "fill": "none",
                 "transform": "translate(62.000000, 85.000000)",
                 "strokeWidth": "1"
@@ -3437,8 +3437,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Glasses",
-                        "filter": "`url(#${{uid}}-top-filter1)`",
+                        "id": "{uid}-Glasses",
+                        "filter": "`url(#${uid}-top-filter1)`",
                         "transform": "translate(8.000000, 8.000000)",
                         "fill": "#D6EAF2"
                     },
@@ -3447,7 +3447,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M46.2491397,7.27516667 C48.6207695,7.2975 49.7419096,7.69183333 50.1459601,10.1651667 C50.5553446,12.6705 50.1572949,15.4871667 49.6852359,17.9548333 C48.9648125,21.7228333 47.7666627,25.4145 44.9776475,28.1685 C43.5084639,29.6188333 41.7165732,30.7748333 39.8106684,31.5641667 C38.7985419,31.9835 37.7297416,32.2861667 36.6612747,32.5158333 C36.3489024,32.5828333 33.6822357,32.9501667 35.3177735,32.7635 C31.5009631,33.1991667 27.3601122,33.1818333 24.1723805,30.7525 C20.6396056,28.0601667 18.2203032,23.7998333 17.1565036,19.5561667 C16.5340925,17.0731667 15.2262624,11.1345 17.6158944,9.14916667 C20.3532365,6.8745 46.2491397,7.27516667 46.2491397,7.27516667 L46.2491397,7.27516667 Z M22.2178029,0.4905 C16.7774562,0.677833333 13.1466691,1.63383333 10.4633337,7.06916667 C5.54571911,17.0301667 13.9627711,31.9688333 23.352278,36.0395 C34.3293166,40.7991667 46.5921826,35.5318333 52.3955746,26.0058333 C55.4689587,20.9621667 57.0224862,13.3231667 56.9224737,7.50383333 C56.7951245,0.0765 51.6071427,-0.1295 45.5090472,0.0338333333 L22.2178029,0.4905 Z",
-                                "id": "{{uid}}-Frame-1"
+                                "id": "{uid}-Frame-1"
                             },
                             "children": []
                         },
@@ -3455,7 +3455,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M79.6805515,7.27256667 C77.3089217,7.29523333 76.1877816,7.68923333 75.7837311,10.1625667 C75.3743466,12.6679 75.7723963,15.4845667 76.244122,17.9522333 C76.9648787,21.7202333 78.1630285,25.4119 80.9520437,28.1659 C82.4212273,29.6162333 84.213118,30.7722333 86.1190228,31.5619 C87.1311493,31.9809 88.1999496,32.2835667 89.2684165,32.5132333 C89.5807888,32.5802333 92.2471221,32.9479 90.6119177,32.7609 C94.4287281,33.1965667 98.569579,33.1792333 101.757311,30.7499 C105.290086,28.0575667 107.709388,23.7975667 108.773188,19.5539 C109.395599,17.0705667 110.703095,11.1322333 108.313797,9.14656667 C105.576455,6.8719 79.6805515,7.27256667 79.6805515,7.27256667 L79.6805515,7.27256667 Z M103.711555,0.4879 C109.152235,0.675233333 112.783022,1.63156667 115.466357,7.06656667 C120.383639,17.0275667 111.96692,31.9662333 102.577413,36.0372333 C91.6003746,40.7965667 79.3375086,35.5292333 73.5337832,26.0035667 C70.4607325,20.9595667 68.907205,13.3205667 69.0068841,7.50123333 C69.1345667,0.0739 74.3225485,-0.1321 80.420644,0.0315666667 L103.711555,0.4879 Z",
-                                "id": "{{uid}}-Frame-2"
+                                "id": "{uid}-Frame-2"
                             },
                             "children": []
                         },
@@ -3463,7 +3463,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M13.1969483,4.9267 C9.78501392,5.11836667 5.88606327,5.16436667 2.69005822,6.63936667 C-0.69461078,8.20136667 -1.2176675,11.7387 3.04920921,12.2260333 C4.97094906,12.4457 6.89488267,12.0827 8.78716336,11.7450333 C10.336903,11.4683667 12.4419791,11.5580333 13.9064752,10.9657 C16.6355213,9.86236667 16.4603333,4.74003333 13.1969483,4.9267",
-                                "id": "{{uid}}-Frame-3"
+                                "id": "{uid}-Frame-3"
                             },
                             "children": []
                         },
@@ -3471,7 +3471,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M112.73467,4.9267 C116.146606,5.11836667 120.045559,5.16436667 123.241565,6.63936667 C126.626236,8.20136667 127.149293,11.7387 122.882414,12.2260333 C120.960673,12.4457 119.036739,12.0827 117.144457,11.7450333 C115.594717,11.4683667 113.489639,11.5580333 112.025143,10.9657 C109.295782,9.86236667 109.471283,4.74003333 112.73467,4.9267",
-                                "id": "{{uid}}-Frame-4"
+                                "id": "{uid}-Frame-4"
                             },
                             "children": []
                         },
@@ -3479,7 +3479,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M73.1094302,7.01263333 C71.1631869,4.71263333 66.0912197,3.38463333 62.8914864,3.38463333 C59.6914198,3.38463333 54.7681378,4.71263333 52.8222279,7.01263333 C51.8407719,8.1723 51.8074344,9.72396667 53.5083137,10.4509667 C55.6262451,11.3566333 57.5174814,9.7143 59.2126933,8.8553 C61.3809643,7.75663333 64.7120473,7.8773 66.7189648,8.8553 C68.4271783,9.68796667 70.3050797,11.3566333 72.4233444,10.4509667 C74.1242237,9.72396667 74.0908862,8.1723 73.1094302,7.01263333",
-                                "id": "{{uid}}-Frame-5"
+                                "id": "{uid}-Frame-5"
                             },
                             "children": []
                         }
@@ -3490,7 +3490,7 @@ export const SVG_DICTIONARY = {
         "Prescription02": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top/Accessories/Prescription-02",
+                "id": "{uid}-Top/Accessories/Prescription-02",
                 "fill": "none",
                 "transform": "translate(62.000000, 85.000000)",
                 "strokeWidth": "1"
@@ -3560,7 +3560,7 @@ export const SVG_DICTIONARY = {
                     "type": "g",
                     "props": {
                         "id": "Wayfarers",
-                        "filter": "`url(#${{uid}}-top-filter1)`",
+                        "filter": "`url(#${uid}-top-filter1)`",
                         "transform": "translate(6.000000, 7.000000)",
                         "fill": "#252C2F"
                     },
@@ -3599,7 +3599,7 @@ export const SVG_DICTIONARY = {
         "Round": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top/Accewssories/Round",
+                "id": "{uid}-Top/Accewssories/Round",
                 "fill": "none",
                 "transform": "translate(62.000000, 85.000000)"
             },
@@ -3655,7 +3655,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Lennon-Glasses"
+                        "id": "{uid}-Lennon-Glasses"
                     },
                     "children": [
                         {
@@ -3663,8 +3663,8 @@ export const SVG_DICTIONARY = {
                             "props": {
                                 "fill": "black",
                                 "fillOpacity": "1",
-                                "filter": "`url(#${{uid}}-top-filter1)`",
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "filter": "`url(#${uid}-top-filter1)`",
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         },
@@ -3673,7 +3673,7 @@ export const SVG_DICTIONARY = {
                             "props": {
                                 "fill": "#252C2F",
                                 "fillRule": "evenodd",
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -3684,7 +3684,7 @@ export const SVG_DICTIONARY = {
         "Sunglasses": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top/Accessories/Sunglasses",
+                "id": "{uid}-Top/Accessories/Sunglasses",
                 "fill": "none",
                 "transform": "translate(62.000000, 85.000000)",
                 "strokeWidth": "1"
@@ -3831,8 +3831,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Sunglasses",
-                        "filter": "`url(#${{uid}}-top-filter1)`",
+                        "id": "{uid}-Sunglasses",
+                        "filter": "`url(#${uid}-top-filter1)`",
                         "transform": "translate(8.000000, 8.000000)"
                     },
                     "children": [
@@ -3847,7 +3847,7 @@ export const SVG_DICTIONARY = {
                                     "props": {
                                         "fillOpacity": "0.700000048",
                                         "fill": "#000000",
-                                        "xlinkHref": "#{{uid}}-top-path1"
+                                        "xlinkHref": "#{uid}-top-path1"
                                     },
                                     "children": []
                                 },
@@ -3856,7 +3856,7 @@ export const SVG_DICTIONARY = {
                                     "props": {
                                         "fill": "`url(#${linearGradient1})`",
                                         "style": "{ mixBlendMode: 'screen' }",
-                                        "xlinkHref": "#{{uid}}-top-path1"
+                                        "xlinkHref": "#{uid}-top-path1"
                                     },
                                     "children": []
                                 }
@@ -3865,7 +3865,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "g",
                             "props": {
-                                "id": "{{uid}}-shades"
+                                "id": "{uid}-shades"
                             },
                             "children": [
                                 {
@@ -3873,7 +3873,7 @@ export const SVG_DICTIONARY = {
                                     "props": {
                                         "fillOpacity": "0.700000048",
                                         "fill": "#000000",
-                                        "xlinkHref": "#{{uid}}-top-path2"
+                                        "xlinkHref": "#{uid}-top-path2"
                                     },
                                     "children": []
                                 },
@@ -3882,7 +3882,7 @@ export const SVG_DICTIONARY = {
                                     "props": {
                                         "fill": "`url(#${linearGradient2})`",
                                         "style": "{ mixBlendMode: 'screen' }",
-                                        "xlinkHref": "#{{uid}}-top-path2"
+                                        "xlinkHref": "#{uid}-top-path2"
                                     },
                                     "children": []
                                 }
@@ -3891,7 +3891,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "g",
                             "props": {
-                                "id": "{{uid}}-Glasses",
+                                "id": "{uid}-Glasses",
                                 "fill": "#252C2F"
                             },
                             "children": [
@@ -3899,7 +3899,7 @@ export const SVG_DICTIONARY = {
                                     "type": "path",
                                     "props": {
                                         "d": "M46.2491397,7.27516667 C48.6207695,7.2975 49.7419096,7.69183333 50.1459601,10.1651667 C50.5553446,12.6705 50.1572949,15.4871667 49.6852359,17.9548333 C48.9648125,21.7228333 47.7666627,25.4145 44.9776475,28.1685 C43.5084639,29.6188333 41.7165732,30.7748333 39.8106684,31.5641667 C38.7985419,31.9835 37.7297416,32.2861667 36.6612747,32.5158333 C36.3489024,32.5828333 33.6822357,32.9501667 35.3177735,32.7635 C31.5009631,33.1991667 27.3601122,33.1818333 24.1723805,30.7525 C20.6396056,28.0601667 18.2203032,23.7998333 17.1565036,19.5561667 C16.5340925,17.0731667 15.2262624,11.1345 17.6158944,9.14916667 C20.3532365,6.8745 46.2491397,7.27516667 46.2491397,7.27516667 L46.2491397,7.27516667 Z M22.2178029,0.4905 C16.7774562,0.677833333 13.1466691,1.63383333 10.4633337,7.06916667 C5.54571911,17.0301667 13.9627711,31.9688333 23.352278,36.0395 C34.3293166,40.7991667 46.5921826,35.5318333 52.3955746,26.0058333 C55.4689587,20.9621667 57.0224862,13.3231667 56.9224737,7.50383333 C56.7951245,0.0765 51.6071427,-0.1295 45.5090472,0.0338333333 L22.2178029,0.4905 Z",
-                                        "id": "{{uid}}-Frame1"
+                                        "id": "{uid}-Frame1"
                                     },
                                     "children": []
                                 },
@@ -3907,7 +3907,7 @@ export const SVG_DICTIONARY = {
                                     "type": "path",
                                     "props": {
                                         "d": "M79.6805515,7.27256667 C77.3089217,7.29523333 76.1877816,7.68923333 75.7837311,10.1625667 C75.3743466,12.6679 75.7723963,15.4845667 76.244122,17.9522333 C76.9648787,21.7202333 78.1630285,25.4119 80.9520437,28.1659 C82.4212273,29.6162333 84.213118,30.7722333 86.1190228,31.5619 C87.1311493,31.9809 88.1999496,32.2835667 89.2684165,32.5132333 C89.5807888,32.5802333 92.2471221,32.9479 90.6119177,32.7609 C94.4287281,33.1965667 98.569579,33.1792333 101.757311,30.7499 C105.290086,28.0575667 107.709388,23.7975667 108.773188,19.5539 C109.395599,17.0705667 110.703095,11.1322333 108.313797,9.14656667 C105.576455,6.8719 79.6805515,7.27256667 79.6805515,7.27256667 L79.6805515,7.27256667 Z M103.711555,0.4879 C109.152235,0.675233333 112.783022,1.63156667 115.466357,7.06656667 C120.383639,17.0275667 111.96692,31.9662333 102.577413,36.0372333 C91.6003746,40.7965667 79.3375086,35.5292333 73.5337832,26.0035667 C70.4607325,20.9595667 68.907205,13.3205667 69.0068841,7.50123333 C69.1345667,0.0739 74.3225485,-0.1321 80.420644,0.0315666667 L103.711555,0.4879 Z",
-                                        "id": "{{uid}}-Frame2"
+                                        "id": "{uid}-Frame2"
                                     },
                                     "children": []
                                 },
@@ -3915,7 +3915,7 @@ export const SVG_DICTIONARY = {
                                     "type": "path",
                                     "props": {
                                         "d": "M13.1969483,4.9267 C9.78501392,5.11836667 5.88606327,5.16436667 2.69005822,6.63936667 C-0.69461078,8.20136667 -1.2176675,11.7387 3.04920921,12.2260333 C4.97094906,12.4457 6.89488267,12.0827 8.78716336,11.7450333 C10.336903,11.4683667 12.4419791,11.5580333 13.9064752,10.9657 C16.6355213,9.86236667 16.4603333,4.74003333 13.1969483,4.9267",
-                                        "id": "{{uid}}-Frame3"
+                                        "id": "{uid}-Frame3"
                                     },
                                     "children": []
                                 },
@@ -3923,7 +3923,7 @@ export const SVG_DICTIONARY = {
                                     "type": "path",
                                     "props": {
                                         "d": "M112.73467,4.9267 C116.146606,5.11836667 120.045559,5.16436667 123.241565,6.63936667 C126.626236,8.20136667 127.149293,11.7387 122.882414,12.2260333 C120.960673,12.4457 119.036739,12.0827 117.144457,11.7450333 C115.594717,11.4683667 113.489639,11.5580333 112.025143,10.9657 C109.295782,9.86236667 109.471283,4.74003333 112.73467,4.9267",
-                                        "id": "{{uid}}-Frame4"
+                                        "id": "{uid}-Frame4"
                                     },
                                     "children": []
                                 },
@@ -3931,7 +3931,7 @@ export const SVG_DICTIONARY = {
                                     "type": "path",
                                     "props": {
                                         "d": "M73.1094302,7.01263333 C71.1631869,4.71263333 66.0912197,3.38463333 62.8914864,3.38463333 C59.6914198,3.38463333 54.7681378,4.71263333 52.8222279,7.01263333 C51.8407719,8.1723 51.8074344,9.72396667 53.5083137,10.4509667 C55.6262451,11.3566333 57.5174814,9.7143 59.2126933,8.8553 C61.3809643,7.75663333 64.7120473,7.8773 66.7189648,8.8553 C68.4271783,9.68796667 70.3050797,11.3566333 72.4233444,10.4509667 C74.1242237,9.72396667 74.0908862,8.1723 73.1094302,7.01263333",
-                                        "id": "{{uid}}-Frame5"
+                                        "id": "{uid}-Frame5"
                                     },
                                     "children": []
                                 }
@@ -3944,7 +3944,7 @@ export const SVG_DICTIONARY = {
         "Wayfarers": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top/Accessories/Wayfarers",
+                "id": "{uid}-Top/Accessories/Wayfarers",
                 "fill": "none",
                 "transform": "translate(62.000000, 85.000000)",
                 "strokeWidth": "1"
@@ -4061,15 +4061,15 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Wayfarers",
-                        "filter": "`url(#${{uid}}-top-filter1)`",
+                        "id": "{uid}-Wayfarers",
+                        "filter": "`url(#${uid}-top-filter1)`",
                         "transform": "translate(7.000000, 7.000000)"
                     },
                     "children": [
                         {
                             "type": "g",
                             "props": {
-                                "id": "{{uid}}-Shades",
+                                "id": "{uid}-Shades",
                                 "transform": "translate(10.795455, 2.928571)",
                                 "fillRule": "nonzero"
                             },
@@ -4077,7 +4077,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Shade-Left"
+                                        "id": "{uid}-Shade-Left"
                                     },
                                     "children": [
                                         {
@@ -4086,7 +4086,7 @@ export const SVG_DICTIONARY = {
                                                 "fillOpacity": "0.700000048",
                                                 "fill": "#000000",
                                                 "fillRule": "evenodd",
-                                                "xlinkHref": "#{{uid}}-top-path1"
+                                                "xlinkHref": "#{uid}-top-path1"
                                             },
                                             "children": []
                                         },
@@ -4096,7 +4096,7 @@ export const SVG_DICTIONARY = {
                                                 "fill": "`url(#${linearGradient1})`",
                                                 "fillRule": "evenodd",
                                                 "style": "{ mixBlendMode: 'screen' }",
-                                                "xlinkHref": "#{{uid}}-top-path1"
+                                                "xlinkHref": "#{uid}-top-path1"
                                             },
                                             "children": []
                                         }
@@ -4105,7 +4105,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Shade-Right"
+                                        "id": "{uid}-Shade-Right"
                                     },
                                     "children": [
                                         {
@@ -4114,7 +4114,7 @@ export const SVG_DICTIONARY = {
                                                 "fillOpacity": "0.700000048",
                                                 "fill": "#000000",
                                                 "fillRule": "evenodd",
-                                                "xlinkHref": "#{{uid}}-top-path2"
+                                                "xlinkHref": "#{uid}-top-path2"
                                             },
                                             "children": []
                                         },
@@ -4124,7 +4124,7 @@ export const SVG_DICTIONARY = {
                                                 "fill": "`url(#${linearGradient1})`",
                                                 "fillRule": "evenodd",
                                                 "style": "{ mixBlendMode: 'screen' }",
-                                                "xlinkHref": "#{{uid}}-top-path2"
+                                                "xlinkHref": "#{uid}-top-path2"
                                             },
                                             "children": []
                                         }
@@ -4136,7 +4136,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M33.7159091,41 L30.9658636,41 C17.0778409,41 8.78665909,33.3359286 8.78665909,20.5 C8.78665909,10.127 10.5985227,0 32.25,0 L35.1818182,0 C56.8332955,0 58.6451591,10.127 58.6451591,20.5 C58.6451591,32.5686429 48.3955227,41 33.7159091,41 Z M32.25,5.85421429 C14.6502955,5.85421429 14.6502955,12.3175714 14.6502955,20.5 C14.6502955,27.1800714 17.4795,35.1428571 30.9658636,35.1428571 L33.7159091,35.1428571 C44.9418409,35.1428571 52.7815227,29.1217143 52.7815227,20.5 C52.7815227,12.3175714 52.7815227,5.85421429 35.1818182,5.85421429 L32.25,5.85421429 Z",
-                                "id": "{{uid}}-Frame-Left",
+                                "id": "{uid}-Frame-Left",
                                 "fill": "#252C2F",
                                 "fillRule": "nonzero"
                             },
@@ -4146,7 +4146,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M95.2840909,41 L92.5340455,41 C78.6460227,41 70.3548409,33.3359286 70.3548409,20.5 C70.3548409,10.127 72.1667045,0 93.8181818,0 L96.75,0 C118.401477,0 120.213341,10.127 120.213341,20.5 C120.213341,32.5686429 109.963705,41 95.2840909,41 Z M93.8181818,5.85421429 C76.2184773,5.85421429 76.2184773,12.3175714 76.2184773,20.5 C76.2184773,27.1800714 79.0506136,35.1428571 92.5340455,35.1428571 L95.2840909,35.1428571 C106.510023,35.1428571 114.349705,29.1217143 114.349705,20.5 C114.349705,12.3175714 114.349705,5.85421429 96.75,5.85421429 L93.8181818,5.85421429 Z",
-                                "id": "{{uid}}-Frame-Right",
+                                "id": "{uid}-Frame-Right",
                                 "fill": "#252C2F",
                                 "fillRule": "nonzero"
                             },
@@ -4156,7 +4156,7 @@ export const SVG_DICTIONARY = {
                             "type": "path",
                             "props": {
                                 "d": "M2.93181818,5.85714286 C3.61786364,5.17185714 11.1233182,0 32.25,0 C49.9640455,0 53.7138409,1.88014286 59.3898409,4.72085714 L59.8053162,4.93054903 C60.1999353,5.07314243 62.2179351,5.77419634 64.5784525,5.85128811 C66.7290156,5.75689949 68.5684809,5.16080623 69.1059926,4.96981137 C75.5844654,1.74762081 81.9260118,0 96.75,0 C117.876682,0 125.382136,5.17185714 126.068182,5.85714286 C127.689477,5.85714286 129,7.16621429 129,8.78571429 L129,11.7142857 C129,13.3337857 127.689477,14.6428571 126.068182,14.6428571 C126.068182,14.6428571 120.204545,14.6428571 120.204545,17.5714286 C120.204545,20.5 117.272727,13.3337857 117.272727,11.7142857 L117.272727,8.8618831 C113.697201,7.46243482 107.296654,5.85714286 96.75,5.85714286 C84.9995538,5.85714286 79.1475515,6.98813142 74.1276604,9.10414393 L74.1837955,9.24257143 L71.6878772,10.2500422 L74.1813177,11.2582547 L71.981173,16.6874536 L69.263564,15.5885995 C69.0208516,15.4904597 68.4971539,15.3141463 67.770994,15.1309826 C65.7466083,14.6203594 63.6653786,14.4649153 61.8248214,14.8513001 C61.1495627,14.993056 60.5230576,15.2057795 59.9480988,15.4931011 L57.3260941,16.8033836 L54.7026238,11.5651815 L57.3246285,10.2548989 L57.3310023,10.251716 L54.8191364,9.23671429 L54.8992448,9.03890561 C50.5700368,6.97578666 46.5781927,5.85714286 32.25,5.85714286 C21.7038986,5.85714286 15.3034993,7.46145875 11.7272727,8.86093383 L11.7272727,11.7142857 C11.7272727,13.3337857 8.79545455,20.5 8.79545455,17.5714286 C8.79545455,14.6428571 2.93181818,14.6428571 2.93181818,14.6428571 C1.31345455,14.6428571 0,13.3337857 0,11.7142857 L0,8.78571429 C0,7.16621429 1.31345455,5.85714286 2.93181818,5.85714286 Z",
-                                "id": "{{uid}}-Frame-Mid",
+                                "id": "{uid}-Frame-Mid",
                                 "fill": "#252C2F",
                                 "fillRule": "nonzero"
                             },
@@ -4171,7 +4171,7 @@ export const SVG_DICTIONARY = {
         "BeardLight": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Facial-Hair/Beard-Light",
+                "id": "{uid}-Facial-Hair/Beard-Light",
                 "transform": "translate(49.000000, 72.000000)"
             },
             "children": [
@@ -4200,7 +4200,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -4209,10 +4209,10 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "use",
                     "props": {
-                        "id": "{{uid}}-Lite-Beard",
+                        "id": "{uid}-Lite-Beard",
                         "fill": "#331B0C",
                         "fillRule": "evenodd",
-                        "xlinkHref": "#{{uid}}-top-path1"
+                        "xlinkHref": "#{uid}-top-path1"
                     },
                     "children": []
                 },
@@ -4228,7 +4228,7 @@ export const SVG_DICTIONARY = {
         "BeardMajestic": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Facial-Hair/Beard-Majestic",
+                "id": "{uid}-Facial-Hair/Beard-Majestic",
                 "transform": "translate(49.000000, 72.000000)"
             },
             "children": [
@@ -4257,7 +4257,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -4266,10 +4266,10 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "use",
                     "props": {
-                        "id": "{{uid}}-Glorious-Beard",
+                        "id": "{uid}-Glorious-Beard",
                         "fill": "#5E7AA9",
                         "fillRule": "evenodd",
-                        "xlinkHref": "#{{uid}}-top-path1"
+                        "xlinkHref": "#{uid}-top-path1"
                     },
                     "children": []
                 },
@@ -4285,7 +4285,7 @@ export const SVG_DICTIONARY = {
         "BeardMedium": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Facial-Hair/Beard-Medium",
+                "id": "{uid}-Facial-Hair/Beard-Medium",
                 "transform": "translate(49.000000, 72.000000)"
             },
             "children": [
@@ -4314,7 +4314,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -4323,10 +4323,10 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "use",
                     "props": {
-                        "id": "{{uid}}-Beardness",
+                        "id": "{uid}-Beardness",
                         "fill": "#252E32",
                         "fillRule": "evenodd",
-                        "xlinkHref": "#{{uid}}-top-path1"
+                        "xlinkHref": "#{uid}-top-path1"
                     },
                     "children": []
                 },
@@ -4342,7 +4342,7 @@ export const SVG_DICTIONARY = {
         "MoustacheFancy": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Facial-Hair/Moustache-Fancy",
+                "id": "{uid}-Facial-Hair/Moustache-Fancy",
                 "transform": "translate(49.000000, 72.000000)"
             },
             "children": [
@@ -4371,7 +4371,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -4380,10 +4380,10 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "use",
                     "props": {
-                        "id": "{{uid}}-Moustache",
+                        "id": "{uid}-Moustache",
                         "fill": "#28354B",
                         "fillRule": "evenodd",
-                        "xlinkHref": "#{{uid}}-top-path1"
+                        "xlinkHref": "#{uid}-top-path1"
                     },
                     "children": []
                 },
@@ -4399,7 +4399,7 @@ export const SVG_DICTIONARY = {
         "MoustacheMagnum": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Facial-Hair/Moustache-Magnum",
+                "id": "{uid}-Facial-Hair/Moustache-Magnum",
                 "transform": "translate(49.000000, 72.000000)"
             },
             "children": [
@@ -4428,7 +4428,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -4437,10 +4437,10 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "use",
                     "props": {
-                        "id": "{{uid}}-Mustache",
+                        "id": "{uid}-Mustache",
                         "fill": "#28354B",
                         "fillRule": "evenodd",
-                        "xlinkHref": "#{{uid}}-top-path1"
+                        "xlinkHref": "#{uid}-top-path1"
                     },
                     "children": []
                 },
@@ -4458,7 +4458,7 @@ export const SVG_DICTIONARY = {
         "Eyepatch": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -4492,7 +4492,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -4501,8 +4501,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Accesories/Eyepatch",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Accesories/Eyepatch",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -4520,7 +4520,7 @@ export const SVG_DICTIONARY = {
                                     "type": "path",
                                     "props": {
                                         "d": "M160.395307,39.7810237 C157.318088,36.6927979 154.11865,43.6386608 152.623361,45.4281124 C149.013122,49.7486528 145.540256,54.182935 141.868413,58.4518947 C134.616309,66.8823544 127.439316,75.3743141 120.233991,83.8401528 C119.140279,85.1257012 119.27271,85.2649028 117.837048,85.3885641 C116.88598,85.4708947 115.563312,84.9802173 114.5737,84.9256608 C111.823607,84.774556 109.112057,85.2348141 106.435756,85.8227012 C101.091389,86.9961608 95.4264863,88.9291124 90.7890799,91.898306 C89.5718308,92.677306 88.7874545,93.5971608 87.4670933,93.841177 C86.3183659,94.0534512 84.794416,93.6295641 83.622299,93.5194592 C81.5412806,93.3237173 78.5378542,92.4726366 76.4953793,92.9137173 C73.9027538,93.4738302 72.9174244,96.6109915 75.5604528,98.0003624 C77.570314,99.0564431 81.5706,98.4761608 83.8235816,98.6447899 C86.3971,98.8372253 85.6120649,98.704306 85.2473843,101.164306 C84.7239177,104.69758 85.5985582,108.646475 87.0885766,111.878201 C90.5482655,119.383185 100.122861,127.335201 108.8551,126.603153 C116.142123,125.992451 122.526834,119.413274 125.519389,113.099935 C127.050916,109.868871 127.954546,106.192096 128.250376,102.628403 C128.438811,100.36183 128.333722,97.9580399 127.684083,95.7632173 C127.362888,94.6783705 126.853916,93.5554995 126.308378,92.5695157 C125.866281,91.7710076 123.908799,89.9203866 123.788886,89.1165882 C123.556307,87.5602415 127.973324,83.3874995 128.816339,82.3443141 C132.788953,77.4276205 136.780344,72.5320882 140.721662,67.5889431 C144.603353,62.7201931 148.506456,57.8640076 152.489612,53.0785802 C154.294237,50.9098786 163.318023,42.7148382 160.395307,39.7810237",
-                                        "id": "{{uid}}-Badass-Eyepatch",
+                                        "id": "{uid}-Badass-Eyepatch",
                                         "fill": "#28354B",
                                         "fillRule": "evenodd"
                                     },
@@ -4540,7 +4540,7 @@ export const SVG_DICTIONARY = {
         "Hat": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -4637,7 +4637,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -4646,8 +4646,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Accesories/Hat",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Accesories/Hat",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -4666,7 +4666,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "xlinkHref": "#{{uid}}-top-path2"
+                                                "xlinkHref": "#{uid}-top-path2"
                                             },
                                             "children": []
                                         }
@@ -4675,11 +4675,11 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "use",
                                     "props": {
-                                        "id": "{{uid}}-Hat-Mask",
+                                        "id": "{uid}-Hat-Mask",
                                         "stroke": "none",
                                         "fill": "#3B6BAD",
                                         "fillRule": "evenodd",
-                                        "xlinkHref": "#{{uid}}-top-path2"
+                                        "xlinkHref": "#{uid}-top-path2"
                                     },
                                     "children": []
                                 },
@@ -4695,7 +4695,7 @@ export const SVG_DICTIONARY = {
                                     "type": "path",
                                     "props": {
                                         "d": "M 132 57 A 62 25 0 0 0 106.9082 59.173828 C 114.48838 58.077019 122.99247 57.496208 131.53711 57.466797 C 140.23714 57.436851 148.95625 57.970668 156.73242 59.080078 A 62 25 0 0 0 132 57 z M 179.30859 65.84375 C 181.08496 66.984748 182.47671 68.234602 183.31641 69.615234 C 183.34711 69.685608 183.38552 69.751746 183.41602 69.822266 C 183.9806 71.128111 184.46193 72.476894 184.92773 73.832031 C 185.06899 74.243483 185.24312 74.638968 185.375 75.054688 C 185.82957 76.485792 186.19309 77.955191 186.5332 79.433594 C 186.61625 79.795222 186.73259 80.143548 186.80859 80.507812 C 187.15543 82.166889 187.40707 83.860873 187.60352 85.570312 C 187.62652 85.771344 187.67441 85.964342 187.69531 86.166016 C 187.89551 88.091538 187.99805 90.045031 187.99805 92.023438 L 187.99805 92.615234 A 62 25 0 0 0 194 82 A 62 25 0 0 0 179.30859 65.84375 z M 83.765625 66.341797 A 62 25 0 0 0 70 82 A 62 25 0 0 0 76 92.613281 L 76 92 C 76 91.872094 76.018675 91.748798 76.019531 91.621094 C 76.032615 89.783637 76.118733 87.96314 76.304688 86.171875 C 76.359183 85.644945 76.473959 85.137724 76.542969 84.615234 C 76.72568 83.235896 76.910184 81.857452 77.191406 80.511719 C 77.32169 79.887116 77.513158 79.286697 77.664062 78.669922 C 77.964204 77.44525 78.255521 76.216951 78.634766 75.025391 C 78.823678 74.431047 79.067359 73.862901 79.275391 73.277344 C 79.694428 72.099353 80.111244 70.919484 80.605469 69.779297 C 80.662455 69.647691 80.733046 69.523658 80.791016 69.392578 C 81.420305 68.300137 82.451844 67.287587 83.765625 66.341797 z",
-                                        "id": "{{uid}}-Hat-Shadows",
+                                        "id": "{uid}-Hat-Shadows",
                                         "stroke": "none",
                                         "fillOpacity": "0.16",
                                         "fill": "#000000",
@@ -4719,7 +4719,7 @@ export const SVG_DICTIONARY = {
         "Hijab": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -4816,7 +4816,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -4825,8 +4825,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Accesories/Hijab",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Accesories/Hijab",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -4850,7 +4850,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "xlinkHref": "#{{uid}}-top-path2"
+                                                "xlinkHref": "#{uid}-top-path2"
                                             },
                                             "children": []
                                         }
@@ -4859,11 +4859,11 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "use",
                                     "props": {
-                                        "id": "{{uid}}-Hijab-Mask",
+                                        "id": "{uid}-Hijab-Mask",
                                         "stroke": "none",
                                         "fill": "#3B6BAD",
                                         "fillRule": "evenodd",
-                                        "xlinkHref": "#{{uid}}-top-path2"
+                                        "xlinkHref": "#{uid}-top-path2"
                                     },
                                     "children": []
                                 },
@@ -4879,7 +4879,7 @@ export const SVG_DICTIONARY = {
                                     "type": "path",
                                     "props": {
                                         "d": "M72.0744416,104.959767 C71.3690172,101.246903 71,97.4161983 71,93.5 C71,59.5344879 98.7583455,32 133,32 C167.241654,32 195,59.5344879 195,93.5 C195,97.4161983 194.630983,101.246903 193.925558,104.959767 C192.341315,72.6827942 165.669927,47 133,47 C100.330073,47 73.6586845,72.6827942 72.0744428,104.959774 Z",
-                                        "id": "{{uid}}-Hijab-Band",
+                                        "id": "{uid}-Hijab-Band",
                                         "stroke": "none",
                                         "fillOpacity": "0.5",
                                         "fill": "#FFFFFF",
@@ -4892,7 +4892,7 @@ export const SVG_DICTIONARY = {
                                     "type": "path",
                                     "props": {
                                         "d": "M187.929085,104.69543 C188.631457,108.187732 189,111.800827 189,115.5 L189,138.5 C189,168.599519 164.599519,193 134.5,193 L131.5,193 C101.400481,193 77,168.599519 77,138.5 L77,115.5 L77,115.5 C77,111.800827 77.3685433,108.187732 78.0709154,104.69543 C78.0238287,105.624341 78,106.559388 78,107.5 L78,107.5 L78,130.5 C78,160.599519 102.400481,185 132.5,185 L133.5,185 C163.599519,185 188,160.599519 188,130.5 L188,130.5 L188,107.5 C188,106.559388 187.976171,105.624341 187.929085,104.69543 Z M114.16682,206.995462 C120.651206,211.981028 135.663493,213.708321 152.404574,210.756416 C169.145655,207.804512 182.661822,201.046883 187.049987,194.144193 C187.118291,194.396526 187.175421,194.652296 187.221114,194.911435 C188.930607,204.606451 173.985409,215.345413 153.84008,218.897578 C133.694752,222.449742 115.977919,217.469978 114.268426,207.774963 C114.222732,207.515823 114.188938,207.255938 114.166824,206.995464 Z M126.034638,235.921439 C134.227056,241.574977 150.421729,241.843835 167.103682,235.772101 C183.785635,229.700366 196.018656,219.084674 198.660388,209.487828 C198.803116,209.80837 198.935124,210.134883 199.056117,210.46731 C203.582768,222.904181 190.979008,238.909268 170.904831,246.215671 C150.830654,253.522074 130.887742,249.363007 126.361091,236.926135 C126.240098,236.593709 126.131343,236.258733 126.034643,235.921442 Z",
-                                        "id": "{{uid}}-Hijab-Shadows",
+                                        "id": "{uid}-Hijab-Shadows",
                                         "stroke": "none",
                                         "fillOpacity": "0.16",
                                         "fill": "#000000",
@@ -4916,7 +4916,7 @@ export const SVG_DICTIONARY = {
         "LongHairBigHair": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -4968,7 +4968,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -4977,8 +4977,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Long-Hair/Big-Hair",
-                        "mask": "`url(#${{uid}}-top-mask2)`"
+                        "id": "{uid}-Top/Long-Hair/Big-Hair",
+                        "mask": "`url(#${uid}-top-mask2)`"
                     },
                     "children": [
                         {
@@ -4990,7 +4990,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Hair",
+                                        "id": "{uid}-Hair",
                                         "strokeWidth": "1",
                                         "fill": "none",
                                         "fillRule": "evenodd",
@@ -5008,7 +5008,7 @@ export const SVG_DICTIONARY = {
                                                 {
                                                     "type": "use",
                                                     "props": {
-                                                        "xlinkHref": "#{{uid}}-top-path2"
+                                                        "xlinkHref": "#{uid}-top-path2"
                                                     },
                                                     "children": []
                                                 }
@@ -5018,7 +5018,7 @@ export const SVG_DICTIONARY = {
                                             "type": "use",
                                             "props": {
                                                 "fill": "#314756",
-                                                "xlinkHref": "#{{uid}}-top-path2"
+                                                "xlinkHref": "#{uid}-top-path2"
                                             },
                                             "children": []
                                         },
@@ -5032,7 +5032,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Hair-Shadow",
+                                        "id": "{uid}-Hair-Shadow",
                                         "strokeWidth": "1",
                                         "fill": "none",
                                         "fillRule": "evenodd",
@@ -5050,7 +5050,7 @@ export const SVG_DICTIONARY = {
                                                 {
                                                     "type": "use",
                                                     "props": {
-                                                        "xlinkHref": "#{{uid}}-top-path3"
+                                                        "xlinkHref": "#{uid}-top-path3"
                                                     },
                                                     "children": []
                                                 }
@@ -5059,7 +5059,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "g",
                                             "props": {
-                                                "id": "{{uid}}-Hair-Shape"
+                                                "id": "{uid}-Hair-Shape"
                                             },
                                             "children": []
                                         },
@@ -5067,10 +5067,10 @@ export const SVG_DICTIONARY = {
                                             "type": "path",
                                             "props": {
                                                 "d": "M30.0988695,115.056827 C27.7250732,118.08281 24.5296181,122.528485 24.3618393,122.19381 C26.2345006,119.810609 27.3747977,117.011661 27.3409475,113.436088 C27.517612,95.334874 15.4366324,87.8674306 27.3409475,53.4185647 C28.0096512,51.5090274 29.1070085,49.7044671 30.585889,48.0048838 C20.2433352,82.4586863 31.3685109,90.3556196 31.2026676,109 C31.2224682,111.294844 30.8223327,113.284923 30.0988695,115.056827 Z M202.419413,48.0048838 C203.898293,49.7044671 204.995651,51.5090274 205.664354,53.4185647 C215.822041,82.8130155 208.516445,92.5627534 206.263744,106.036479 C205.964379,106.841192 206.195125,107.789747 205.880216,108.603009 C175.207016,98.1454461 147.589972,78.5596292 131.494917,55.6119279 C108.710969,85.0357527 58.3544031,85.3732378 33.6737341,110.936101 C34.0607045,110.391798 34.4280855,109.884956 34.7584999,109.446288 C57.2940449,79.527377 108.24688,80.3241416 130.845581,48.302359 C146.243536,72.3904102 172.664446,92.9495135 202.009146,103.926748 C202.310417,103.073073 202.089664,102.077381 202.376063,101.232679 C204.483829,87.4002546 211.215481,77.3069293 202.419413,48.0048838 Z",
-                                                "id": "{{uid}}-Hair-Shadow-Mask",
+                                                "id": "{uid}-Hair-Shadow-Mask",
                                                 "fillOpacity": "0.16",
                                                 "fill": "#000000",
-                                                "mask": "`url(#${{uid}}-top-mask1)`"
+                                                "mask": "`url(#${uid}-top-mask1)`"
                                             },
                                             "children": []
                                         }
@@ -5080,7 +5080,7 @@ export const SVG_DICTIONARY = {
                                     "type": "path",
                                     "props": {
                                         "d": "M50.7584999,122.446288 C73.2940449,92.527377 124.24688,93.3241416 146.845581,61.302359 C162.243536,85.3904102 188.664446,105.949514 218.009146,116.926748 C218.310417,116.073073 218.089664,115.077381 218.376063,114.232679 C220.531197,100.089398 227.520377,89.8551619 217.802634,59 C206.165705,22.5393276 176.088708,13.7681718 133.002651,13.0159929 C132.336177,13.0049705 132.16951,13.0024268 132.002651,13 C88.9165934,13.7681718 58.8395963,22.5393276 47.2026676,59 C35.8139454,95.1607482 47.3716806,102.999274 47.2026676,122 C47.2350518,125.753256 46.1441426,128.691293 44.3525888,131.192923 C44.5361111,131.59459 48.5061717,125.436551 50.7584999,122.446288 Z",
-                                        "id": "{{uid}}-Hair-Light",
+                                        "id": "{uid}-Hair-Light",
                                         "fillOpacity": "0.1",
                                         "fill": "#FFFFFF",
                                         "fillRule": "evenodd"
@@ -5106,7 +5106,7 @@ export const SVG_DICTIONARY = {
         "LongHairBob": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -5149,7 +5149,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -5158,15 +5158,15 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Mask"
+                        "id": "{uid}-Mask"
                     },
                     "children": []
                 },
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Long-Hair/Bob",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Long-Hair/Bob",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -5178,7 +5178,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Hair",
+                                        "id": "{uid}-Hair",
                                         "strokeWidth": "1",
                                         "fillRule": "evenodd",
                                         "transform": "translate(39.000000, 19.000000)"
@@ -5194,7 +5194,7 @@ export const SVG_DICTIONARY = {
                                                 {
                                                     "type": "use",
                                                     "props": {
-                                                        "xlinkHref": "#{{uid}}-top-path2"
+                                                        "xlinkHref": "#{uid}-top-path2"
                                                     },
                                                     "children": []
                                                 }
@@ -5203,9 +5203,9 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "id": "{{uid}}-Combined-Shape",
+                                                "id": "{uid}-Combined-Shape",
                                                 "fill": "#E6E6E6",
-                                                "xlinkHref": "#{{uid}}-top-path2"
+                                                "xlinkHref": "#{uid}-top-path2"
                                             },
                                             "children": []
                                         },
@@ -5235,7 +5235,7 @@ export const SVG_DICTIONARY = {
         "LongHairBun": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -5278,7 +5278,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path2"
+                                "xlinkHref": "#{uid}-top-path2"
                             },
                             "children": []
                         }
@@ -5287,15 +5287,15 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Mask"
+                        "id": "{uid}-Mask"
                     },
                     "children": []
                 },
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Long-Hair/Bun",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Long-Hair/Bun",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -5324,7 +5324,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "xlinkHref": "#{{uid}}-top-path1"
+                                                "xlinkHref": "#{uid}-top-path1"
                                             },
                                             "children": []
                                         }
@@ -5333,11 +5333,11 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "use",
                                     "props": {
-                                        "id": "{{uid}}-Short-Hair",
+                                        "id": "{uid}-Short-Hair",
                                         "stroke": "none",
                                         "fill": "#28354B",
                                         "fillRule": "evenodd",
-                                        "xlinkHref": "#{{uid}}-top-path1"
+                                        "xlinkHref": "#{uid}-top-path1"
                                     },
                                     "children": []
                                 },
@@ -5355,7 +5355,7 @@ export const SVG_DICTIONARY = {
         "LongHairCurly": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -5398,7 +5398,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -5407,15 +5407,15 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Mask"
+                        "id": "{uid}-Mask"
                     },
                     "children": []
                 },
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Long-Hair/Curly",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Long-Hair/Curly",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -5428,7 +5428,7 @@ export const SVG_DICTIONARY = {
                                     "type": "path",
                                     "props": {
                                         "d": "M105.984735,27.7643628 C114.013215,26.6267967 122.796163,26 132,26 C142.358003,26 152.182939,26.7938545 160.999342,28.2161842 C183.451688,38.7497687 199,61.559133 199,88 L199,105.044138 C187.461887,104.672508 173.831239,90.7644306 166.449951,70.7992877 C156.312295,72.8351061 144.547256,74 132,74 C120.038684,74 108.788234,72.9413637 98.9808476,71.0787685 C91.6758772,90.6271291 78.3831001,104.301811 67,105.021902 L67,88 L67,88 C67,61.1745453 83.0039076,38.0870034 105.984735,27.7643628 Z",
-                                        "id": "{{uid}}-Shadow",
+                                        "id": "{uid}-Shadow",
                                         "fillOpacity": "0.16",
                                         "fill": "#000000",
                                         "fillRule": "evenodd"
@@ -5438,7 +5438,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Hair",
+                                        "id": "{uid}-Hair",
                                         "strokeWidth": "1",
                                         "fill": "none",
                                         "fillRule": "evenodd",
@@ -5455,7 +5455,7 @@ export const SVG_DICTIONARY = {
                                                 {
                                                     "type": "use",
                                                     "props": {
-                                                        "xlinkHref": "#{{uid}}-top-path2"
+                                                        "xlinkHref": "#{uid}-top-path2"
                                                     },
                                                     "children": []
                                                 }
@@ -5464,9 +5464,9 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "id": "{{uid}}-Curly!",
+                                                "id": "{uid}-Curly!",
                                                 "fill": "#314756",
-                                                "xlinkHref": "#{{uid}}-top-path2"
+                                                "xlinkHref": "#{uid}-top-path2"
                                             },
                                             "children": []
                                         },
@@ -5496,7 +5496,7 @@ export const SVG_DICTIONARY = {
         "LongHairCurvy": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -5539,7 +5539,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -5548,15 +5548,15 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Mask"
+                        "id": "{uid}-Mask"
                     },
                     "children": []
                 },
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Long-Hair/Curvy",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Long-Hair/Curvy",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -5569,7 +5569,7 @@ export const SVG_DICTIONARY = {
                                     "type": "path",
                                     "props": {
                                         "d": "M100.899906,42.4648024 C91.1016204,48.4721303 82.3855283,56.3273858 76.5871222,65.36024 C73.8252914,69.662826 71.5532049,74.1995784 69.4361743,78.7575668 C68.3739624,81.0447336 67.4048638,83.3600237 66.475928,85.6893613 C65.8894735,87.1594817 64.9889112,88.7449062 65.8359233,90.2878445 C66.3526427,89.9857996 66.5492598,90.0943892 66.224362,90.6353417 C68.9162579,91.3693254 72.6583769,89.3003017 74.9906073,88.5362205 C79.7539763,86.9753339 84.5203425,85.5025753 89.3986046,84.2045441 C93.8552588,83.0189378 103.79801,81.0907786 107.68879,80.1941723 L110.425245,77.215348 L111.487657,79.1702128 C113.645649,79.0042337 125.56636,77.212708 125.56636,77.212708 L126.896323,73.9898699 C128.612526,75.7530625 129.834989,76.668872 129.834989,76.668872 C132.391211,76.460454 143.488488,76.2113208 146.119841,76.2427023 C146.119841,76.2427023 153.460212,76.5012269 155.240756,76.5714137 L156.907605,75.9328981 L157.456495,77.0098503 C158.910143,77.601117 167.699367,80.6008734 169.434153,81.138079 L171.980784,80.2323702 C173.100342,82.9256202 175.920119,82.586016 178.257345,84.7132858 C181.34867,87.5271086 187.825645,89.5285179 190.917768,91.9756241 C192.024938,92.8519441 193.059576,93.7675012 194.100208,94.7015404 C195.255933,95.7385867 195.085291,95.890424 195.460742,97.0802141 C195.573237,97.4361731 196.715775,99.2788807 197.202722,99.4296139 C198.935909,99.9660566 187.048767,68.9435732 183.785603,64.9771662 C180.417736,60.8830307 158.574915,33.3231248 129.612057,34.2254634",
-                                        "id": "{{uid}}-Top-Shadow",
+                                        "id": "{uid}-Top-Shadow",
                                         "fillOpacity": "0.16",
                                         "fill": "#000000",
                                         "fillRule": "evenodd"
@@ -5579,7 +5579,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Hair",
+                                        "id": "{uid}-Hair",
                                         "strokeWidth": "1",
                                         "fill": "none",
                                         "fillRule": "evenodd",
@@ -5596,7 +5596,7 @@ export const SVG_DICTIONARY = {
                                                 {
                                                     "type": "use",
                                                     "props": {
-                                                        "xlinkHref": "#{{uid}}-top-path2"
+                                                        "xlinkHref": "#{uid}-top-path2"
                                                     },
                                                     "children": []
                                                 }
@@ -5605,9 +5605,9 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "id": "{{uid}}-Hair-Mask",
+                                                "id": "{uid}-Hair-Mask",
                                                 "fill": "#361A0A",
-                                                "xlinkHref": "#{{uid}}-top-path2"
+                                                "xlinkHref": "#{uid}-top-path2"
                                             },
                                             "children": []
                                         },
@@ -5620,7 +5620,7 @@ export const SVG_DICTIONARY = {
                                             "type": "path",
                                             "props": {
                                                 "d": "M62.6794556,184.462132 C69.755442,174.755405 62.148959,147.786913 56.1278159,137.800593 C72.9649824,130.137708 106.213574,131.553467 155.87359,142.047871 C151.079203,150.900348 149.123448,158.803527 150.006324,165.757409 C145.469118,171.332534 141.720304,177.127222 138.759883,183.141474 L103.888915,191.746789 C81.8528509,194.400378 68.1163643,191.97216 62.6794556,184.462132 Z",
-                                                "id": "{{uid}}-Shadow",
+                                                "id": "{uid}-Shadow",
                                                 "fillOpacity": "0.24",
                                                 "fill": "#000000",
                                                 "mask": "`url(#${hairColorMask})`"
@@ -5633,7 +5633,7 @@ export const SVG_DICTIONARY = {
                                     "type": "path",
                                     "props": {
                                         "d": "M79.0404573,170.094305 C78.9812573,169.892618 78.8354573,169.667152 78.6348573,169.428842 C78.7708573,169.650142 78.9074573,169.871269 79.0404573,170.094305 Z M56.409572,120.375261 C57.2661752,126.5406 58.7356083,132.465374 60.8662263,138.377476 C62.9277086,144.09848 65.285915,149.836145 68.678559,155.067858 C71.8402179,159.943234 75.6031176,164.4923 78.6348973,169.428772 C77.8378388,168.48126 76.1633964,167.329804 75.5207941,166.65115 C74.4643769,165.535276 73.4750971,164.385382 72.5369698,163.193485 C70.6143583,160.749982 68.9003527,158.193833 67.243494,155.609567 C63.9913192,150.536843 61.5529875,145.034363 59.4397533,139.530668 C55.2902133,128.722708 51.1268862,115.61687 54.7738936,104.200899 C54.4921557,104.935095 55.2326668,106.688314 55.3491585,107.497319 C55.5525692,108.91069 55.7349995,110.333608 55.8267142,111.757219 C56.0123415,114.639678 56.0109428,117.505994 56.409572,120.375261 Z M68.8553146,165.041212 C67.4967783,163.309515 64.9739252,161.944396 63.4129772,160.279177 C61.9976938,158.769648 60.9019131,157.07822 59.9070386,155.339754 C57.6517365,151.39922 56.1697151,147.374505 55.6897616,142.969154 C55.7992598,143.49177 56.6083072,144.395543 56.8630702,144.824778 C57.4766993,145.858902 58.0839345,146.89424 58.6508072,147.948671 C59.7481863,149.989667 60.6639345,152.099744 61.7731027,154.135533 C63.8106073,157.875421 66.402796,161.495374 68.8553146,165.041212 Z M73.5320242,183.498629 C74.6465874,185.460651 75.5723262,187.464851 76.1569823,189.60079 C76.4654954,190.727599 76.7138643,191.869508 76.9272658,193.013501 C76.9962017,193.382508 77.0093894,194.709963 77.1846264,195.283955 C74.9700864,190.992812 73.2798587,186.448779 70.6421125,182.34214 C68.0381348,178.288092 64.6948448,174.560527 61.1958996,171.061031 C57.5013364,167.36575 53.7855929,163.879099 51.8038364,159.214262 C50.0788411,155.153619 49.4126608,150.996124 49.8138875,146.658464 C49.8160855,148.56911 51.5706533,151.280256 52.1766896,153.126681 C53.0063178,155.654018 53.6655046,158.231689 54.9143429,160.634229 C57.039566,164.722991 60.873,167.876911 64.0792175,171.321558 C67.631513,175.137643 71.0245567,179.084252 73.5320242,183.498629 Z M59.2286696,174.179456 C60.2874847,175.196917 61.2164205,176.28259 62.0352588,177.454354 C62.9328239,178.738937 63.5914112,180.09017 64.1800637,181.504062 C64.6869921,182.721301 64.9105841,184.986375 65.7074428,186.0021 C63.1288415,182.856337 60.4739112,179.884838 58.6955655,176.312444 C58.0893295,175.089825 57.1480051,173.289222 56.4530516,171.817184 C56.6844363,172.409922 58.7059559,173.677148 59.2286696,174.179456 Z M48.9033745,180.528033 C51.7405353,184.777866 55.450684,188.609052 57.877027,193.056233 C60.7067946,198.242644 61.9518364,203.862978 62.202803,209.595957 C62.3216924,212.307277 62.3152983,215.0606 61.9498383,217.764455 C61.7540204,219.211673 61.4399126,220.650211 61.0810465,222.075732 C60.944973,222.616747 60.2406283,224.002173 60.1037556,224.846586 C59.8140251,214.305575 61.5584024,203.763696 56.0767017,193.942823 C53.4811162,189.292219 49.4912277,185.327212 46.398105,180.924811 C43.6164926,176.966226 40.8998197,173.083838 38.6846803,168.851361 C40.0408188,170.567263 42.485145,171.915893 44.0009349,173.619818 C45.8995688,175.753674 47.3488206,178.199606 48.9033745,180.528033 Z M60.1036574,224.846603 C60.0710574,225.050581 60.0700574,225.224111 60.1172574,225.346603 C60.1116574,225.180112 60.1082574,225.01327 60.1036574,224.846603 Z M50.5604331,202.493815 C50.5610325,202.989874 51.376474,204.011501 51.5992667,204.528562 C52.1207816,205.73799 52.5455864,207.007473 52.7573894,208.289626 C53.1752007,210.818004 52.6269108,213.429521 51.6899823,215.850286 C49.7909489,220.757251 46.8161162,225.102895 43.0767946,229.15 C44.4121524,227.402335 44.9438578,224.56136 45.8833838,222.612182 C46.8478866,220.611106 47.8829238,218.6411 48.7335325,216.600624 C50.652947,211.995842 50.4835046,207.289696 50.5604331,202.493815 Z M41.9174331,221.200893 C42.3180604,220.652936 42.1102537,218.018161 42.3222565,217.328919 C42.714092,216.055618 43.3920613,214.827097 44.170737,213.693866 C43.7551236,214.392828 44.3691524,216.160106 44.1663411,217.067177 C43.8338504,218.55553 42.9962296,219.998582 41.9174331,221.200893 Z M99.6077106,42.748374 C99.5269106,42.804974 99.4471106,42.908174 99.3681106,43.044574 C99.4481106,42.945974 99.5267106,42.846574 99.6077106,42.748374 Z M84.8469387,64.3317143 C86.2672175,63.085837 87.0237138,60.1410677 88.0032026,58.5522183 C89.1283559,56.7269681 90.4213532,54.9730547 91.6476125,53.1960567 C94.0795502,49.6719145 96.3744154,46.2123399 99.3680307,43.0054816 C98.7464089,43.9398028 98.1949219,46.7736616 97.8536394,47.5189663 C96.9620688,49.4667561 95.8988578,51.3334892 94.6328355,53.1235049 C91.7722965,57.1680066 88.7029517,60.9266404 84.8469387,64.3317143 Z M84.3117165,54.1218036 C85.0620186,52.7952168 86.2055548,51.6739619 87.4917584,50.7082248 C86.9188913,51.2107066 86.6607314,53.2831189 86.2670976,53.9831221 C85.472237,55.3952784 84.3143141,56.6130375 83.0714703,57.7545999 C83.7352528,57.1726235 83.842553,54.9516363 84.3117165,54.1218036 Z M203.505599,152.127968 C203.498805,152.179518 203.485417,152.282271 203.464637,152.438483 C203.462638,150.913159 202.784469,149.237352 202.704144,147.668984 C202.592048,145.478545 202.906556,143.353715 203.787137,141.277137 C205.526519,137.175704 208.790083,134.069516 212.950612,131.638511 C211.805877,132.313173 210.683921,134.851617 209.949604,135.906916 C208.84663,137.493162 207.668126,139.094161 206.735993,140.757819 C204.793001,144.225725 204.229725,148.375062 203.505599,152.127968 Z M201.998401,130.481881 C201.761221,131.706583 201.448912,132.921738 201.009121,134.107908 C200.534762,135.386937 199.915938,136.630558 199.22578,137.835993 C198.79578,138.586852 197.246621,140.162684 197.24762,140.993211 C197.165296,136.095098 198.975812,131.657983 202.419809,127.7355 C202.04236,128.392806 202.137271,129.766083 201.998401,130.481881 Z M201.196906,165.719988 C204.852905,165.202752 208.302496,166.981313 210.618342,169.271033 C211.855791,170.494694 212.955568,171.900428 213.683091,173.404055 C214.229783,174.534509 214.228783,176.387356 214.9631,177.323587 C213.165772,174.905078 210.886892,172.951214 208.638584,170.859535 C207.075238,169.404855 203.950944,165.678852 201.196906,165.719988 Z M200.41897,176.096698 C200.227148,176.031957 198.485169,175.539368 198.081944,175.776984 C198.679388,175.510035 199.412106,175.184941 200.068895,175.097983 C204.35311,174.529024 209.561066,178.239232 210.13633,181.81909 C209.657576,180.592826 207.111145,179.578489 205.959616,178.968568 C204.136711,178.002484 202.395531,176.832456 200.41897,176.096698 Z M202.227687,183.908269 C202.969797,184.089822 204.54713,185.083504 205.275252,185.072742 C202.345977,185.143906 199.703236,184.81829 196.883858,184.158729 C197.036117,184.200212 198.643022,183.702937 198.694974,183.695647 C199.910043,183.523987 201.052381,183.620492 202.227687,183.908269 Z M190.882541,197.765243 C195.171151,197.522941 200.218656,198.149351 204.314046,199.181739 C206.346955,199.694288 208.253382,200.468058 210.006351,201.476666 C211.420436,202.290531 213.935896,203.408661 214.881616,204.614097 C211.142494,198.162369 203.032039,194.811448 194.722769,196.473197 C193.615199,196.695886 191.914181,197.749796 190.882541,197.765243 Z M189.923153,210.197773 C192.611453,209.233424 195.584487,208.30431 198.505969,208.169273 C201.277391,208.042395 204.351332,208.458613 206.915546,209.342078 C206.033367,209.102206 203.92333,209.674289 202.995793,209.779298 C201.699199,209.926138 200.399608,210.077837 199.099817,210.196558 C197.506299,210.342009 195.898395,210.422718 194.298883,210.41942 C193.159543,210.41699 190.979371,209.87858 189.923153,210.197773 Z M179.458947,227.410508 C179.711912,231.383499 182.010574,234.84533 185.39043,237.491388 C188.973097,240.296087 193.769036,241.572686 196.369816,245.319691 C197.637437,247.145462 198.312809,249.270812 198.20431,251.417686 C198.148362,252.524014 197.870221,253.636069 197.5695,254.712196 C197.371684,255.420184 196.66734,256.580144 196.667939,257.270775 C196.69911,253.384221 196.751661,248.859281 194.031592,245.598095 C191.300932,242.324066 186.539161,241.170701 183.203065,238.482813 C179.924714,235.841442 177.437828,232.389157 176.877749,228.498264 C176.425569,225.354411 176.648562,219.871892 179.90773,217.738557 C179.246345,218.128392 179.377224,220.111764 179.361438,220.669267 C179.298097,222.900321 179.317079,225.185182 179.458947,227.410508 Z M177.005789,242.672904 C177.402221,243.19257 179.575399,243.82436 180.213805,244.182606 C181.67045,245.000116 183.07914,245.92923 184.234665,247.059684 C186.55111,249.326146 188.044121,252.504886 188.151821,255.553623 C188.151821,254.833139 186.505553,253.096583 186.043183,252.481107 C185.275297,251.458613 184.407904,250.511969 183.524526,249.564283 C181.371329,247.253734 179.135209,244.999942 177.005789,242.672904 Z M229.167807,153.791051 C230.371887,154.841663 231.178936,156.147595 231.842519,157.49987 C233.373295,160.619424 233.65823,164.217333 232.431571,167.500388 C232.634582,166.795698 232.030544,165.31585 231.860502,164.601614 C231.488248,163.038626 230.906389,161.56225 230.298355,160.059664 C229.118053,157.144401 228.163741,154.41208 226.113648,151.858014 C226.644354,152.52556 228.442481,153.157872 229.167807,153.791051 Z M171.509602,41.9832998 C171.510002,42.3148163 172.426549,43.2758671 172.633357,43.6374111 C173.149677,44.5392749 173.557297,45.4857459 173.696967,46.4924453 C173.85542,47.6336606 173.6616,48.7505762 173.315522,49.8605491 C173.109914,50.5202844 172.131624,51.7949741 172.132423,52.3894475 C171.972572,48.891167 171.198691,45.5298324 171.509602,41.9832998 Z M179.146978,48.8048339 C179.312224,50.0477605 178.906202,51.4491555 178.183074,52.546805 C178.314952,52.2364639 177.729296,50.1642252 177.710314,49.7849773 C177.650969,48.6118253 177.77925,47.4056953 177.856378,46.2332376 C177.857178,46.8738803 179.039478,47.9958294 179.146978,48.8048339 Z M118.377388,50.3732542 C117.142336,51.8857333 115.738043,53.3032702 114.227248,54.6164922 C113.2036,55.5060327 111.243024,56.5057893 110.46315,57.5267214 C113.964293,51.8147436 118.00913,46.8878178 122.764906,41.8951095 C122.049172,42.8155452 121.862346,44.8121078 121.337434,45.8885819 C120.563354,47.4758692 119.527518,48.9645693 118.377388,50.3732542 Z M124.275361,52.8515919 C124.845431,52.5155626 125.378934,50.859195 125.81333,50.3013446 C126.54465,49.3623371 127.437619,48.4554398 128.390733,47.6728177 C128.186123,47.8927295 127.788693,49.7158968 127.5657,50.0739694 C126.843372,51.2344508 125.56616,52.1809219 124.275361,52.8515919 Z",
-                                        "id": "{{uid}}-Lights",
+                                        "id": "{uid}-Lights",
                                         "fillOpacity": "0.6",
                                         "fill": "#FFFFFF",
                                         "fillRule": "evenodd"
@@ -5659,7 +5659,7 @@ export const SVG_DICTIONARY = {
         "LongHairDreads": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -5702,7 +5702,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -5711,15 +5711,15 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Mask"
+                        "id": "{uid}-Mask"
                     },
                     "children": []
                 },
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Long-Hair/Dreads",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Long-Hair/Dreads",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -5731,7 +5731,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-template-for-hairstyles",
+                                        "id": "{uid}-template-for-hairstyles",
                                         "strokeWidth": "1",
                                         "fillRule": "evenodd",
                                         "transform": "translate(63.000000, 87.000000)"
@@ -5741,7 +5741,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Hair",
+                                        "id": "{uid}-Hair",
                                         "strokeWidth": "1",
                                         "fillRule": "evenodd",
                                         "transform": "translate(16.000000, 14.000000)"
@@ -5757,7 +5757,7 @@ export const SVG_DICTIONARY = {
                                                 {
                                                     "type": "use",
                                                     "props": {
-                                                        "xlinkHref": "#{{uid}}-top-path2"
+                                                        "xlinkHref": "#{uid}-top-path2"
                                                     },
                                                     "children": []
                                                 }
@@ -5766,9 +5766,9 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "id": "{{uid}}-No-Woman",
+                                                "id": "{uid}-No-Woman",
                                                 "fill": "#8D5A5A",
-                                                "xlinkHref": "#{{uid}}-top-path2"
+                                                "xlinkHref": "#{uid}-top-path2"
                                             },
                                             "children": []
                                         },
@@ -5781,7 +5781,7 @@ export const SVG_DICTIONARY = {
                                             "type": "path",
                                             "props": {
                                                 "d": "M85.718098,185.073467 C86.8059563,185.024663 87.900098,185 89,185 L89,185 L93,185 L93,166.610951 C81.2286384,161.018987 71.7176526,151.441235 66.2110974,139.621749 C66.7437304,141.280375 67.3851037,142.912325 68.1617154,144.509125 C73.916823,156.341882 81.4183567,166.92083 84.4877837,179.589912 C84.9233139,181.387079 85.3569126,183.222183 85.718098,185.073467 Z M164.1633,187.578199 C158.061736,185.89767 151.635699,185 145,185 L145,185 L141,185 L141,166.610951 C151.900717,161.432585 160.863061,152.836228 166.502046,142.206866 C166.424719,145.200638 166.492065,148.178617 166.874747,151.055581 C167.944997,159.099715 170.876362,166.366 169.515856,174.635875 C168.770949,179.167686 166.790265,183.511457 164.1633,187.578199 Z",
-                                                "id": "{{uid}}-Shadows",
+                                                "id": "{uid}-Shadows",
                                                 "fillOpacity": "0.24",
                                                 "fill": "#000000",
                                                 "mask": "`url(#${hairColorMask})`"
@@ -5792,7 +5792,7 @@ export const SVG_DICTIONARY = {
                                             "type": "path",
                                             "props": {
                                                 "d": "M49.3607552,108.248307 C49.2357387,105.826133 47.3806025,97.711311 49.6885159,96.3093564 C52.2181977,94.7715832 51.6909542,104.01582 51.7170446,104.962941 C51.7605286,106.500263 52.928074,118.098087 50.7897482,118.046647 C48.6579451,117.995659 49.4428313,109.828495 49.3607552,108.248307 Z M57.7950752,165.998415 C57.7863784,167.012316 56.722651,166.95095 55.9633116,166.68563 C55.0256879,166.358041 55.5996767,164.201639 55.5502136,163.49457 C55.4197616,161.635525 54.5272525,156.156756 55.8904759,154.62169 C58.6158357,151.553363 57.8059462,164.569838 57.7950752,165.998415 Z M32.1210881,179.161492 C34.0501471,179.106894 32.2645853,141.329473 29.29952,141.371437 C27.2171799,141.400766 30.6611128,179.198041 32.1210881,179.161492 Z M34.3531219,198.516092 C31.9555228,198.516092 32.3963419,206.978357 33.8084848,207.654742 C35.9484412,208.679924 37.0349977,198.516092 34.3531219,198.516092 Z M49.5898072,202.054956 C49.6110057,203.112626 48.4113908,203.129321 47.6107416,202.798574 C46.701926,202.423155 47.082411,199.293461 47.0465367,198.598576 C46.9334783,196.41149 45.0299661,187.926664 46.7611729,186.367683 C48.7353466,184.59031 48.7782871,186.540953 49.3093354,187.8662 C50.8731288,191.768841 49.505557,197.898275 49.5898072,202.054956 Z M190.242397,122.33319 C190.352194,123.795609 191.311016,133.35074 189.717871,134.079016 C186.975661,135.332969 188.156795,129.428696 188.167666,128.666127 C188.274745,121.229044 187.19906,113.85423 186.381017,106.456855 C186.225562,105.052193 183.755671,94.2318284 185.564605,93.3352452 C188.272028,91.9937546 187.86817,95.5809897 188.023082,96.7451491 C189.152035,105.213731 189.651014,113.824449 190.242397,122.33319 Z M187.023004,155.587221 C184.490605,155.085459 183.16543,163.680835 184.321017,164.602687 C186.238118,166.132789 189.670093,156.113348 187.023004,155.587221 Z M186.754925,193.385172 C185.616188,193.158658 177.321615,209.117567 178.004314,210.020016 C179.303942,211.738731 190.833725,194.199633 186.754925,193.385172 Z M166.332555,200.758587 C164.551342,199.95631 156.998715,211.509915 158.926686,212.377619 C160.674743,213.163653 168.488275,201.725562 166.332555,200.758587 Z M208.425286,157.447168 C206.274459,157.447168 206.370123,169.269251 208.025233,170.015125 C209.736329,170.785817 210.967469,157.447168 208.425286,157.447168 Z M178.139603,48.8435128 C177.531371,47.9735519 170.964743,40.2233192 175.668081,41.3306242 C177.959145,41.8698375 181.116083,48.6833281 182.149372,50.7413632 C182.743472,51.9235715 186.133593,57.2006425 182.541271,56.8270286 C181.563968,56.7259543 178.951667,50.0063184 178.139603,48.8435128 Z M155.04775,33.3564939 C154.201443,33.7373274 154.215575,34.0946972 155.090147,34.4281522 C155.936998,34.0473186 155.922322,33.6904 155.04775,33.3564939 Z M70.6188876,41.486432 C68.6137316,43.3296843 61.07578,54.0047545 58.4928303,54.1116947 C53.7862308,54.3066237 62.7711125,45.0867526 63.7902688,43.9135688 C64.2452201,43.387441 66.275923,40.8222295 67.5119557,40.1914176 C68.7729918,39.5475202 72.9556091,39.3322861 70.6188876,41.486432 Z M43.2540252,69.9805849 C41.0711283,69.5519216 37.4190158,80.245492 38.693097,81.5359942 C40.6167205,83.4857354 45.7005438,70.4661025 43.2540252,69.9805849 Z M68.1928608,188.992366 C68.6054153,190.333405 72.8244505,200.071733 71.7639844,201.353211 C70.1425747,203.310623 69.6772959,200.536495 69.1467911,199.385872 C67.9689182,196.830588 64.9087316,190.540066 65.4006444,187.850317 C65.8784249,185.241788 67.775958,187.648619 68.1928608,188.992366 Z M59.986234,211.816206 C57.6913658,211.816206 57.9560747,221.618156 59.3225594,222.200687 C61.4391432,223.102685 62.8012795,211.816206 59.986234,211.816206 Z M221.791072,203.446532 C221.927503,204.049819 223.845148,209.009228 221.128485,208.290879 C219.566322,207.878008 219.325529,203.506094 218.926564,202.180847 C217.697597,198.095009 213.646519,193.018282 213.294842,188.98659 C212.955123,185.090266 215.135302,186.575246 216.80998,189.875503 C219.046145,194.283064 220.722996,198.746577 221.791072,203.446532 Z M202.089015,202.950817 C199.957212,202.941341 199.853937,213.724254 201.187265,214.35281 C203.051098,215.231344 204.808395,202.950817 202.089015,202.950817 Z M208.249611,114.654432 C209.831341,114.242012 204.839921,101.328868 203.071753,101.471004 C200.377376,101.688494 205.847663,115.273512 208.249611,114.654432 Z M181.434114,170.746831 C180.587263,171.127665 180.601939,171.485034 181.476511,171.818489 C182.322818,171.437656 182.308686,171.080286 181.434114,170.746831 Z M157.216135,225.987499 C158.009718,225.987499 158.337478,224.763778 157.165041,224.736253 C156.389939,224.742571 155.980645,225.987499 157.216135,225.987499 Z M58.6844317,170.628746 C58.7137834,168.720066 56.215084,170.119764 56.230847,171.730185 C56.26346,174.943806 58.6317074,173.476424 58.6844317,170.628746 Z M52.5187808,122.883143 C51.7148704,122.883143 51.3854791,124.119498 52.5698745,124.148828 C53.3536737,124.142962 53.7673152,122.883143 52.5187808,122.883143 Z M33.3865269,185.392722 C33.3087993,183.451554 31.6863025,185.43604 31.7770753,185.438747 C32.0651568,185.445967 33.4474045,186.856043 33.3865269,185.392722 Z M37.5995831,84.0632577 C35.2318792,84.0632577 35.5754028,89.8168218 37.0864719,90.1859235 C39.6063697,90.801845 39.9509805,84.0632577 37.5995831,84.0632577 Z M50.212933,208.325849 C47.9273051,208.325849 47.7729369,216.139704 49.3503191,216.625673 C51.8011861,217.379669 52.5931385,208.325849 50.212933,208.325849 Z M31.4567613,213.932223 C30.5849071,214.323435 30.5990394,214.691634 31.4991582,215.035467 C32.371556,214.644256 32.3568801,214.276959 31.4567613,213.932223 Z M201.455507,217.282881 C199.135636,217.282881 199.226409,226.836207 200.65051,227.481458 C202.64099,228.383907 204.139014,217.282881 201.455507,217.282881 Z M177.94561,226.161536 C175.534966,225.679629 174.272299,233.567034 175.395817,234.451885 C177.248236,235.910694 180.42148,226.656078 177.94561,226.161536 Z M157.46508,233.451204 C155.467534,233.451204 155.95836,237.025805 157.110686,237.557799 C159.104971,238.478297 159.694179,233.451204 157.46508,233.451204 Z M86.479514,19.5090896 C84.8080977,19.5090896 74.3192131,24.2532644 78.2392958,25.6588288 C80.6358078,26.5179603 90.7371413,19.5090896 86.479514,19.5090896 Z",
-                                                "id": "{{uid}}-Highlights",
+                                                "id": "{uid}-Highlights",
                                                 "fillOpacity": "0.300000012",
                                                 "fill": "#FFFFFF",
                                                 "mask": "`url(#${hairColorMask})`"
@@ -5814,7 +5814,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Group-74",
+                                        "id": "{uid}-Group-74",
                                         "strokeWidth": "1",
                                         "fillRule": "evenodd",
                                         "transform": "translate(44.000000, 33.000000)"
@@ -5830,7 +5830,7 @@ export const SVG_DICTIONARY = {
         "LongHairFrida": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -6244,7 +6244,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path2"
+                                "xlinkHref": "#{uid}-top-path2"
                             },
                             "children": []
                         }
@@ -6253,7 +6253,7 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Long-Hair/Frida",
+                        "id": "{uid}-Top/Long-Hair/Frida",
                         "mask": "`url(#${hairColorMask})`"
                     },
                     "children": [
@@ -6266,7 +6266,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Cabello",
+                                        "id": "{uid}-Cabello",
                                         "strokeWidth": "1",
                                         "fillRule": "evenodd",
                                         "transform": "translate(57.000000, 12.000000)"
@@ -6285,7 +6285,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Ornamentos",
+                                        "id": "{uid}-Ornamentos",
                                         "strokeWidth": "1",
                                         "fillRule": "evenodd",
                                         "transform": "translate(67.000000, 0.000000)"
@@ -6294,7 +6294,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "g",
                                             "props": {
-                                                "id": "{{uid}}-hoja1",
+                                                "id": "{uid}-hoja1",
                                                 "filter": "`url(#${filter5})`",
                                                 "opacity": "0.899999976",
                                                 "transform": "translate(120.000000, 64.500000) scale(1, -1) rotate(-20.000000) translate(-120.000000, -64.500000) translate(107.000000, 57.000000)",
@@ -6305,7 +6305,7 @@ export const SVG_DICTIONARY = {
                                                     "type": "path",
                                                     "props": {
                                                         "d": "M3.61111111,10 C3.61111111,10 1.95,0 13,0 C20.2222222,0 25.2777778,5.71428571 25.2777778,5.71428571 C25.2777778,5.71428571 19.8611111,14.2857143 11.5555556,14.2857143 C5.05555556,14.2857143 3.61111111,10 3.61111111,10 Z",
-                                                        "id": "{{uid}}-leaf1",
+                                                        "id": "{uid}-leaf1",
                                                         "fill": "#5DD362"
                                                     },
                                                     "children": []
@@ -6314,7 +6314,7 @@ export const SVG_DICTIONARY = {
                                                     "type": "path",
                                                     "props": {
                                                         "d": "M25.2777778,5.71428571 C25.2777778,5.71428571 19.8611111,14.2857143 11.5555556,14.2857143 C7.22222222,14.2857143 5.12777778,12.3571429 4.18888889,11.0714286 C2.09444444,12.8571429 1.37222222,14.5 1.37222222,14.5714286 C1.3,14.8571429 1.01111111,15 0.722222222,15 C0.65,15 0.505555556,15 0.433333333,14.9285714 C0.0722222222,14.7857143 -0.0722222222,14.3571429 0.0722222222,14 C0.144444444,13.7857143 1.95,9.85714286 7.43888889,7.28571429 C15.3833333,3.14285714 25.2777778,5.71428571 25.2777778,5.71428571 Z",
-                                                        "id": "{{uid}}-leaf2",
+                                                        "id": "{uid}-leaf2",
                                                         "fill": "#42BC53"
                                                     },
                                                     "children": []
@@ -6324,7 +6324,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "g",
                                             "props": {
-                                                "id": "{{uid}}-hoja2",
+                                                "id": "{uid}-hoja2",
                                                 "filter": "`url(#${filter6})`",
                                                 "transform": "translate(93.307368, 21.745191) scale(-1, -1) rotate(-120.000000) translate(-93.307368, -21.745191) translate(85.807368, 7.245191)"
                                             },
@@ -6333,7 +6333,7 @@ export const SVG_DICTIONARY = {
                                                     "type": "path",
                                                     "props": {
                                                         "d": "M15,12 C15,5.9 9,0 9,0 C9,0 1.7,4.3 1,13 C0.3,21.7 6.8,23.7 6.8,23.7 C6.8,23.7 15,20.8 15,12 Z",
-                                                        "id": "{{uid}}-leaf3",
+                                                        "id": "{uid}-leaf3",
                                                         "fill": "#5DD362"
                                                     },
                                                     "children": []
@@ -6342,7 +6342,7 @@ export const SVG_DICTIONARY = {
                                                     "type": "path",
                                                     "props": {
                                                         "d": "M8,29 C8.1,29 8.2,29 8.3,28.9 C8.8,28.7 9.1,28.1 8.9,27.6 C8.4,26.1 8,24.7 7.8,23.2 C10,22.2 15,18.9 15,12 C15,5.9 9,0 9,0 C9,0 8.6,1.1 8,3 C8,3 8,3 8,3 C7.8,3.5 2.8,16.6 7.1,28.3 C7.2,28.7 7.6,29 8,29 Z",
-                                                        "id": "{{uid}}-leaf4",
+                                                        "id": "{uid}-leaf4",
                                                         "fill": "#42BC53"
                                                     },
                                                     "children": []
@@ -6352,7 +6352,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "g",
                                             "props": {
-                                                "id": "{{uid}}-hoja3",
+                                                "id": "{uid}-hoja3",
                                                 "filter": "`url(#${filter7})`",
                                                 "transform": "translate(29.307368, 59.745191) rotate(-120.000000) translate(-29.307368, -59.745191) translate(21.807368, 45.245191)"
                                             },
@@ -6361,7 +6361,7 @@ export const SVG_DICTIONARY = {
                                                     "type": "path",
                                                     "props": {
                                                         "d": "M15,12 C15,5.9 9,0 9,0 C9,0 1.7,4.3 1,13 C0.3,21.7 6.8,23.7 6.8,23.7 C6.8,23.7 15,20.8 15,12 Z",
-                                                        "id": "{{uid}}-leaf5",
+                                                        "id": "{uid}-leaf5",
                                                         "fill": "#5DD362"
                                                     },
                                                     "children": []
@@ -6370,7 +6370,7 @@ export const SVG_DICTIONARY = {
                                                     "type": "path",
                                                     "props": {
                                                         "d": "M8,29 C8.1,29 8.2,29 8.3,28.9 C8.8,28.7 9.1,28.1 8.9,27.6 C8.4,26.1 8,24.7 7.8,23.2 C10,22.2 15,18.9 15,12 C15,5.9 9,0 9,0 C9,0 8.6,1.1 8,3 C8,3 8,3 8,3 C7.8,3.5 2.8,16.6 7.1,28.3 C7.2,28.7 7.6,29 8,29 Z",
-                                                        "id": "{{uid}}-leaf6",
+                                                        "id": "{uid}-leaf6",
                                                         "fill": "#42BC53"
                                                     },
                                                     "children": []
@@ -6380,8 +6380,8 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "g",
                                             "props": {
-                                                "id": "{{uid}}-Flor1",
-                                                "filter": "`url(#${{uid}}-top-filter1)`",
+                                                "id": "{uid}-Flor1",
+                                                "filter": "`url(#${uid}-top-filter1)`",
                                                 "transform": "translate(13.000000, 42.000000) scale(-1, 1) translate(-13.000000, -42.000000) translate(0.000000, 29.000000)"
                                             },
                                             "children": [
@@ -6407,7 +6407,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "g",
                                             "props": {
-                                                "id": "{{uid}}-Flor2",
+                                                "id": "{uid}-Flor2",
                                                 "filter": "`url(#${filter2})`",
                                                 "transform": "translate(20.000000, 16.000000)"
                                             },
@@ -6434,7 +6434,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "g",
                                             "props": {
-                                                "id": "{{uid}}-Flor3",
+                                                "id": "{uid}-Flor3",
                                                 "filter": "`url(#${filter3})`",
                                                 "transform": "translate(89.000000, 26.000000)"
                                             },
@@ -6461,7 +6461,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "g",
                                             "props": {
-                                                "id": "{{uid}}-Flor4",
+                                                "id": "{uid}-Flor4",
                                                 "filter": "`url(#${filter4})`",
                                                 "transform": "translate(48.000000, 0.000000)"
                                             },
@@ -6490,7 +6490,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Arete",
+                                        "id": "{uid}-Arete",
                                         "strokeWidth": "1",
                                         "fillRule": "evenodd",
                                         "transform": "translate(182.000000, 129.000000)"
@@ -6499,7 +6499,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "rect",
                                             "props": {
-                                                "id": "{{uid}}-Cadenita",
+                                                "id": "{uid}-Cadenita",
                                                 "fill": "#E6E6E6",
                                                 "x": "9",
                                                 "y": "0",
@@ -6512,7 +6512,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "polygon",
                                             "props": {
-                                                "id": "{{uid}}-Rayo",
+                                                "id": "{uid}-Rayo",
                                                 "fill": "#9177FF",
                                                 "fillRule": "nonzero",
                                                 "points": "20 37 10.57 37 17 20 6 20 0 41 8.636 41 4 60"
@@ -6540,7 +6540,7 @@ export const SVG_DICTIONARY = {
         "LongHairFro": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -6592,7 +6592,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -6601,8 +6601,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Long-Hair/Fro",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Long-Hair/Fro",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -6615,7 +6615,7 @@ export const SVG_DICTIONARY = {
                                     "type": "path",
                                     "props": {
                                         "d": "M67,109.777572 C76.0375502,108.717226 88.9217814,89.3309188 94.3694073,69.3345491 C105.486404,71.0717584 118.905207,72.0867832 133.353789,72.0867832 C147.513023,72.0867832 160.683308,71.1120054 171.66752,69.4380466 C177.129582,89.3913728 189.978479,108.706688 199,109.77655 L199,89 C199,66.1159733 187.353465,45.9521405 169.664405,34.1125124 C169.136033,36.5946509 168.784517,39.3353373 168.624132,42.297284 C158.284896,40.892676 146.228147,40.0867832 133.353789,40.0867832 C120.190372,40.0867832 107.88169,40.9292706 97.3896338,42.392803 C97.2315704,39.3922173 96.8778294,36.6175705 96.3431783,34.1074375 C78.6498638,45.9463781 67,66.1127033 67,89 L67,89 L67,109.777572 Z",
-                                        "id": "{{uid}}-Shadow",
+                                        "id": "{uid}-Shadow",
                                         "fillOpacity": "0.16",
                                         "fill": "#000000",
                                         "fillRule": "evenodd"
@@ -6625,7 +6625,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Hair",
+                                        "id": "{uid}-Hair",
                                         "strokeWidth": "1",
                                         "fill": "none",
                                         "fillRule": "evenodd",
@@ -6642,7 +6642,7 @@ export const SVG_DICTIONARY = {
                                                 {
                                                     "type": "use",
                                                     "props": {
-                                                        "xlinkHref": "#{{uid}}-top-path2"
+                                                        "xlinkHref": "#{uid}-top-path2"
                                                     },
                                                     "children": []
                                                 }
@@ -6652,7 +6652,7 @@ export const SVG_DICTIONARY = {
                                             "type": "use",
                                             "props": {
                                                 "fill": "#314756",
-                                                "xlinkHref": "#{{uid}}-top-path2"
+                                                "xlinkHref": "#{uid}-top-path2"
                                             },
                                             "children": []
                                         },
@@ -6682,7 +6682,7 @@ export const SVG_DICTIONARY = {
         "LongHairFroBand": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -6725,7 +6725,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -6734,15 +6734,15 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Mask"
+                        "id": "{uid}-Mask"
                     },
                     "children": []
                 },
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Long-Hair/Fro-+-Band",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Long-Hair/Fro-+-Band",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -6761,7 +6761,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "xlinkHref": "#{{uid}}-top-path2"
+                                                "xlinkHref": "#{uid}-top-path2"
                                             },
                                             "children": []
                                         }
@@ -6770,11 +6770,11 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "use",
                                     "props": {
-                                        "id": "{{uid}}-Hair",
+                                        "id": "{uid}-Hair",
                                         "stroke": "none",
                                         "fill": "#314756",
                                         "fillRule": "evenodd",
-                                        "xlinkHref": "#{{uid}}-top-path2"
+                                        "xlinkHref": "#{uid}-top-path2"
                                     },
                                     "children": []
                                 },
@@ -6787,7 +6787,7 @@ export const SVG_DICTIONARY = {
                                     "type": "path",
                                     "props": {
                                         "d": "M76.6313898,98.975 C76.2155465,96.423245 76,93.8109442 76,91.1521739 C76,62.3493236 101.295912,39 132.5,39 C163.704088,39 189,62.3493236 189,91.1521739 C189,93.8109442 188.784453,96.423245 188.36861,98.975 C184.279562,73.883217 160.823662,54.6456522 132.5,54.6456522 C104.176338,54.6456522 80.7204382,73.883217 76.6313898,98.975 Z",
-                                        "id": "{{uid}}-Band",
+                                        "id": "{uid}-Band",
                                         "stroke": "none",
                                         "fill": "#92D9FF",
                                         "fillRule": "evenodd"
@@ -6813,7 +6813,7 @@ export const SVG_DICTIONARY = {
         "LongHairMiaWallace": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -6856,7 +6856,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -6865,8 +6865,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Long-Hair/Mia-Wallace",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Long-Hair/Mia-Wallace",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -6879,7 +6879,7 @@ export const SVG_DICTIONARY = {
                                     "type": "path",
                                     "props": {
                                         "d": "M69.0330562,76.212888 C81.9708809,43.1292208 95.6458945,26.5873873 110.058097,26.5873873 C110.596882,26.5873873 139.311316,26.3494141 158.112657,26.226792 C178.767149,35.5853581 193,55.3036503 193,78.114622 L193,93 L110.058097,93 L107.252975,69.820435 L103.373552,93 L69,93 L69,78.114622 C69,77.478246 69.0110772,76.844277 69.0330621,76.2128728 L69.0330562,76.212888 Z",
-                                        "id": "{{uid}}-Shadow",
+                                        "id": "{uid}-Shadow",
                                         "fillOpacity": "0.16",
                                         "fill": "#000000",
                                         "fillRule": "evenodd"
@@ -6889,7 +6889,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Hair",
+                                        "id": "{uid}-Hair",
                                         "strokeWidth": "1",
                                         "fill": "none",
                                         "fillRule": "evenodd",
@@ -6906,7 +6906,7 @@ export const SVG_DICTIONARY = {
                                                 {
                                                     "type": "use",
                                                     "props": {
-                                                        "xlinkHref": "#{{uid}}-top-path2"
+                                                        "xlinkHref": "#{uid}-top-path2"
                                                     },
                                                     "children": []
                                                 }
@@ -6915,9 +6915,9 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "id": "{{uid}}-Combined-Shape",
+                                                "id": "{uid}-Combined-Shape",
                                                 "fill": "#E6E6E6",
-                                                "xlinkHref": "#{{uid}}-top-path2"
+                                                "xlinkHref": "#{uid}-top-path2"
                                             },
                                             "children": []
                                         },
@@ -6947,7 +6947,7 @@ export const SVG_DICTIONARY = {
         "LongHairNotTooLong": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -6990,7 +6990,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -6999,15 +6999,15 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Mask"
+                        "id": "{uid}-Mask"
                     },
                     "children": []
                 },
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Long-Hair/Long-but-not-too-long",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Long-Hair/Long-but-not-too-long",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -7019,7 +7019,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Behind",
+                                        "id": "{uid}-Behind",
                                         "strokeWidth": "1",
                                         "fillRule": "evenodd"
                                     },
@@ -7034,7 +7034,7 @@ export const SVG_DICTIONARY = {
                                                 {
                                                     "type": "use",
                                                     "props": {
-                                                        "xlinkHref": "#{{uid}}-top-path2"
+                                                        "xlinkHref": "#{uid}-top-path2"
                                                     },
                                                     "children": []
                                                 }
@@ -7043,9 +7043,9 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "id": "{{uid}}-Combined-Shape11",
+                                                "id": "{uid}-Combined-Shape11",
                                                 "fill": "#944F23",
-                                                "xlinkHref": "#{{uid}}-top-path2"
+                                                "xlinkHref": "#{uid}-top-path2"
                                             },
                                             "children": []
                                         },
@@ -7059,7 +7059,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Top",
+                                        "id": "{uid}-Top",
                                         "opacity": "0.439990942",
                                         "strokeWidth": "1",
                                         "fillRule": "evenodd",
@@ -7071,7 +7071,7 @@ export const SVG_DICTIONARY = {
                                             "type": "path",
                                             "props": {
                                                 "d": "M11.8989604,84.7749122 C25.7109099,83.0145308 41.6792969,77.5379209 57.3415164,68.4953343 C69.4732686,61.4910638 79.8439791,53.2579416 87.8209384,44.752196 C84.3941075,52.6604321 80.2445133,59.5880409 75.3721558,65.5350224 C88.0473359,60.0120855 96.6778122,51.1324394 101.263585,38.8960843 C101.64142,39.8180234 102.034942,40.738913 102.444252,41.6582378 C114.38223,68.4713761 136.296003,86.1944823 157,88.1510343 L157,88.1510343 L157,74 C157,33.1309285 123.869071,-7.50752664e-15 83,0 C46.9151011,6.62868839e-15 16.8627142,25.8282542 10.3212729,60.0063288 C10.214595,60.0021202 10.1074956,60 10,60 C4.4771525,60 0,65.5964406 0,72.5 C0,78.9816827 3.9466744,84.3111215 8.99999442,84.9382803 L8.99999434,85.0927525 C9.31629342,85.0638362 9.63387297,85.0328725 9.95270131,84.9998631 C9.96845895,84.9999543 9.98422521,85 10,85 C10.6492988,85 11.2841443,84.9226474 11.8989604,84.7749122 Z",
-                                                "id": "{{uid}}-Combined-Shape",
+                                                "id": "{uid}-Combined-Shape",
                                                 "fill": "#FFFFFF"
                                             },
                                             "children": []
@@ -7097,7 +7097,7 @@ export const SVG_DICTIONARY = {
         "LongHairShavedSides": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -7140,7 +7140,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -7149,8 +7149,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Long-Hair/ShavedSides",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Long-Hair/ShavedSides",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -7162,7 +7162,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Hair",
+                                        "id": "{uid}-Hair",
                                         "strokeWidth": "1",
                                         "fill": "none",
                                         "fillRule": "evenodd",
@@ -7179,7 +7179,7 @@ export const SVG_DICTIONARY = {
                                                 {
                                                     "type": "use",
                                                     "props": {
-                                                        "xlinkHref": "#{{uid}}-top-path2"
+                                                        "xlinkHref": "#{uid}-top-path2"
                                                     },
                                                     "children": []
                                                 }
@@ -7188,9 +7188,9 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "id": "{{uid}}-Mask-Hair",
+                                                "id": "{uid}-Mask-Hair",
                                                 "fill": "#944F23",
-                                                "xlinkHref": "#{{uid}}-top-path2"
+                                                "xlinkHref": "#{uid}-top-path2"
                                             },
                                             "children": []
                                         },
@@ -7205,7 +7205,7 @@ export const SVG_DICTIONARY = {
                                     "type": "path",
                                     "props": {
                                         "d": "m 113.97461,-10.648438 c 1.82009,12.1259255 -6.45505,21.513488 -16.730469,27.009766 -33.42771,12.865973 -61.217253,12.865973 -83.367188,0 -1.410392,-0.819238 -2.551103,-2.396423 -3.052734,-4.261719 -0.8399352,3.092803 0.407113,6.214398 2.408203,7.800782 C 4.9865756,29.450373 0,41.892615 0,55.5 v 6 C 0,45.958626 6.5054161,31.93613 16.941406,22.007812 38.014451,32.80222 63.920033,32.676969 94.658203,21.630859 105.32822,31.579609 112,45.760579 112,61.5 v -6 C 112,41.911436 107.02622,29.484214 98.800781,19.939453 111.26023,12.444293 116.48257,1.0460243 113.97461,-10.648438 Z M -7.6777344,95.017578 l -0.625,15.486332 c 0.756031,20.94774 2.1025249,41.30317 5.0917969,59.59375 C 6.2310745,165.54874 16.817783,163 28,163 h 4 V 144.61133 C 14.762634,136.42275 2.3717745,119.68663 0.3046875,99.880859 -2.9860265,99.415649 -5.8108064,97.586898 -7.6777344,95.017578 Z M 116,98.369141 c -1.3033,0.75581 -2.75024,1.291968 -4.30469,1.511718 C 109.62823,119.68663 97.23736,136.42275 80,144.61133 V 163 h 4 c 29.59962,0 55.01612,17.86779 66.08203,43.40039 0.54479,-5.24854 -0.41804,-10.75582 -3.47265,-16.34961 C 134.75818,168.34829 116,144.65098 116,118.10938 Z",
-                                        "id": "{{uid}}-Shadow",
+                                        "id": "{uid}-Shadow",
                                         "fillOpacity": "0.24",
                                         "fill": "#000000",
                                         "fillRule": "evenodd",
@@ -7232,7 +7232,7 @@ export const SVG_DICTIONARY = {
         "LongHairStraight": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -7275,7 +7275,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -7284,8 +7284,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Long-Hair/Straight",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Long-Hair/Straight",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -7297,7 +7297,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Hair",
+                                        "id": "{uid}-Hair",
                                         "strokeWidth": "1",
                                         "fill": "none",
                                         "fillRule": "evenodd",
@@ -7314,7 +7314,7 @@ export const SVG_DICTIONARY = {
                                                 {
                                                     "type": "use",
                                                     "props": {
-                                                        "xlinkHref": "#{{uid}}-top-path2"
+                                                        "xlinkHref": "#{uid}-top-path2"
                                                     },
                                                     "children": []
                                                 }
@@ -7323,9 +7323,9 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "id": "{{uid}}-Mask-Hair",
+                                                "id": "{uid}-Mask-Hair",
                                                 "fill": "#944F23",
-                                                "xlinkHref": "#{{uid}}-top-path2"
+                                                "xlinkHref": "#{uid}-top-path2"
                                             },
                                             "children": []
                                         },
@@ -7340,7 +7340,7 @@ export const SVG_DICTIONARY = {
                                     "type": "path",
                                     "props": {
                                         "d": "M192.506381,99.3351151 C197.3745,101.107702 202.263079,102.071957 207,102.148232 L207,102.148232 L207,92 C207,71.5654643 198.717268,53.0654643 185.325902,39.6740982 C198.717268,53.0654643 207,71.5654643 207,92 L207,215.608051 C194.525121,205.236892 178.490913,199 161,199 L157,199 L157,180.610951 L157,180.610951 C174.530782,172.282984 187.048193,155.114792 188.791419,134.867187 C194.569129,134.002364 199,129.018625 199,123 L199,110 C199,105.357474 196.363649,101.3307 192.506381,99.3351151 Z M190.18005,98.4258987 C189.794121,98.3201038 189.400422,98.233095 189,98.1659169 L189,97.9170491 C189.392974,98.0918644 189.786355,98.2614951 190.18005,98.4258987 Z M83,155.245847 C88.6015372,166.317951 97.7726252,175.277407 109,180.610951 L109,199 L105,199 C97.3271796,199 89.9346808,200.200199 83,202.423101 L83,155.245847 Z",
-                                        "id": "{{uid}}-Shadow",
+                                        "id": "{uid}-Shadow",
                                         "fillOpacity": "0.24",
                                         "fill": "#000000",
                                         "fillRule": "evenodd"
@@ -7366,7 +7366,7 @@ export const SVG_DICTIONARY = {
         "LongHairStraight2": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -7418,7 +7418,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -7427,8 +7427,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Long-Hair/Straight",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Long-Hair/Straight",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -7440,7 +7440,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Hair",
+                                        "id": "{uid}-Hair",
                                         "strokeWidth": "1",
                                         "fill": "none",
                                         "fillRule": "evenodd",
@@ -7457,7 +7457,7 @@ export const SVG_DICTIONARY = {
                                                 {
                                                     "type": "use",
                                                     "props": {
-                                                        "xlinkHref": "#{{uid}}-top-path2"
+                                                        "xlinkHref": "#{uid}-top-path2"
                                                     },
                                                     "children": []
                                                 }
@@ -7467,7 +7467,7 @@ export const SVG_DICTIONARY = {
                                             "type": "use",
                                             "props": {
                                                 "fill": "#272C2E",
-                                                "xlinkHref": "#{{uid}}-top-path2"
+                                                "xlinkHref": "#{uid}-top-path2"
                                             },
                                             "children": []
                                         },
@@ -7482,7 +7482,7 @@ export const SVG_DICTIONARY = {
                                     "type": "path",
                                     "props": {
                                         "d": "M67,113 C84.8226408,80.6646674 137.535357,80.6069148 154.429684,64.2083647 C165.207546,72.6982916 182.891727,79.2665518 188.963018,97.8687161 C182.891727,76.423995 165.207546,66.5601054 154.429684,56.777113 C137.535357,75.6732583 84.8226408,75.7398069 67,113 Z",
-                                        "id": "{{uid}}-Shadow",
+                                        "id": "{uid}-Shadow",
                                         "fillOpacity": "0.16",
                                         "fill": "#000000",
                                         "fillRule": "evenodd"
@@ -7508,7 +7508,7 @@ export const SVG_DICTIONARY = {
         "LongHairStraightStrand": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -7560,7 +7560,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -7569,8 +7569,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Long-Hair/Straight-+-Strand",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Long-Hair/Straight-+-Strand",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -7582,7 +7582,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Hair",
+                                        "id": "{uid}-Hair",
                                         "strokeWidth": "1",
                                         "fill": "none",
                                         "fillRule": "evenodd",
@@ -7599,7 +7599,7 @@ export const SVG_DICTIONARY = {
                                                 {
                                                     "type": "use",
                                                     "props": {
-                                                        "xlinkHref": "#{{uid}}-top-path2"
+                                                        "xlinkHref": "#{uid}-top-path2"
                                                     },
                                                     "children": []
                                                 }
@@ -7609,7 +7609,7 @@ export const SVG_DICTIONARY = {
                                             "type": "use",
                                             "props": {
                                                 "fill": "#ECC797",
-                                                "xlinkHref": "#{{uid}}-top-path2"
+                                                "xlinkHref": "#{uid}-top-path2"
                                             },
                                             "children": []
                                         },
@@ -7624,7 +7624,7 @@ export const SVG_DICTIONARY = {
                                     "type": "path",
                                     "props": {
                                         "d": "M59,102.418954 L59,108.837908 C78.9453743,105.750496 99.5895621,88.3902571 111.046195,62.6582378 C111.455505,61.738913 111.849027,60.8180234 112.226862,59.8960843 C116.231662,70.5822127 123.321236,78.70828 133.495584,84.2742862 C134.956498,86.4697241 136.497401,88.5566361 138.118291,90.5350224 C125.443111,85.0120855 116.812635,76.1324394 112.226862,63.8960843 C111.849027,64.8180234 111.455505,65.738913 111.046195,66.6582378 C99.5895621,92.3902571 78.9453743,109.750496 59,112.837908 L59,102.418954 Z M207,101.140388 L207,110.280776 C192.046922,109.412723 173.901259,103.744646 156.14893,93.4953343 C145.87623,87.5643877 136.866205,80.7523483 129.502994,73.639773 C128.137922,71.1289501 126.860094,68.4997578 125.669508,65.752196 C133.646468,74.2579416 144.017178,82.4910638 156.14893,89.4953343 C173.901259,99.7446457 192.046922,105.412723 207,106.280776 L207,101.140388 Z",
-                                        "id": "{{uid}}-Shadow",
+                                        "id": "{uid}-Shadow",
                                         "fillOpacity": "0.16",
                                         "fill": "#000000",
                                         "fillRule": "evenodd"
@@ -7650,7 +7650,7 @@ export const SVG_DICTIONARY = {
         "NoHair": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -7738,7 +7738,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -7747,8 +7747,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/No-Hair",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/No-Hair",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -7776,7 +7776,7 @@ export const SVG_DICTIONARY = {
         "ShortHairDreads01": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -7828,7 +7828,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -7837,8 +7837,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Short-Hair/Dreads-01",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Short-Hair/Dreads-01",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -7855,7 +7855,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Hair",
+                                        "id": "{uid}-Hair",
                                         "strokeWidth": "1",
                                         "fillRule": "evenodd",
                                         "transform": "translate(1.000000, 0.000000)"
@@ -7871,7 +7871,7 @@ export const SVG_DICTIONARY = {
                                                 {
                                                     "type": "use",
                                                     "props": {
-                                                        "xlinkHref": "#{{uid}}-top-path3"
+                                                        "xlinkHref": "#{uid}-top-path3"
                                                     },
                                                     "children": []
                                                 }
@@ -7880,9 +7880,9 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "id": "{{uid}}-Dreads-With-Cut",
+                                                "id": "{uid}-Dreads-With-Cut",
                                                 "fill": "#2E3257",
-                                                "xlinkHref": "#{{uid}}-top-path3"
+                                                "xlinkHref": "#{uid}-top-path3"
                                             },
                                             "children": []
                                         },
@@ -7907,7 +7907,7 @@ export const SVG_DICTIONARY = {
         "ShortHairDreads02": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -7959,7 +7959,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -7968,8 +7968,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Short-Hair/Dreads-02",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Short-Hair/Dreads-02",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -7981,7 +7981,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Hair",
+                                        "id": "{uid}-Hair",
                                         "strokeWidth": "1",
                                         "fillRule": "evenodd",
                                         "transform": "translate(36.000000, 0.000000)"
@@ -7997,7 +7997,7 @@ export const SVG_DICTIONARY = {
                                                 {
                                                     "type": "use",
                                                     "props": {
-                                                        "xlinkHref": "#{{uid}}-top-path3"
+                                                        "xlinkHref": "#{uid}-top-path3"
                                                     },
                                                     "children": []
                                                 }
@@ -8006,9 +8006,9 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "id": "{{uid}}-Dreads",
+                                                "id": "{uid}-Dreads",
                                                 "fill": "#2E3257",
-                                                "xlinkHref": "#{{uid}}-top-path3"
+                                                "xlinkHref": "#{uid}-top-path3"
                                             },
                                             "children": []
                                         },
@@ -8038,7 +8038,7 @@ export const SVG_DICTIONARY = {
         "ShortHairFrizzle": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -8135,7 +8135,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path2"
+                                "xlinkHref": "#{uid}-top-path2"
                             },
                             "children": []
                         }
@@ -8144,8 +8144,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Short-Hair/Frizzle",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Short-Hair/Frizzle",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -8169,7 +8169,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "xlinkHref": "#{{uid}}-top-path1"
+                                                "xlinkHref": "#{uid}-top-path1"
                                             },
                                             "children": []
                                         }
@@ -8182,7 +8182,7 @@ export const SVG_DICTIONARY = {
                                         "stroke": "none",
                                         "fill": "#252E32",
                                         "fillRule": "evenodd",
-                                        "xlinkHref": "#{{uid}}-top-path1"
+                                        "xlinkHref": "#{uid}-top-path1"
                                     },
                                     "children": []
                                 },
@@ -8205,7 +8205,7 @@ export const SVG_DICTIONARY = {
         "ShortHairShaggy": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -8302,7 +8302,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path2"
+                                "xlinkHref": "#{uid}-top-path2"
                             },
                             "children": []
                         }
@@ -8311,15 +8311,15 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Mask"
+                        "id": "{uid}-Mask"
                     },
                     "children": []
                 },
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Short-Hair/Shaggy",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Short-Hair/Shaggy",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -8348,7 +8348,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "xlinkHref": "#{{uid}}-top-path1",
+                                                "xlinkHref": "#{uid}-top-path1",
                                                 "transform": "translate(143.465161, 67.234158) scale(-1, 1) translate(-143.465161, -67.234158) "
                                             },
                                             "children": []
@@ -8364,12 +8364,12 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "use",
                                     "props": {
-                                        "id": "{{uid}}-Shaggy-Hair",
+                                        "id": "{uid}-Shaggy-Hair",
                                         "stroke": "none",
                                         "fill": "#28354B",
                                         "fillRule": "evenodd",
                                         "transform": "translate(143.465161, 67.234158) scale(-1, 1) translate(-143.465161, -67.234158) ",
-                                        "xlinkHref": "#{{uid}}-top-path1"
+                                        "xlinkHref": "#{uid}-top-path1"
                                     },
                                     "children": []
                                 },
@@ -8387,7 +8387,7 @@ export const SVG_DICTIONARY = {
         "ShortHairShaggyMullet": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -8439,7 +8439,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -8448,8 +8448,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Short-Hair/Shaggy-Mullet",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Short-Hair/Shaggy-Mullet",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -8468,7 +8468,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "xlinkHref": "#{{uid}}-top-path2"
+                                                "xlinkHref": "#{uid}-top-path2"
                                             },
                                             "children": []
                                         }
@@ -8477,11 +8477,11 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "use",
                                     "props": {
-                                        "id": "{{uid}}-Hair",
+                                        "id": "{uid}-Hair",
                                         "stroke": "none",
                                         "fill": "#1D2633",
                                         "fillRule": "evenodd",
-                                        "xlinkHref": "#{{uid}}-top-path2"
+                                        "xlinkHref": "#{uid}-top-path2"
                                     },
                                     "children": []
                                 },
@@ -8494,7 +8494,7 @@ export const SVG_DICTIONARY = {
                                     "type": "path",
                                     "props": {
                                         "d": "M175.126419,166.897818 C175.841424,169.13759 176.874789,171.230601 178.55519,172.685954 C180.17619,174.090053 183.068114,173.745469 185.098621,173.802748 C186.770693,173.850632 188.444623,173.856087 190.114529,173.783655 C190.95366,173.747287 191.327571,174.79771 190.648775,175.281705 C190.518773,175.374442 190.388771,175.462634 190.25846,175.543856 C189.20761,176.198779 188.11838,176.802787 187.008721,177.356184 C184.485135,178.614206 181.821334,179.600077 179.02722,180.090436 C177.110792,180.426519 175.211229,180.489668 173.372596,180.266511 C173.858877,180.986862 174.419563,181.642356 175.071506,182.207788 C176.801481,183.708407 179.887821,183.340135 182.054832,183.401352 C183.839313,183.452528 185.625776,183.458358 187.407944,183.380946 C188.303488,183.342078 188.702535,184.464709 187.978106,184.981974 C187.839364,185.081086 187.700623,185.175341 187.561551,185.262145 C186.440057,185.962089 185.2776,186.607617 184.093342,187.199055 C181.400104,188.543555 178.557223,189.597195 175.57527,190.121262 C170.075488,191.087126 164.705859,189.943766 160.380755,186.413279 C159.16361,185.419765 158.027363,184.287616 157,183.053001 L157,180.610951 C163.949635,177.309539 170.111406,172.618864 175.126419,166.897818 Z M81.3150549,151.593977 C80.572738,153.13892 79.8051751,154.672522 79.0058562,156.190972 C74.2106831,165.300379 68.2421528,176.792949 56.4993303,177.596328 C55.4105393,177.670743 54.9804404,178.942941 55.8287461,179.588187 C66.9485528,188.041497 92.2609618,193.18734 101.273548,191.569729 C104.095212,191.063278 106.638877,190.402091 109,189.610443 L109,180.610951 C96.5625107,174.702544 86.6484598,164.344483 81.3150549,151.593977 Z",
-                                        "id": "{{uid}}-Shadow",
+                                        "id": "{uid}-Shadow",
                                         "stroke": "none",
                                         "fillOpacity": "0.16",
                                         "fill": "#000000",
@@ -8521,7 +8521,7 @@ export const SVG_DICTIONARY = {
         "ShortHairShortCurly": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -8618,7 +8618,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path2"
+                                "xlinkHref": "#{uid}-top-path2"
                             },
                             "children": []
                         }
@@ -8627,8 +8627,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Short-Hair/Short-Curly",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Short-Hair/Short-Curly",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -8652,7 +8652,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "xlinkHref": "#{{uid}}-top-path1"
+                                                "xlinkHref": "#{uid}-top-path1"
                                             },
                                             "children": []
                                         }
@@ -8661,11 +8661,11 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "use",
                                     "props": {
-                                        "id": "{{uid}}-Short-Hair",
+                                        "id": "{uid}-Short-Hair",
                                         "stroke": "none",
                                         "fill": "#28354B",
                                         "fillRule": "evenodd",
-                                        "xlinkHref": "#{{uid}}-top-path1"
+                                        "xlinkHref": "#{uid}-top-path1"
                                     },
                                     "children": []
                                 },
@@ -8688,7 +8688,7 @@ export const SVG_DICTIONARY = {
         "ShortHairShortFlat": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -8785,7 +8785,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path2"
+                                "xlinkHref": "#{uid}-top-path2"
                             },
                             "children": []
                         }
@@ -8794,8 +8794,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Short-Hair/Short-Flat",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Short-Hair/Short-Flat",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -8819,7 +8819,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "xlinkHref": "#{{uid}}-top-path1"
+                                                "xlinkHref": "#{uid}-top-path1"
                                             },
                                             "children": []
                                         }
@@ -8828,11 +8828,11 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "use",
                                     "props": {
-                                        "id": "{{uid}}-Short-Hair",
+                                        "id": "{uid}-Short-Hair",
                                         "stroke": "none",
                                         "fill": "#1F3140",
                                         "fillRule": "evenodd",
-                                        "xlinkHref": "#{{uid}}-top-path1"
+                                        "xlinkHref": "#{uid}-top-path1"
                                     },
                                     "children": []
                                 },
@@ -8855,7 +8855,7 @@ export const SVG_DICTIONARY = {
         "ShortHairShortRound": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -8952,7 +8952,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path2"
+                                "xlinkHref": "#{uid}-top-path2"
                             },
                             "children": []
                         }
@@ -8961,8 +8961,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Short-Hair/Short-Round",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Short-Hair/Short-Round",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -8986,7 +8986,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "xlinkHref": "#{{uid}}-top-path1"
+                                                "xlinkHref": "#{uid}-top-path1"
                                             },
                                             "children": []
                                         }
@@ -8995,11 +8995,11 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "use",
                                     "props": {
-                                        "id": "{{uid}}-Short-Hair",
+                                        "id": "{uid}-Short-Hair",
                                         "stroke": "none",
                                         "fill": "#28354B",
                                         "fillRule": "evenodd",
-                                        "xlinkHref": "#{{uid}}-top-path1"
+                                        "xlinkHref": "#{uid}-top-path1"
                                     },
                                     "children": []
                                 },
@@ -9022,7 +9022,7 @@ export const SVG_DICTIONARY = {
         "ShortHairShortWaved": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -9119,7 +9119,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path2"
+                                "xlinkHref": "#{uid}-top-path2"
                             },
                             "children": []
                         }
@@ -9128,8 +9128,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Short-Hair/Short-Waved",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Short-Hair/Short-Waved",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -9153,7 +9153,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "xlinkHref": "#{{uid}}-top-path1"
+                                                "xlinkHref": "#{uid}-top-path1"
                                             },
                                             "children": []
                                         }
@@ -9162,11 +9162,11 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "use",
                                     "props": {
-                                        "id": "{{uid}}-Short-Hair",
+                                        "id": "{uid}-Short-Hair",
                                         "stroke": "none",
                                         "fill": "#28354B",
                                         "fillRule": "evenodd",
-                                        "xlinkHref": "#{{uid}}-top-path1"
+                                        "xlinkHref": "#{uid}-top-path1"
                                     },
                                     "children": []
                                 },
@@ -9189,7 +9189,7 @@ export const SVG_DICTIONARY = {
         "ShortHairSides": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -9241,7 +9241,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -9250,8 +9250,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Short-Hair/Sides",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Short-Hair/Sides",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -9268,7 +9268,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Hair",
+                                        "id": "{uid}-Hair",
                                         "strokeWidth": "1",
                                         "fillRule": "evenodd",
                                         "transform": "translate(70.000000, 74.000000)"
@@ -9284,7 +9284,7 @@ export const SVG_DICTIONARY = {
                                                 {
                                                     "type": "use",
                                                     "props": {
-                                                        "xlinkHref": "#{{uid}}-top-path3"
+                                                        "xlinkHref": "#{uid}-top-path3"
                                                     },
                                                     "children": []
                                                 }
@@ -9293,9 +9293,9 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "id": "{{uid}}-Sides",
+                                                "id": "{uid}-Sides",
                                                 "fill": "#9E7A7A",
-                                                "xlinkHref": "#{{uid}}-top-path3"
+                                                "xlinkHref": "#{uid}-top-path3"
                                             },
                                             "children": []
                                         },
@@ -9320,7 +9320,7 @@ export const SVG_DICTIONARY = {
         "ShortHairTheCaesar": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -9417,7 +9417,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -9426,8 +9426,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Short-Hair/The-Caesar",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Short-Hair/The-Caesar",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -9444,7 +9444,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Hair",
+                                        "id": "{uid}-Hair",
                                         "strokeWidth": "1",
                                         "fillRule": "evenodd",
                                         "transform": "translate(75.000000, 34.000000)"
@@ -9460,7 +9460,7 @@ export const SVG_DICTIONARY = {
                                                 {
                                                     "type": "use",
                                                     "props": {
-                                                        "xlinkHref": "#{{uid}}-top-path2"
+                                                        "xlinkHref": "#{uid}-top-path2"
                                                     },
                                                     "children": []
                                                 }
@@ -9469,9 +9469,9 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "id": "{{uid}}-Caesar",
+                                                "id": "{uid}-Caesar",
                                                 "fill": "#28354B",
-                                                "xlinkHref": "#{{uid}}-top-path2"
+                                                "xlinkHref": "#{uid}-top-path2"
                                             },
                                             "children": []
                                         },
@@ -9496,7 +9496,7 @@ export const SVG_DICTIONARY = {
         "ShortHairTheCaesarSidePart": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -9593,7 +9593,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -9602,15 +9602,15 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Mask"
+                        "id": "{uid}-Mask"
                     },
                     "children": []
                 },
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Short-Hair/The-Caesar-+-Side-Part",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Short-Hair/The-Caesar-+-Side-Part",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -9627,7 +9627,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Hair",
+                                        "id": "{uid}-Hair",
                                         "strokeWidth": "1",
                                         "fillRule": "evenodd",
                                         "transform": "translate(75.000000, 34.000000)"
@@ -9643,7 +9643,7 @@ export const SVG_DICTIONARY = {
                                                 {
                                                     "type": "use",
                                                     "props": {
-                                                        "xlinkHref": "#{{uid}}-top-path2"
+                                                        "xlinkHref": "#{uid}-top-path2"
                                                     },
                                                     "children": []
                                                 }
@@ -9652,9 +9652,9 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "id": "{{uid}}-Caesar",
+                                                "id": "{uid}-Caesar",
                                                 "fill": "#28354B",
-                                                "xlinkHref": "#{{uid}}-top-path2"
+                                                "xlinkHref": "#{uid}-top-path2"
                                             },
                                             "children": []
                                         },
@@ -9679,7 +9679,7 @@ export const SVG_DICTIONARY = {
         "Turban": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top",
+                "id": "{uid}-Top",
                 "strokeWidth": "1",
                 "fillRule": "evenodd"
             },
@@ -9785,7 +9785,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path1"
+                                "xlinkHref": "#{uid}-top-path1"
                             },
                             "children": []
                         }
@@ -9794,8 +9794,8 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Accesories/Turban",
-                        "mask": "`url(#${{uid}}-top-mask1)`"
+                        "id": "{uid}-Top/Accesories/Turban",
+                        "mask": "`url(#${uid}-top-mask1)`"
                     },
                     "children": [
                         {
@@ -9812,7 +9812,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Turban-Behind",
+                                        "id": "{uid}-Turban-Behind",
                                         "strokeWidth": "1",
                                         "fillRule": "evenodd",
                                         "transform": "translate(1.000000, 0.000000)"
@@ -9829,7 +9829,7 @@ export const SVG_DICTIONARY = {
                                                 {
                                                     "type": "use",
                                                     "props": {
-                                                        "xlinkHref": "#{{uid}}-top-path3"
+                                                        "xlinkHref": "#{uid}-top-path3"
                                                     },
                                                     "children": []
                                                 }
@@ -9840,7 +9840,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Turban",
+                                        "id": "{uid}-Turban",
                                         "strokeWidth": "1",
                                         "fillRule": "evenodd",
                                         "transform": "translate(1.000000, 0.000000)"
@@ -9850,7 +9850,7 @@ export const SVG_DICTIONARY = {
                                             "type": "path",
                                             "props": {
                                                 "d": "M74.5304294,97.5 C73.529284,95.0905557 73,92.5798498 73,90 C73,71.7746033 99.4151998,57 132,57 C164.5848,57 191,71.7746033 191,90 C191,92.5798498 190.470716,95.0905557 189.469571,97.5 C183.398106,82.8878805 159.972341,72 132,72 C104.027659,72 80.6018941,82.8878805 74.5304294,97.5 Z",
-                                                "id": "{{uid}}-Turban-Band",
+                                                "id": "{uid}-Turban-Band",
                                                 "fill": "#EDECE3"
                                             },
                                             "children": []
@@ -9871,7 +9871,7 @@ export const SVG_DICTIONARY = {
                                                         {
                                                             "type": "use",
                                                             "props": {
-                                                                "xlinkHref": "#{{uid}}-top-path2"
+                                                                "xlinkHref": "#{uid}-top-path2"
                                                             },
                                                             "children": []
                                                         }
@@ -9880,9 +9880,9 @@ export const SVG_DICTIONARY = {
                                                 {
                                                     "type": "use",
                                                     "props": {
-                                                        "id": "{{uid}}-Turban-Mask",
+                                                        "id": "{uid}-Turban-Mask",
                                                         "fill": "#124C74",
-                                                        "xlinkHref": "#{{uid}}-top-path2"
+                                                        "xlinkHref": "#{uid}-top-path2"
                                                     },
                                                     "children": []
                                                 },
@@ -9900,7 +9900,7 @@ export const SVG_DICTIONARY = {
                                             "type": "path",
                                             "props": {
                                                 "d": "M48.0110963,96.0123559 C48.3807929,121.112082 58.0438337,136.107963 77.0002187,141 C57.6224465,136.289117 47.9557798,121.632254 48.0002187,97.0294118 C48.0008313,96.6902213 48.0044682,96.351197 48.0110963,96.0123559 Z M152.645822,30.4681115 C153.39011,36.1953086 152.126202,42.8891982 148.000219,50.135763 C136.847465,71.5667661 76.561434,72.0039826 76.3339794,129.679698 C76.1051437,67.7612631 136.805324,67.3799133 148.000219,44.5441176 C150.669864,39.5668152 152.141299,34.8351296 152.645822,30.4681115 Z",
-                                                "id": "{{uid}}-Turban-Shadow",
+                                                "id": "{uid}-Turban-Shadow",
                                                 "fillOpacity": "0.16",
                                                 "fill": "#000000"
                                             },
@@ -9922,7 +9922,7 @@ export const SVG_DICTIONARY = {
         "WinterHat1": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top"
+                "id": "{uid}-Top"
             },
             "children": [
                 {
@@ -10009,7 +10009,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path3"
+                                "xlinkHref": "#{uid}-top-path3"
                             },
                             "children": []
                         }
@@ -10018,14 +10018,14 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Accessories/Winter-Hat-1",
+                        "id": "{uid}-Top/Accessories/Winter-Hat-1",
                         "transform": "translate(-1.000000, 0.000000)"
                     },
                     "children": [
                         {
                             "type": "g",
                             "props": {
-                                "id": "{{uid}}-Hat",
+                                "id": "{uid}-Hat",
                                 "strokeWidth": "1",
                                 "fillRule": "evenodd",
                                 "transform": "translate(63.000000, 20.000000)"
@@ -10035,7 +10035,7 @@ export const SVG_DICTIONARY = {
                                     "type": "path",
                                     "props": {
                                         "d": "M1,48 L23.6714286,48 L23.6714286,153.664286 C23.6714286,159.924828 18.5962564,165 12.3357143,165 C6.07517216,165 1,159.924828 1,153.664286 L1,48 Z M116.328571,48 L139,48 L139,153.664286 C139,159.924828 133.924828,165 127.664286,165 C121.403744,165 116.328571,159.924828 116.328571,153.664286 L116.328571,48 Z",
-                                        "id": "{{uid}}-Hat-Inside",
+                                        "id": "{uid}-Hat-Inside",
                                         "fill": "#F4F4F4"
                                     },
                                     "children": []
@@ -10050,7 +10050,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "xlinkHref": "#{{uid}}-top-path1"
+                                                "xlinkHref": "#{uid}-top-path1"
                                             },
                                             "children": []
                                         }
@@ -10059,9 +10059,9 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "use",
                                     "props": {
-                                        "id": "{{uid}}-hat-mask",
+                                        "id": "{uid}-hat-mask",
                                         "fill": "#D8D8D8",
-                                        "xlinkHref": "#{{uid}}-top-path1"
+                                        "xlinkHref": "#{uid}-top-path1"
                                     },
                                     "children": []
                                 },
@@ -10078,7 +10078,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "g",
                             "props": {
-                                "id": "{{uid}}-hat-front"
+                                "id": "{uid}-hat-front"
                             },
                             "children": [
                                 {
@@ -10086,8 +10086,8 @@ export const SVG_DICTIONARY = {
                                     "props": {
                                         "fill": "black",
                                         "fillOpacity": "1",
-                                        "filter": "`url(#${{uid}}-top-path2)`",
-                                        "xlinkHref": "#{{uid}}-top-path2"
+                                        "filter": "`url(#${uid}-top-path2)`",
+                                        "xlinkHref": "#{uid}-top-path2"
                                     },
                                     "children": []
                                 },
@@ -10096,7 +10096,7 @@ export const SVG_DICTIONARY = {
                                     "props": {
                                         "fill": "#F4F4F4",
                                         "fillRule": "evenodd",
-                                        "xlinkHref": "#{{uid}}-top-path2"
+                                        "xlinkHref": "#{uid}-top-path2"
                                     },
                                     "children": []
                                 }
@@ -10119,7 +10119,7 @@ export const SVG_DICTIONARY = {
         "WinterHat2": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top"
+                "id": "{uid}-Top"
             },
             "children": [
                 {
@@ -10169,7 +10169,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path3"
+                                "xlinkHref": "#{uid}-top-path3"
                             },
                             "children": []
                         }
@@ -10178,14 +10178,14 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Accessories/Winter-Hat-2",
+                        "id": "{uid}-Top/Accessories/Winter-Hat-2",
                         "transform": "translate(-1.000000, 0.000000)"
                     },
                     "children": [
                         {
                             "type": "g",
                             "props": {
-                                "id": "{{uid}}-Hat",
+                                "id": "{uid}-Hat",
                                 "strokeWidth": "1",
                                 "fillRule": "evenodd",
                                 "transform": "translate(61.000000, 0.000000)"
@@ -10194,7 +10194,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Hat-String-Left",
+                                        "id": "{uid}-Hat-String-Left",
                                         "transform": "translate(0.000000, 176.000000)",
                                         "fill": "#F4F4F4"
                                     },
@@ -10202,7 +10202,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "circle",
                                             "props": {
-                                                "id": "{{uid}}-Hat-Puff-Left",
+                                                "id": "{uid}-Hat-Puff-Left",
                                                 "cx": "9",
                                                 "cy": "65",
                                                 "r": "9"
@@ -10224,7 +10224,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Hat-String-Right",
+                                        "id": "{uid}-Hat-String-Right",
                                         "transform": "translate(126.000000, 168.000000)",
                                         "fill": "#F4F4F4"
                                     },
@@ -10232,7 +10232,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "circle",
                                             "props": {
-                                                "id": "{{uid}}-Hat-Puff-Right",
+                                                "id": "{uid}-Hat-Puff-Right",
                                                 "cx": "9",
                                                 "cy": "65",
                                                 "r": "9"
@@ -10254,7 +10254,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "circle",
                                     "props": {
-                                        "id": "{{uid}}-Hat-Puff-Top",
+                                        "id": "{uid}-Hat-Puff-Top",
                                         "fill": "#F4F4F4",
                                         "cx": "72",
                                         "cy": "20",
@@ -10272,7 +10272,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "xlinkHref": "#{{uid}}-top-path1"
+                                                "xlinkHref": "#{uid}-top-path1"
                                             },
                                             "children": []
                                         }
@@ -10281,9 +10281,9 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "use",
                                     "props": {
-                                        "id": "{{uid}}-Hat-Combined-Shape",
+                                        "id": "{uid}-Hat-Combined-Shape",
                                         "fill": "#F4F4F4",
-                                        "xlinkHref": "#{{uid}}-top-path1"
+                                        "xlinkHref": "#{uid}-top-path1"
                                     },
                                     "children": []
                                 },
@@ -10312,7 +10312,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Hat-Light-Triangles",
+                                        "id": "{uid}-Hat-Light-Triangles",
                                         "transform": "translate(29.000000, 32.000000)",
                                         "fill": "#FFFFFF",
                                         "fillOpacity": "0.5"
@@ -10321,7 +10321,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "polygon",
                                             "props": {
-                                                "id": "{{uid}}-Hat-Triangle1",
+                                                "id": "{uid}-Hat-Triangle1",
                                                 "transform": "translate(12.500000, 9.000000) rotate(180.000000) translate(-12.500000, -9.000000) ",
                                                 "points": "12.5 0 25 18 0 18"
                                             },
@@ -10330,7 +10330,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "polygon",
                                             "props": {
-                                                "id": "{{uid}}-Hat-Triangle2",
+                                                "id": "{uid}-Hat-Triangle2",
                                                 "transform": "translate(43.500000, 9.000000) rotate(180.000000) translate(-43.500000, -9.000000) ",
                                                 "points": "43.5 0 56 18 31 18"
                                             },
@@ -10339,7 +10339,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "polygon",
                                             "props": {
-                                                "id": "{{uid}}-Hat-Triangle3",
+                                                "id": "{uid}-Hat-Triangle3",
                                                 "transform": "translate(74.500000, 9.000000) rotate(180.000000) translate(-74.500000, -9.000000) ",
                                                 "points": "74.5 0 87 18 62 18"
                                             },
@@ -10350,7 +10350,7 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "g",
                                     "props": {
-                                        "id": "{{uid}}-Hat-Dark-Triangles",
+                                        "id": "{uid}-Hat-Dark-Triangles",
                                         "transform": "translate(13.000000, 41.000000)",
                                         "fill": "#000000",
                                         "fillOpacity": "0.5"
@@ -10359,7 +10359,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "polygon",
                                             "props": {
-                                                "id": "{{uid}}-Hat-Triangle4",
+                                                "id": "{uid}-Hat-Triangle4",
                                                 "points": "12.5 0 25 18 0 18"
                                             },
                                             "children": []
@@ -10367,7 +10367,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "polygon",
                                             "props": {
-                                                "id": "{{uid}}-Hat-Triangle5",
+                                                "id": "{uid}-Hat-Triangle5",
                                                 "points": "43.5 0 56 18 31 18"
                                             },
                                             "children": []
@@ -10375,7 +10375,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "polygon",
                                             "props": {
-                                                "id": "{{uid}}-Hat-Triangle6",
+                                                "id": "{uid}-Hat-Triangle6",
                                                 "points": "74.5 0 87 18 62 18"
                                             },
                                             "children": []
@@ -10383,7 +10383,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "polygon",
                                             "props": {
-                                                "id": "{{uid}}-Hat-Triangle7",
+                                                "id": "{uid}-Hat-Triangle7",
                                                 "points": "105.5 0 118 18 93 18"
                                             },
                                             "children": []
@@ -10492,7 +10492,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "use",
                             "props": {
-                                "xlinkHref": "#{{uid}}-top-path3"
+                                "xlinkHref": "#{uid}-top-path3"
                             },
                             "children": []
                         }
@@ -10542,7 +10542,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "xlinkHref": "#{{uid}}-top-path1"
+                                                "xlinkHref": "#{uid}-top-path1"
                                             },
                                             "children": []
                                         }
@@ -10553,7 +10553,7 @@ export const SVG_DICTIONARY = {
                                     "props": {
                                         "id": "hat-mask",
                                         "fill": "#D8D8D8",
-                                        "xlinkHref": "#{{uid}}-top-path1"
+                                        "xlinkHref": "#{uid}-top-path1"
                                     },
                                     "children": []
                                 },
@@ -10578,8 +10578,8 @@ export const SVG_DICTIONARY = {
                                     "props": {
                                         "fill": "black",
                                         "fillOpacity": "1",
-                                        "filter": "`url(#${{uid}}-top-path2)`",
-                                        "xlinkHref": "#{{uid}}-top-path2"
+                                        "filter": "`url(#${uid}-top-path2)`",
+                                        "xlinkHref": "#{uid}-top-path2"
                                     },
                                     "children": []
                                 },
@@ -10588,7 +10588,7 @@ export const SVG_DICTIONARY = {
                                     "props": {
                                         "fill": "#F4F4F4",
                                         "fillRule": "evenodd",
-                                        "xlinkHref": "#{{uid}}-top-path2"
+                                        "xlinkHref": "#{uid}-top-path2"
                                     },
                                     "children": []
                                 }
@@ -10611,7 +10611,7 @@ export const SVG_DICTIONARY = {
         "WinterHat4": {
             "type": "g",
             "props": {
-                "id": "{{uid}}-Top"
+                "id": "{uid}-Top"
             },
             "children": [
                 {
@@ -10719,14 +10719,14 @@ export const SVG_DICTIONARY = {
                 {
                     "type": "g",
                     "props": {
-                        "id": "{{uid}}-Top/Accessories/Winter-Hat-4",
+                        "id": "{uid}-Top/Accessories/Winter-Hat-4",
                         "transform": "translate(-1.000000, 0.000000)"
                     },
                     "children": [
                         {
                             "type": "g",
                             "props": {
-                                "id": "{{uid}}-hat",
+                                "id": "{uid}-hat",
                                 "strokeWidth": "1",
                                 "fillRule": "evenodd",
                                 "transform": "translate(65.000000, 4.000000)"
@@ -10742,7 +10742,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "xlinkHref": "#{{uid}}-top-path1"
+                                                "xlinkHref": "#{uid}-top-path1"
                                             },
                                             "children": []
                                         }
@@ -10751,9 +10751,9 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "use",
                                     "props": {
-                                        "id": "{{uid}}-hat-mask",
+                                        "id": "{uid}-hat-mask",
                                         "fill": "#D8D8D8",
-                                        "xlinkHref": "#{{uid}}-top-path1"
+                                        "xlinkHref": "#{uid}-top-path1"
                                     },
                                     "children": []
                                 },
@@ -10775,7 +10775,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "xlinkHref": "#{{uid}}-top-path2"
+                                                "xlinkHref": "#{uid}-top-path2"
                                             },
                                             "children": []
                                         }
@@ -10784,10 +10784,10 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "use",
                                     "props": {
-                                        "id": "{{uid}}-shadow",
+                                        "id": "{uid}-shadow",
                                         "fillOpacity": "0.24",
                                         "fill": "#000000",
-                                        "xlinkHref": "#{{uid}}-top-path2"
+                                        "xlinkHref": "#{uid}-top-path2"
                                     },
                                     "children": []
                                 },
@@ -10802,7 +10802,7 @@ export const SVG_DICTIONARY = {
                                         {
                                             "type": "use",
                                             "props": {
-                                                "xlinkHref": "#{{uid}}-top-path3"
+                                                "xlinkHref": "#{uid}-top-path3"
                                             },
                                             "children": []
                                         }
@@ -10811,10 +10811,10 @@ export const SVG_DICTIONARY = {
                                 {
                                     "type": "use",
                                     "props": {
-                                        "id": "{{uid}}-light",
+                                        "id": "{uid}-light",
                                         "fillOpacity": "0.300000012",
                                         "fill": "#FFFFFF",
-                                        "xlinkHref": "#{{uid}}-top-path3"
+                                        "xlinkHref": "#{uid}-top-path3"
                                     },
                                     "children": []
                                 }
@@ -10823,7 +10823,7 @@ export const SVG_DICTIONARY = {
                         {
                             "type": "g",
                             "props": {
-                                "id": "{{uid}}-hat-front"
+                                "id": "{uid}-hat-front"
                             },
                             "children": [
                                 {

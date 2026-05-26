@@ -28,6 +28,7 @@ Module._resolveFilename = function (request: string, parent: any, isMain: boolea
 // Now safely import the rest of our modules
 import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
+import { Resvg } from '@resvg/resvg-js'
 import { DEBUG_CONFIGS, CUSTOM_COLORS } from './src/debugConfigs'
 import {
   Avatar,
@@ -93,7 +94,23 @@ DEBUG_CONFIGS.forEach((config) => {
 
   const outputPath = path.join(targetDir, `${config.id}.svg`)
   fs.writeFileSync(outputPath, formattedSvg, 'utf8')
-  console.log(`- Saved ${config.id}.svg`)
+  
+  // Render PNG using resvg for pixel-level visual validation
+  try {
+    const resvg = new Resvg(svgMarkup, {
+      fitTo: {
+        mode: 'width',
+        value: 528 * 2, // 1056px high-resolution PNG
+      }
+    })
+    const pngData = resvg.render()
+    const pngBuffer = pngData.asPng()
+    const pngOutputPath = path.join(targetDir, `${config.id}.png`)
+    fs.writeFileSync(pngOutputPath, pngBuffer)
+    console.log(`- Saved ${config.id}.svg and ${config.id}.png`)
+  } catch (err) {
+    console.error(`Failed to render PNG for ${config.id}:`, err)
+  }
 })
 
-console.log('All baseline SVGs generated successfully.')
+console.log('All baseline SVGs and PNGs generated successfully.')
