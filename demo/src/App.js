@@ -18,6 +18,7 @@ const App = () => {
     const allOptions = isSrc ? index_1.allOptions : index_2.allOptions;
     const addPaletteColor = isSrc ? index_1.addPaletteColor : index_2.addPaletteColor;
     const PALETTES = isSrc ? index_1.PALETTES : index_2.PALETTES;
+    const generateRandomAvataarProps = isSrc ? index_1.generateRandomAvataarProps : index_2.generateRandomAvataarProps;
     const activeContext = isSrc ? srcContext : distContext;
     // Avatar props state
     const [avatarProps, setAvatarProps] = (0, react_1.useState)({
@@ -69,15 +70,13 @@ const App = () => {
     }, [activeContext, renderTick]);
     // Randomize all options
     const handleRandomize = () => {
-        if (!optionStates)
-            return;
-        const newProps = {};
-        Object.keys(optionStates).forEach((key) => {
-            const opts = optionStates[key].options;
-            if (opts && opts.length > 0) {
-                newProps[key] = opts[Math.floor(Math.random() * opts.length)];
-            }
-        });
+        const customOptions = {};
+        if (optionStates) {
+            Object.keys(optionStates).forEach((key) => {
+                customOptions[key] = optionStates[key].options || [];
+            });
+        }
+        const newProps = generateRandomAvataarProps(customOptions);
         setAvatarProps(newProps);
     };
     // Map option palette to component prop key

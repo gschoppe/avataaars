@@ -66,6 +66,28 @@ export default function MyComponent() {
 }
 ```
 
+### Dynamic Random Avatars
+
+To generate dynamic, visually balanced random avatars, you can use the built-in `generateRandomAvataarProps()` function which automatically applies probabilistic stylistic cohesion rules and prevents backdrop/hair/clothing color conflicts:
+
+```jsx
+import React from 'react'
+import Avatar, { generateRandomAvataarProps } from '@gschoppe/avataaars'
+
+export default function MyComponent() {
+  // Generates complete, cohesive random options
+  const randomProps = generateRandomAvataarProps()
+
+  return (
+    <Avatar
+      style={{ width: '100px', height: '100px' }}
+      {...randomProps}
+    />
+  )
+}
+```
+
+
 ### Showcase pieces
 
 To showcase individual pieces of the avatar you can use the Piece component, for example:

@@ -50,3 +50,20 @@ export interface GradientConfig {
 }
 export declare const registeredGradients: Map<string, GradientConfig>;
 export declare function registerGradient(name: string, config: GradientConfig): void;
+export declare const BACKDROP_TYPES: string[];
+export declare const BACKDROP_COLORS: string[];
+export declare const TOP_TYPES: string[];
+export declare const HAIR_COLORS: string[];
+export declare const HAT_COLORS: string[];
+export declare const FACIAL_HAIR_TYPES: string[];
+export declare const FACIAL_HAIR_COLORS: string[];
+export declare const CLOTHE_TYPES: string[];
+export declare const CLOTHE_COLORS: string[];
+export declare const ACCESSORIES_TYPES: string[];
+export declare const GRAPHIC_TYPES: string[];
+export declare const EYE_TYPES: string[];
+export declare const EYEBROW_TYPES: string[];
+export declare const MOUTH_TYPES: string[];
+export declare const SKIN_COLORS: string[];
+export declare const getColorFamily: (color: string) => string;
+export declare function generateRandomAvataarProps(customOptions?: Record<string, string[]>): Record<string, string>;

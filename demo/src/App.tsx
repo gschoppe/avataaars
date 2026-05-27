@@ -11,7 +11,8 @@ import {
   addPaletteColor as SrcAddPaletteColor,
   removePaletteColor as SrcRemovePaletteColor,
   PALETTES as SrcPALETTES,
-  registeredGradients as SrcRegisteredGradients
+  registeredGradients as SrcRegisteredGradients,
+  generateRandomAvataarProps as SrcGenerateRandomAvataarProps
 } from '../../src/index'
 
 // Import dist version
@@ -23,7 +24,8 @@ import {
   addPaletteColor as DistAddPaletteColor,
   removePaletteColor as DistRemovePaletteColor,
   PALETTES as DistPALETTES,
-  registeredGradients as DistRegisteredGradients
+  registeredGradients as DistRegisteredGradients,
+  generateRandomAvataarProps as DistGenerateRandomAvataarProps
 } from '@gschoppe/avataaars'
 
 const BUILT_IN_COLORS: Record<string, string[]> = {
@@ -53,20 +55,7 @@ const BACKGROUNDS = [
   { name: 'Studio White', value: '#ffffff' }
 ]
 
-const getColorFamily = (color: string): string => {
-  const c = color.toLowerCase();
-  if (c.includes('red') || c.includes('auburn')) return 'red';
-  if (c.includes('blue')) return 'blue';
-  if (c.includes('green')) return 'green';
-  if (c.includes('yellow') || c.includes('blonde') || c.includes('platinum')) return 'yellow';
-  if (c.includes('pink')) return 'pink';
-  if (c.includes('gray') || c.includes('grey') || c.includes('heather') || c.includes('silver')) return 'gray';
-  if (c.includes('black')) return 'black';
-  if (c.includes('white')) return 'white';
-  if (c.includes('orange')) return 'orange';
-  if (c.includes('brown')) return 'brown';
-  return c;
-}
+// Replaced local getColorFamily with library version resolved below
 
 export const App: React.FC = () => {
   const [version, setVersion] = useState<'src' | 'dist'>(() => {
@@ -90,6 +79,7 @@ export const App: React.FC = () => {
   const removePaletteColor = isSrc ? SrcRemovePaletteColor : DistRemovePaletteColor
   const PALETTES = isSrc ? SrcPALETTES : DistPALETTES
   const registeredGradients = isSrc ? SrcRegisteredGradients : DistRegisteredGradients
+  const generateRandomAvataarProps = isSrc ? SrcGenerateRandomAvataarProps : DistGenerateRandomAvataarProps
   const activeContext = isSrc ? srcContext : distContext
 
   // Avatar props state
@@ -290,187 +280,13 @@ export const App: React.FC = () => {
 
   // Randomize all options using probabilistic cultural/stylistic cohesion rules
   const handleRandomize = () => {
-    if (!optionStates) return
-    const newProps: Record<string, string> = {}
-
-    // 1. Randomize Backdrop Type
-    const backdropTypes = optionStates.backdropType?.options || []
-    if (backdropTypes.length > 0) {
-      newProps.backdropType = backdropTypes[Math.floor(Math.random() * backdropTypes.length)]
-    }
-
-    // 2. Randomize Top (Hairstyle / Headwear)
-    const topTypes = optionStates.topType?.options || []
-    if (topTypes.length === 0) return
-    const topType = topTypes[Math.floor(Math.random() * topTypes.length)]
-    newProps.topType = topType
-
-    const isShortHair = topType.startsWith('ShortHair') || topType === 'NoHair' || topType === 'Eyepatch'
-    const isLongHair = topType.startsWith('LongHair')
-    const isWinterHat = topType.startsWith('WinterHat')
-    const isHat = topType === 'Hat' || isWinterHat
-    const isHijab = topType === 'Hijab'
-
-    // 3. Randomize Hair Color (with Pink bias)
-    const hairColors = optionStates.hairColor?.options || []
-    let hairColor = 'BrownDark'
-    if (hairColors.length > 0) {
-      const pinkColors = hairColors.filter((c: string) => c.toLowerCase().includes('pink'))
-      const nonPinkColors = hairColors.filter((c: string) => !c.toLowerCase().includes('pink'))
-
-      // Rule: Pink is more common with long hair (15%), rare with short/bald styles or facial hair (2%)
-      const pinkChance = isLongHair ? 0.15 : 0.02
-      if (pinkColors.length > 0 && Math.random() < pinkChance) {
-        hairColor = pinkColors[Math.floor(Math.random() * pinkColors.length)]
-      } else if (nonPinkColors.length > 0) {
-        hairColor = nonPinkColors[Math.floor(Math.random() * nonPinkColors.length)]
-      } else {
-        hairColor = hairColors[Math.floor(Math.random() * hairColors.length)]
-      }
-    }
-    newProps.hairColor = hairColor
-
-    // 4. Randomize Hat Color (if wearing a hat)
-    const hatColors = optionStates.hatColor?.options || []
-    let hatColor = 'Black'
-    if (isHat && hatColors.length > 0) {
-      hatColor = hatColors[Math.floor(Math.random() * hatColors.length)]
-      newProps.hatColor = hatColor
-    }
-
-    // 5. Randomize Facial Hair (coordinating presence and matching color probabilistically)
-    const facialHairTypes = optionStates.facialHairType?.options || []
-    if (facialHairTypes.length > 0) {
-      let facialHairChance = 0.25
-      if (isHijab) {
-        facialHairChance = 0.005 // Extremely rare (0.5% chance) but not impossible
-      } else if (isShortHair) {
-        facialHairChance = 0.40 // ~40% chance of facial hair with short hair
-      } else if (isLongHair) {
-        facialHairChance = 0.15 // ~15% chance of facial hair with long hair
-      }
-
-      // Rule: Pink hair is extremely rare with facial hair
-      if (hairColor.toLowerCase().includes('pink')) {
-        facialHairChance = 0.03 // 3% chance
-      }
-
-      const hasFacialHair = Math.random() < facialHairChance
-      const nonBlankFacialHair = facialHairTypes.filter((f: string) => f !== 'Blank')
-
-      if (hasFacialHair && nonBlankFacialHair.length > 0) {
-        newProps.facialHairType = nonBlankFacialHair[Math.floor(Math.random() * nonBlankFacialHair.length)]
-
-        // Rule: Highly likely (85% chance) to match facial hair color with head hair color; 15% chance to diverge
-        const facialHairColors = optionStates.facialHairColor?.options || []
-        const shouldMatchColor = Math.random() < 0.85
-        if (shouldMatchColor && facialHairColors.includes(hairColor)) {
-          newProps.facialHairColor = hairColor
-        } else if (facialHairColors.length > 0) {
-          newProps.facialHairColor = facialHairColors[Math.floor(Math.random() * facialHairColors.length)]
-        } else {
-          newProps.facialHairColor = hairColor
-        }
-      } else {
-        newProps.facialHairType = 'Blank'
-        newProps.facialHairColor = 'Blank'
-      }
-    }
-
-    // 6. Randomize Clothing balanced with headwear style
-    const clotheTypes = optionStates.clotheType?.options || []
-    if (clotheTypes.length > 0) {
-      let restrictedClothes = [...clotheTypes]
-
-      // We apply outfit balancing as a strong bias rather than a hard constraint (e.g., 85% chance to coordinate)
-      const shouldCoordinateOutfit = Math.random() < 0.85
-
-      if (shouldCoordinateOutfit) {
-        if (isWinterHat) {
-          // Coordinate cozy winter outfits with winter hats
-          restrictedClothes = clotheTypes.filter((c: string) =>
-            c === 'Hoodie' || c === 'CollarSweater' || c === 'BlazerSweater' || c === 'Overall'
-          )
-        } else if (topType === 'Hat') {
-          // Coordinate casual streetwear with baseball caps
-          restrictedClothes = clotheTypes.filter((c: string) =>
-            c === 'Hoodie' || c === 'GraphicShirt' || c === 'ShirtCrewNeck' || c === 'ShirtVNeck' || c === 'ShirtScoopNeck' || c === 'Overall'
-          )
-        }
-      }
-
-      if (restrictedClothes.length === 0) {
-        restrictedClothes = [...clotheTypes]
-      }
-
-      newProps.clotheType = restrictedClothes[Math.floor(Math.random() * restrictedClothes.length)]
-    }
-
-    // 7. Randomize Clothing Color coordinated with Hat Color
-    const clotheColors = optionStates.clotheColor?.options || []
-    if (clotheColors.length > 0) {
-      // 35% chance to match apparel color to hat color if wearing a hat; 65% chance to diverge
-      const shouldMatchHat = isHat && clotheColors.includes(hatColor) && Math.random() < 0.35
-      if (shouldMatchHat) {
-        newProps.clotheColor = hatColor
-      } else {
-        newProps.clotheColor = clotheColors[Math.floor(Math.random() * clotheColors.length)]
-      }
-    }
-
-    // 8. Randomize remaining properties normally
-    const otherKeys = ['accessoriesType', 'graphicType', 'eyeType', 'eyebrowType', 'mouthType', 'skinColor']
-    otherKeys.forEach((key) => {
-      const opts = optionStates[key]?.options || []
-      if (opts.length > 0) {
-        newProps[key] = opts[Math.floor(Math.random() * opts.length)]
-      }
-    })
-
-    // 9. Randomize Backdrop Color (strongly avoiding matching character colors)
-    const backdropColors = optionStates.backdropColor?.options || []
-    if (backdropColors.length > 0) {
-      const activeFamilies = new Set<string>()
-
-      const addColorFamily = (colorName: string | undefined) => {
-        if (colorName && colorName !== 'Blank') {
-          activeFamilies.add(getColorFamily(colorName))
-        }
-      }
-
-      // Clothes color is always visible
-      addColorFamily(newProps.clotheColor)
-
-      // Hat color is visible if wearing a hat
-      if (isHat) {
-        addColorFamily(newProps.hatColor)
-      }
-
-      // Hair color is visible if not covered by a hijab, winter hat, or baldness
-      const hairIsVisible = !isHijab && !isWinterHat && topType !== 'NoHair' && topType !== 'Eyepatch'
-      if (hairIsVisible) {
-        addColorFamily(newProps.hairColor)
-      }
-
-      // Facial hair is visible if not Blank
-      if (newProps.facialHairType && newProps.facialHairType !== 'Blank') {
-        addColorFamily(newProps.facialHairColor)
-      }
-
-      // Filter backdrop colors to avoid matching any active family
-      const safeBackdropColors = backdropColors.filter((color: string) => {
-        const family = getColorFamily(color)
-        return !activeFamilies.has(family)
+    const customOptions: Record<string, string[]> = {}
+    if (optionStates) {
+      Object.keys(optionStates).forEach((key) => {
+        customOptions[key] = optionStates[key]?.options || []
       })
-
-      if (safeBackdropColors.length > 0) {
-        newProps.backdropColor = safeBackdropColors[Math.floor(Math.random() * safeBackdropColors.length)]
-      } else {
-        // Fallback to the full list if all colors are excluded
-        newProps.backdropColor = backdropColors[Math.floor(Math.random() * backdropColors.length)]
-      }
     }
-
+    const newProps = generateRandomAvataarProps(customOptions)
     setAvatarProps(newProps)
   }
 
@@ -1182,10 +998,11 @@ ${propStrings}
                     Import and render avatars synchronously in React 19 with no layout flickering.
                   </p>
                   <pre className='code-block' style={{ color: '#38bdf8' }}>
-                    {`import Avatar from '@gschoppe/avataaars'
+                    {`import Avatar, { generateRandomAvataarProps } from '@gschoppe/avataaars'
 // Import animation styles (optional)
 import '@gschoppe/avataaars/dist/animations.css'
 
+// 1. Static Configuration
 const App = () => (
   <Avatar 
     avatarStyle="Transparent"
@@ -1194,7 +1011,11 @@ const App = () => (
     clotheType="Hoodie"
     clotheColor="White"
   />
-)`}
+)
+
+// 2. Cohesive Random Avatar Props!
+const randomProps = generateRandomAvataarProps()
+const RandomApp = () => <Avatar {...randomProps} />`}
                   </pre>
                 </div>
 
