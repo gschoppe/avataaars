@@ -40,16 +40,6 @@ export const SVG_DICTIONARY: Record<string, Record<string, SvgNode>> = {
               ]
             },
             {
-              "type": "circle",
-              "props": {
-                "cx": "120",
-                "cy": "120",
-                "r": "120",
-                "fill": "#E6E6E6"
-              },
-              "children": []
-            },
-            {
               "type": "BackdropColor",
               "props": {
                 "uid": "uid",
@@ -104,14 +94,6 @@ export const SVG_DICTIONARY: Record<string, Record<string, SvgNode>> = {
                   "children": []
                 }
               ]
-            },
-            {
-              "type": "path",
-              "props": {
-                "d": "M12,160 L132,40 L252,160 L132,280 Z",
-                "fill": "#E6E6E6"
-              },
-              "children": []
             },
             {
               "type": "BackdropColor",
