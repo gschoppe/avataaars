@@ -17,7 +17,7 @@ export interface Props {
 export default class Backdrop extends React.Component<Props> {
   render() {
     return (
-      <Selector defaultOption={Circle} option={BackdropOption}>
+      <Selector defaultOption={Diamond} option={BackdropOption}>
         <NoBackdrop uid={this.props.uid}></NoBackdrop>
         <Circle uid={this.props.uid}></Circle>
         <Diamond uid={this.props.uid}></Diamond>

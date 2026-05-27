@@ -49,7 +49,7 @@ makeBackdropColor('White', '#FFFFFF')
 export default class BackdropColor extends React.Component<Props> {
   render() {
     return (
-      <Selector option={BackdropColorOption} defaultOption={this.props.defaultColor || 'Blue01'}>
+      <Selector option={BackdropColorOption} defaultOption={this.props.defaultColor || 'PastelBlue'}>
         {Array.from(backdropColorPalette.values()).map((ColorComponent, index) => {
           return <ColorComponent key={index} uid={this.props.uid} />
         })}

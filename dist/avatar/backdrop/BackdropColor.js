@@ -31,7 +31,7 @@ makeBackdropColor('Red', '#FF5C5C');
 makeBackdropColor('White', '#FFFFFF');
 export default class BackdropColor extends React.Component {
     render() {
-        return (React.createElement(Selector, { option: BackdropColorOption, defaultOption: this.props.defaultColor || 'Blue01' }, Array.from(backdropColorPalette.values()).map((ColorComponent, index) => {
+        return (React.createElement(Selector, { option: BackdropColorOption, defaultOption: this.props.defaultColor || 'PastelBlue' }, Array.from(backdropColorPalette.values()).map((ColorComponent, index) => {
             return React.createElement(ColorComponent, { key: index, uid: this.props.uid });
         })));
     }

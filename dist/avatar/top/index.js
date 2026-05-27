@@ -39,7 +39,7 @@ const WinterHat3 = makeOptionComponent('TOP', 'WinterHat3');
 const WinterHat4 = makeOptionComponent('TOP', 'WinterHat4');
 export default class Top extends React.Component {
     render() {
-        return (React.createElement(Selector, { defaultOption: LongHairStraight, option: TopOption },
+        return (React.createElement(Selector, { defaultOption: ShortHairShortFlat, option: TopOption },
             React.createElement(NoHair, { uid: this.props.uid }, this.props.children),
             React.createElement(Eyepatch, { uid: this.props.uid }, this.props.children),
             React.createElement(Hat, { uid: this.props.uid }, this.props.children),

@@ -46,7 +46,7 @@ makeHairColor('SilverGray', '#E8E1E1')
 export default class HairColor extends React.Component<Props> {
   render() {
     return (
-      <Selector option={HairColorOption} defaultOption='BrownDark'>
+      <Selector option={HairColorOption} defaultOption='Black'>
         {Array.from(hairColorPalette.values()).map((ColorComponent, index) => (
           <ColorComponent key={index} uid={this.props.uid} />
         ))}

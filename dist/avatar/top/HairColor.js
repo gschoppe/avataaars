@@ -28,6 +28,6 @@ makeHairColor('Red', '#C93305');
 makeHairColor('SilverGray', '#E8E1E1');
 export default class HairColor extends React.Component {
     render() {
-        return (React.createElement(Selector, { option: HairColorOption, defaultOption: 'BrownDark' }, Array.from(hairColorPalette.values()).map((ColorComponent, index) => (React.createElement(ColorComponent, { key: index, uid: this.props.uid })))));
+        return (React.createElement(Selector, { option: HairColorOption, defaultOption: 'Black' }, Array.from(hairColorPalette.values()).map((ColorComponent, index) => (React.createElement(ColorComponent, { key: index, uid: this.props.uid })))));
     }
 }

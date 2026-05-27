@@ -20,7 +20,7 @@ export interface Props {
 export default class FacialHair extends React.Component<Props> {
   render () {
     return (
-      <Selector option={FacialHairOption} defaultOption={anyBlank}>
+      <Selector option={FacialHairOption} defaultOption={BeardLight}>
         <Blank uid={this.props.uid} />
         <BeardMedium uid={this.props.uid} />
         <BeardLight uid={this.props.uid} />

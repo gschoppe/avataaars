@@ -24,6 +24,6 @@ makeSkinColor('DarkBrown', '#AE5D29');
 makeSkinColor('Black', '#614335');
 export default class Skin extends React.Component {
     render() {
-        return (React.createElement(Selector, { option: SkinOption, defaultOption: 'Light' }, Array.from(skinColorPalette.values()).map((ColorComponent, index) => (React.createElement(ColorComponent, { key: index, uid: this.props.uid })))));
+        return (React.createElement(Selector, { option: SkinOption, defaultOption: 'Tanned' }, Array.from(skinColorPalette.values()).map((ColorComponent, index) => (React.createElement(ColorComponent, { key: index, uid: this.props.uid })))));
     }
 }

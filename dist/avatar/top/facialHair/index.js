@@ -12,7 +12,7 @@ const MoustacheFancy = makeOptionComponent('FACIAL_HAIR', 'MoustacheFancy');
 const MoustacheMagnum = makeOptionComponent('FACIAL_HAIR', 'MoustacheMagnum');
 export default class FacialHair extends React.Component {
     render() {
-        return (React.createElement(Selector, { option: FacialHairOption, defaultOption: anyBlank },
+        return (React.createElement(Selector, { option: FacialHairOption, defaultOption: BeardLight },
             React.createElement(Blank, { uid: this.props.uid }),
             React.createElement(BeardMedium, { uid: this.props.uid }),
             React.createElement(BeardLight, { uid: this.props.uid }),
