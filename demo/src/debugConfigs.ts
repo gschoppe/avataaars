@@ -131,7 +131,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   },
   {
     id: 'avatar-5',
-    backdropType: 'Circle',
+    backdropType: 'Diamond',
     backdropColor: 'PastelBlue',
     topType: 'Turban',
     accessoriesType: 'Round',
@@ -149,7 +149,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   },
   {
     id: 'avatar-6',
-    backdropType: 'Circle',
+    backdropType: 'Diamond',
     backdropColor: 'PastelBlue',
     topType: 'WinterHat1',
     accessoriesType: 'Sunglasses',
@@ -167,7 +167,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   },
   {
     id: 'avatar-7',
-    backdropType: 'Circle',
+    backdropType: 'Diamond',
     backdropColor: 'PastelBlue',
     topType: 'WinterHat2',
     accessoriesType: 'Wayfarers',
@@ -185,7 +185,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   },
   {
     id: 'avatar-8',
-    backdropType: 'Circle',
+    backdropType: 'Diamond',
     backdropColor: 'PastelGreen',
     topType: 'WinterHat3',
     accessoriesType: 'Blank',
