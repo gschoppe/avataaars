@@ -2,8 +2,34 @@
 // This covers every single topType (32 distinct tops), other options rotated/distributed,
 // and custom palette colors to verify custom registration.
 
-export const CUSTOM_COLORS = [
+export const CUSTOM_COLORS: { palette: string; name: string; color: any }[] = [
   { palette: 'BACKDROP', name: 'CustomBackdropGreen', color: '#10B981' },
+  { palette: 'BACKDROP', name: 'CustomBackdropTranslucentBlue', color: 'rgba(59, 130, 246, 0.5)' },
+  { palette: 'BACKDROP', name: 'CustomBackdropTranslucentPink', color: 'rgba(236, 72, 153, 0.3)' },
+  {
+    palette: 'BACKDROP',
+    name: 'CustomBackdropGradientLinear',
+    color: {
+      type: 'linear',
+      attrs: { x1: '0%', y1: '0%', x2: '100%', y2: '100%' },
+      stops: [
+        { offset: '0%', color: '#F43F5E' },
+        { offset: '100%', color: '#F59E0B' }
+      ]
+    }
+  },
+  {
+    palette: 'BACKDROP',
+    name: 'CustomBackdropGradientRadial',
+    color: {
+      type: 'radial',
+      attrs: { cx: '50%', cy: '50%', r: '50%' },
+      stops: [
+        { offset: '0%', color: '#06B6D4' },
+        { offset: '100%', color: '#3B82F6' }
+      ]
+    }
+  },
   { palette: 'SKIN', name: 'CustomSkinPurple', color: '#8B5CF6' },
   { palette: 'HAIR', name: 'CustomHairHotPink', color: '#FF1493' },
   { palette: 'FACIAL_HAIR', name: 'CustomFacialHairTeal', color: '#008080' },
@@ -34,7 +60,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-1',
     backdropType: 'Circle',
-    backdropColor: 'Blue01',
+    backdropColor: 'CustomBackdropGradientLinear',
     topType: 'NoHair',
     accessoriesType: 'Blank',
     hairColor: 'Auburn',
@@ -52,7 +78,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-2',
     backdropType: 'Circle',
-    backdropColor: 'Gray01',
+    backdropColor: 'CustomBackdropTranslucentBlue',
     topType: 'Eyepatch',
     accessoriesType: 'Kurt',
     hairColor: 'Black',
@@ -70,7 +96,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-3',
     backdropType: 'Circle',
-    backdropColor: 'Gray01',
+    backdropColor: 'CustomBackdropGradientRadial',
     topType: 'Hat',
     accessoriesType: 'Prescription01',
     hairColor: 'Blonde',
@@ -88,7 +114,7 @@ export const DEBUG_CONFIGS: AvatarConfig[] = [
   {
     id: 'avatar-4',
     backdropType: 'Circle',
-    backdropColor: 'Gray01',
+    backdropColor: 'CustomBackdropTranslucentPink',
     topType: 'Hijab',
     accessoriesType: 'Prescription02',
     hairColor: 'BlondeGolden',
