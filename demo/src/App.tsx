@@ -99,21 +99,21 @@ export const App: React.FC = () => {
       if (saved) return JSON.parse(saved)
     } catch (e) { }
     return {
-      backdropType: 'Circle',
-      backdropColor: 'Blue01',
-      topType: 'LongHairBigHair',
-      accessoriesType: 'Blank',
-      hairColor: 'BrownDark',
+      backdropType: 'Diamond',
+      backdropColor: 'PastelBlue',
+      topType: 'ShortHairShortFlat',
+      accessoriesType: 'Prescription02',
+      hairColor: 'Black',
       hatColor: 'Black',
-      facialHairType: 'Blank',
+      facialHairType: 'BeardLight',
       facialHairColor: 'BrownDark',
       clotheType: 'BlazerShirt',
-      clotheColor: 'Black',
+      clotheColor: 'Heather',
       graphicType: 'Bat',
-      eyeType: 'Default',
+      eyeType: 'Side',
       eyebrowType: 'Default',
       mouthType: 'Default',
-      skinColor: 'Light'
+      skinColor: 'Tanned'
     }
   })
 
@@ -129,14 +129,14 @@ export const App: React.FC = () => {
   const [customPaintType, setCustomPaintType] = useState<'color' | 'gradient'>('color')
   const [isAdvancedOpen, setIsAdvancedOpen] = useState(false)
   const [copySuccess, setCopySuccess] = useState(false)
-  
+
   // Advanced custom gradient registration states
   const [gradTypeInput, setGradTypeInput] = useState<'linear' | 'radial'>('linear')
   const [gradStop1Color, setGradStop1Color] = useState('#ff5733')
   const [gradStop1Opacity, setGradStop1Opacity] = useState('1.0')
   const [gradStop2Color, setGradStop2Color] = useState('#ffc0cb')
   const [gradStop2Opacity, setGradStop2Opacity] = useState('1.0')
-  
+
   const [isDebugMode, setIsDebugMode] = useState(() => window.location.search.includes('debug=true'))
   const [expandedConfigId, setExpandedConfigId] = useState<string | null>(null)
 
@@ -431,7 +431,7 @@ export const App: React.FC = () => {
     const backdropColors = optionStates.backdropColor?.options || []
     if (backdropColors.length > 0) {
       const activeFamilies = new Set<string>()
-      
+
       const addColorFamily = (colorName: string | undefined) => {
         if (colorName && colorName !== 'Blank') {
           activeFamilies.add(getColorFamily(colorName))
@@ -513,7 +513,7 @@ export const App: React.FC = () => {
       // Create GradientConfig object
       finalColor = {
         type: gradTypeInput,
-        attrs: gradTypeInput === 'linear' 
+        attrs: gradTypeInput === 'linear'
           ? { x1: '0%', y1: '0%', x2: '100%', y2: '100%' }
           : { cx: '50%', cy: '50%', r: '50%' },
         stops: [
@@ -560,7 +560,7 @@ export const App: React.FC = () => {
 
     try {
       registeredGradients.delete(name)
-    } catch (e) {}
+    } catch (e) { }
 
     const updated = customColorsList.filter((item) => !(item.palette === palette && item.name === name))
     setCustomColorsList(updated)
@@ -757,15 +757,15 @@ ${propStrings}
               <div className='debug-banner-text'>
                 <h2>Deterministic Baseline Testing Grid</h2>
                 <p>
-                  Rendering all 32 deterministic baseline configurations side-by-side. 
+                  Rendering all 32 deterministic baseline configurations side-by-side.
                   Currently using the <strong>{version === 'src' ? 'Source library (src/)' : 'Distribution library (built dist/)'}</strong>.
-                  Toggle "Source" or "Distribution" above to compare. 
+                  Toggle "Source" or "Distribution" above to compare.
                   The programmatic diff script verifies that both produce identical SVG source code.
                 </p>
               </div>
               <div className='debug-banner-actions'>
-                <button 
-                  className='btn-export' 
+                <button
+                  className='btn-export'
                   onClick={() => {
                     alert('Use the CLI command "npx tsx src/generate-baselines.ts baselines/[dir]" to programmatically export and diff all 32 baseline SVGs in seconds!')
                   }}>
@@ -796,25 +796,25 @@ ${propStrings}
                     </div>
                     <div className='debug-avatar-wrapper'>
                       <OptionsContext.Provider value={cardOptionContext as any}>
-                        <Avatar 
-                          uid={config.id} 
-                          style={{ width: '160px', height: '170px' }} 
-                          animated={false} 
+                        <Avatar
+                          uid={config.id}
+                          style={{ width: '160px', height: '170px' }}
+                          animated={false}
                           animationDelay='0s'
                         />
                       </OptionsContext.Provider>
                     </div>
                     <div className='debug-card-actions'>
-                      <button 
+                      <button
                         className='btn-debug-action'
                         onClick={() => setExpandedConfigId(isExpanded ? null : config.id)}>
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                          <circle cx="12" cy="12" r="3"/>
-                          <path d="M3 12h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m11.4 0l-.7.7m0 11.4l.7.7m-12.1 0l.7-.7"/>
+                          <circle cx="12" cy="12" r="3" />
+                          <path d="M3 12h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m11.4 0l-.7.7m0 11.4l.7.7m-12.1 0l.7-.7" />
                         </svg>
                         {isExpanded ? 'Hide Config' : 'Show Config'}
                       </button>
-                      <button 
+                      <button
                         className='btn-debug-action'
                         onClick={() => {
                           const svgEl = document.querySelector(`[data-uid="${config.id}"]`) as SVGElement | null
@@ -833,7 +833,7 @@ ${propStrings}
                           URL.revokeObjectURL(url)
                         }}>
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
                         </svg>
                         SVG
                       </button>
@@ -1182,7 +1182,7 @@ ${propStrings}
                     Import and render avatars synchronously in React 19 with no layout flickering.
                   </p>
                   <pre className='code-block' style={{ color: '#38bdf8' }}>
-{`import Avatar from '@gschoppe/avataaars'
+                    {`import Avatar from '@gschoppe/avataaars'
 // Import animation styles (optional)
 import '@gschoppe/avataaars/dist/animations.css'
 
@@ -1208,7 +1208,7 @@ const App = () => (
                   </p>
                   <h4 style={{ fontSize: '12.5px', fontWeight: 600, color: 'var(--text-heading)', margin: '0 0 4px 0' }}>React / Bundler Integration</h4>
                   <pre className='code-block' style={{ color: '#38bdf8', marginBottom: '12px' }}>
-{`// 1. Import the animation CSS stylesheet
+                    {`// 1. Import the animation CSS stylesheet
 import '@gschoppe/avataaars/dist/animations.css'
 
 // 2. Render with animated prop (true by default)
@@ -1219,7 +1219,7 @@ const App = () => <Avatar animated={true} />`}
                     To animate raw SVGs (e.g. from the REST API), ensure the SVG container group uses an ID ending in <code>-Avataaar</code> and load the CSS file in your HTML document:
                   </p>
                   <pre className='code-block' style={{ color: '#34d399' }}>
-{`<!-- Load the animations.css stylesheet -->
+                    {`<!-- Load the animations.css stylesheet -->
 <link rel="stylesheet" href="node_modules/@gschoppe/avataaars/dist/animations.css">`}
                   </pre>
                 </div>
@@ -1233,7 +1233,7 @@ const App = () => <Avatar animated={true} />`}
                     Dynamically register custom colors and multi-stop gradients globally.
                   </p>
                   <pre className='code-block' style={{ color: '#38bdf8' }}>
-{`import { 
+                    {`import { 
   addPaletteColor, 
   PALETTES 
 } from '@gschoppe/avataaars'
@@ -1289,7 +1289,7 @@ addPaletteColor(PALETTES.CLOTHES, 'mySunset', {
                   <div style={{ marginTop: '16px' }}>
                     <h4 style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-heading)', margin: '0 0 6px 0' }}>Example API Queries (cURL)</h4>
                     <pre className='code-block' style={{ color: '#34d399' }}>
-{`# 1. Fetch high-res PNG with custom size & transparency hex color
+                      {`# 1. Fetch high-res PNG with custom size & transparency hex color
 curl -o avatar.png "http://localhost:3000/api/avatar.png?clotheType=Hoodie&clotheColor=FF573380&size=1000"
 
 # 2. Fetch raw vector SVG styled with a dynamic linear gradient

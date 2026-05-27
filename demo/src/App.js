@@ -21,21 +21,21 @@ const App = () => {
     const activeContext = isSrc ? srcContext : distContext;
     // Avatar props state
     const [avatarProps, setAvatarProps] = (0, react_1.useState)({
-        backdropType: 'Circle',
-        backdropColor: 'CircleColor',
-        topType: 'LongHairBigHair',
-        accessoriesType: 'Blank',
-        hairColor: 'BrownDark',
+        backdropType: 'Diamond',
+        backdropColor: 'PastelBlue',
+        topType: 'ShortHairShortFlat',
+        accessoriesType: 'Prescription02',
+        hairColor: 'Black',
         hatColor: 'Black',
-        facialHairType: 'Blank',
+        facialHairType: 'BeardLight',
         facialHairColor: 'BrownDark',
         clotheType: 'BlazerShirt',
-        clotheColor: 'Black',
+        clotheColor: 'Heather',
         graphicType: 'Bat',
-        eyeType: 'Default',
+        eyeType: 'Side',
         eyebrowType: 'Default',
         mouthType: 'Default',
-        skinColor: 'Light'
+        skinColor: 'Tanned'
     });
     // Discovered option states dictionary from active context
     const [optionStates, setOptionStates] = (0, react_1.useState)(null);
@@ -195,10 +195,12 @@ ${propStrings}
                         const label = allOptions.find((o) => o.key === key)?.label || key;
                         return (react_1.default.createElement("div", { className: 'form-group', key: key },
                             react_1.default.createElement("label", { htmlFor: key }, label),
-                            react_1.default.createElement("select", { id: key, className: 'form-control', value: avatarProps[key] || '', onChange: (e) => setAvatarProps((prev) => ({
+                            react_1.default.createElement("select", {
+                                id: key, className: 'form-control', value: avatarProps[key] || '', onChange: (e) => setAvatarProps((prev) => ({
                                     ...prev,
                                     [key]: e.target.value
-                                })) }, optionsList.map((val) => (react_1.default.createElement("option", { key: val, value: val }, val))))));
+                                }))
+                            }, optionsList.map((val) => (react_1.default.createElement("option", { key: val, value: val }, val))))));
                     }))))),
                 react_1.default.createElement("div", { className: 'control-card' },
                     react_1.default.createElement("div", { className: 'advanced-header', onClick: () => setIsAdvancedOpen(!isAdvancedOpen) },
