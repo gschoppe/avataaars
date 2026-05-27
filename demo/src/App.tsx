@@ -1181,8 +1181,10 @@ ${propStrings}
                   <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: '0 0 12px 0', lineHeight: 1.5 }}>
                     Import and render avatars synchronously in React 19 with no layout flickering.
                   </p>
-                  <pre className='code-block' style={{ fontSize: '12px', overflowX: 'auto', backgroundColor: '#0f172a', padding: '12px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)', color: '#38bdf8', whiteSpace: 'pre-wrap', wordBreak: 'break-all', margin: 0 }}>
+                  <pre className='code-block' style={{ color: '#38bdf8' }}>
 {`import Avatar from '@gschoppe/avataaars'
+// Import animation styles (optional)
+import '@gschoppe/avataaars/dist/animations.css'
 
 const App = () => (
   <Avatar 
@@ -1196,6 +1198,32 @@ const App = () => (
                   </pre>
                 </div>
 
+                {/* Idle Animations Card */}
+                <div className='control-card' style={{ height: '100%', margin: 0 }}>
+                  <h3 style={{ fontSize: '15px', fontWeight: 600, color: 'var(--accent)', margin: '0 0 12px 0', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    ✨ Idle Animations Setup
+                  </h3>
+                  <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: '0 0 12px 0', lineHeight: 1.5 }}>
+                    Enable beautiful, lifelike idle micro-animations (blinking eyes, nose wiggles, mouth wiggles, and teardrops) in your applications.
+                  </p>
+                  <h4 style={{ fontSize: '12.5px', fontWeight: 600, color: 'var(--text-heading)', margin: '0 0 4px 0' }}>React / Bundler Integration</h4>
+                  <pre className='code-block' style={{ color: '#38bdf8', marginBottom: '12px' }}>
+{`// 1. Import the animation CSS stylesheet
+import '@gschoppe/avataaars/dist/animations.css'
+
+// 2. Render with animated prop (true by default)
+const App = () => <Avatar animated={true} />`}
+                  </pre>
+                  <h4 style={{ fontSize: '12.5px', fontWeight: 600, color: 'var(--text-heading)', margin: '0 0 4px 0' }}>Raw / Embedded SVGs</h4>
+                  <p style={{ fontSize: '12px', color: 'var(--text-muted)', margin: '0 0 8px 0', lineHeight: 1.4 }}>
+                    To animate raw SVGs (e.g. from the REST API), ensure the SVG container group uses an ID ending in <code>-Avataaar</code> and load the CSS file in your HTML document:
+                  </p>
+                  <pre className='code-block' style={{ color: '#34d399' }}>
+{`<!-- Load the animations.css stylesheet -->
+<link rel="stylesheet" href="node_modules/@gschoppe/avataaars/dist/animations.css">`}
+                  </pre>
+                </div>
+
                 {/* Dynamic Palettes & Gradients Card */}
                 <div className='control-card' style={{ height: '100%', margin: 0 }}>
                   <h3 style={{ fontSize: '15px', fontWeight: 600, color: 'var(--accent)', margin: '0 0 12px 0' }}>
@@ -1204,7 +1232,7 @@ const App = () => (
                   <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: '0 0 12px 0', lineHeight: 1.5 }}>
                     Dynamically register custom colors and multi-stop gradients globally.
                   </p>
-                  <pre className='code-block' style={{ fontSize: '12px', overflowX: 'auto', backgroundColor: '#0f172a', padding: '12px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)', color: '#38bdf8', whiteSpace: 'pre-wrap', wordBreak: 'break-all', margin: 0 }}>
+                  <pre className='code-block' style={{ color: '#38bdf8' }}>
 {`import { 
   addPaletteColor, 
   PALETTES 
@@ -1229,7 +1257,7 @@ addPaletteColor(PALETTES.CLOTHES, 'mySunset', {
                 </div>
 
                 {/* REST API Card */}
-                <div className='control-card' style={{ gridColumn: 'span 2', height: '100%', margin: 0 }}>
+                <div className='control-card' style={{ gridColumn: '1 / -1', height: '100%', margin: 0 }}>
                   <h3 style={{ fontSize: '15px', fontWeight: 600, color: 'var(--accent)', margin: '0 0 12px 0' }}>
                     🌐 High-Performance REST API Service
                   </h3>
@@ -1260,7 +1288,7 @@ addPaletteColor(PALETTES.CLOTHES, 'mySunset', {
 
                   <div style={{ marginTop: '16px' }}>
                     <h4 style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-heading)', margin: '0 0 6px 0' }}>Example API Queries (cURL)</h4>
-                    <pre className='code-block' style={{ fontSize: '12px', overflowX: 'auto', backgroundColor: '#0f172a', padding: '12px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)', color: '#34d399', margin: 0, whiteSpace: 'pre-wrap', wordBreak: 'break-all' }}>
+                    <pre className='code-block' style={{ color: '#34d399' }}>
 {`# 1. Fetch high-res PNG with custom size & transparency hex color
 curl -o avatar.png "http://localhost:3000/api/avatar.png?clotheType=Hoodie&clotheColor=FF573380&size=1000"
 

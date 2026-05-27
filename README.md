@@ -162,6 +162,19 @@ export default function MyComponent() {
 ```
 
 
+### Animating Raw or Embedded SVGs
+
+If you are rendering raw SVGs directly (e.g. from a backend/REST service or custom compiler), you can still enable these beautiful animations:
+
+1. Ensure the root container group of your avatar SVG uses an ID ending in `-Avataaar` (this is the default behavior when rendering with the `animated` option set to `true`).
+2. Load the `@gschoppe/avataaars/dist/animations.css` stylesheet in your HTML document to apply the keyframes to your SVGs:
+
+```html
+<!-- Load the stylesheet in your HTML head -->
+<link rel="stylesheet" href="node_modules/@gschoppe/avataaars/dist/animations.css">
+```
+
+
 ## Collect options
 
 To build your own avatar editor, you may want to use lower level `Avatar` component along with `OptionContext`. For more details usage, please reference to source code of [avataaars-generator](https://github.com/fangpenlin/avataaars-geneator), see how it uses `OptionContext` to collection available options.
