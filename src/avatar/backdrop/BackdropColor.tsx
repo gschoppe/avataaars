@@ -12,11 +12,12 @@ export const backdropColorPalette: Map<string, any> = new Map()
 export function makeBackdropColor(name: string, color: string) {
   class ColorComponent extends React.Component<Props> {
     render() {
+      const resolvedColor = color.replace(/{uid}/g, this.props.uid)
       return (
         <g
           id={`${this.props.uid}-BackdropColor/${name}`}
           mask={`url(#${this.props.uid}-Backdrop-Color-Mask)`}
-          fill={color}>
+          fill={resolvedColor}>
           <rect id={`${this.props.uid}-🖍Color`} x="0" y="0" width="280" height="280" />
         </g>
       )

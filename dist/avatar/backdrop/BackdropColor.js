@@ -4,7 +4,8 @@ export const backdropColorPalette = new Map();
 export function makeBackdropColor(name, color) {
     class ColorComponent extends React.Component {
         render() {
-            return (React.createElement("g", { id: `${this.props.uid}-BackdropColor/${name}`, mask: `url(#${this.props.uid}-Backdrop-Color-Mask)`, fill: color },
+            const resolvedColor = color.replace(/{uid}/g, this.props.uid);
+            return (React.createElement("g", { id: `${this.props.uid}-BackdropColor/${name}`, mask: `url(#${this.props.uid}-Backdrop-Color-Mask)`, fill: resolvedColor },
                 React.createElement("rect", { id: `${this.props.uid}-🖍Color`, x: "0", y: "0", width: "280", height: "280" })));
         }
     }

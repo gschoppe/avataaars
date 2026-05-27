@@ -29,15 +29,24 @@ export function addPaletteColor(palette: string, name: string, color?: string | 
   let resolvedColor: string
   if (color === undefined) {
     if (registeredGradients.has(name)) {
-      resolvedColor = `url(#${name})`
+      resolvedColor = `url(#{uid}-gradient-${name})`
     } else {
       throw new Error(`Color parameter is required unless '${name}' is a registered gradient.`)
     }
   } else if (typeof color === 'object' && color !== null) {
     registerGradient(name, color)
-    resolvedColor = `url(#${name})`
+    resolvedColor = `url(#{uid}-gradient-${name})`
   } else {
-    resolvedColor = color
+    if (typeof color === 'string' && color.startsWith('url(#') && !color.includes('{uid}')) {
+      const gradName = color.slice(5, -1)
+      if (registeredGradients.has(gradName)) {
+        resolvedColor = `url(#{uid}-gradient-${gradName})`
+      } else {
+        resolvedColor = color
+      }
+    } else {
+      resolvedColor = color
+    }
   }
 
   switch (palette) {

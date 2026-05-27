@@ -12,12 +12,13 @@ export const hatColorPalette: Map<string, any> = new Map()
 export function makeHatColor(name: string, color: string) {
   class ColorComponent extends React.Component<Props> {
     render() {
+      const resolvedColor = color.replace(/{uid}/g, this.props.uid)
       return (
         <g
           id={`${this.props.uid}-HatColor/${name}`}
           mask={`url(#${this.props.uid}-Hat-Color-Mask)`}
           fillRule='evenodd'
-          fill={color}>
+          fill={resolvedColor}>
           <rect id={`${this.props.uid}-🖍Color`} x='0' y='0' width='264' height='280' />
         </g>
       )

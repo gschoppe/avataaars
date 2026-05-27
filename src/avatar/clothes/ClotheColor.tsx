@@ -11,12 +11,13 @@ export const clotheColorPalette: Map<string, any> = new Map()
 export function makeClotheColor(name: string, color: string) {
   class ColorComponent extends React.Component<Props> {
     render() {
+      const resolvedColor = color.replace(/{uid}/g, this.props.uid)
       return (
         <g
           id={`${this.props.uid}-ClotheColor/${name}`}
           mask={`url(#${this.props.uid}-Clothing-Color-Mask)`}
           fillRule='evenodd'
-          fill={color}>
+          fill={resolvedColor}>
           <rect id={`${this.props.uid}-🖍Color`} x='0' y='0' width='264' height='110' />
         </g>
       )

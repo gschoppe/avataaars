@@ -4,7 +4,8 @@ export const hatColorPalette = new Map();
 export function makeHatColor(name, color) {
     class ColorComponent extends React.Component {
         render() {
-            return (React.createElement("g", { id: `${this.props.uid}-HatColor/${name}`, mask: `url(#${this.props.uid}-Hat-Color-Mask)`, fillRule: 'evenodd', fill: color },
+            const resolvedColor = color.replace(/{uid}/g, this.props.uid);
+            return (React.createElement("g", { id: `${this.props.uid}-HatColor/${name}`, mask: `url(#${this.props.uid}-Hat-Color-Mask)`, fillRule: 'evenodd', fill: resolvedColor },
                 React.createElement("rect", { id: `${this.props.uid}-🖍Color`, x: '0', y: '0', width: '264', height: '280' })));
         }
     }

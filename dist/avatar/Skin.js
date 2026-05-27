@@ -4,7 +4,8 @@ export const skinColorPalette = new Map();
 export function makeSkinColor(name, color) {
     class ColorComponent extends React.Component {
         render() {
-            return (React.createElement("g", { id: `${this.props.uid}-SkinColor/${name}`, mask: `url(#${this.props.uid}-Skin-Color-Mask)`, fill: color },
+            const resolvedColor = color.replace(/{uid}/g, this.props.uid);
+            return (React.createElement("g", { id: `${this.props.uid}-SkinColor/${name}`, mask: `url(#${this.props.uid}-Skin-Color-Mask)`, fill: resolvedColor },
                 React.createElement("g", { transform: "translate(0.000000, 0.000000)", id: "Color" },
                     React.createElement("rect", { x: "0", y: "0", width: "264", height: "280" }))));
         }

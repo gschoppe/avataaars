@@ -11,11 +11,12 @@ export const hairColorPalette: Map<string, any> = new Map()
 export function makeHairColor(name: string, color: string) {
   class ColorComponent extends React.Component<Props> {
     render() {
+      const resolvedColor = color.replace(/{uid}/g, this.props.uid)
       return (
         <g
           id={`${this.props.uid}-HairColor/${name}`}
           mask={`url(#${this.props.uid}-Hair-Color-Mask)`}
-          fill={color}>
+          fill={resolvedColor}>
           <g transform='translate(0.000000, 0.000000) ' id='Color'>
             <rect x='0' y='0' width='264' height='280' />
           </g>

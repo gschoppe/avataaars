@@ -4,7 +4,8 @@ export const clotheColorPalette = new Map();
 export function makeClotheColor(name, color) {
     class ColorComponent extends React.Component {
         render() {
-            return (React.createElement("g", { id: `${this.props.uid}-ClotheColor/${name}`, mask: `url(#${this.props.uid}-Clothing-Color-Mask)`, fillRule: 'evenodd', fill: color },
+            const resolvedColor = color.replace(/{uid}/g, this.props.uid);
+            return (React.createElement("g", { id: `${this.props.uid}-ClotheColor/${name}`, mask: `url(#${this.props.uid}-Clothing-Color-Mask)`, fillRule: 'evenodd', fill: resolvedColor },
                 React.createElement("rect", { id: `${this.props.uid}-🖍Color`, x: '0', y: '0', width: '264', height: '110' })));
         }
     }

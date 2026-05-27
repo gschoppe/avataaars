@@ -4,7 +4,8 @@ export const facialHairColorPalette = new Map();
 export function makeFacialHairColor(name, color) {
     class ColorComponent extends React.Component {
         render() {
-            return (React.createElement("g", { id: `${this.props.uid}-FacialHairColor/${name}`, mask: `url(#${this.props.uid}-Facial-Hair-Mask)`, fill: color },
+            const resolvedColor = color.replace(/{uid}/g, this.props.uid);
+            return (React.createElement("g", { id: `${this.props.uid}-FacialHairColor/${name}`, mask: `url(#${this.props.uid}-Facial-Hair-Mask)`, fill: resolvedColor },
                 React.createElement("g", { transform: 'translate(-32.000000, 0.000000)', id: `${this.props.uid}-Facial-Hair-Color` },
                     React.createElement("rect", { x: '0', y: '0', width: '264', height: '244' }))));
         }
