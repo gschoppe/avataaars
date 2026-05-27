@@ -21,7 +21,7 @@ export interface Props {
 export default class Accessories extends React.Component<Props> {
   render () {
     return (
-      <Selector defaultOption={anyBlank} option={AccessoriesOption}>
+      <Selector defaultOption={Prescription02} option={AccessoriesOption}>
         <Blank uid={this.props.uid} />
         <Kurt uid={this.props.uid} />
         <Prescription01 uid={this.props.uid} />

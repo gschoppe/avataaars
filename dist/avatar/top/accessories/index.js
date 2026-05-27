@@ -13,7 +13,7 @@ const Sunglasses = makeOptionComponent('ACCESSORIES', 'Sunglasses');
 const Wayfarers = makeOptionComponent('ACCESSORIES', 'Wayfarers');
 export default class Accessories extends React.Component {
     render() {
-        return (React.createElement(Selector, { defaultOption: anyBlank, option: AccessoriesOption },
+        return (React.createElement(Selector, { defaultOption: Prescription02, option: AccessoriesOption },
             React.createElement(Blank, { uid: this.props.uid }),
             React.createElement(Kurt, { uid: this.props.uid }),
             React.createElement(Prescription01, { uid: this.props.uid }),
