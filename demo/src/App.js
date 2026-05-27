@@ -19,6 +19,8 @@ const App = () => {
     const addPaletteColor = isSrc ? index_1.addPaletteColor : index_2.addPaletteColor;
     const PALETTES = isSrc ? index_1.PALETTES : index_2.PALETTES;
     const generateRandomAvataarProps = isSrc ? index_1.generateRandomAvataarProps : index_2.generateRandomAvataarProps;
+    const getAvatarHash = isSrc ? index_1.getAvatarHash : index_2.getAvatarHash;
+    const getAvatarConfigFromHash = isSrc ? index_1.getAvatarConfigFromHash : index_2.getAvatarConfigFromHash;
     const activeContext = isSrc ? srcContext : distContext;
     // Avatar props state
     const [avatarProps, setAvatarProps] = (0, react_1.useState)({
@@ -47,6 +49,8 @@ const App = () => {
     const [customColorVal, setCustomColorVal] = (0, react_1.useState)('#ec4899');
     const [isAdvancedOpen, setIsAdvancedOpen] = (0, react_1.useState)(false);
     const [copySuccess, setCopySuccess] = (0, react_1.useState)(false);
+    const [hashInput, setHashInput] = (0, react_1.useState)('');
+    const [hashCopySuccess, setHashCopySuccess] = (0, react_1.useState)(false);
     // Sync props state to the active OptionContext
     (0, react_1.useEffect)(() => {
         const data = {};
@@ -179,6 +183,56 @@ ${propStrings}
                 react_1.default.createElement("div", { className: 'avatar-wrapper' },
                     react_1.default.createElement(OptionsContext.Provider, { value: activeContext },
                         react_1.default.createElement(Avatar, { style: { width: '264px', height: '280px' } }))),
+                react_1.default.createElement("div", { className: 'code-panel', style: { width: '100%', marginTop: '16px' } },
+                    react_1.default.createElement("div", { className: 'code-header', style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center' } },
+                        react_1.default.createElement("span", null, "🔑 Avatar Hash Shorthand"),
+                        react_1.default.createElement("button", { className: 'btn-copy', onClick: () => {
+                            const hashStr = getAvatarHash(avatarProps);
+                            navigator.clipboard.writeText(hashStr).then(() => {
+                                setHashCopySuccess(true);
+                                setTimeout(() => setHashCopySuccess(false), 2000);
+                            });
+                        } }, hashCopySuccess ? 'Copied!' : 'Copy Hash')),
+                    react_1.default.createElement("div", { style: { padding: '12px', display: 'flex', flexDirection: 'column', gap: '10px' } },
+                        react_1.default.createElement("div", { style: { display: 'flex', alignItems: 'center', gap: '8px', backgroundColor: '#090d16', padding: '10px', borderRadius: '6px', border: '1px solid rgba(255,255,255,0.05)' } },
+                            react_1.default.createElement("code", { style: { fontSize: '14px', color: 'var(--accent)', fontWeight: 700, fontFamily: 'var(--font-mono)', letterSpacing: '1px', flex: 1, textAlign: 'center' } }, getAvatarHash(avatarProps))),
+                        react_1.default.createElement("div", { style: { display: 'flex', gap: '8px' } },
+                            react_1.default.createElement("input", {
+                                type: 'text',
+                                placeholder: 'Paste 15-char hash here to load...',
+                                value: hashInput,
+                                onChange: (e) => setHashInput(e.target.value.trim()),
+                                style: {
+                                    flex: 1,
+                                    backgroundColor: '#090d16',
+                                    border: '1px solid rgba(255,255,255,0.1)',
+                                    borderRadius: '6px',
+                                    padding: '8px 12px',
+                                    color: 'var(--text-main)',
+                                    fontFamily: 'var(--font-mono)',
+                                    fontSize: '12.5px',
+                                    outline: 'none'
+                                }
+                            }),
+                            react_1.default.createElement("button", {
+                                type: 'button',
+                                className: 'btn-randomize',
+                                style: { margin: 0, padding: '0 16px', fontSize: '12px', fontWeight: 600, height: 'auto' },
+                                onClick: () => {
+                                    if (hashInput.length !== 15) {
+                                        alert('Error: Avatar shorthand hashes must be exactly 15 characters!');
+                                        return;
+                                    }
+                                    try {
+                                        const decodedProps = getAvatarConfigFromHash(hashInput);
+                                        setAvatarProps(decodedProps);
+                                        setHashInput('');
+                                    }
+                                    catch (e) {
+                                        alert('Error decoding avatar hash.');
+                                    }
+                                }
+                            }, "Load")))),
                 react_1.default.createElement("div", { className: 'code-panel', style: { width: '100%' } },
                     react_1.default.createElement("div", { className: 'code-header' },
                         react_1.default.createElement("span", null, "JSX Implementation"),

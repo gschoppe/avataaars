@@ -197,6 +197,39 @@ If you are rendering raw SVGs directly (e.g. from a backend/REST service or cust
 ```
 
 
+### Positional Configuration Hashing
+
+You can serialize any complete avatar configuration into a compact, URL-safe 15-character Base-62 shorthand hash (and decode it back synchronously) using the core library hashing functions:
+
+```jsx
+import React from 'react'
+import Avatar, { getAvatarHash, getAvatarConfigFromHash } from '@gschoppe/avataaars'
+
+export default function MyComponent() {
+  // 1. Generate a stable 15-character shorthand hash
+  const hash = getAvatarHash({
+    backdropType: 'Diamond',
+    backdropColor: 'PastelBlue',
+    topType: 'ShortHairShortFlat',
+    skinColor: 'Tanned'
+  })
+  console.log(hash) // E.g., '17z0104193aa523'
+
+  // 2. Decode the shorthand string back into an options config object
+  const config = getAvatarConfigFromHash('17z0104193aa523')
+
+  return (
+    <Avatar
+      style={{ width: '100px', height: '100px' }}
+      {...config}
+    />
+  )
+}
+```
+
+*Note: Dynamically runtime-registered custom colors or gradients will receive higher indices. If they exist in a future run, they will map correctly; otherwise, they will gracefully fallback to their category defaults.*
+
+
 ## Collect options
 
 To build your own avatar editor, you may want to use lower level `Avatar` component along with `OptionContext`. For more details usage, please reference to source code of [avataaars-generator](https://github.com/fangpenlin/avataaars-geneator), see how it uses `OptionContext` to collection available options.

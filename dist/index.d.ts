@@ -67,3 +67,8 @@ export declare const MOUTH_TYPES: string[];
 export declare const SKIN_COLORS: string[];
 export declare const getColorFamily: (color: string) => string;
 export declare function generateRandomAvataarProps(customOptions?: Record<string, string[]>): Record<string, string>;
+export declare const HASH_ORDER: string[];
+export declare const DEFAULT_AVATAR_PROPS: Record<string, string>;
+export declare function getOptionList(key: string): string[];
+export declare function getAvatarHash(config: Record<string, string>): string;
+export declare function getAvatarConfigFromHash(hash: string): Record<string, string>;

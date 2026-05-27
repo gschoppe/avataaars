@@ -456,3 +456,106 @@ export function generateRandomAvataarProps(customOptions?: Record<string, string
 
   return newProps
 }
+
+/* Base-62 Hashing System */
+const BASE62 = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+export const HASH_ORDER = [
+  'backdropType',
+  'backdropColor',
+  'topType',
+  'accessoriesType',
+  'hatColor',
+  'hairColor',
+  'facialHairType',
+  'facialHairColor',
+  'clotheType',
+  'clotheColor',
+  'graphicType',
+  'eyeType',
+  'eyebrowType',
+  'mouthType',
+  'skinColor'
+]
+
+export const DEFAULT_AVATAR_PROPS: Record<string, string> = {
+  backdropType: 'Diamond',
+  backdropColor: 'PastelBlue',
+  topType: 'ShortHairShortFlat',
+  accessoriesType: 'Prescription02',
+  hairColor: 'Black',
+  hatColor: 'Black',
+  facialHairType: 'BeardLight',
+  facialHairColor: 'BrownDark',
+  clotheType: 'BlazerShirt',
+  clotheColor: 'Heather',
+  graphicType: 'Bat',
+  eyeType: 'Side',
+  eyebrowType: 'Default',
+  mouthType: 'Default',
+  skinColor: 'Tanned'
+}
+
+export function getOptionList(key: string): string[] {
+  switch (key) {
+    case 'backdropType': return BACKDROP_TYPES
+    case 'backdropColor': return Array.from(backdropColorPalette.keys())
+    case 'topType': return TOP_TYPES
+    case 'accessoriesType': return ACCESSORIES_TYPES
+    case 'hatColor': return Array.from(hatColorPalette.keys())
+    case 'hairColor': return Array.from(hairColorPalette.keys())
+    case 'facialHairType': return FACIAL_HAIR_TYPES
+    case 'facialHairColor': return Array.from(facialHairColorPalette.keys())
+    case 'clotheType': return CLOTHE_TYPES
+    case 'clotheColor': return Array.from(clotheColorPalette.keys())
+    case 'graphicType': return GRAPHIC_TYPES
+    case 'eyeType': return EYE_TYPES
+    case 'eyebrowType': return EYEBROW_TYPES
+    case 'mouthType': return MOUTH_TYPES
+    case 'skinColor': return Array.from(skinColorPalette.keys())
+    default: return []
+  }
+}
+
+export function getAvatarHash(config: Record<string, string>): string {
+  let hash = ''
+  for (const key of HASH_ORDER) {
+    const list = getOptionList(key)
+    const val = config[key] || DEFAULT_AVATAR_PROPS[key]
+    let index = list.indexOf(val)
+    if (index === -1) {
+      // Fallback to default option index
+      index = list.indexOf(DEFAULT_AVATAR_PROPS[key])
+      if (index === -1) index = 0
+    }
+    // Encode to base62 character
+    const char = BASE62[index] || '0'
+    hash += char
+  }
+  return hash
+}
+
+export function getAvatarConfigFromHash(hash: string): Record<string, string> {
+  const config: Record<string, string> = {}
+  
+  // Safely default if hash is invalid or missing characters
+  const cleanHash = (hash || '').trim()
+  
+  HASH_ORDER.forEach((key, i) => {
+    const list = getOptionList(key)
+    const char = cleanHash[i]
+    if (!char) {
+      config[key] = DEFAULT_AVATAR_PROPS[key]
+      return
+    }
+    
+    const index = BASE62.indexOf(char)
+    if (index === -1 || index >= list.length) {
+      config[key] = DEFAULT_AVATAR_PROPS[key]
+    } else {
+      config[key] = list[index]
+    }
+  })
+  
+  return config
+}

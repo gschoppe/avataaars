@@ -12,7 +12,9 @@ import {
   removePaletteColor as SrcRemovePaletteColor,
   PALETTES as SrcPALETTES,
   registeredGradients as SrcRegisteredGradients,
-  generateRandomAvataarProps as SrcGenerateRandomAvataarProps
+  generateRandomAvataarProps as SrcGenerateRandomAvataarProps,
+  getAvatarHash as SrcGetAvatarHash,
+  getAvatarConfigFromHash as SrcGetAvatarConfigFromHash
 } from '../../src/index'
 
 // Import dist version
@@ -25,7 +27,9 @@ import {
   removePaletteColor as DistRemovePaletteColor,
   PALETTES as DistPALETTES,
   registeredGradients as DistRegisteredGradients,
-  generateRandomAvataarProps as DistGenerateRandomAvataarProps
+  generateRandomAvataarProps as DistGenerateRandomAvataarProps,
+  getAvatarHash as DistGetAvatarHash,
+  getAvatarConfigFromHash as DistGetAvatarConfigFromHash
 } from '@gschoppe/avataaars'
 
 const BUILT_IN_COLORS: Record<string, string[]> = {
@@ -80,6 +84,8 @@ export const App: React.FC = () => {
   const PALETTES = isSrc ? SrcPALETTES : DistPALETTES
   const registeredGradients = isSrc ? SrcRegisteredGradients : DistRegisteredGradients
   const generateRandomAvataarProps = isSrc ? SrcGenerateRandomAvataarProps : DistGenerateRandomAvataarProps
+  const getAvatarHash = isSrc ? SrcGetAvatarHash : DistGetAvatarHash
+  const getAvatarConfigFromHash = isSrc ? SrcGetAvatarConfigFromHash : DistGetAvatarConfigFromHash
   const activeContext = isSrc ? srcContext : distContext
 
   // Avatar props state
@@ -129,6 +135,8 @@ export const App: React.FC = () => {
 
   const [isDebugMode, setIsDebugMode] = useState(() => window.location.search.includes('debug=true'))
   const [expandedConfigId, setExpandedConfigId] = useState<string | null>(null)
+  const [hashInput, setHashInput] = useState('')
+  const [hashCopySuccess, setHashCopySuccess] = useState(false)
 
   const [displayBg, setDisplayBg] = useState<string>(() => {
     try {
@@ -727,6 +735,74 @@ ${propStrings}
                 </button>
               </div>
 
+              {/* Positional Base-62 Avatar Hash Console */}
+              <div className='code-panel' style={{ width: '100%', marginTop: '16px' }}>
+                <div className='code-header' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                    🔑 Avatar Hash Shorthand
+                  </span>
+                  <button 
+                    className='btn-copy' 
+                    onClick={() => {
+                      const hashStr = getAvatarHash(avatarProps)
+                      navigator.clipboard.writeText(hashStr).then(() => {
+                        setHashCopySuccess(true)
+                        setTimeout(() => setHashCopySuccess(false), 2000)
+                      })
+                    }}>
+                    {hashCopySuccess ? 'Copied!' : 'Copy Hash'}
+                  </button>
+                </div>
+                <div style={{ padding: '12px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  {/* Displaying Hash */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', backgroundColor: '#090d16', padding: '10px', borderRadius: '6px', border: '1px solid rgba(255,255,255,0.05)' }}>
+                    <code style={{ fontSize: '14px', color: 'var(--accent)', fontWeight: 700, fontFamily: 'var(--font-mono)', letterSpacing: '1px', flex: 1, textAlign: 'center' }}>
+                      {getAvatarHash(avatarProps)}
+                    </code>
+                  </div>
+                  
+                  {/* Importing from Hash */}
+                  <div style={{ display: 'flex', gap: '8px' }}>
+                    <input
+                      type='text'
+                      placeholder='Paste 15-char hash here to load...'
+                      value={hashInput}
+                      onChange={(e) => setHashInput(e.target.value.trim())}
+                      style={{
+                        flex: 1,
+                        backgroundColor: '#090d16',
+                        border: '1px solid rgba(255,255,255,0.1)',
+                        borderRadius: '6px',
+                        padding: '8px 12px',
+                        color: 'var(--text-main)',
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '12.5px',
+                        outline: 'none'
+                      }}
+                    />
+                    <button
+                      type='button'
+                      className='btn-randomize'
+                      style={{ margin: 0, padding: '0 16px', fontSize: '12px', fontWeight: 600, height: 'auto' }}
+                      onClick={() => {
+                        if (hashInput.length !== 15) {
+                          alert('Error: Avatar shorthand hashes must be exactly 15 characters!')
+                          return
+                        }
+                        try {
+                          const decodedProps = getAvatarConfigFromHash(hashInput)
+                          setAvatarProps(decodedProps)
+                          setHashInput('')
+                        } catch (e) {
+                          alert('Error decoding avatar hash. Returning to default values.')
+                        }
+                      }}>
+                      Load
+                    </button>
+                  </div>
+                </div>
+              </div>
+
               <div className='code-panel' style={{ width: '100%' }}>
                 <div className='code-header'>
                   <span>JSX Implementation</span>
@@ -1074,6 +1150,35 @@ addPaletteColor(PALETTES.CLOTHES, 'mySunset', {
     { offset: '100%', color: '#FFC0CB', opacity: 0.5 }
   ]
 })`}
+                  </pre>
+                </div>
+
+                {/* Hashing System Card */}
+                <div className='control-card' style={{ height: '100%', margin: 0 }}>
+                  <h3 style={{ fontSize: '15px', fontWeight: 600, color: 'var(--accent)', margin: '0 0 12px 0', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    🔑 Positional Base-62 Configuration Hashing
+                  </h3>
+                  <p style={{ fontSize: '13px', color: 'var(--text-muted)', margin: '0 0 12px 0', lineHeight: 1.5 }}>
+                    Generate extremely short, URL-safe 15-character shorthand strings representing complete configurations.
+                  </p>
+                  <pre className='code-block' style={{ color: '#38bdf8' }}>
+                    {`import { 
+  getAvatarHash, 
+  getAvatarConfigFromHash 
+} from '@gschoppe/avataaars'
+
+// 1. Generate hash from a props config object
+const hash = getAvatarHash({
+  backdropType: 'Diamond',
+  backdropColor: 'PastelBlue',
+  topType: 'ShortHairShortFlat',
+  skinColor: 'Tanned'
+})
+console.log(hash) // E.g., '17z0104193aa523'
+
+// 2. Decode hash back into standard configuration
+const config = getAvatarConfigFromHash('17z0104193aa523')
+const App = () => <Avatar {...config} />`}
                   </pre>
                 </div>
 
