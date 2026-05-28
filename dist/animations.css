@@ -1,40 +1,40 @@
 @keyframes blinkeyes {
   0% {
-    scale: 1 1;
+    transform: scale(1, 1);
   }
 
   4.5% {
-    scale: 1 1;
+    transform: scale(1, 1);
   }
 
   5% {
-    scale: 1 0;
+    transform: scale(1, 0);
   }
 
   5.5% {
-    scale: 1 1;
+    transform: scale(1, 1);
   }
 
   100% {
-    scale: 1 1;
+    transform: scale(1, 1);
   }
 }
 
 @keyframes eyeroll {
   0.0% {
-    rotate: 0deg;
+    transform: rotate(0deg);
   }
 
   95.0% {
-    rotate: 0deg;
+    transform: rotate(0deg);
   }
 
   97.5% {
-    rotate: 180deg;
+    transform: rotate(180deg);
   }
 
   100.0% {
-    rotate: 360deg;
+    transform: rotate(360deg);
   }
 }
 
@@ -62,35 +62,35 @@
 
 @keyframes throbeye {
   0% {
-    scale: 1.0;
+    transform: scale(1.0);
   }
 
   88% {
-    scale: 1.0;
+    transform: scale(1.0);
   }
 
   90% {
-    scale: 1.2;
+    transform: scale(1.2);
   }
 
   92% {
-    scale: 0.8;
+    transform: scale(0.8);
   }
 
   94% {
-    scale: 1.2;
+    transform: scale(1.2);
   }
 
   96% {
-    scale: 0.9;
+    transform: scale(0.9);
   }
 
   98% {
-    scale: 1.2;
+    transform: scale(1.2);
   }
 
   100% {
-    scale: 1.0;
+    transform: scale(1.0);
   }
 }
 
@@ -180,27 +180,27 @@
 
 @keyframes mouthwiggle {
   0% {
-    rotate: 0deg;
+    transform: rotate(0deg);
   }
 
   96% {
-    rotate: 0deg;
+    transform: rotate(0deg);
   }
 
   97% {
-    rotate: 5deg;
+    transform: rotate(5deg);
   }
 
   98% {
-    rotate: 0deg;
+    transform: rotate(0deg);
   }
 
   99% {
-    rotate: -5deg;
+    transform: rotate(-5deg);
   }
 
   100% {
-    rotate: 0deg;
+    transform: rotate(0deg);
   }
 }
 
