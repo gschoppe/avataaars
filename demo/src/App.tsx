@@ -532,10 +532,8 @@ ${propStrings}
       <header className='app-header'>
         <div className='header-title-section'>
           <h1>Avataaars Sandbox</h1>
-          <p>
-            Customizer for <a href='https://github.com/gschoppe/avataaars' target='_blank' rel='noreferrer'>@gschoppe/avataaars</a>.<br />
-            Inspired by <a href='https://getavataaars.com/' target='_blank' rel='noreferrer'>getavataaars.com</a>.<br />
-            Avataaars originally created by <a href="https://x.com/pablostanley">Pablo Stanley</a>.
+          <p style={{ maxWidth: '640px', lineHeight: 1.6 }}>
+            Demo page for the NPM library <a href='https://github.com/gschoppe/avataaars' target='_blank' rel='noreferrer'>@gschoppe/avataaars</a>, a modernized and enhanced version of the avataaars package by <a href='https://getavataaars.com/' target='_blank' rel='noreferrer'>fang pen-lin</a>. Build your own custom avataaars using the premium SVG art collection designed by <a href='https://twitter.com/pablostanley' target='_blank' rel='noreferrer'>Pablo Stanley</a>.
           </p>
         </div>
         <div className='header-controls'>
