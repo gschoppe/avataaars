@@ -5,6 +5,9 @@ const Concerned = makeOptionComponent('MOUTH', 'Concerned');
 const Default = makeOptionComponent('MOUTH', 'Default');
 const Disbelief = makeOptionComponent('MOUTH', 'Disbelief');
 const Eating = makeOptionComponent('MOUTH', 'Eating');
+const SideChew = makeOptionComponent('MOUTH', 'SideChew');
+const SideSmile = makeOptionComponent('MOUTH', 'SideSmile');
+const Whistling = makeOptionComponent('MOUTH', 'Whistling');
 const Grimace = makeOptionComponent('MOUTH', 'Grimace');
 const Sad = makeOptionComponent('MOUTH', 'Sad');
 const ScreamOpen = makeOptionComponent('MOUTH', 'ScreamOpen');
@@ -20,6 +23,9 @@ export default class Mouth extends React.Component {
             React.createElement(Default, { uid: this.props.uid }),
             React.createElement(Disbelief, { uid: this.props.uid }),
             React.createElement(Eating, { uid: this.props.uid }),
+            React.createElement(SideChew, { uid: this.props.uid }),
+            React.createElement(SideSmile, { uid: this.props.uid }),
+            React.createElement(Whistling, { uid: this.props.uid }),
             React.createElement(Grimace, { uid: this.props.uid }),
             React.createElement(Sad, { uid: this.props.uid }),
             React.createElement(ScreamOpen, { uid: this.props.uid }),

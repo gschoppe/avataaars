@@ -6,6 +6,9 @@ const Concerned = makeOptionComponent('MOUTH', 'Concerned')
 const Default = makeOptionComponent('MOUTH', 'Default')
 const Disbelief = makeOptionComponent('MOUTH', 'Disbelief')
 const Eating = makeOptionComponent('MOUTH', 'Eating')
+const SideChew = makeOptionComponent('MOUTH', 'SideChew')
+const SideSmile = makeOptionComponent('MOUTH', 'SideSmile')
+const Whistling = makeOptionComponent('MOUTH', 'Whistling')
 const Grimace = makeOptionComponent('MOUTH', 'Grimace')
 const Sad = makeOptionComponent('MOUTH', 'Sad')
 const ScreamOpen = makeOptionComponent('MOUTH', 'ScreamOpen')
@@ -20,13 +23,16 @@ export interface Props {
 }
 
 export default class Mouth extends React.Component<Props> {
-  render () {
+  render() {
     return (
       <Selector defaultOption={Default} option={MouthOption}>
         <Concerned uid={this.props.uid} />
         <Default uid={this.props.uid} />
         <Disbelief uid={this.props.uid} />
         <Eating uid={this.props.uid} />
+        <SideChew uid={this.props.uid} />
+        <SideSmile uid={this.props.uid} />
+        <Whistling uid={this.props.uid} />
         <Grimace uid={this.props.uid} />
         <Sad uid={this.props.uid} />
         <ScreamOpen uid={this.props.uid} />

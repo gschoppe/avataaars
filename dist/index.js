@@ -181,7 +181,8 @@ export const EYEBROW_TYPES = [
 ];
 export const MOUTH_TYPES = [
     'Concerned', 'Default', 'Disbelief', 'Eating', 'Grimace', 'Sad',
-    'ScreamOpen', 'Serious', 'Smile', 'Tongue', 'Twinkle', 'Vomit'
+    'ScreamOpen', 'Serious', 'SideChew', 'SideSmile', 'Smile', 'Tongue',
+    'Twinkle', 'Vomit', 'Whistling'
 ];
 export const SKIN_COLORS = [
     'Tanned', 'Yellow', 'Pale', 'Light', 'Brown', 'DarkBrown', 'Black'
