@@ -90,10 +90,12 @@ export interface Props {
   pieceSize?: string
   viewBox?: string
   uid?: string
+  animationDelay?: string
+  animated?: boolean
 }
 
 export const AvatarComponent: React.FC<Props> = (props) => {
-  const { style, className } = props
+  const { style, className, uid, animationDelay, animated } = props
   const optionContext = useMemo(() => new OptionContext(allOptions), [])
 
   const data: { [index: string]: string } = {}
@@ -110,6 +112,9 @@ export const AvatarComponent: React.FC<Props> = (props) => {
       <Avatar
         style={style}
         className={className}
+        uid={uid}
+        animationDelay={animationDelay}
+        animated={animated}
       />
     </OptionsContext.Provider>
   )

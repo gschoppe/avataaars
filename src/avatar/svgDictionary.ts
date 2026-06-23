@@ -2804,6 +2804,7 @@ export const SVG_DICTIONARY: Record<string, Record<string, SvgNode>> = {
             "d": "M 45,25 Q 60 27 70 18",
             "strokeLinecap": "round",
             "strokeWidth": "5",
+            "opacity": "0.6",
             "stroke": "#000000",
             "fill": "none",
           },

@@ -65,7 +65,7 @@ export function addPaletteColor(palette, name, color) {
     }
 }
 export const AvatarComponent = (props) => {
-    const { style, className } = props;
+    const { style, className, uid, animationDelay, animated } = props;
     const optionContext = useMemo(() => new OptionContext(allOptions), []);
     const data = {};
     for (const option of allOptions) {
@@ -76,7 +76,7 @@ export const AvatarComponent = (props) => {
     }
     optionContext.setData(data);
     return (React.createElement(OptionsContext.Provider, { value: optionContext },
-        React.createElement(Avatar, { style: style, className: className })));
+        React.createElement(Avatar, { style: style, className: className, uid: uid, animationDelay: animationDelay, animated: animated })));
 };
 export default AvatarComponent;
 export const Piece = (props) => {

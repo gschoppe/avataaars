@@ -33,6 +33,8 @@ export interface Props {
     pieceSize?: string;
     viewBox?: string;
     uid?: string;
+    animationDelay?: string;
+    animated?: boolean;
 }
 export declare const AvatarComponent: React.FC<Props>;
 export default AvatarComponent;
